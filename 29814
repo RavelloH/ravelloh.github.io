@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小鱼君的博客</title>
+  
+  <subtitle>Dragon Fish&#39;s Blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://dragon-fish.github.io/"/>
+  <updated>2020-07-16T15:03:56.398Z</updated>
+  <id>https://dragon-fish.github.io/</id>
+  
+  <author>
+    <name>机智的小鱼君</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搜狐畅言评论测试</title>
+    <link href="https://dragon-fish.github.io/2020/07/07/changyan-test/"/>
+    <id>https://dragon-fish.github.io/2020/07/07/changyan-test/</id>
+    <published>2020-07-07T05:21:03.000Z</published>
+    <updated>2020-07-16T15:03:56.398Z</updated>
+    
+    <content type="html"><![CDATA[<div id="CHANGYAN">  <img src="https://vignette.wikia.nocookie.net/dftest/images/8/8c/Ms-loading-spinner.svg/revision/latest?cb=20191203083420" id="CHANGYAN-LOADING" style="display: block;margin: 0 auto;"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;div id=&quot;CHANGYAN&quot;&gt;
+  &lt;img src=&quot;https://vignette.wikia.nocookie.net/dftest/images/8/8c/Ms-loading-spinner.svg/revision/latest?cb=20191203083
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="网页设计" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="日常日记" scheme="https://dragon-fish.github.io/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>优雷卡奶妈文理技能搭配</title>
+    <link href="https://dragon-fish.github.io/2020/06/24/ff14-ulk-logogram-for-healer/"/>
+    <id>https://dragon-fish.github.io/2020/06/24/ff14-ulk-logogram-for-healer/</id>
+    <published>2020-06-24T17:24:41.000Z</published>
+    <updated>2020-07-16T15:03:56.398Z</updated>
+    
+    <content type="html"><![CDATA[<div class="infobox"><p>本博客更新于国服 <span class="status-tag" style="background-color: #2e1d4a; border: 1px solid #7f11af">5.18</span> 版本</p></div><p>最终幻想 14「禁地优雷卡·巴尔德西昂兵武塔」治疗职业文理技能搭配</p><p>一般的，攻略<strong>巴尔德西昂兵武塔</strong>（以下简称<strong>BA</strong>）的小队中有两名奶妈，根据负责的 buff 划分为“勇气奶”以及“醒神奶”。</p><p>顾名思义，一个主要负责技能文理勇气，提高队友的攻击力；另一个主要负责技能文理醒神，为队友提供超快的魔素板恢复力。</p><h2 id="常驻英杰的加护"><a href="#常驻英杰的加护" class="headerlink" title="常驻英杰的加护"></a>常驻英杰的加护</h2><table class="widetable" style="text-align: center"><tr>  <th style="width: 130px">文理技能</th>  <th style="width: 230px">合成配方</th>  <th>技能概要</th></tr><tr>  <td>    <i class="ff14-action">英杰的加护</i>    <br>    英杰的加护  </td>  <td>    <i class="ff14-action">术士的记忆</i> + <i class="ff14-action">斗士的记忆</i> + <i class="ff14-action">重骑兵的记忆</i>    <br>    术士 + 斗士 + 重骑兵  </td>  <td>    增加血量，死亡有概率复活  </td></tr></table><p>两名奶妈都要单独合成一个<strong>英杰的加护</strong>，并在进入BA时砸掉然后使用。不推荐在进入BA前使用，因为在打前置任务“不明飞行物”的时候可能会暴毙并触发/失去英杰的 buff（<del>血妈亏</del>）</p><p>然后再按照自己的分工合成以下组合：</p><h2 id="勇气奶"><a href="#勇气奶" class="headerlink" title="勇气奶"></a>勇气奶</h2><table class="widetable" style="text-align: center"><tr>  <th style="width: 130px">文理技能</th>  <th style="width: 230px">合成配方</th>  <th>技能概要</th></tr><tr>  <td>    <i class="ff14-action">圣骑士的记忆</i>    <br>    圣骑士的记忆  </td>  <td>    <i class="ff14-action">重骑兵的记忆</i> + <i class="ff14-action">文理治疗</i> + <i class="ff14-action">文理石肤</i>    <br>    重骑兵 + 治疗 + 石肤  </td>  <td>    增加血量，提高治疗量  </td></tr><tr>  <td>    <i class="ff14-action">文理勇气</i>    <br>    文理勇气  </td>  <td>    <i class="ff14-action">守护者的记忆</i> + <i class="ff14-action">祭司的记忆</i> + <i class="ff14-action">武人的记忆</i>    <br>    守护者 + 祭司 + 武人  </td>  <td>    单buff，提高目标的攻击力，每隔5分钟为全员轮流上一次  </td></tr></table><h2 id="醒神奶"><a href="#醒神奶" class="headerlink" title="醒神奶"></a>醒神奶</h2><table class="widetable" style="text-align: center"><tr>  <th style="width: 130px">文理技能</th>  <th style="width: 230px">合成配方</th>  <th>技能概要</th></tr><tr>  <td>    <i class="ff14-action">圣骑士的记忆</i>    <br>    圣骑士的记忆  </td>  <td>    <i class="ff14-action">重骑兵的记忆</i> + <i class="ff14-action">文理治疗</i> + <i class="ff14-action">文理石肤</i>    <br>    重骑兵 + 治疗 + 石肤  </td>  <td>    增加血量，提高治疗量  </td></tr><tr>  <td>    <i class="ff14-action">文理醒神</i>    <br>    文理醒神  </td>  <td>    <i class="ff14-action">术士的记忆</i> + <i class="ff14-action">祭司的记忆</i> + <i class="ff14-action">文理救疗</i>    <br>    术士 + 祭司 + 救疗  </td>  <td>    群buff，提高附近队友魔素板的恢复力，合成比文理勇气省钱  </td></tr></table><h2 id="额外技能"><a href="#额外技能" class="headerlink" title="额外技能"></a>额外技能</h2><p>除此之外，如果文理技能栏够多的话，也可以携带以下技能。</p><table class="widetable" style="text-align: center"><tr>  <th style="width: 130px">文理技能</th>  <th style="width: 230px">合成配方</th>  <th>技能概要</th></tr><tr>  <td>    <i class="ff14-action">文理充能</i>    <br>    文理充能  </td>  <td>    <i class="ff14-action">术士的记忆</i> + <i class="ff14-action">斗士的记忆</i> + <i class="ff14-action">文理治疗</i>    <br>    术士 + 斗士 + 治疗  </td>  <td>    对自身buff，提高回蓝和治疗量<br>一般在最后的奥兹玛房间使用  </td></tr><tr>  <td>    <i class="ff14-action">文理献祭</i>    <br>    文理献祭  </td>  <td>    <i class="ff14-action">文理魔法爆发</i> + <i class="ff14-action">文理康复</i> + <i class="ff14-action">文理复活</i>    <br>    魔爆 + 康复 + 复活  </td>  <td>    该技能可以在BA内复活队友！<br>但是会对自身附加死亡宣告，配合英杰的加护赌运气使用<br>一般由多名奶妈一个接一个<s>套娃</s>使用直到死亡者和施救者都存活，由于<s>贵的一逼加非酋附体</s>成本高的离谱，所以一般会要求被救者付出一定的报酬  </td></tr></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;div class=&quot;infobox&quot;&gt;
+&lt;p&gt;本博客更新于国服 &lt;span class=&quot;status-tag&quot; style=&quot;background-color: #2e1d4a; border: 1px solid #7f11af&quot;&gt;5.18&lt;/span&gt; 版本&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="游戏" scheme="https://dragon-fish.github.io/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="最终幻想14" scheme="https://dragon-fish.github.io/categories/%E6%B8%B8%E6%88%8F/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/"/>
+    
+      <category term="副本" scheme="https://dragon-fish.github.io/categories/%E6%B8%B8%E6%88%8F/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/%E5%89%AF%E6%9C%AC/"/>
+    
+      <category term="禁地优雷卡" scheme="https://dragon-fish.github.io/categories/%E6%B8%B8%E6%88%8F/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/%E5%89%AF%E6%9C%AC/%E7%A6%81%E5%9C%B0%E4%BC%98%E9%9B%B7%E5%8D%A1/"/>
+    
+    
+      <category term="日常日记" scheme="https://dragon-fish.github.io/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="最终幻想14" scheme="https://dragon-fish.github.io/tags/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>已更新评论插件</title>
+    <link href="https://dragon-fish.github.io/2020/06/02/comment-update/"/>
+    <id>https://dragon-fish.github.io/2020/06/02/comment-update/</id>
+    <published>2020-06-02T21:01:07.000Z</published>
+    <updated>2020-07-16T15:03:56.398Z</updated>
+    
+    <content type="html"><![CDATA[<p>小破站从现在开始使用全新的<strong>utteranc</strong>插件作为评论插件，它基于 GitHub issues 系统，使用 GitHub 原版的主题样式，并且使用 GitHub App 自动创建 issues，感觉非常的酷。</p><p>使用你的 GitHub 账号登录，留下评论试试吧~</p><h2 id="附：主题模板源代码"><a href="#附：主题模板源代码" class="headerlink" title="附：主题模板源代码"></a>附：主题模板源代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.utteranc)&#123; %&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;utteranc.es&#x2F;client.js&quot;</span><br><span class="line">        repo&#x3D;&quot;&lt;%&#x3D; theme.utteranc.owner %&gt;&#x2F;&lt;%&#x3D; theme.utteranc.repo %&gt;&quot;</span><br><span class="line">        issue-term&#x3D;&quot;&lt;% if (theme.utteranc.term) &#123; %&gt;&lt;%&#x3D; theme.utteranc.term %&gt;&lt;% &#125; else &#123; %&gt;pathname&lt;% &#125; %&gt;&quot;</span><br><span class="line">        label&#x3D;&quot;&lt;% if (theme.utteranc.label) &#123; %&gt;&lt;%&#x3D; theme.utteranc.label %&gt;&lt;% &#125; else &#123; %&gt;_utteranc&lt;% &#125; %&gt;&quot;</span><br><span class="line">        theme&#x3D;&quot;&lt;% if (theme.utteranc.theme) &#123; %&gt;&lt;%&#x3D; theme.utteranc.theme %&gt;&lt;% &#125; else &#123; %&gt;github-light&lt;% &#125; %&gt;&quot;</span><br><span class="line">        crossorigin&#x3D;&quot;anonymous&quot;</span><br><span class="line">        async&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;小破站从现在开始使用全新的&lt;strong&gt;utteranc&lt;/strong&gt;插件作为评论插件，它基于 GitHub issues 系统，使用 GitHub 原版的主题样式，并且使用 GitHub App 自动创建 issues，感觉非常的酷。&lt;/p&gt;
+&lt;p&gt;使用你的 Git
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="网页设计" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="日常日记" scheme="https://dragon-fish.github.io/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试信息框</title>
+    <link href="https://dragon-fish.github.io/2020/05/26/infobox-test/"/>
+    <id>https://dragon-fish.github.io/2020/05/26/infobox-test/</id>
+    <published>2020-05-26T20:32:51.000Z</published>
+    <updated>2020-07-16T15:03:56.398Z</updated>
+    
+    <content type="html"><![CDATA[<p>测试信息框的样式。<a href="这是一个测试">^1</a></p><div class="infobox"><div class="title">提示</div><p>这是一则提示信息</p><p>换行显示</p></div><div class="infobox success"><div class="title">成功</div><p>这是一则提示信息</p></div><div class="infobox warning"><div class="title">警告</div><p>这是一则提示信息</p></div><div class="infobox error"><div class="title">错误</div><p>这是一则提示信息</p></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;测试信息框的样式。&lt;a href=&quot;这是一个测试&quot;&gt;^1&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;infobox&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;提示&lt;/div&gt;
+&lt;p&gt;这是一则提示信息&lt;/p&gt;
+&lt;p&gt;换行显示&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;in
+      
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="网页设计" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="测试" scheme="https://dragon-fish.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MediaWiki Indigo 皮肤</title>
+    <link href="https://dragon-fish.github.io/2020/05/26/mwskin-indigo/"/>
+    <id>https://dragon-fish.github.io/2020/05/26/mwskin-indigo/</id>
+    <published>2020-05-26T11:07:17.000Z</published>
+    <updated>2020-07-16T15:03:56.398Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近尝试开发一款 MediaWiki 皮肤，灵感来自我的这个 Hexo 博客的 indigo 皮肤，非常符合 Google Material Design。</p><p>这款皮肤的名字为了致敬 Hexo Indigo 皮肤的作者，于是决定把名字也命名为 Indigo。</p><a id="more"></a><h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><img src="/2020/05/26/mwskin-indigo/indigo.png" class="" title="注意，这只是开发版"><p>采用 Material Design，湛蓝色也是相当好看。</p><p>目前还没有做移动设备优化……基本只有一个框架。</p><h2 id="自定义"><a href="#自定义" class="headerlink" title="自定义"></a>自定义</h2><p>另外，由于皮肤样式使用<strong>less</strong>编写，只需要改几个变量就可以轻松自定义，比如像这样：</p><img src="/2020/05/26/mwskin-indigo/pink.jpg" class="" title="粉嫩少女版"><p>Indigo 皮肤 × Pink 皮肤 √</p>]]></content>
+    
+    <summary type="html">
+    
+      Indigo皮肤开发日记
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="网页设计" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="MediaWiki" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/MediaWiki/"/>
+    
+    
+      <category term="日常日记" scheme="https://dragon-fish.github.io/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="MediaWiki" scheme="https://dragon-fish.github.io/tags/MediaWiki/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FF14喜当狗托</title>
+    <link href="https://dragon-fish.github.io/2020/05/26/ff14-liwuhe/"/>
+    <id>https://dragon-fish.github.io/2020/05/26/ff14-liwuhe/</id>
+    <published>2020-05-26T10:35:09.000Z</published>
+    <updated>2020-07-16T15:03:56.386Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>FF14 里，有一个道具叫礼物盒，一般是官方做活动的时候送的，打开的时候会从列表里随机获得一种道具，一般开出来的都是魔晶石这种便宜货，但也有极小的概率得到价值 70RMB 的幻想药这种高级道具。</p><h2 id="喜当狗托"><a href="#喜当狗托" class="headerlink" title="喜当狗托"></a>喜当狗托</h2><p>我一直以为礼物盒开出幻想药是假的，直到今天……</p><a id="more"></a><img src="/2020/05/26/ff14-liwuhe/both.png" class=""><p>不仅开出了价值 70RMB 的幻想药……</p><img src="/2020/05/26/ff14-liwuhe/huanxiangyao.png" class=""><p>之后又立马开出了价值 70RMB 的雇员冒险录……</p><img src="/2020/05/26/ff14-liwuhe/maoxianlu.png" class=""><p>这……真的假的？？？</p><img src="/2020/05/26/ff14-liwuhe/logs.png" class=""><p>开盒记录</p><h2 id="完全懵逼"><a href="#完全懵逼" class="headerlink" title="完全懵逼"></a>完全懵逼</h2><img src="/2020/05/26/ff14-liwuhe/qq-logs.png" class=""><p>我：？？？</p><p>当时我就愣住了，还以为自己在做梦。</p><h2 id="装逼遭雷劈"><a href="#装逼遭雷劈" class="headerlink" title="装逼遭雷劈"></a>装逼遭雷劈</h2><p>当我醒悟过来以后，赶紧截图找列表炫耀。然后……</p><img src="/2020/05/26/ff14-liwuhe/jinyantaocan.png" class=""><p>被群友柠檬</p><img src="/2020/05/26/ff14-liwuhe/zhuanyetuandui.jpeg" class=""><p>危 小鱼君 危</p>]]></content>
+    
+    <summary type="html">
+    
+      礼物盒开出幻想药和冒险录
+    
+    </summary>
+    
+    
+      <category term="游戏" scheme="https://dragon-fish.github.io/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+      <category term="最终幻想14" scheme="https://dragon-fish.github.io/categories/%E6%B8%B8%E6%88%8F/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/"/>
+    
+    
+      <category term="日常日记" scheme="https://dragon-fish.github.io/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="最终幻想14" scheme="https://dragon-fish.github.io/tags/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用 GitHub Pages + Hexo 白嫖一个个人网站</title>
+    <link href="https://dragon-fish.github.io/2020/04/27/how-to-build-a-hexo/"/>
+    <id>https://dragon-fish.github.io/2020/04/27/how-to-build-a-hexo/</id>
+    <published>2020-04-27T04:34:52.000Z</published>
+    <updated>2020-07-16T15:03:56.386Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>Hexo 官方文档</strong>：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a> (有简体中文哟)</p><h2 id="1-注册-GitHub-账号"><a href="#1-注册-GitHub-账号" class="headerlink" title="1.注册 GitHub 账号"></a>1.注册 GitHub 账号</h2><p><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p><h2 id="2-新建一个-Repo，名字如下"><a href="#2-新建一个-Repo，名字如下" class="headerlink" title="2.新建一个 Repo，名字如下"></a>2.新建一个 Repo，名字如下</h2><p><code>&lt;你的用户名&gt;.github.io</code></p><a id="more"></a><h2 id="3-在你的电脑上下载-Node-js-以及-Git"><a href="#3-在你的电脑上下载-Node-js-以及-Git" class="headerlink" title="3.在你的电脑上下载 Node.js 以及 Git"></a>3.在你的电脑上下载 Node.js 以及 Git</h2><p>如果你下载太慢了，可以用马云爸爸的镜像：</p><ul><li><a href="https://npm.taobao.org/mirrors/node" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node</a></li><li><a href="https://npm.taobao.org/mirrors/git-for-windows/" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/git-for-windows/</a></li></ul><h2 id="4-在你的电脑上新建文件夹-不用命令行也行"><a href="#4-在你的电脑上新建文件夹-不用命令行也行" class="headerlink" title="4.在你的电脑上新建文件夹(不用命令行也行)"></a>4.在你的电脑上新建文件夹(不用命令行也行)</h2><p><code>mkdir &lt;文件夹名字&gt;</code></p><h2 id="5-安装-hexo-及其依赖"><a href="#5-安装-hexo-及其依赖" class="headerlink" title="5.安装 hexo 及其依赖"></a>5.安装 hexo 及其依赖</h2><blockquote><p>如果报错 <code>npm 不是内部命令</code>，自行百度原因！！！</p></blockquote><p>在任意位置输入</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br><span class="line">npm install -g hexo-server</span><br><span class="line">npm install -g hexo-deploy-git</span><br></pre></td></tr></table></figure><p>它会自己下载需要的文件</p><h2 id="6-初始化-hexo"><a href="#6-初始化-hexo" class="headerlink" title="6.初始化 hexo"></a>6.初始化 hexo</h2><blockquote><p>怎么在命令行里切换文件夹自行百度！！！</p></blockquote><p>进入你准备放置博客的文件夹输入：<code>hexo init</code></p><p>它会自己下载需要的文件</p><h2 id="7-写博客"><a href="#7-写博客" class="headerlink" title="7.写博客"></a>7.写博客</h2><p>文件夹<code>source</code>内的文件就是你的博文，采用<code>Markdown 语法</code>，Markdown 是什么自行百度！！！</p><blockquote><p>其他设置请看官方文档 <a href="#">↑</a></p></blockquote><h2 id="8-预览博客"><a href="#8-预览博客" class="headerlink" title="8.预览博客"></a>8.预览博客</h2><p>输入：<code>hexo server</code></p><p>打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 可以预览你的博客</p><h2 id="9-发布到-GitHub"><a href="#9-发布到-GitHub" class="headerlink" title="9.发布到 GitHub"></a>9.发布到 GitHub</h2><p>修改<code>./_config.yml</code>最底下的内容</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:&lt;你的用户名&gt;/&lt;你的用户名&gt;.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><p>然后依次输入</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><p>按提示输入你的 GitHub 用户名和邮件地址以及密码。</p><h2 id="10-大功告成"><a href="#10-大功告成" class="headerlink" title="10.大功告成"></a>10.大功告成</h2><p>访问 https://&lt;你的用户名&gt;.github.io</p><p>想让自己的博客变得更好看，请看官方文档 <a href="#">↑</a></p><h2 id="作者的话"><a href="#作者的话" class="headerlink" title="作者的话"></a>作者的话</h2><p>包教不包会，因为我也不懂编程，都是跟着文档来的，遇到问题请复制粘贴错误代码，然后扔进百度，<del>如果不喜欢百度，也可以用必应或者搜狗</del>。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Hexo 官方文档&lt;/strong&gt;：&lt;a href=&quot;https://hexo.io/zh-cn/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://hexo.io/zh-cn/docs/&lt;/a&gt; (有简体中文哟)&lt;/p&gt;
+&lt;h2 id=&quot;1-注册-GitHub-账号&quot;&gt;&lt;a href=&quot;#1-注册-GitHub-账号&quot; class=&quot;headerlink&quot; title=&quot;1.注册 GitHub 账号&quot;&gt;&lt;/a&gt;1.注册 GitHub 账号&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-新建一个-Repo，名字如下&quot;&gt;&lt;a href=&quot;#2-新建一个-Repo，名字如下&quot; class=&quot;headerlink&quot; title=&quot;2.新建一个 Repo，名字如下&quot;&gt;&lt;/a&gt;2.新建一个 Repo，名字如下&lt;/h2&gt;&lt;p&gt;&lt;code&gt;&amp;lt;你的用户名&amp;gt;.github.io&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="网页设计" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="Hexo" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/Hexo/"/>
+    
+    
+      <category term="日常日记" scheme="https://dragon-fish.github.io/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 GitHub Actions 更新博客</title>
+    <link href="https://dragon-fish.github.io/2020/04/25/update-via-github-actions/"/>
+    <id>https://dragon-fish.github.io/2020/04/25/update-via-github-actions/</id>
+    <published>2020-04-25T15:22:31.000Z</published>
+    <updated>2020-07-16T15:03:56.386Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用 GitHub Actions + Hexo + GitHub Pages ，白嫖 GitHub 的服务器资源建立可以自己更新的个人博客。</p><p><del>连命令行都可以不用敲了，嘻嘻。</del></p><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>电脑已经安装<strong>Node.js</strong>以及<strong>Git</strong>，知道什么是<strong>GitHub</strong>，用过<strong>Hexo</strong>。</p><h2 id="1-建立一个私人-Repo-用于保存源码"><a href="#1-建立一个私人-Repo-用于保存源码" class="headerlink" title="1. 建立一个私人 Repo 用于保存源码"></a>1. 建立一个私人 Repo 用于保存源码</h2><p>这个 Repo 下面简称<strong>源代码 Repo</strong></p><p>例如：<a href="https://github.com/Dragon-Fish/ghpages" target="_blank" rel="noopener">https://github.com/Dragon-Fish/ghpages</a></p><a id="more"></a><h2 id="2-建立一个名字叫-lt-用户名-gt-github-io-的-Repo"><a href="#2-建立一个名字叫-lt-用户名-gt-github-io-的-Repo" class="headerlink" title="2. 建立一个名字叫 &lt;用户名&gt;.github.io 的 Repo"></a>2. 建立一个名字叫 &lt;用户名&gt;.github.io 的 Repo</h2><p>这个 Repo 下面简称<strong>网站 Repo</strong></p><p>例如：<a href="https://github.com/Dragon-Fish/dragon-fish.github.io" target="_blank" rel="noopener">https://github.com/Dragon-Fish/dragon-fish.github.io</a></p><h2 id="3-创建-ssh-连接密钥，并上传-GitHub"><a href="#3-创建-ssh-连接密钥，并上传-GitHub" class="headerlink" title="3. 创建 ssh 连接密钥，并上传 GitHub"></a>3. 创建 ssh 连接密钥，并上传 GitHub</h2><ol><li>在自己的电脑上用命令行敲：<code>ssh-keygen -t rsa -C &quot;&lt;你的邮件地址&gt;&quot;</code></li><li>一路回车，直到系统提示生成完毕</li><li>找到生成的两个文件<code>id_rsa</code>以及<code>id_rsa.pub</code></li><li><code>id_rsa.pub</code>是公钥，点击自己的头像 → 设置 → ssh → 添加，把 id_rsa.pub 里的东西复制粘贴保存</li><li><code>id_rsa</code>是私钥，需要保存到源代码 Repo 里，进入 Repo → 设置 → secrets → 添加 → 把 <code>id_rsa</code> 复制粘贴上去保存，我这里保存时设置的 title 叫<code>HEXO_DEPLOY_PRIVATE_KEY</code>，可以换成任意你觉得好听的名字，但是下面会用到，<del>所以不要设置一些花里胡哨的名字，以免气死自己</del>。</li></ol><h2 id="4-设置工作流"><a href="#4-设置工作流" class="headerlink" title="4. 设置工作流"></a>4. 设置工作流</h2><p>进入源代码 Repo → Actions → 新建</p><p>以下是我设置的工作流，借鉴了来自互联网的一些资料，仅供参考</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 工作流名称</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">自动部署GitHub</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 当 master 分支的内容变更，自动开始</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="comment"># 使用最新版ubantu虚拟机运行</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="comment"># from: https://github.com/actions/checkout</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">本工作流</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@master</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># 安装最新版 Node.js</span></span><br><span class="line">      <span class="comment"># from: https://github.com/actions/setup-node</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装Node.js</span> <span class="number">10.</span><span class="string">x</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@master</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">"10.x"</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装Hexo及其依赖</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-cli</span> <span class="string">-g</span></span><br><span class="line">          <span class="string">npm</span> <span class="string">install</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">设置ssh密钥</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">HEXO_DEPLOY_PRIVATE_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.HEXO_DEPLOY_PRIVATE_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">mkdir</span> <span class="string">-p</span> <span class="string">~/.ssh/</span></span><br><span class="line">          <span class="string">echo</span> <span class="string">"$HEXO_DEPLOY_PRIVATE_KEY"</span> <span class="string">&gt;</span> <span class="string">~/.ssh/id_rsa</span> </span><br><span class="line">          <span class="string">chmod</span> <span class="number">600</span> <span class="string">~/.ssh/id_rsa</span></span><br><span class="line">          <span class="string">ssh-keyscan</span> <span class="string">github.com</span> <span class="string">&gt;&gt;</span> <span class="string">~/.ssh/known_hosts</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">配置Git</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.name</span> <span class="string">'&lt;GitHub用户名&gt;'</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">--global</span> <span class="string">user.email</span> <span class="string">'&lt;GitHub邮件地址&gt;'</span></span><br><span class="line">          <span class="string">git</span> <span class="string">config</span> <span class="string">core.quotepath</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">使用Hexo生成静态文件</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line">          <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">推送到GitHub</span> <span class="string">Pages</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">hexo</span> <span class="string">deploy</span></span><br></pre></td></tr></table></figure><h2 id="5-基本就完成了"><a href="#5-基本就完成了" class="headerlink" title="5. 基本就完成了"></a>5. 基本就完成了</h2><p>对源代码 Repo 的 master 分支做出的任何修改都会触发上面的工作流，自动构建 hexo 网页并推送到网站 Repo</p><h2 id="作者的话"><a href="#作者的话" class="headerlink" title="作者的话"></a>作者的话</h2><p><del>白嫖真爽，全自动白嫖，嘻嘻</del></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用 GitHub Actions + Hexo + GitHub Pages ，白嫖 GitHub 的服务器资源建立可以自己更新的个人博客。&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;连命令行都可以不用敲了，嘻嘻。&lt;/del&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前提&quot;&gt;&lt;a href=&quot;#前提&quot; class=&quot;headerlink&quot; title=&quot;前提&quot;&gt;&lt;/a&gt;前提&lt;/h2&gt;&lt;p&gt;电脑已经安装&lt;strong&gt;Node.js&lt;/strong&gt;以及&lt;strong&gt;Git&lt;/strong&gt;，知道什么是&lt;strong&gt;GitHub&lt;/strong&gt;，用过&lt;strong&gt;Hexo&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;1-建立一个私人-Repo-用于保存源码&quot;&gt;&lt;a href=&quot;#1-建立一个私人-Repo-用于保存源码&quot; class=&quot;headerlink&quot; title=&quot;1. 建立一个私人 Repo 用于保存源码&quot;&gt;&lt;/a&gt;1. 建立一个私人 Repo 用于保存源码&lt;/h2&gt;&lt;p&gt;这个 Repo 下面简称&lt;strong&gt;源代码 Repo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;例如：&lt;a href=&quot;https://github.com/Dragon-Fish/ghpages&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/Dragon-Fish/ghpages&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="网页设计" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="Hexo" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/Hexo/"/>
+    
+    
+      <category term="站点维护" scheme="https://dragon-fish.github.io/tags/%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>站点导航</title>
+    <link href="https://dragon-fish.github.io/2020/04/20/navigation/"/>
+    <id>https://dragon-fish.github.io/2020/04/20/navigation/</id>
+    <published>2020-04-20T06:23:44.000Z</published>
+    <updated>2020-07-16T15:03:56.382Z</updated>
+    
+    <content type="html"><![CDATA[<p>本页面用于记录无法被常规归档索引的独立页面，查找文章请到<a href="/archives/">归档</a>。</p><h2 id="InPageEdit插件"><a href="#InPageEdit插件" class="headerlink" title="InPageEdit插件"></a>InPageEdit插件</h2><ul><li><a href="/inpageedit-v2/">InPageEdit-v2</a><ul><li><a href="/inpageedit-v2/analysis/">InPageEdit Analysis</a></li><li><a href="/inpageedit-v2/update-logs/">InPageEdit Update Logs</a></li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本页面用于记录无法被常规归档索引的独立页面，查找文章请到&lt;a href=&quot;/archives/&quot;&gt;归档&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;InPageEdit插件&quot;&gt;&lt;a href=&quot;#InPageEdit插件&quot; class=&quot;headerlink&quot; title=&quot;InPa
+      
+    
+    </summary>
+    
+    
+    
+      <category term="站点导航" scheme="https://dragon-fish.github.io/tags/%E7%AB%99%E7%82%B9%E5%AF%BC%E8%88%AA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何更新博客内容</title>
+    <link href="https://dragon-fish.github.io/2020/04/18/how-to-update-blog/"/>
+    <id>https://dragon-fish.github.io/2020/04/18/how-to-update-blog/</id>
+    <published>2020-04-18T19:55:27.000Z</published>
+    <updated>2020-07-16T15:03:56.382Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文主要是小鱼君写给自己的技术备份</p></blockquote><h2 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h2><p>Visual Studio Code ← <del>太好用了</del></p><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>这里假设一直以来的电脑被连锅端了，如何重新获取博客的控制权</p><ol><li>电脑安装了<code>Node.js</code>以及<code>git</code></li><li>用<code>npm install -g hexo</code>安装<strong>hexo</strong></li><li>找到保存博客构筑文件的文件夹，放到Onedrive里不论换几次电脑都不怕失踪，理论上依赖项目应该保留在<code>./node_modules</code>里</li></ol><h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><ol><li>从vscode打开文件夹，进入命令行</li><li><code>hexo new post 路径</code> 建议用英文，毕竟标题可以改</li><li>写就完事了</li></ol><a id="more"></a><h2 id="预览网站"><a href="#预览网站" class="headerlink" title="预览网站"></a>预览网站</h2><ol><li><code>hexo server</code><ul><li>提示已运行：预设地址为 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></li><li>提示失败：百度一下 (就很真实)</li></ul></li></ol><h2 id="发布更新"><a href="#发布更新" class="headerlink" title="发布更新"></a>发布更新</h2><ol><li><code>hexo cl</code> 清空旧的文件以防各种鬼畜的Bug</li><li><code>hexo generate</code> 生成新的文件</li><li><code>hexo deploy</code> 使用预设的Git将文件Pull到GitHub<ul><li>这一步可能会提示用户认证失败，用账号密码登录GitHub就行了</li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文主要是小鱼君写给自己的技术备份&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;使用软件&quot;&gt;&lt;a href=&quot;#使用软件&quot; class=&quot;headerlink&quot; title=&quot;使用软件&quot;&gt;&lt;/a&gt;使用软件&lt;/h2&gt;&lt;p&gt;Visual Studio Code ← &lt;del&gt;太好用了&lt;/del&gt;&lt;/p&gt;
+&lt;h2 id=&quot;前置条件&quot;&gt;&lt;a href=&quot;#前置条件&quot; class=&quot;headerlink&quot; title=&quot;前置条件&quot;&gt;&lt;/a&gt;前置条件&lt;/h2&gt;&lt;p&gt;这里假设一直以来的电脑被连锅端了，如何重新获取博客的控制权&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;电脑安装了&lt;code&gt;Node.js&lt;/code&gt;以及&lt;code&gt;git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;用&lt;code&gt;npm install -g hexo&lt;/code&gt;安装&lt;strong&gt;hexo&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;找到保存博客构筑文件的文件夹，放到Onedrive里不论换几次电脑都不怕失踪，理论上依赖项目应该保留在&lt;code&gt;./node_modules&lt;/code&gt;里&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;新建文章&quot;&gt;&lt;a href=&quot;#新建文章&quot; class=&quot;headerlink&quot; title=&quot;新建文章&quot;&gt;&lt;/a&gt;新建文章&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;从vscode打开文件夹，进入命令行&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hexo new post 路径&lt;/code&gt; 建议用英文，毕竟标题可以改&lt;/li&gt;
+&lt;li&gt;写就完事了&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="网页设计" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="Hexo" scheme="https://dragon-fish.github.io/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/Hexo/"/>
+    
+    
+      <category term="站点维护" scheme="https://dragon-fish.github.io/tags/%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://dragon-fish.github.io/2020/04/18/hello-world/"/>
+    <id>https://dragon-fish.github.io/2020/04/18/hello-world/</id>
+    <published>2020-04-18T19:32:16.000Z</published>
+    <updated>2020-07-16T15:03:56.382Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>有句老话怎么讲来着？哦对我想起来了：“你好，世界！”</p></blockquote><div id="tabber-1" class="tabber"><div class="tabbertab" title="dragon-fish.github.io"><blockquote><p>2020年4月20日，机智的小鱼君为了方便维护及风格统一而实施了<strong>Wjghj Document Center 2.0</strong>统合计划，因此文章《你好世界》也被统一为了一篇。<br>这部分写给<strong>dragon-fish.github.io</strong>的访客</p></blockquote><p>“也该好好研究一下如何利用GitHub Pages了，白嫖它不香吗？”</p><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>如果你是稍微懂一些Web Develop知识以及经常使用GitHub你也已经发现了，这个博客是利用蹭GitHub资源，使用著名静态博客生成器<strong>Hexo</strong>生成的。</p><p>你也许知道，我其实有一个基于WordPress的博客网站 <a href="https://blog.wjghj.cn" target="_blank" rel="noopener">https://blog.wjghj.cn</a></p><p>也就是说建立这个网站似乎完全是冗余的。比起使用PHP构建的动态网站，hexo每次更新都要使用命令行去<code>hexo clear</code>或者<code>hexo generate</code>，最后再<code>hexo deploy</code>，显得十分麻烦，我为什么要在GitHub Pages上建立一个这样的博客呢？</p><p>原因很简单，那就是——帅啊！！！</p><p>试问哪个玩Web前端的男孩不想坐在Shell前敲着旁人压根看不明白的命令行？</p><p>抱着试一试的想法，带着“这样做真是酷毙了”的心情，本博客就此诞生了。</p><h2 id="挫折"><a href="#挫折" class="headerlink" title="挫折"></a>挫折</h2><p>构建这个网站最初遇到的最大挫折就是，我特么把git玩坏了，导致deploy到repo的文件居然是构筑文件而不是public本体，邮箱都被GitHub的错误警告挤爆了，实在是让人感到很淦。</p><p>最后被办法，也搞不太明白git，所以就采取了土方法，直接删文件夹重建了一个，终于是很成功的发布了网站。</p><h2 id="想说的话"><a href="#想说的话" class="headerlink" title="想说的话"></a>想说的话</h2><p>我头发快没了。</p></div><div class="tabbertab" title="doc.wjghj.cn"><blockquote><p>2020年4月20日，机智的小鱼君为了方便维护及风格统一而实施了<strong>Wjghj Document Center 2.0</strong>统合计划，因此文章《你好世界》也被统一为了一篇。<br>这部分写给<strong>doc.wjghj.cn</strong>的访客</p></blockquote><p>“众里寻它千百度，终于给我找到了Hexo这款静态网站生成器。”</p><h2 id="缘起-1"><a href="#缘起-1" class="headerlink" title="缘起"></a>缘起</h2><p>本来Hexo是一款基于<code>Node.js</code>的静态博客生成器，但是出乎意料的用来作为资料整合站效果也是相当不错，因为你可以把大部分精力集中在讲述和记录这件事本身上，而不是去研究让人头秃的HTML代码。</p><p>我正好被自己VPS上令人头秃的文件结构而烦恼，于是一不做二不休，“就这么决定吧，该特么重置了。”，抱着这样的想法，<strong>Wjghj Document Center 2.0</strong>涅槃了。</p><h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>其实严格来讲这次重置是文档中心第三代。</p><p>第一代是真·纯静态，我还能在自己的QQ空间相册找到当年文档中心的截图。用一个词概括那就是“简陋”，说通俗点就是“Low”。基本除了什么<code>html</code> <code>body</code> <code>head</code>以外就啥都莫得了。</p><p>第二代是伪·动态，虽然采用的是PHP构架，但其实没有运用到数据库这种高超的技术，只是有了一种“模板化”的概念，这一代使用了<code>Materialize</code>框架，可以说至少没那么丑了。</p><p>第三代也就是现在的模样。老实讲，还算是挺好看的，是吧？</p><h2 id="想说的话-1"><a href="#想说的话-1" class="headerlink" title="想说的话"></a>想说的话</h2><p>没有。因为头发掉光了。</p></div></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;有句老话怎么讲来着？哦对我想起来了：“你好，世界！”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div id=&quot;tabber-1&quot; class=&quot;tabber&quot;&gt;
+
+&lt;div class=&quot;tabbertab&quot; title=&quot;dragon-fish.g
+      
+    
+    </summary>
+    
+    
+    
+      <category term="日常日记" scheme="https://dragon-fish.github.io/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+</feed>
