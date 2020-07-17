@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170980930-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-170980930-1');
+</script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+<!-- Baidu Push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!-- End Baidu Push -->
+
+
+    <meta charset="utf-8">
+    
+    <!-- Google Ads -->
+    <script data-ad-client="ca-pub-5028262357303610" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- End Google Ads -->
+    
+    
+    
+    <title>小鱼君的博客 |
+        Dragon Fish&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="blog,github blog,Dragon Fish,机智的小鱼君,小鱼君,博客,机智的小鱼君的博客,小鱼君的博客">
+    <meta name="description" content="A GitHub Blog by Dragon Fish">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小鱼君的博客">
+<meta property="og:url" content="https://dragon-fish.github.io/">
+<meta property="og:site_name" content="小鱼君的博客">
+<meta property="og:description" content="A GitHub Blog by Dragon Fish">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="机智的小鱼君">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="github blog">
+<meta property="article:tag" content="Dragon Fish">
+<meta property="article:tag" content="机智的小鱼君">
+<meta property="article:tag" content="小鱼君">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="机智的小鱼君的博客">
+<meta property="article:tag" content="小鱼君的博客">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="alternate" type="application/atom+xml" title="小鱼君的博客"
+        href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts = []</script>
+
+    <link rel="stylesheet" href="/=statics/common.css">
+    
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <!-- 夜间模式切换器 -->
+<script>
+  /**
+   * indigo dark-theme
+   * @author 机智的小鱼君
+   */
+  !(function () {
+    var htmlBody = window.document.body;
+    if (localStorage.darkTheme === 'dark-theme') {
+      htmlBody.classList.add('dark-theme');
+    } else {
+      localStorage.darkTheme = 'light-theme';
+    }
+    window.darkThemeToggle = function () {
+      var moon_icon = '<i class="icon icon-lg icon-moon-o"></i>',
+        sun_icon = '<i class="icon icon-lg icon-sun-o"></i>',
+        htmlBody = window.document.body,
+        toggleBtn = window.document.getElementById('darkThemeToggle');
+      if (localStorage.darkTheme === 'dark-theme') {
+        htmlBody.classList.remove('dark-theme');
+        toggleBtn.innerHTML = sun_icon;
+        localStorage.darkTheme = 'light-theme';
+      } else {
+        htmlBody.classList.add('dark-theme');
+        toggleBtn.innerHTML = moon_icon;
+        localStorage.darkTheme = 'dark-theme';
+      }
+    }
+  }());
+</script>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/sidenav-brand-izuna.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="sitename"><a href="/" style="color: inherit;">小鱼君的博客</a></h5>
+          <a href="mailto:dragon-fish@qq.com" title="dragon-fish@qq.com" class="mail">dragon-fish@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+          <li class="waves-block waves-effect active">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              首页
+            </a>
+          </li>
+        
+          <li class="label">
+            <span>
+              查看文章
+            </span>
+          </li> 
+        
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              归档
+            </a>
+          </li>
+        
+          <li class="waves-block waves-effect">
+            <a href="/tags"  >
+              <i class="icon icon-lg icon-tags"></i>
+              标签
+            </a>
+          </li>
+        
+          <li class="waves-block waves-effect">
+            <a href="/categories"  >
+              <i class="icon icon-lg icon-th-list"></i>
+              分类
+            </a>
+          </li>
+        
+          <li class="label">
+            <span>
+              关于本站
+            </span>
+          </li> 
+        
+          <li class="waves-block waves-effect">
+            <a href="/author"  >
+              <i class="icon icon-lg icon-user-circle"></i>
+              作者
+            </a>
+          </li>
+        
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/dragon-fish" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              GitHub
+            </a>
+          </li>
+        
+          <li class="label">
+            <span>
+              特色页面
+            </span>
+          </li> 
+        
+          <li class="waves-block waves-effect">
+            <a href="/inpageedit-v2"  >
+              <i class="icon icon-lg icon-pencil"></i>
+              InPageEdit 插件
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <div>
+                
+                首页
+                
+            </div>
+            <div>
+                
+                小鱼君的博客 | Dragon Fish&#39;s Blog
+                
+            </div>
+        </div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off"
+                placeholder="搜索小鱼君的博客">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="darkThemeToggle" onclick="darkThemeToggle();">
+            <i class="icon icon-lg icon-sun-o"></i>
+            <i class="icon icon-lg icon-moon-o"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">小鱼君的博客</h1>
+        <h5 class="subtitle">
+            
+            Dragon Fish's Blog
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-changyan-test"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-07-07 13:21:03" datetime="2020-07-07T05:21:03.000Z"  itemprop="datePublished">2020-07-07 13:21:03</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a></li></ul></li></ul>
+
+
+
+        <span id="readingTime">阅读大约需要 <span id="min">1 </span> 分钟</span>
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/07/07/changyan-test/">搜狐畅言评论测试</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <div id="CHANGYAN">
+  <img src="https://vignette.wikia.nocookie.net/dftest/images/8/8c/Ms-loading-spinner.svg/revision/latest?cb=20191203083420" id="CHANGYAN-LOADING" style="display: block;margin: 0 auto;">
+</div>
+
+    
+
+    </div>
+    <div class="post-footer">
+        <a href="/2020/07/07/changyan-test/" class="post-more waves-effect waves-button">
+            阅读全文 ›
+        </a>
+    
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/" rel="tag">日常日记</a></li></ul>
+
+    
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-ff14-ulk-logogram-for-healer"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-06-25 01:24:41" datetime="2020-06-24T17:24:41.000Z"  itemprop="datePublished">2020-06-25 01:24:41</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/">最终幻想14</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/%E5%89%AF%E6%9C%AC/">副本</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/%E5%89%AF%E6%9C%AC/%E7%A6%81%E5%9C%B0%E4%BC%98%E9%9B%B7%E5%8D%A1/">禁地优雷卡</a></li></ul></li></ul></li></ul></li></ul>
+
+
+
+        <span id="readingTime">阅读大约需要 <span id="min">5 </span> 分钟</span>
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/06/24/ff14-ulk-logogram-for-healer/">优雷卡奶妈文理技能搭配</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <div class="infobox">
+<p>本博客更新于国服 <span class="status-tag" style="background-color: #2e1d4a; border: 1px solid #7f11af">5.18</span> 版本</p>
+</div>
+
+<p>最终幻想 14「禁地优雷卡·巴尔德西昂兵武塔」治疗职业文理技能搭配</p>
+<p>一般的，攻略<strong>巴尔德西昂兵武塔</strong>（以下简称<strong>BA</strong>）的小队中有两名奶妈，根据负责的 buff 划分为“勇气奶”以及“醒神奶”。</p>
+<p>顾名思义，一个主要负责技能文理勇气，提高队友的攻击力；另一个主要负责技能文理醒神，为队友提供超快的魔素板恢复力。</p>
+<h2 id="常驻英杰的加护"><a href="#常驻英杰的加护" class="headerlink" title="常驻英杰的加护"></a>常驻英杰的加护</h2><table class="widetable" style="text-align: center">
+<tr>
+  <th style="width: 130px">文理技能</th>
+  <th style="width: 230px">合成配方</th>
+  <th>技能概要</th>
+</tr>
+<tr>
+  <td>
+    <i class="ff14-action">英杰的加护</i>
+    <br>
+    英杰的加护
+  </td>
+  <td>
+    <i class="ff14-action">术士的记忆</i> + <i class="ff14-action">斗士的记忆</i> + <i class="ff14-action">重骑兵的记忆</i>
+    <br>
+    术士 + 斗士 + 重骑兵
+  </td>
+  <td>
+    增加血量，死亡有概率复活
+  </td>
+</tr>
+</table>
+
+<p>两名奶妈都要单独合成一个<strong>英杰的加护</strong>，并在进入BA时砸掉然后使用。不推荐在进入BA前使用，因为在打前置任务“不明飞行物”的时候可能会暴毙并触发/失去英杰的 buff（<del>血妈亏</del>）</p>
+<p>然后再按照自己的分工合成以下组合：</p>
+<h2 id="勇气奶"><a href="#勇气奶" class="headerlink" title="勇气奶"></a>勇气奶</h2><table class="widetable" style="text-align: center">
+<tr>
+  <th style="width: 130px">文理技能</th>
+  <th style="width: 230px">合成配方</th>
+  <th>技能概要</th>
+</tr>
+<tr>
+  <td>
+    <i class="ff14-action">圣骑士的记忆</i>
+    <br>
+    圣骑士的记忆
+  </td>
+  <td>
+    <i class="ff14-action">重骑兵的记忆</i> + <i class="ff14-action">文理治疗</i> + <i class="ff14-action">文理石肤</i>
+    <br>
+    重骑兵 + 治疗 + 石肤
+  </td>
+  <td>
+    增加血量，提高治疗量
+  </td>
+</tr>
+<tr>
+  <td>
+    <i class="ff14-action">文理勇气</i>
+    <br>
+    文理勇气
+  </td>
+  <td>
+    <i class="ff14-action">守护者的记忆</i> + <i class="ff14-action">祭司的记忆</i> + <i class="ff14-action">武人的记忆</i>
+    <br>
+    守护者 + 祭司 + 武人
+  </td>
+  <td>
+    单buff，提高目标的攻击力，每隔5分钟为全员轮流上一次
+  </td>
+</tr>
+</table>
+
+<h2 id="醒神奶"><a href="#醒神奶" class="headerlink" title="醒神奶"></a>醒神奶</h2><table class="widetable" style="text-align: center">
+<tr>
+  <th style="width: 130px">文理技能</th>
+  <th style="width: 230px">合成配方</th>
+  <th>技能概要</th>
+</tr>
+<tr>
+  <td>
+    <i class="ff14-action">圣骑士的记忆</i>
+    <br>
+    圣骑士的记忆
+  </td>
+  <td>
+    <i class="ff14-action">重骑兵的记忆</i> + <i class="ff14-action">文理治疗</i> + <i class="ff14-action">文理石肤</i>
+    <br>
+    重骑兵 + 治疗 + 石肤
+  </td>
+  <td>
+    增加血量，提高治疗量
+  </td>
+</tr>
+<tr>
+  <td>
+    <i class="ff14-action">文理醒神</i>
+    <br>
+    文理醒神
+  </td>
+  <td>
+    <i class="ff14-action">术士的记忆</i> + <i class="ff14-action">祭司的记忆</i> + <i class="ff14-action">文理救疗</i>
+    <br>
+    术士 + 祭司 + 救疗
+  </td>
+  <td>
+    群buff，提高附近队友魔素板的恢复力，合成比文理勇气省钱
+  </td>
+</tr>
+</table>
+
+<h2 id="额外技能"><a href="#额外技能" class="headerlink" title="额外技能"></a>额外技能</h2><p>除此之外，如果文理技能栏够多的话，也可以携带以下技能。</p>
+<table class="widetable" style="text-align: center">
+<tr>
+  <th style="width: 130px">文理技能</th>
+  <th style="width: 230px">合成配方</th>
+  <th>技能概要</th>
+</tr>
+<tr>
+  <td>
+    <i class="ff14-action">文理充能</i>
+    <br>
+    文理充能
+  </td>
+  <td>
+    <i class="ff14-action">术士的记忆</i> + <i class="ff14-action">斗士的记忆</i> + <i class="ff14-action">文理治疗</i>
+    <br>
+    术士 + 斗士 + 治疗
+  </td>
+  <td>
+    对自身buff，提高回蓝和治疗量<br>一般在最后的奥兹玛房间使用
+  </td>
+</tr>
+<tr>
+  <td>
+    <i class="ff14-action">文理献祭</i>
+    <br>
+    文理献祭
+  </td>
+  <td>
+    <i class="ff14-action">文理魔法爆发</i> + <i class="ff14-action">文理康复</i> + <i class="ff14-action">文理复活</i>
+    <br>
+    魔爆 + 康复 + 复活
+  </td>
+  <td>
+    该技能可以在BA内复活队友！<br>但是会对自身附加死亡宣告，配合英杰的加护赌运气使用<br>一般由多名奶妈一个接一个<s>套娃</s>使用直到死亡者和施救者都存活，由于<s>贵的一逼加非酋附体</s>成本高的离谱，所以一般会要求被救者付出一定的报酬
+  </td>
+</tr>
+</table>
+
+    
+
+    </div>
+    <div class="post-footer">
+        <a href="/2020/06/24/ff14-ulk-logogram-for-healer/" class="post-more waves-effect waves-button">
+            阅读全文 ›
+        </a>
+    
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/" rel="tag">日常日记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/" rel="tag">最终幻想14</a></li></ul>
+
+    
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-comment-update"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-06-03 05:01:07" datetime="2020-06-02T21:01:07.000Z"  itemprop="datePublished">2020-06-03 05:01:07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a></li></ul></li></ul>
+
+
+
+        <span id="readingTime">阅读大约需要 <span id="min">1 </span> 分钟</span>
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/06/02/comment-update/">已更新评论插件</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>小破站从现在开始使用全新的<strong>utteranc</strong>插件作为评论插件，它基于 GitHub issues 系统，使用 GitHub 原版的主题样式，并且使用 GitHub App 自动创建 issues，感觉非常的酷。</p>
+<p>使用你的 GitHub 账号登录，留下评论试试吧~</p>
+<h2 id="附：主题模板源代码"><a href="#附：主题模板源代码" class="headerlink" title="附：主题模板源代码"></a>附：主题模板源代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.utteranc)&#123; %&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;utteranc.es&#x2F;client.js&quot;</span><br><span class="line">        repo&#x3D;&quot;&lt;%&#x3D; theme.utteranc.owner %&gt;&#x2F;&lt;%&#x3D; theme.utteranc.repo %&gt;&quot;</span><br><span class="line">        issue-term&#x3D;&quot;&lt;% if (theme.utteranc.term) &#123; %&gt;&lt;%&#x3D; theme.utteranc.term %&gt;&lt;% &#125; else &#123; %&gt;pathname&lt;% &#125; %&gt;&quot;</span><br><span class="line">        label&#x3D;&quot;&lt;% if (theme.utteranc.label) &#123; %&gt;&lt;%&#x3D; theme.utteranc.label %&gt;&lt;% &#125; else &#123; %&gt;_utteranc&lt;% &#125; %&gt;&quot;</span><br><span class="line">        theme&#x3D;&quot;&lt;% if (theme.utteranc.theme) &#123; %&gt;&lt;%&#x3D; theme.utteranc.theme %&gt;&lt;% &#125; else &#123; %&gt;github-light&lt;% &#125; %&gt;&quot;</span><br><span class="line">        crossorigin&#x3D;&quot;anonymous&quot;</span><br><span class="line">        async&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
+    
+
+    </div>
+    <div class="post-footer">
+        <a href="/2020/06/02/comment-update/" class="post-more waves-effect waves-button">
+            阅读全文 ›
+        </a>
+    
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/" rel="tag">日常日记</a></li></ul>
+
+    
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-infobox-test"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-05-27 04:32:51" datetime="2020-05-26T20:32:51.000Z"  itemprop="datePublished">2020-05-27 04:32:51</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a></li></ul></li></ul>
+
+
+
+        <span id="readingTime">阅读大约需要 <span id="min">1 </span> 分钟</span>
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/05/26/infobox-test/">测试信息框</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>测试信息框的样式。<a href="这是一个测试">^1</a></p>
+<div class="infobox">
+<div class="title">提示</div>
+<p>这是一则提示信息</p>
+<p>换行显示</p>
+</div>
+
+<div class="infobox success">
+<div class="title">成功</div>
+<p>这是一则提示信息</p>
+</div>
+
+<div class="infobox warning">
+<div class="title">警告</div>
+<p>这是一则提示信息</p>
+</div>
+
+<div class="infobox error">
+<div class="title">错误</div>
+<p>这是一则提示信息</p>
+</div>
+    
+
+    </div>
+    <div class="post-footer">
+        <a href="/2020/05/26/infobox-test/" class="post-more waves-effect waves-button">
+            阅读全文 ›
+        </a>
+    
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+
+    
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-mwskin-indigo"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-05-26 19:07:17" datetime="2020-05-26T11:07:17.000Z"  itemprop="datePublished">2020-05-26 19:07:17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/MediaWiki/">MediaWiki</a></li></ul></li></ul></li></ul>
+
+
+
+        <span id="readingTime">阅读大约需要 <span id="min">1 </span> 分钟</span>
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/05/26/mwskin-indigo/">MediaWiki Indigo 皮肤</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>最近尝试开发一款 MediaWiki 皮肤，灵感来自我的这个 Hexo 博客的 indigo 皮肤，非常符合 Google Material Design。</p>
+<p>这款皮肤的名字为了致敬 Hexo Indigo 皮肤的作者，于是决定把名字也命名为 Indigo。</p>
+    
+
+    </div>
+    <div class="post-footer">
+        <a href="/2020/05/26/mwskin-indigo/" class="post-more waves-effect waves-button">
+            阅读全文 ›
+        </a>
+    
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MediaWiki/" rel="tag">MediaWiki</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/" rel="tag">日常日记</a></li></ul>
+
+    
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-ff14-liwuhe"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-05-26 18:35:09" datetime="2020-05-26T10:35:09.000Z"  itemprop="datePublished">2020-05-26 18:35:09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%B8%B8%E6%88%8F/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/">最终幻想14</a></li></ul></li></ul>
+
+
+
+        <span id="readingTime">阅读大约需要 <span id="min">2 </span> 分钟</span>
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/05/26/ff14-liwuhe/">FF14喜当狗托</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>FF14 里，有一个道具叫礼物盒，一般是官方做活动的时候送的，打开的时候会从列表里随机获得一种道具，一般开出来的都是魔晶石这种便宜货，但也有极小的概率得到价值 70RMB 的幻想药这种高级道具。</p>
+<h2 id="喜当狗托"><a href="#喜当狗托" class="headerlink" title="喜当狗托"></a>喜当狗托</h2><p>我一直以为礼物盒开出幻想药是假的，直到今天……</p>
+    
+
+    </div>
+    <div class="post-footer">
+        <a href="/2020/05/26/ff14-liwuhe/" class="post-more waves-effect waves-button">
+            阅读全文 ›
+        </a>
+    
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/" rel="tag">日常日记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B314/" rel="tag">最终幻想14</a></li></ul>
+
+    
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-how-to-build-a-hexo"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-04-27 12:34:52" datetime="2020-04-27T04:34:52.000Z"  itemprop="datePublished">2020-04-27 12:34:52</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/Hexo/">Hexo</a></li></ul></li></ul></li></ul>
+
+
+
+        <span id="readingTime">阅读大约需要 <span id="min">3 </span> 分钟</span>
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/04/27/how-to-build-a-hexo/">如何使用 GitHub Pages + Hexo 白嫖一个个人网站</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><strong>Hexo 官方文档</strong>：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a> (有简体中文哟)</p>
+<h2 id="1-注册-GitHub-账号"><a href="#1-注册-GitHub-账号" class="headerlink" title="1.注册 GitHub 账号"></a>1.注册 GitHub 账号</h2><p><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
+<h2 id="2-新建一个-Repo，名字如下"><a href="#2-新建一个-Repo，名字如下" class="headerlink" title="2.新建一个 Repo，名字如下"></a>2.新建一个 Repo，名字如下</h2><p><code>&lt;你的用户名&gt;.github.io</code></p>
+    
+
+    </div>
+    <div class="post-footer">
+        <a href="/2020/04/27/how-to-build-a-hexo/" class="post-more waves-effect waves-button">
+            阅读全文 ›
+        </a>
+    
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8%E6%97%A5%E8%AE%B0/" rel="tag">日常日记</a></li></ul>
+
+    
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-update-via-github-actions"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-04-25 23:22:31" datetime="2020-04-25T15:22:31.000Z"  itemprop="datePublished">2020-04-25 23:22:31</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/Hexo/">Hexo</a></li></ul></li></ul></li></ul>
+
+
+
+        <span id="readingTime">阅读大约需要 <span id="min">4 </span> 分钟</span>
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/04/25/update-via-github-actions/">使用 GitHub Actions 更新博客</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>使用 GitHub Actions + Hexo + GitHub Pages ，白嫖 GitHub 的服务器资源建立可以自己更新的个人博客。</p>
+<p><del>连命令行都可以不用敲了，嘻嘻。</del></p>
+<h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>电脑已经安装<strong>Node.js</strong>以及<strong>Git</strong>，知道什么是<strong>GitHub</strong>，用过<strong>Hexo</strong>。</p>
+<h2 id="1-建立一个私人-Repo-用于保存源码"><a href="#1-建立一个私人-Repo-用于保存源码" class="headerlink" title="1. 建立一个私人 Repo 用于保存源码"></a>1. 建立一个私人 Repo 用于保存源码</h2><p>这个 Repo 下面简称<strong>源代码 Repo</strong></p>
+<p>例如：<a href="https://github.com/Dragon-Fish/ghpages" target="_blank" rel="noopener">https://github.com/Dragon-Fish/ghpages</a></p>
+    
+
+    </div>
+    <div class="post-footer">
+        <a href="/2020/04/25/update-via-github-actions/" class="post-more waves-effect waves-button">
+            阅读全文 ›
+        </a>
+    
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/" rel="tag">站点维护</a></li></ul>
+
+    
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-navigation"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-04-20 14:23:44" datetime="2020-04-20T06:23:44.000Z"  itemprop="datePublished">2020-04-20 14:23:44</time>
+
+        
+
+
+        <span id="readingTime">阅读大约需要 <span id="min">1 </span> 分钟</span>
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/04/20/navigation/">站点导航</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>本页面用于记录无法被常规归档索引的独立页面，查找文章请到<a href="/archives/">归档</a>。</p>
+<h2 id="InPageEdit插件"><a href="#InPageEdit插件" class="headerlink" title="InPageEdit插件"></a>InPageEdit插件</h2><ul>
+<li><a href="/inpageedit-v2/">InPageEdit-v2</a><ul>
+<li><a href="/inpageedit-v2/analysis/">InPageEdit Analysis</a></li>
+<li><a href="/inpageedit-v2/update-logs/">InPageEdit Update Logs</a></li>
+</ul>
+</li>
+</ul>
+
+    
+
+    </div>
+    <div class="post-footer">
+        <a href="/2020/04/20/navigation/" class="post-more waves-effect waves-button">
+            阅读全文 ›
+        </a>
+    
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AB%99%E7%82%B9%E5%AF%BC%E8%88%AA/" rel="tag">站点导航</a></li></ul>
+
+    
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-how-to-update-blog"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-04-19 03:55:27" datetime="2020-04-18T19:55:27.000Z"  itemprop="datePublished">2020-04-19 03:55:27</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/">网页设计</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/Hexo/">Hexo</a></li></ul></li></ul></li></ul>
+
+
+
+        <span id="readingTime">阅读大约需要 <span id="min">2 </span> 分钟</span>
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/04/18/how-to-update-blog/">如何更新博客内容</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <blockquote>
+<p>本文主要是小鱼君写给自己的技术备份</p>
+</blockquote>
+<h2 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h2><p>Visual Studio Code ← <del>太好用了</del></p>
+<h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>这里假设一直以来的电脑被连锅端了，如何重新获取博客的控制权</p>
+<ol>
+<li>电脑安装了<code>Node.js</code>以及<code>git</code></li>
+<li>用<code>npm install -g hexo</code>安装<strong>hexo</strong></li>
+<li>找到保存博客构筑文件的文件夹，放到Onedrive里不论换几次电脑都不怕失踪，理论上依赖项目应该保留在<code>./node_modules</code>里</li>
+</ol>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><ol>
+<li>从vscode打开文件夹，进入命令行</li>
+<li><code>hexo new post 路径</code> 建议用英文，毕竟标题可以改</li>
+<li>写就完事了</li>
+</ol>
+    
+
+    </div>
+    <div class="post-footer">
+        <a href="/2020/04/18/how-to-update-blog/" class="post-more waves-effect waves-button">
+            阅读全文 ›
+        </a>
+    
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AB%99%E7%82%B9%E7%BB%B4%E6%8A%A4/" rel="tag">站点维护</a></li></ul>
+
+    
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            若无特殊说明，博客文章以及页面内容未经许可禁止转载。部分媒体资源来自网络，侵删。
+            <br>
+            页面自定义代码部分（包括但不限于位于<code>/=statics/</code>路径下的静态资源）采用 <a rel="license"
+                href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名-非商业性使用-相同方式共享 4.0 (CC
+                BY-NC-ND 4.0)</a> 协议授权。
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i
+                        class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>机智的小鱼君 &copy;
+                2019 -
+                2020</span>
+
+            
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a>
+            </span>
+            <span>The theme is adapted based on <a href="https://github.com/yscoder/hexo-theme-indigo"
+                    target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://dragon-fish.github.io/&title=小鱼君的博客&pic=https://dragon-fish.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://dragon-fish.github.io/&title=小鱼君的博客&source=A GitHub Blog by Dragon Fish" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://dragon-fish.github.io/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=小鱼君的博客&url=https://dragon-fish.github.io/&via=https://dragon-fish.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://dragon-fish.github.io/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3ay47DIAwF0P7/T2ek0ew6JdcYUFQdVlUe5ZCFhW1er3hcv+PT9eTu+zOf3lowcHFx29xrON7/ejzN3AISAy4u7nnuOHiNJ8gp4ytRAMXFxX0YN/+dPImLi/sd3HEaU8Xh4uI+n5skP0lpI1lM8jkW5Gq4uLgNbrVguuP3xvouLi5ukXsVR7+tMjfv37u4uLhHuPk2Jd++zC0s/yi4uLhnuPmGJg9bSTFl2Vu4uLgbuHl4mmvHdto2/1zBxcXdzM0bJJ12S7URe5P24OLiHuHmyUa1XJK0XQvtW1xc3CPcZIuT3K3Sq8c7CskPLi5um9tPcvrpTT47Li7uGe6qOmue8FQPaRXaKri4uIu4cyFjLvzlRzk/LhgXF/c4N09FOoXRufiKi4t7kjvXoZg7WpEsLwqRuLi4m7lXcVQPTFSDFC4u7nO4axuo1YBYCH+4uLgHudVAVtg9Ld0k4eLinuFWA0rnytq7uLi4u7nVg1b5uudKITd3cXFxD3LzgkWSMnU2QDefAxcX92HcVelTfjjjpsmKi4v7MO4cYsGBDFxc3IPcuSJpFVFNflplEVxc3AZ3rmBaDWcJKG/x4uLibuP+AHgDLuV2yK4MAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script src="/=statics/common.js"></script>
+
+<script>
+  var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</body>
+</html>
