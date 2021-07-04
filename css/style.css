@@ -1,0 +1,190 @@
+
+
+/* Font引用 */
+@font-face {
+	font-family: 'Furore';
+	src: local('Furore'),local('Furore');
+	src: url(css\font\Furore.otf),
+	     url(css\font\Furore.ttf) format(ttf)
+	     url(css\font\Furore.woff) format(woff);
+}
+@font-face {
+	font-family: 'Microsoft Yahei';
+	src: local('Micrsoft Yahei'),local('Microsoft Yahei');
+	src: url(css\font\WeiRuanYaHei-1.ttf);
+}
+@font-face {
+	font-family: 'MicrosoftYaqiHeiBold';
+	src: local('MicrosoftYaqiHeiBold'),local('MicrosoftYaqiHeiBold');
+	src: url(css\font\MicrosoftYaqiHeiBold-2.ttf);
+}
+
+/* 粗体优化 */
+b{
+	font-family: 'MicrosoftYaqiHeiBold';
+	
+}
+
+html {
+	background-image: url(img\background.jpg);
+	background-color:#1e1e1e;
+	color:#c6c9ce;
+	font-size:15px;
+	line-height:1.5;
+	overflow-x:hidden;
+}
+body {
+	-webkit-tap-highlight-color:rgba(255,255,255,0);
+	-webkit-overflow-scrolling:touch
+}
+html,body {
+	position:relative;
+	min-height:100%;
+	height:100%
+}
+nav {
+	font-family: 'Furore','MicrosoftYaqiHeiBold','MicrosoftYahei';
+}
+header {
+	font-family: 'Furore','MicrosoftYaqiHeiBold','MicrosoftYahei';
+}
+p {
+	color: #c6c9ce;
+}
+.lock {
+	overflow:hidden;
+	max-height:100%
+}
+body,input,button,textarea,select,option {
+	font:normal 1em Roboto,"Helvetica Neue",Helvetica,Arial,"Microsoft Yahei",sans-serif
+}
+body,h1,h2,h3,h4,h5,h6,p,figure,pre,dl,dd,blockquote,button,input {
+	margin:0
+}
+input,legend,input,textarea,button {
+	padding:0
+}
+form,fieldset,th,td {
+	margin:0;
+	padding:0
+}
+ol,ul {
+	margin:12px 0;
+	padding:0 0 0 32px
+}
+ol.reset,ul.reset {
+	margin:0;
+	padding:0;
+	list-style:none
+}
+ol ol,ol ul,ul ol,ul ul {
+	margin-top:0;
+	margin-bottom:0
+}
+p {
+	margin:12px 0
+}
+small {
+	font-size:75%;
+	line-height:1
+}
+main {
+	display:block
+}
+template {
+	display:none
+}
+img {
+	max-width:100%;
+	border:none
+}
+img,input,button,label {
+	vertical-align:middle
+}
+i {
+	font-style:normal
+}
+h1,h2,h3,h4,h5,h6 {
+	font-weight:400
+}
+h1,.h1 {
+	font-size:44px;
+	line-height:48px;
+	color:#c6c9ce
+}
+h2,.h2 {
+	font-size:34px;
+	line-height:40px
+}
+h3,.h3 {
+	font-size:24px;
+	line-height:32px
+}
+h4,.h4 {
+	font-size:20px;
+	line-height:28px
+}
+h5,.h5 {
+	font-size:16px;
+	line-height:24px
+}
+h6,.h6 {
+	font-size:12px;
+	line-height:20px
+}
+input[type="button"],input[type="submit"],input[type="search"],input[type="reset"] {
+	cursor:pointer;
+	-webkit-appearance:button
+}
+input:focus,select:focus,button:focus,textarea:focus {
+	outline:none
+}
+textarea {
+	resize:none
+}
+a {
+	background-color:transparent;
+	background-image:none;
+	color:#c6c9ce;
+	text-decoration:none;
+	outline:0
+}
+a:hover {
+	color:#1e1e1e;
+	text-decoration:underline
+}
+hr,.hr {
+	border:0;
+	border-top:1px solid #dadada;
+	box-sizing:content-box;
+	display:block;
+	height:0;
+	margin-top:24px;
+	margin-bottom:24px
+}
+.fl {
+	float:left
+}
+.fr {
+	float:right
+}
+.tr {
+	text-align:right
+}
+.tc {
+	text-align:center
+}
+header {
+	margin-top: 80px;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom:40px;
+}
+#header {
+	position:fixed;
+	left:0;
+	top:0;
+	width:100%;
+	height:46px;
+
+}
