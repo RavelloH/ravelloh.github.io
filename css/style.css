@@ -1,22 +1,20 @@
-
-
 /* Font引用 */
 @font-face {
 	font-family: 'Furore';
 	src: local('Furore'),local('Furore');
-	src: url(css\font\Furore.otf),
-	     url(css\font\Furore.ttf) format(ttf)
-	     url(css\font\Furore.woff) format(woff);
+	src: url(.\css\font\Furore.otf),
+	     url(.\css\font\Furore.ttf) format(ttf)
+	     url(.\css\font\Furore.woff) format(woff);
 }
 @font-face {
 	font-family: 'Microsoft Yahei';
-	src: local('Micrsoft Yahei'),local('Microsoft Yahei');
-	src: url(css\font\WeiRuanYaHei-1.ttf);
+	src: local(Microsoft),local('Microsoft Yahei');
+	src: url(./font/WeiRuanYaHei.ttf);
 }
 @font-face {
 	font-family: 'MicrosoftYaqiHeiBold';
 	src: local('MicrosoftYaqiHeiBold'),local('MicrosoftYaqiHeiBold');
-	src: url(css\font\MicrosoftYaqiHeiBold-2.ttf);
+	src: url(./font/MicrosoftYaqiHeiBold-2.ttf);
 }
 
 /* 粗体优化 */
@@ -25,8 +23,15 @@ b{
 	
 }
 
+.iconfont {
+	font-family: "iconfont" !important;
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
+
 html {
-	background-image: url(img\background.jpg);
 	background-color:#1e1e1e;
 	color:#c6c9ce;
 	font-size:15px;
@@ -56,7 +61,7 @@ p {
 	max-height:100%
 }
 body,input,button,textarea,select,option {
-	font:normal 1em Roboto,"Helvetica Neue",Helvetica,Arial,"Microsoft Yahei",sans-serif
+	font:normal 1em 'MicrosoftYaqiHeiBold','MicrosoftYahei'"Microsoft Yahei",sans-serif
 }
 body,h1,h2,h3,h4,h5,h6,p,figure,pre,dl,dd,blockquote,button,input {
 	margin:0
@@ -151,7 +156,7 @@ a {
 }
 a:hover {
 	color:#1e1e1e;
-	text-decoration:underline
+	text-decoration:double
 }
 hr,.hr {
 	border:0;
@@ -174,17 +179,314 @@ hr,.hr {
 .tc {
 	text-align:center
 }
+
 header {
-	margin-top: 80px;
-	margin-left: 30px;
-	margin-right: 30px;
+	margin-top: 40px;
 	margin-bottom:40px;
-}
-#header {
 	position:fixed;
-	left:0;
-	top:0;
-	width:100%;
-	height:46px;
+	line-height:40px;
+}
+.headers {
+	position:position;
+	margin-left: 10px;
+	top: -10px;
+	width: 70%;
+	text-align:right;
+	margin-top: 55px;
+	margin-bottom:40px;
+	word-spacing:30px;
+	font-family: 'Furore','MicrosoftYaqiHeiBold','MicrosoftYahei';
 
 }
+a:link {color:#c6c9ce;} 
+a:visited {color:#c6c9ced7;}
+a:hover {color:#03a9f4;} 
+a:active {color:#0078d7;}
+
+.logoimg {
+	display:inline-block;
+}
+.main {
+
+	color:honeydew;
+	position: absolute;
+	top:50%;
+	left:5%
+}
+
+.typing {
+	color: #fff;
+	overflow: hidden;
+	border-right: .15em solid whitesmoke; 
+	white-space: nowrap;
+	margin: 0 ; 
+	letter-spacing: .15em; 
+	animation: 
+	  typing 4s steps(60, end),
+	  blink-caret .5s step-end infinite,
+	  show 0.3s;
+	animation-delay: 0.3s;
+	text-align: left;
+  }
+  
+  @keyframes typing {
+	from { width: 0; display: block;}
+	to { width: 100%;display: block; }
+  }
+  
+  @keyframes blink-caret {
+	from, to { border-color: transparent }
+	50% { border-color: white }
+  }
+  .more{
+	margin-bottom:10px;
+	margin-left: 40px;
+	margin-right: 40px;
+  }
+
+  .loadingcircle {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:#c6c9ce;
+    -webkit-mask:
+      repeating-conic-gradient(#0000 0deg,#000 1deg 70deg,#0000 71deg 90deg),
+      radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 calc(100% - 8px));
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    animation:s5 1s infinite ;
+  }
+  @keyframes s5 {to{transform: rotate(.5turn)}}
+  
+
+  body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-auto-rows: 130px;
+    place-items:center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  [class*=classic]:before {
+    content:"Loading...";
+  }
+
+  .classic {
+    font-weight: bold;
+    font-family: Furore;
+    font-size: 30px;
+    animation:c1 1s linear infinite alternate;
+  }
+  @keyframes c1 {to{opacity: 0}}
+
+
+header
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Furore', sans-serif;
+}
+body .text{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif,'MicrosoftYaqiHeiBold','MicrosoftYahei';
+}
+
+header
+{
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo
+{
+  color: #c6c9ce;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
+}
+.toggle
+{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: url(../img/menu.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+  cursor: pointer;
+}
+.toggle.active
+{
+  background: url(../img/close.png);
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center;
+  cursor: pointer;
+}
+.showcase
+{
+  position: absolute;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111111;
+  transition: 0.5s;
+  z-index: 2;
+}
+.showcase.active
+{
+  right: 300px;
+}
+
+.showcase video
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+.overlay
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1e1e1e00;
+  mix-blend-mode: overlay;
+}
+.text
+{
+  position: relative;
+  z-index: 10;
+}
+
+.text h2
+{
+  font-size: 5em;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.text h3
+{
+  font-size: 4em;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.text p
+{
+  font-size: 1.1em;
+  color: #fff;
+  margin: 20px 0;
+  font-weight: 400;
+  max-width: 700px;
+}
+.text a
+{
+  display: inline-block;
+  font-size: 1em;
+  background: #fff;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #111;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+.text a:hover
+{
+  letter-spacing: 6px;
+}
+.social
+{
+  position: absolute;
+  z-index: 10;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social li
+{
+  list-style: none;
+}
+.social li a
+{
+  display: inline-block;
+  margin-right: 20px;
+  filter: invert(1);
+  transform: scale(0.5);
+  transition: 0.5s;
+}
+.social li a:hover
+{
+  transform: scale(0.5) translateY(-15px);
+}
+.menu
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu ul
+{
+  position: relative;
+}
+.menu ul li
+{
+  list-style: none;
+}
+.menu ul li a
+{
+  text-decoration: none;
+  font-size: 24px;
+  color: #c6c9ce;
+}
+.menu ul li a:hover
+{
+  color: #03a9f4; 
+}
+@media (max-width: 991px)
+{
+  .showcase,
+  .showcase header{
+    padding: 40px;
+  }
+  .text h2{
+    font-size: 3em;
+  }
+  .text h3{
+    font-size: 2em;
+  }
+
+
+
