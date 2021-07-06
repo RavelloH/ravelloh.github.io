@@ -502,5 +502,5 @@ hr,.hr{
   }
 
   code{
-    font-family: "Monaco","inconsolata","Courier","Courier New","Times";
+    font-family: Consolas,Monaco,courier,monospace;
   }
