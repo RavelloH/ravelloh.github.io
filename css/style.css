@@ -9,12 +9,12 @@
 @font-face {
 	font-family: 'Microsoft Yahei';
 	src: local(Microsoft),local('Microsoft Yahei');
-	src: url(/font/WeiRuanYaHei.ttf);
+	src: url(/css/font/WeiRuanYaHei.ttf);
 }
 @font-face {
 	font-family: 'MicrosoftYaqiHeiBold';
 	src: local('MicrosoftYaqiHeiBold'),local('MicrosoftYaqiHeiBold');
-	src: url(/font/MicrosoftYaqiHeiBold-2.ttf);
+	src: url(/css/font/MicrosoftYaqiHeiBold-2.ttf);
 }
 
 /* 粗体优化 */
