@@ -6,3 +6,5 @@ document.writeln("<li><a href=\'/classification/\'><span class=\'iconfontsmall i
 document.writeln("<li><a href=\'/friends/\'><span class=\'iconfontsmall icon-friend\'></span> Friends</a></li>");
 document.writeln("<li><a href=\'/about/\'><span class=\'iconfontsmall icon-about\'></span> About</a></li>");
 document.writeln("<b><br><br>Copyright © 2019 - <b id=\'year\'></b> RavelloH.<br> All rights reserved.</b>");
+
+var active = document.getElementsByClassName("text").id = "active";
