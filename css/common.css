@@ -20,7 +20,8 @@
     position: relative;
     animation-name: endloading;
     animation-duration: 1s;
-    color: #111111,
+    color: #111111;
+    animation-fill-mode: forwards;
 }
 
 @keyframes endloading {
@@ -30,6 +31,6 @@
     }
     100% {
         color: #111111;
-        left: -2000px;
+        left: -1000px;
     }
 }
