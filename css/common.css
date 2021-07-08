@@ -1,0 +1,35 @@
+.text {
+    position: relative;
+    animation-name: startloading;
+    animation-duration: 1s;
+    color: #111111,
+}
+
+@keyframes startloading {
+    0% {
+        color: #111111;
+        left: -1000px
+    }
+    100% {
+        color: #ffffff;
+        left: 0px;
+    }
+}
+
+.text#active {
+    position: relative;
+    animation-name: endloading;
+    animation-duration: 1s;
+    color: #111111,
+}
+
+@keyframes endloading {
+    0% {
+        color: #ffffff;
+        left: 0px
+    }
+    100% {
+        color: #111111;
+        left: -2000px;
+    }
+}
