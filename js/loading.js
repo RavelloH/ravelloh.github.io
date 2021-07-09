@@ -13,7 +13,7 @@ function getaImages() {
         } else {
             aImages_t[i] = iobj.getAttribute("data-imgurl");
         }
-        if (typeof(aImages_t[i]) != "undefined") {
+        if (typeof (aImages_t[i]) != "undefined") {
             aImages[itick] = iobj;
             itick++;
         }
@@ -24,8 +24,8 @@ function loadImg(arr) {
     for (var i = 0, len = arr.length; i < len; i++) {
         if (arr[i].getBoundingClientRect().top < document.documentElement.clientHeight && !arr[i].isLoad) {
             arr[i].isLoad = true; //图片显示标志位
-            (function(i) {
-                setTimeout(function() {
+            (function (i) {
+                setTimeout(function () {
                     if (arr[i].dataset) { //兼容不支持data的浏览器
                         aftLoadImg(arr[i], arr[i].dataset.imgurl);
                     } else {
@@ -40,11 +40,11 @@ function loadImg(arr) {
 
 function aftLoadImg(obj, url) {
     var oImg = new Image();
-    oImg.onload = function() {
+    oImg.onload = function () {
         obj.src = oImg.src; //下载完成后将该图片赋给目标obj目标对象
     }
     oImg.src = url; //oImg对象先下载该图像
 }
-window.onbeforeunload = function(e) {　　
+window.onbeforeunload = function (e) {
     document.getElementById("text").id = "active";
 }

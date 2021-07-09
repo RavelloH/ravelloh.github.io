@@ -674,6 +674,18 @@ strong {
   font-family: "MicrosoftYaqiHeiBold";
 }
 
-.right{
-  align-content:right;
+.right {
+  align-content: right;
+}
+
+.text a.tag,
+a.c {
+  display: inline-block;
+  font-size: 1em;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 2px;
+  transition: 0.4s;
 }
