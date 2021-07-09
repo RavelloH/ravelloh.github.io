@@ -651,6 +651,12 @@ section {
   overflow: auto;
 }
 
+.article {
+  width: 100%;
+  height: 80%;
+  overflow: auto;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -676,10 +682,10 @@ strong {
 
 .right {
   align-content: right;
+  text-align: right;
 }
 
-.text a.tag,
-a.c {
+.text a.tag,a.c,.article a.tag,a.m {
   display: inline-block;
   font-size: 1em;
   padding: 5px 10px;
@@ -688,4 +694,17 @@ a.c {
   font-weight: 500;
   letter-spacing: 2px;
   transition: 0.4s;
+}
+
+img.img {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.center {
+  align-content: center;
+  text-align: center;
 }
