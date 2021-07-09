@@ -1,5 +1,6 @@
 @font-face {
-  font-family: "iconfont"; /* Project id  */
+  font-family: "iconfont";
+  /* Project id  */
   src: url('./font/iconfont.ttf?t=1625208204203') format('truetype');
 }
 
@@ -11,15 +12,27 @@
   -moz-osx-font-smoothing: grayscale;
   position: relative;
 }
+
 .iconfontsmall {
   font-family: "iconfont" !important;
-  font-size: 28px;
+  font-size: 26px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  top: 3px;
+  top: 2px;
 }
+
+.iconfontmini {
+  font-family: "iconfont" !important;
+  font-size: 20px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  top: 2px;
+}
+
 .iconfontbig {
   font-family: "iconfont" !important;
   font-size: 50px;
@@ -29,6 +42,7 @@
   position: relative;
   top: 12px;
 }
+
 .iconfontlarge {
   font-family: "iconfont" !important;
   font-size: 70px;
@@ -38,7 +52,7 @@
   position: relative;
 }
 
-span{
+span {
   position: relative;
   top: 5px;
 }
