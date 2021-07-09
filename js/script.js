@@ -6,7 +6,7 @@ menuToggle.addEventListener('click', () => {
     showcase.classList.toggle('active');
 })
 
-Date.prototype.format = function(fmt) {
+Date.prototype.format = function (fmt) {
     var o = {};
     if (/(y+)/.test(fmt)) {
         fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
