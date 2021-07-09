@@ -1,4 +1,4 @@
-.text {
+.text,.article {
     position: relative;
     animation-name: startloading;
     animation-duration: 1s;
@@ -17,7 +17,7 @@
     }
 }
 
-.text#active {
+.text#active,.article#active {
     position: relative;
     animation-name: endloading;
     animation-duration: 1s;
