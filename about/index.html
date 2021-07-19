@@ -60,10 +60,32 @@
             <div class="text" id="text">
                 <h3>ABOUT - 关于</h3>
                 <p>
-                    About This: <br> 此blog由RavelloH制作并维护。
-                    <br> 此博客通过
-                    <code>Github Pages</code>与<code>Gitee Pages</code> 提供的静态资源服务器服务。<br> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享
-                    4.0 (CC BY-NC-ND 4.0) 协议授权。<br>
+                    About This: <br>
+                    此blog由RavelloH制作并维护。
+                    <br> 此博客使用了
+                    Github Pages与Gitee Pages 提供的静态资源服务器服务。<br> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享
+                    4.0 (CC BY-NC-ND 4.0) 协议授权。<br>Themes by <a href="http://ravelloh.github.io">RavelloH</a>。<br><br>
+                    <span id="runtime_span">网站已运行:请打开JavaScript!!!</span>
+                    <script type="text/javascript">
+                        function show_runtime() {
+                            window.setTimeout("show_runtime()", 1000);
+                            X = new Date("2/03/2019 20:52:00");
+                            Y = new Date();
+                            T = (Y.getTime() - X.getTime());
+                            M = 24 * 60 * 60 * 1000;
+                            a = T / M;
+                            A = Math.floor(a);
+                            b = (a - A) * 24;
+                            B = Math.floor(b);
+                            c = (b - B) * 60;
+                            C = Math.floor((b - B) * 60);
+                            D = Math.floor((c - C) * 60);
+                            runtime_span.innerHTML = "网站已运行:" + A + "天" + B + "小时" + C + "分" + D + "秒。"
+                        }
+                        show_runtime();
+                    </script>
+                    <br>
+
                 </p>
             </div>
             <span class="iconfontlarge icon-about"></span>
