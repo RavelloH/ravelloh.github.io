@@ -685,7 +685,10 @@ strong {
   text-align: right;
 }
 
-.text a.tag,a.c,.article a.tag,a.m {
+.text a.tag,
+a.c,
+.article a.tag,
+a.m {
   display: inline-block;
   font-size: 1em;
   padding: 5px 10px;
@@ -707,4 +710,11 @@ img.img {
 .center {
   align-content: center;
   text-align: center;
+}
+
+.linkline {
+  border-bottom: 1px dashed #ffffff;
+  height: 50px;
+  width: 350px;
+  color: #ffffff
 }

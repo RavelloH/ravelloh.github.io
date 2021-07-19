@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RavelloH’s Blog | Minecraft命令实现在线统计</title>
+    <meta name="keywords" content="RavelloH,blog,">
+    <meta name="description" content="A Blog by RavelloH">
+
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="/js/loading.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+
+</head>
+
+<body>
+
+    <body>
+
+        <section class="showcase">
+            <header>
+                <h2 class="logo">
+                    <a href="/">
+                        <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;"
+                            alt="avatar">
+                        <img class="logoimg" src="/img/RavelloH.svg" alt="RavelloH's Blog">
+                    </a>
+
+                </h2>
+                <div class="headers">
+                    <nav>
+                        <a href="/">
+                            HOME
+                        </a>
+                        <a href="/apps/">
+                            APPS
+                        </a>
+                        <a href="/articles/">
+                            ARTICLES
+                        </a>
+                        <a href="/tag/">
+                            TAG
+                        </a>
+                        <a href="/about/">
+                            ABOUT
+                        </a>
+                        </p>
+                    </nav>
+                </div>
+                <div class="toggle" class="header">
+                </div>
+            </header>
+
+            <div class="overlay"></div>
+            <div class="article" id="text">
+                <h2>Minecraft命令实现在线统计</h2>
+                <span class="iconfontmini icon-clock"></span> 2021-07-19 · <span
+                class="iconfontmini icon-classification"></span><a href="/classification/#游戏">游戏</a>·
+            <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
+                class="tag" href="/tag/#json">JSON</a>
+                <div>
+                    <h4><b><em>Menu - 目录列表</em></b></h4>
+                    <a class="m" href="#效果">效果</a>
+                    <a class="m" href="#实现方式">实现方式</a>
+                    <a class="代码" href="#代码">代码</a>
+                </div>
+                <hr>
+                <br><br>
+                <div class="center">
+                注:本文应用于1.13+ <br>
+                <em>
+                    <a id="loadingtext1">-</a>   <a id="loadingtext2">-</a>
+                </em>
+                </div>
+                <br>
+                <h4><a name=效果 href="#效果">#效果</a></h4>
+                <p>
+                    <img src=img2.gif class="img" id="img2">
+                </p>
+                <h4><a name=实现方式 href="#实现方式">#实现方式</a></h4>
+                <p>
+                    首先要实现在线时间统计，需要先定义时间。<br>
+                    所以在这里 需要先创建几个稍后要用到的计分板：<br>
+                    /scoreboard objectives add timetick dummy <br>
+                    /scoreboard objectives add times dummy <br>
+                    /scoreboard objectives add timem dummy <br>
+                    /scoreboard objectives add timeh dummy <br>
+                    /scoreboard objectives add timed dummy <br>
+                    顺次显示的是 秒-分-时-天。<br><br>
+
+                    计时器的思路是这样的：<br>
+                    使用循环命令方块为timetick加分，则每秒可以增加20（每秒命令方块运行20次）<br>
+                    当timetick为20时，为times加1并设置timetick为0。<br>
+                    当times为60时，为timem加1并设置times为0。<br>
+                    当timem为60时，为timeh加1并设置timem为0。<br>
+                    ...以此类推。<br><br>
+
+                    所以在这里 需要使用命令方块组+目标选择器进行运算:<br>
+                    循环:  scoreboard players add @a timetick 1 <br>
+                    连锁:  scoreboard players add @a[scores={timetick=20..}] times 1 <br>
+                    连锁:  scoreboard players set @a[scores={timetick=20..}] timetick 0 <br>
+                    连锁:  scoreboard players add @a[scores={times=60..}] timem 1 <br>
+                    连锁:  scoreboard players set @a[scores={times=60..}] times 0 <br>
+                    连锁:  scoreboard players add @a[scores={timem=60..}] timeh 1 <br>
+                    连锁:  scoreboard players set @a[scores={timem=60..}] timem 0 <br>
+                    连锁:  scoreboard players add @a[scores={timeh=24..}] timed 1 <br>
+                    连锁:  scoreboard players set @a[scores={timeh=24..}] timeh 0 <br>
+                    <br>
+
+                    最后 再加一个title用于显示即可 <br>
+                    循环： execute as @a at @s run title @p actionbar [{"text":"在线时间:","color":"green","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timed","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"天","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timeh","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"小时","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timem","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"分","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"times","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"秒","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]
+                    <br>（考虑到多人游戏的情况 这里添加了一个execute用于保证显示正确的对象）
+                    <br><br>
+
+                    当我们搭建好全部命令方块并运行后，不难发现虽然计时器正常，但却没有显示值为0的项目:<br>
+                    <img src="img1.png" class="img center" id="img1"><br>
+                    这是因为未被赋值的计分板项目默认不显示，需要手动设置为0：<br>
+                    /scoreboard players set @p times 0 <br>
+                    /scoreboard players set @p timem 0 <br>
+                    /scoreboard players set @p timeh 0 <br>
+                    /scoreboard players set @p timed 0 <br>
+                    之后即可正常使用。
+
+                </p>
+                <h4><a name=代码 href="#代码">#代码</a></h4>
+                <pre>
+                /scoreboard objectives add timetick dummy
+                /scoreboard objectives add times dummy
+                /scoreboard objectives add timem dummy
+                /scoreboard objectives add timeh dummy
+                /scoreboard objectives add timed dummy
+
+                /scoreboard players set @p times 0 
+                /scoreboard players set @p timem 0 
+                /scoreboard players set @p timeh 0 
+                /scoreboard players set @p timed 0 
+
+                循环:  scoreboard players add @a timetick 1
+                连锁:  scoreboard players add @a[scores={timetick=20..}] times 1 
+                连锁:  scoreboard players set @a[scores={timetick=20..}] timetick 0 
+                连锁:  scoreboard players add @a[scores={times=60..}] timem 1
+                连锁:  scoreboard players add @a[scores={timem=60..}] timeh 1 
+                连锁:  scoreboard players set @a[scores={timem=60..}] timem 0 
+                连锁:  scoreboard players add @a[scores={timeh=24..}] timed 1 
+                连锁:  scoreboard players set @a[scores={timeh=24..}] timeh 0 
+                循环:  execute as @a at @s run title @p actionbar [{"text":"在线时间:","color":"green","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timed","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"天","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timeh","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"小时","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timem","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"分","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"times","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"秒","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]
+                </pre>
+                <br>
+                <h3>OOC:</h3>
+                <pre>
+                    /summon falling_block ~ ~1.5 ~ {Time:1,BlockState:{Name:"minecraft:redstone_block"},Motion:[0d,-1d,0d],Passengers:[{id:falling_block,Time:1,BlockState:{Name:"minecraft:activator_rail"},Passengers:[{id:command_block_minecart,Command:"/data merge block ~ ~-2 ~ {auto:0b,Command:\"\"}"},{id:command_block_minecart,Command:"/scoreboard objectives add timetick dummy\n/scoreboard objectives add times dummy\n/scoreboard objectives add timem dummy\n/scoreboard objectives add timeh dummy\n/scoreboard objectives add timed dummy\n/scoreboard players set @p times 0 \n/scoreboard players set @p timem 0 \n/scoreboard players set @p timeh 0 \n/scoreboard players set @p timed 0 \nscoreboard players add @a timetick 1\nscoreboard players add @a[scores={timetick=20..}] times 1 \nscoreboard players set @a[scores={timetick=20..}] timetick 0 \nscoreboard players add @a[scores={times=60..}] timem 1\nscoreboard players add @a[scores={timem=60..}] timeh 1 \nscoreboard players set @a[scores={timem=60..}] timem 0 \nscoreboard players add @a[scores={timeh=24..}] timed 1 \nscoreboard players set @a[scores={timeh=24..}] timeh 0 \nexecute as @a at @s run title @p actionbar [{\"text\":\"在线时间:\",\"color\":\"green\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timed\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"天\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timeh\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"小时\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timem\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"分\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"times\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"秒\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}]"},{id:command_block_minecart,Command:"setblock ~ ~1 ~ command_block{auto:1b,Command:\"fill ~ ~ ~ ~ ~-2 ~ air\"} replace"},{id:command_block_minecart,Command:"kill @e[type=command_block_minecart,distance=..1]"}]}]}
+                </pre>
+
+                <hr>
+                <br>
+                <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
+                协议授权。
+
+                <script src="https://utteranc.es/client.js" repo="ravelloh/utterances" issue-term="pathname"
+                    theme="github-dark" crossorigin="anonymous" async>
+                </script>
+            </div>
+            <ul class="social">
+                <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
+                <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
+                            class="iconfont icon-github"></span></a></li>
+                <li>
+                    <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
+                        <spam class="iconfont icon-home">
+                            </span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <div class="menu">
+            <ul>
+                <script type="text/javascript" src="/js/menu.js"></script>
+            </ul>
+        </div>
+        <script>
+            document.getElementById('img1').onload = function (e) {
+                e.stopPropagation();
+                document.getElementById("loadingtext1").innerHTML = "IMG1";
+                document.getElementById('img2').onload = function (e) {
+                    e.stopPropagation();
+                    document.getElementById("loadingtext2").innerHTML = "IMG2";
+                }
+            }
+        </script>
+        <script src="/js/script.js"></script>
+        <script src="//instant.page/5.1.0" type="module"
+            integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    </body>
+
+</html>
