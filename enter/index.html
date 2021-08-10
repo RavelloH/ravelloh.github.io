@@ -70,6 +70,19 @@
                 <p>这些信息包括你的设备类型，浏览方式及你的地理位置与IP等。</p>
                 <p>下面展示的是你的IP与更精确的GPS定位。</p>
                 <script>document.write(IPData[0]);</script><br>
+                <script>
+                function getLocation(){
+        if(navigator.geolocation){
+        //判断是否有这个对象
+            navigator.geolocation.getCurrentPosition(function(pos){
+                alert("经度："+pos.coords.longitude+
+                "纬度："+pos.coords.latitude)
+            })
+        }else{
+            alert("当前系统不支持GPS API")
+        }
+    }
+                    </script>
                 <p id="gps">GPS:</p>
                 <p>这些信息会在两周后自动从数据库清空。</p>
                 <br>
