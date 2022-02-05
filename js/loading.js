@@ -47,4 +47,7 @@ function aftLoadImg(obj, url) {
 }
 window.onbeforeunload = function (e) {
     document.getElementById("text").id = "active";
+    var spans = document.getElementsByTagName('span');
+    for(var i = 0;i < spans.length;i ++){
+       (spans[i]).id = "active";}
 }
