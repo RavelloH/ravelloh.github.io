@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RavelloH’s Blog | JS递归遍历伪数组</title>
+    <meta name="keywords" content="RavelloH,blog,">
+    <meta name="description" content="A Blog by RavelloH">
+
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="/js/loading.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+
+</head>
+
+<body>
+
+    <body>
+
+        <section class="showcase">
+            <header>
+                <h2 class="logo">
+                    <a href="/">
+                        <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;"
+                            alt="avatar">
+                        <img class="logoimg" src="/img/RavelloH.svg" alt="RavelloH's Blog">
+                    </a>
+
+                </h2>
+                <div class="headers">
+                    <nav>
+                        <a href="/">
+                            HOME
+                        </a>
+                        <a href="/works/">
+                            WORKS
+                        </a>
+                        <a href="/articles/">
+                            ARTICLES
+                        </a>
+                        <a href="/tag/">
+                            TAG
+                        </a>
+                        <a href="/about/">
+                            ABOUT
+                        </a>
+                        </p>
+                    </nav>
+                </div>
+                <div class="toggle" class="header">
+                </div>
+            </header>
+
+            <div class="overlay"></div>
+            <div class="article" id="text">
+                <h2>JS递归遍历伪数组</h2>
+                <span class="iconfontmini icon-clock"></span> 2022-02-06 · <span
+                class="iconfontmini icon-classification"></span><a href="/classification/#技术">技术</a>·
+            <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
+                class="tag" href="/tag/#javascript">JAVASCRIPT</a>
+                <div>
+                    <h4><b><em>Menu - 目录列表</em></b></h4>
+                    <a class="m" href="#前言">前言</a>
+                    <a class="m" href="#原理">原理</a>
+                    <a class="m" href="#应用">应用</a>
+                    <a class="m" href="#代码">后言</a>
+                </div>
+                <hr>
+                <br>
+                <br>
+                <h4><a name="前言" href="#前言">#前言</a></h4>
+                <p>
+                    最近在用getElementsByTagName获取标签内容时，发现与getElementById/ClassName等不同，<br>
+                    直接document.getElementsByTagName('').id修改页面中所有标签的id时没有反应...<br>
+                    console.log输出一下，发现输出的是[li,li,li,li,li]这种形式的伪数组(集合)
+                </p>
+                <h4><a name="原理" href="#原理">#原理</a></h4>
+                <p>
+                    这里既然是以集合的方式输出，就可以用逐项穷举的方式将其中的项挨个执行。<br>
+                    首先储存这个集合:<sup><em>*这里以li为例</em></sup><br>
+                <div class="codeline">
+                <pre>
+                    var lis = document.getElementsByTagName('li')
+                </pre>
+                </div>
+                    然后用for循环递归:<br>
+                <div class="codeline">
+                <pre>
+                    for(var i = 0;
+                        i < lis.length;
+                        i ++){
+                    console.log(lis[i])}
+                </pre>
+                </div>
+                这里直接输出了，在这个时候就可以用document.等
+                </p>
+                <h4><a name="应用" href="#应用">#应用</a></h4>
+                <p>
+                给页面内所有span加入加载特效：
+                <div class="codeline">
+                <pre>
+/* CSS */
+span {
+    position: relative;
+    animation-name: startloadingspan;
+    animation-duration: 0.8s;
+}
+
+@keyframes startloadingspan {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+span#active {
+    position: relative;
+    animation-name: endloadingspan;
+    animation-duration: 0.8s
+    animation-fill-mode: forwards;
+}
+
+@keyframes endloadingspan {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+//JavaScript
+window.onbeforeunload = function (e) {
+    document.getElementById("text").id = "active";
+    var spans = document.getElementsByTagName('span');
+    for(var i = 0;i < spans.length;i ++){
+       (spans[i]).id = "active";}
+}
+                </pre>
+                </div>
+                </p>
+                <h4><a name="后言" href="#后言">#后言</a></h4>
+                <p>
+                最近忙着升级主题，但是确实没有时间...这坑要慢慢填<br>
+                这是2022的第一篇文章，但估计之后很长一段时间内也不会更多少博客，可能这也是2022的最后一篇文章了吧<br>
+                新年快乐。
+                </p>
+                <br>
+    
+                <hr>
+                <br>
+                <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
+                协议授权。
+
+                <script src="https://utteranc.es/client.js" repo="ravelloh/utterances" issue-term="pathname"
+                    theme="github-dark" crossorigin="anonymous" async>
+                </script>
+            </div>
+            <ul class="social">
+                <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
+                <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
+                            class="iconfont icon-github"></span></a></li>
+                <li>
+                    <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
+                        <span class="iconfont icon-home">
+                            </span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <div class="menu">
+            <ul>
+                <script type="text/javascript" src="/js/menu.js"></script>
+            </ul>
+        </div>
+        <script>
+            document.getElementById('img1').onload = function (e) {
+                e.stopPropagation();
+                document.getElementById("loadingtext1").innerHTML = "IMG1";
+                document.getElementById('img2').onload = function (e) {
+                    e.stopPropagation();
+                    document.getElementById("loadingtext2").innerHTML = "IMG2";
+                }
+            }
+        </script>
+        <script src="/js/script.js"></script>
+        <script src="//instant.page/5.1.0" type="module"
+            integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    </body>
+
+</html>
