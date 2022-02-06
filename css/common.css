@@ -17,7 +17,7 @@
     }
 }
 
-.text#active,.article#active {
+.text#active,.article#active,.listline#active {
     position: relative;
     animation-name: endloading;
     animation-duration: 1s;
