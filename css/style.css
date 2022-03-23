@@ -744,7 +744,7 @@ pre {
 
 pre span {
     display: block;
-    line-height: 0.2rem;
+    line-height: 1.5rem;
     white-space: pre;
 }
 
