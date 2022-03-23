@@ -738,7 +738,7 @@ pre {
     word-spacing: normal;
     word-break: normal;
     line-height: 0.2;
-    white-space: pre;
+    white-space: pre-wrap;
     word-wrap: break-word;
 }
 
