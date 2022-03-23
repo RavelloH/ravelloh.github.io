@@ -740,6 +740,7 @@ pre {
     line-height: 0.2;
     white-space: pre-wrap;
     word-wrap: break-word;
+    overflow: auto;
 }
 
 pre span {
