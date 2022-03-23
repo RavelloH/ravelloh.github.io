@@ -734,11 +734,11 @@ pre {
     margin: 1em;
     border-radius: 5px;
     counter-reset: line;
-    white-space: pre;
     word-spacing: normal;
     word-break: normal;
-    word-wrap: normal;
     line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 pre span {
