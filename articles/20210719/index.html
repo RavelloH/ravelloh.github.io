@@ -131,34 +131,53 @@
                 <h4><a name=代码 href="#代码">#代码</a></h4>
                 <div class="codeline">
                 <pre>
-                /scoreboard objectives add timetick dummy
-                /scoreboard objectives add times dummy
-                /scoreboard objectives add timem dummy
-                /scoreboard objectives add timeh dummy
-                /scoreboard objectives add timed dummy
+                <span>/scoreboard objectives add timetick dummy</span>
 
-                /scoreboard players set @p times 0 
-                /scoreboard players set @p timem 0 
-                /scoreboard players set @p timeh 0 
-                /scoreboard players set @p timed 0 
+<span>/scoreboard objectives add times dummy</span>
 
-                循环:  scoreboard players add @a timetick 1
-                连锁:  scoreboard players add @a[scores={timetick=20..}] times 1 
-                连锁:  scoreboard players set @a[scores={timetick=20..}] timetick 0 
-                连锁:  scoreboard players add @a[scores={times=60..}] timem 1
-                连锁:  scoreboard players add @a[scores={timem=60..}] timeh 1 
-                连锁:  scoreboard players set @a[scores={timem=60..}] timem 0 
-                连锁:  scoreboard players add @a[scores={timeh=24..}] timed 1 
-                连锁:  scoreboard players set @a[scores={timeh=24..}] timeh 0 
-                循环:  execute as @a at @s run title @p actionbar [{"text":"在线时间:","color":"green","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timed","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"天","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timeh","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"小时","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timem","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"分","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"times","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"秒","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]
+<span>/scoreboard objectives add timem dummy</span>
+
+<span>/scoreboard objectives add timeh dummy</span>
+
+<span>/scoreboard objectives add timed dummy</span>
+
+<span></span>
+
+<span>/scoreboard players set @p times 0 </span>
+
+<span>/scoreboard players set @p timem 0 </span>
+
+<span>/scoreboard players set @p timeh 0 </span>
+
+<span>/scoreboard players set @p timed 0 </span>
+
+<span></span>
+
+<span>循环:  scoreboard players add @a timetick 1</span>
+
+<span>连锁:  scoreboard players add @a[scores={timetick=20..}] times 1 </span>
+
+<span>连锁:  scoreboard players set @a[scores={timetick=20..}] timetick 0 </span>
+
+<span>连锁:  scoreboard players add @a[scores={times=60..}] timem 1</span>
+
+<span>连锁:  scoreboard players add @a[scores={timem=60..}] timeh 1 </span>
+
+<span>连锁:  scoreboard players set @a[scores={timem=60..}] timem 0 </span>
+
+<span>连锁:  scoreboard players add @a[scores={timeh=24..}] timed 1 </span>
+
+<span>连锁:  scoreboard players set @a[scores={timeh=24..}] timeh 0 </span>
+
+<span>循环:  execute as @a at @s run title @p actionbar [{"text":"在线时间:","color":"green","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timed","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"天","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timeh","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"小时","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timem","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"分","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"times","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"秒","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]</span>
                 </pre>
                 </div>
                 <br>
                 <h3>OOC:</h3>
                 <div class="codeline">
                 <pre>
-                    /summon falling_block ~ ~1.5 ~ {Time:1,BlockState:{Name:"minecraft:redstone_block"},Motion:[0d,-1d,0d],Passengers:[{id:falling_block,Time:1,BlockState:{Name:"minecraft:activator_rail"},Passengers:[{id:command_block_minecart,Command:"/data merge block ~ ~-2 ~ {auto:0b,Command:\"\"}"},{id:command_block_minecart,Command:"/scoreboard objectives add timetick dummy\n/scoreboard objectives add times dummy\n/scoreboard objectives add timem dummy\n/scoreboard objectives add timeh dummy\n/scoreboard objectives add timed dummy\n/scoreboard players set @p times 0 \n/scoreboard players set @p timem 0 \n/scoreboard players set @p timeh 0 \n/scoreboard players set @p timed 0 \nscoreboard players add @a timetick 1\nscoreboard players add @a[scores={timetick=20..}] times 1 \nscoreboard players set @a[scores={timetick=20..}] timetick 0 \nscoreboard players add @a[scores={times=60..}] timem 1\nscoreboard players add @a[scores={timem=60..}] timeh 1 \nscoreboard players set @a[scores={timem=60..}] timem 0 \nscoreboard players add @a[scores={timeh=24..}] timed 1 \nscoreboard players set @a[scores={timeh=24..}] timeh 0 \nexecute as @a at @s run title @p actionbar [{\"text\":\"在线时间:\",\"color\":\"green\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timed\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"天\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timeh\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"小时\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timem\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"分\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"times\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"秒\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}]"},{id:command_block_minecart,Command:"setblock ~ ~1 ~ command_block{auto:1b,Command:\"fill ~ ~ ~ ~ ~-2 ~ air\"} replace"},{id:command_block_minecart,Command:"kill @e[type=command_block_minecart,distance=..1]"}]}]}
-                </pre>
+                    <span>/summon falling_block ~ ~1.5 ~ {Time:1,BlockState:{Name:"minecraft:redstone_block"},Motion:[0d,-1d,0d],Passengers:[{id:falling_block,Time:1,BlockState:{Name:"minecraft:activator_rail"},Passengers:[{id:command_block_minecart,Command:"/data merge block ~ ~-2 ~ {auto:0b,Command:\"\"}"},{id:command_block_minecart,Command:"/scoreboard objectives add timetick dummy\n/scoreboard objectives add times dummy\n/scoreboard objectives add timem dummy\n/scoreboard objectives add timeh dummy\n/scoreboard objectives add timed dummy\n/scoreboard players set @p times 0 \n/scoreboard players set @p timem 0 \n/scoreboard players set @p timeh 0 \n/scoreboard players set @p timed 0 \nscoreboard players add @a timetick 1\nscoreboard players add @a[scores={timetick=20..}] times 1 \nscoreboard players set @a[scores={timetick=20..}] timetick 0 \nscoreboard players add @a[scores={times=60..}] timem 1\nscoreboard players add @a[scores={timem=60..}] timeh 1 \nscoreboard players set @a[scores={timem=60..}] timem 0 \nscoreboard players add @a[scores={timeh=24..}] timed 1 \nscoreboard players set @a[scores={timeh=24..}] timeh 0 \nexecute as @a at @s run title @p actionbar [{\"text\":\"在线时间:\",\"color\":\"green\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timed\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"天\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timeh\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"小时\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timem\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"分\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"times\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"秒\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}]"},{id:command_block_minecart,Command:"setblock ~ ~1 ~ command_block{auto:1b,Command:\"fill ~ ~ ~ ~ ~-2 ~ air\"} replace"},{id:command_block_minecart,Command:"kill @e[type=command_block_minecart,distance=..1]"}]}]}
+                </span></pre>
                 </div>
     
                 <hr>
