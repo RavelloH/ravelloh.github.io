@@ -725,3 +725,38 @@ img.img {
   width: 350px;
   color: #ffffff
 }
+
+pre {
+    background: #2d2d2d;
+    color: rgb(201,209,217);
+    font-family: Consolas;
+    text-align: left;
+    padding: 1em;
+    padding-left: 0.8em;
+    margin: 1em;
+    border-radius: 5px;
+    counter-reset: line;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+}
+
+pre span {
+    display: block;
+    line-height: 1.5rem;
+    white-space: pre;
+}
+
+pre span:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    width: 3em;
+    text-align: right;
+    border-right: 2px solid #999;
+    padding-right: .8em;
+    margin-right: 1em;
+    color: #999;
+}
