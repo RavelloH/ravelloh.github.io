@@ -661,7 +661,6 @@ section {
 .codeline {
    width: 98%;
    height: auto;
-   overflow: auto;
 }
 
 ::-webkit-scrollbar {
