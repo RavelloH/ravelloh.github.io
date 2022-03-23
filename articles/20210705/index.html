@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RavelloH’s Blog | CSS与JS实现页面过渡</title>
+    <meta name="keywords" content="RavelloH,blog,">
+    <meta name="description" content="A Blog by RavelloH">
+
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="/js/loading.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+
+</head>
+
+<body>
+
+    <body>
+
+        <section class="showcase">
+            <header>
+                <h2 class="logo">
+                    <a href="/">
+                        <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;" alt="avatar">
+                        <img class="logoimg" src="/img/RavelloH.svg" alt="RavelloH's Blog">
+                    </a>
+
+                </h2>
+                <div class="headers">
+                    <nav>
+                        <a href="/">
+                            HOME
+                        </a>
+                        <a href="/works/">
+                            WORKS
+                        </a>
+                        <a href="/articles/">
+                            ARTICLES
+                        </a>
+                        <a href="/tag/">
+                            TAG
+                        </a>
+                        <a href="/about/">
+                            ABOUT
+                        </a>
+                        </p>
+                    </nav>
+                </div>
+                <div class="toggle" class="header">
+                </div>
+            </header>
+
+            <div class="overlay"></div>
+            <div class="article" id="text">
+                <h2>CSS与JS实现页面过渡</h2>
+                <span class="iconfontmini icon-clock"></span> 2021-07-05 · <span class="iconfontmini icon-classification"></span>
+                <a href="/classification/#技术">技术</a> - <a href="/classification/#设计">设计</a>·<span class="iconfontmini icon-tag"></span>
+                <a class="tag" href="/tag/#html">HTML</a>
+                <a class="tag" href="/tag/#javascript">JavaScript</a>
+                <a class="tag" href="/tag/#css">CSS</a>
+                <div>
+                    <h4>
+                        <b>
+                            <em>Menu - 目录列表</em>
+                        </b>
+                    </h4>
+                    <a class="m" href="#前言">前言</a>
+                    <a class="m" href="#效果">效果</a>
+                    <a class="m" href="#实现方式">实现方式</a>
+                    <a class="代码" href="#代码">代码</a>
+                </div>
+                <hr>
+                <br>
+                <br>
+                <h4>
+                    <a name="前言" href="#前言">#前言</a>
+                </h4>
+                <p>因为自己最近在忙这个博客的建设，所以自己就想给这个blog做一个切换页面时的过渡。可在网上却都没什么符合这blog主题的，于是自己动手丰衣足食，自己就做了现在的这种效果。</p>
+                <br>
+                <h4>
+                    <a name="效果" href="#效果">#效果</a>
+                </h4>
+                <p>
+                    效果如此blog中的切换效果，即：
+                    <br>
+                    进入新页面时，除顶栏及底栏外的其余文字部分从屏幕左侧飞入，
+                    <br>
+                    离开此页面时，除顶栏及底栏外的其余文字部分从屏幕左侧飞出。
+                    <br>
+                    <br>
+                </p>
+                <h4>
+                    <a name="实现方式" href="#实现方式">#实现方式</a>
+                </h4>
+                <p>
+                    考虑到需要有对进入\离开页面的检测，这里需要用到JavaScript。对样式的调整，我选择了使用CSS动画。
+                    <br>
+                    这样还有个优点：因为需要让动画结束后元素停留在结束位置，所以先使用动画，将元素从left:-xxxpx移动到left:0px即可。
+                    <br>
+                    而对于离开页面，则需要使用window.onbeforeunload参数检测是否离开页面，然后触发动画。
+                    <br>
+                    触发动画的方式，这里采用的是通过JS改变HTML内容的属性id，配合CSS选择器实现。
+                    <br>
+                    <br>
+                    值得注意的是，因为网络原因可能会导致一个页面的加载时间变长，这时若离开页面的动画播放完毕则会重新回到原位置。
+                    <br>
+                    要解决这个问题，最好的办法是在css动画属性中加入"animation-fill-mode: forwards;",让动画结束时元素停在结束位置
+                </p>
+                <h4>
+                    <a name="代码" href="#代码">#代码</a>
+                </h4>
+                <div class="center">
+                    <em>
+                        <a id="loadingtext1">-</a>
+                        <a id="loadingtext2">-</a>
+                        <a id="loadingtext3">-</a>
+                    </em>
+                </div>
+                CSS：
+                <img class="img" id="img1" src="code1.png">
+                Javascript:
+                <img class="img" id="img2" src="code2.png">
+                HTML
+                <img class="img" id="img3" src="code3.png">
+
+                <br>
+                <h3>文字版：</h3>
+                CSS：
+                <br>
+                <pre>
+<span>.text {</span>
+<span>    position: relative;</span>
+<span>    animation-name: startloading;</span>
+<span>    animation-duration: 1s;</span>
+<span>}</span>
+<span></span>
+<span>@keyframes startloading {</span>
+<span>    0% {</span>
+<span>        left: -2000px</span>
+<span>    }</span>
+<span></span>
+<span>    100% {</span>
+<span>        left: 0px;</span>
+<span>    }</span>
+<span>}</span>
+<span></span>
+<span>.text#active {</span>
+<span>    position: relative;</span>
+<span>    animation-name: endloading;</span>
+<span>    animation-duration: 1s;</span>
+<span>    color: #111111;</span>
+<span>    animation-fill-mode: forwards;</span>
+<span>}</span>
+<span></span>
+<span>@keyframes endloading {</span>
+<span>    0% {</span>
+<span>        left: 0px</span>
+<span>    }</span>
+<span></span>
+<span>    100% {</span>
+<span>        left: -2000px;</span>
+<span>    }</span>
+<span>}</span>
+<span>                </span>
+                </pre>
+                JS：
+                <br>
+                <pre>
+
+                        <span>window.onbeforeunload = function (e) {</span>
+                        <span>    document.getElementById("text").id = "active";</span>
+                        <span>}</span>
+                </pre>
+                HTML：
+                <br>
+                <pre>
+                        <span>&lt;div class="text" id="text"></span>
+                        <span>    文字内容</span>
+                        <span>&lt;/div></span>
+                </pre>
+
+                <hr>
+                <br>
+                <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
+                协议授权。
+
+                <script src="https://utteranc.es/client.js" repo="ravelloh/utterances" issue-term="pathname" theme="github-dark" crossorigin="anonymous" async>
+                </script>
+            </div>
+            <ul class="social">
+                <li>
+                    <a href="/about/">
+                        <span class="iconfont icon-about"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://github.com/ravelloh" target="_blank" rel="noreferrer">
+                        <span class="iconfont icon-github"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
+                        <span class="iconfont icon-home">
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <div class="menu">
+            <ul>
+                <script type="text/javascript" src="/js/menu.js"></script>
+            </ul>
+        </div>
+        <script>
+            document.getElementById('img1').onload = function (e) {
+                e.stopPropagation();
+                document.getElementById("loadingtext1").innerHTML = "CSS";
+                document.getElementById('img2').onload = function (e) {
+                    e.stopPropagation();
+                    document.getElementById("loadingtext2").innerHTML = "JAVASCRIPT";
+                    document.getElementById('img3').onload = function (e) {
+                        e.stopPropagation();
+                        document.getElementById("loadingtext3").innerHTML = "HTML";
+                    }
+                }
+            }
+        </script>
+        <script src="/js/script.js"></script>
+        <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    </body>
+
+</html>
