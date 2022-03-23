@@ -86,16 +86,16 @@
                     首先储存这个集合:<sup><em>*这里以li为例</em></sup><br>
                 <div class="codeline">
                 <pre>
-                    var lis = document.getElementsByTagName('li')
+                    <span>var lis = document.getElementsByTagName('li')</span>
                 </pre>
                 </div>
                     然后用for循环递归:<br>
                 <div class="codeline">
                 <pre>
-                    for(var i = 0;
-                        i < lis.length;
-                        i ++){
-                    console.log(lis[i])}
+                    <span>for(var i = 0;</span>
+                    <span>    i < lis.length;</span>
+                    <span>    i ++){</span>
+                    <span>console.log(lis[i])}</span>
                 </pre>
                 </div>
                 这里直接输出了，在这个时候就可以用document.等
@@ -105,45 +105,45 @@
                 给页面内所有span加入加载特效：
                 <div class="codeline">
                 <pre>
-/* CSS */
-span {
-    position: relative;
-    animation-name: startloadingspan;
-    animation-duration: 0.8s;
-}
-
-@keyframes startloadingspan {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-span#active {
-    position: relative;
-    animation-name: endloadingspan;
-    animation-duration: 0.8s
-    animation-fill-mode: forwards;
-}
-
-@keyframes endloadingspan {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-//JavaScript
-window.onbeforeunload = function (e) {
-    document.getElementById("text").id = "active";
-    var spans = document.getElementsByTagName('span');
-    for(var i = 0;i < spans.length;i ++){
-       (spans[i]).id = "active";}
-}
+<span>/* CSS */</span>
+<span>span {</span>
+<span>    position: relative;</span>
+<span>    animation-name: startloadingspan;</span>
+<span>    animation-duration: 0.8s;</span>
+<span>}</span>
+<span></span>
+<span>@keyframes startloadingspan {</span>
+<span>    0% {</span>
+<span>        opacity: 0;</span>
+<span>    }</span>
+<span>    100% {</span>
+<span>        opacity: 1;</span>
+<span>    }</span>
+<span>}</span>
+<span></span>
+<span>span#active {</span>
+<span>    position: relative;</span>
+<span>    animation-name: endloadingspan;</span>
+<span>    animation-duration: 0.8s</span>
+<span>    animation-fill-mode: forwards;</span>
+<span>}</span>
+<span></span>
+<span>@keyframes endloadingspan {</span>
+<span>    0% {</span>
+<span>        opacity: 1;</span>
+<span>    }</span>
+<span>    100% {</span>
+<span>        opacity: 0;</span>
+<span>    }</span>
+<span>}</span>
+<span></span>
+<span>//JavaScript</span>
+<span>window.onbeforeunload = function (e) {</span>
+<span>    document.getElementById("text").id = "active";</span>
+<span>    var spans = document.getElementsByTagName('span');</span>
+<span>    for(var i = 0;i < spans.length;i ++){</span>
+<span>       (spans[i]).id = "active";}</span>
+<span>}</span>
                 </pre>
                 </div>
                 </p>
