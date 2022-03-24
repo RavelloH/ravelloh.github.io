@@ -16,7 +16,24 @@
     <!-- JavaScript -->
     <script type="text/javascript" src="/js/loading.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
-
+    <script>
+            var img = [];
+            var flag = 0;
+            var mulitImg = ['http://ravelloh.github.io/article/20220323/img1.jpg'];
+            var imgTotal = mulitImg.length;  //图片总数
+            for(var i = 0 ; i < imgTotal ; i++){
+    img[i] = new Image()
+    img[i].src = mulitImg[i]
+    img[i].onload = function(){
+      //document.getElementsByID('loadingtext')[0].appendChild(this)  
+      // console.log(this.width)
+      flag++;
+      if( flag == imgTotal ){
+         document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:1/1";
+      }
+    }
+ }
+       </script>
 </head>
 
 <body>
@@ -311,9 +328,9 @@
                 
                 <h4><a name="下载" href="#下载">#下载</a></h4>
                 <p>此文章共含2个附件，分别对应 基础版 与 完整版 。</p><br>
-                <p>imgspider.py - 0.73kb       </p><a href="https://raw.githubusercontent.com/RavelloH/download/main/code/imgspider.py">预览</a> | <a href="https://ravelloh.github.io/download/code/imgspider.py">下载</a><br>
-                <p>imgspider-pro.py - 1.76kb   </p><a href="https://raw.githubusercontent.com/RavelloH/download/main/code/imgspider-pro.py">预览</a> | <a href="https://ravelloh.github.io/download/code/imgspider-pro.py">下载</a>
-                
+                <p>imgspider.py - 0.73kb       <a href="https://raw.githubusercontent.com/RavelloH/download/main/code/imgspider.py">预览</a> | <a href="https://ravelloh.github.io/download/code/imgspider.py">下载</a></p><br>
+                <p>imgspider-pro.py - 1.76kb   <a href="https://raw.githubusercontent.com/RavelloH/download/main/code/imgspider-pro.py">预览</a> | <a href="https://ravelloh.github.io/download/code/imgspider-pro.py">下载</a>
+                </p>
 
                 <hr>
                 <br>
@@ -341,24 +358,7 @@
                 <script type="text/javascript" src="/js/menu.js"></script>
             </ul>
         </div>
-        <script>
-            var img = [];
-var flag = 0;
-var mulitImg = ['http://ravelloh.github.io/article/20220323/img1.jpg'];
-var imgTotal = mulitImg.length;  //图片总数
-for(var i = 0 ; i < imgTotal ; i++){
-    img[i] = new Image()
-    img[i].src = mulitImg[i]
-    img[i].onload = function(){
-      document.getElementsByID('loadingtext')[0].appendChild(this)  
-      // console.log(this.width)
-      flag++;
-      if( flag == imgTotal ){
-         document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:1/1";
-      }
-    }
- }
-        </script>
+        
         <script src="/js/script.js"></script>
         <script src="//instant.page/5.1.0" type="module"
             integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
