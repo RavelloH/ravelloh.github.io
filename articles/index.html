@@ -61,6 +61,25 @@
             <div class="text" id="text">
                 <h3>Articles - 文章</h3><span class="iconfontsmall icon-gang"></span>
                 <p>记录并索引所有文章。</p>
+                <span id="runtime_span"></span>
+                    <script type="text/javascript">
+                        function show_runtime() {
+                            window.setTimeout("show_runtime()", 1000);
+                            X = new Date("22/03/2022 00:00:00");
+                            Y = new Date();
+                            T = (Y.getTime() - X.getTime());
+                            M = 24 * 60 * 60 * 1000;
+                            a = T / M;
+                            A = Math.floor(a);
+                            b = (a - A) * 24;
+                            B = Math.floor(b);
+                            c = (b - B) * 60;
+                            C = Math.floor((b - B) * 60);
+                            D = Math.floor((c - C) * 60);
+                            runtime_span.innerHTML = "最近更新于" + A + "前。"
+                        }
+                        show_runtime();
+                    </script>
 
             </div>
         
