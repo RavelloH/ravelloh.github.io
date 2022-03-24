@@ -764,7 +764,6 @@ pre span:before {
 a {
   display: inline-block;
   position: relative;
-  color: #0087ca;
 }
 
 a:after {
