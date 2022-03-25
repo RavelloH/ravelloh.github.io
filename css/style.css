@@ -815,3 +815,7 @@ a:hover:after {
   transform: translateX(0);
   transition-delay: calc(0.055s * var(--i));
 }
+
+.menu {
+  overflow-x: hidden;
+}
