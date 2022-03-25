@@ -783,33 +783,3 @@ a:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
-.menu-toggler {
-}
-
-.menu-toggler-label {
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.menu ul {
-  list-style-type: none;
-}
-
-.menu ul li {
-  transform: translateX(100%);
-  transition-property: opacity, transform;
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.750, -0.015, 0.565, 1.055);
-}
-
-.menu-toggler:checked ~ .menu ul li {
-  opacity: 1;
-  transform: translateX(0);
-  transition-delay: calc(0.055s * var(--i));
-}
-
-.menu {
-  overflow-x: hidden;
-}
