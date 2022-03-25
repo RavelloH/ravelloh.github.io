@@ -784,10 +784,6 @@ a:hover:after {
   transform-origin: bottom left;
 }
 
-.menu {
-  overflow-x: hidden;
-}
-
 .menu-toggler {
   display: none;
 }
