@@ -785,7 +785,6 @@ a:hover:after {
 }
 
 .menu-toggler {
-  display: none;
 }
 
 .menu-toggler-label {
@@ -800,7 +799,7 @@ a:hover:after {
   padding: 0;
 }
 
-.menu li {
+.menu ul li {
   margin-bottom: 8px;
   font-size: 18px;
   opacity: 0;
@@ -810,7 +809,7 @@ a:hover:after {
   transition-timing-function: cubic-bezier(0.750, -0.015, 0.565, 1.055);
 }
 
-.menu-toggler:checked ~ .menu li {
+.menu-toggler:checked ~ .menu ul li {
   opacity: 1;
   transform: translateX(0);
   transition-delay: calc(0.055s * var(--i));
