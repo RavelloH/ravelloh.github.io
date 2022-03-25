@@ -795,14 +795,9 @@ a:hover:after {
 
 .menu ul {
   list-style-type: none;
-  margin: 16px 0;
-  padding: 0;
 }
 
 .menu ul li {
-  margin-bottom: 8px;
-  font-size: 18px;
-  opacity: 0;
   transform: translateX(100%);
   transition-property: opacity, transform;
   transition-duration: 0.3s;
