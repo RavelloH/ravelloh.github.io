@@ -628,7 +628,13 @@ header .logo {
     visibility: hidden;
   }
   html {
-  font-size: 10px;
+    font-size: 10px;
+  }
+  .text h2 {
+    font-size: 2em;
+  }
+  .text h3 {
+    font-size: 1em;
   }
 
 }
