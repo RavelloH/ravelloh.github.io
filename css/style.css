@@ -622,6 +622,16 @@ header .logo {
   }
 }
 
+@media (max-width: 500px) {
+  
+  .headers {
+    visibility: hidden;
+  }
+  html {
+  font-size: 10px;
+  }
+
+}
 textarea {
   resize: none;
 }
