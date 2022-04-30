@@ -445,6 +445,7 @@ header .logo {
   text-transform: uppercase;
   cursor: pointer;
   display: inline-block;
+  float:right;
 }
 
 .toggle {
