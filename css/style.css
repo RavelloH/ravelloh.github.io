@@ -422,7 +422,7 @@ body .text {
 header {
   position: absolute;
   top: -5px;
-  margin-top: 5px;
+  margin-top: 15px;
   left: 0;
   width: 100%;
   padding: 40px 100px;
