@@ -588,6 +588,12 @@ header .logo {
   align-items: center;
 }
 
+@media (max-width: 400px) {
+  .menu {
+    width: 70%;
+  }
+}
+
 .menu ul {
   position: relative;
 }
@@ -796,4 +802,46 @@ a:after {
 a:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+/* Container */
+.imgarea {
+  --column-count-small: 1;
+  --column-count-medium: 2;
+  --column-count-large: 3;
+  --column-gap: 0.125rem;
+  padding: var(--column-gap);
+}
+
+/* Columns */
+.imglist {
+  column-gap: var(--column-gap);
+  column-count: var(--column-count-small);
+  column-width: calc(1 / var(--column-count-small) * 100%);
+}
+
+@media only screen and (min-width: 640px) {
+  .imglist {
+    column-count: var(--column-count-medium);
+    column-width: calc(1 / var(--column-count-medium) * 100%);
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .imglist {
+    column-count: var(--column-count-large);
+    column-width: calc(1 / var(--column-count-large) * 100%);
+  }
+}
+
+/* Bricks */
+.brick {
+  width: 100%;
+  height: auto;
+  margin: var(--column-gap) 0;
+  display: block;
+}
+
+.brick:first-child {
+  margin: 0 0 var(--column-gap);
 }
