@@ -278,12 +278,13 @@ header {
   margin-bottom: 40px;
   position: fixed;
   line-height: 40px;
+  top: 5px;
 }
 
 .headers {
-  position: position;
+  position: fixed;
   margin-left: 10px;
-  top: -10px;
+  top: 0px;
   width: 70%;
   text-align: right;
   margin-top: 55px;
