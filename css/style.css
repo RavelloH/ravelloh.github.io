@@ -276,12 +276,11 @@ hr,
 header {
   margin-top: 40px;
   margin-bottom: 40px;
-  position: fixed;
+  position: absolute;
   line-height: 40px;
 }
 
 .headers {
-  position: absolute;
   margin-left: 10px;
   top: 0px;
   width: 70%;
