@@ -278,17 +278,15 @@ header {
   margin-bottom: 40px;
   position: fixed;
   line-height: 40px;
-  top: 5px;
 }
 
 .headers {
-  position: fixed;
+  position: absolute;
   margin-left: 10px;
   top: 0px;
   width: 70%;
   text-align: right;
   margin-top: 55px;
-  margin-bottom: 40px;
   word-spacing: 30px;
   font-family: 'Furore', 'MicrosoftYaqiHeiBold', 'MicrosoftYahei';
 
