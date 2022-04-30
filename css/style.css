@@ -282,10 +282,9 @@ header {
 
 .headers {
   margin-left: 10px;
-  top: -10px;
   width: 70%;
   text-align: right;
-  margin-top: 55px;
+  margin-top: 15px;
   word-spacing: 30px;
   font-family: 'Furore', 'MicrosoftYaqiHeiBold', 'MicrosoftYahei';
 
