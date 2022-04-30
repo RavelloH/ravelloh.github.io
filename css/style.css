@@ -273,13 +273,6 @@ hr,
   text-align: center
 }
 
-header {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  position: fixed;
-  line-height: 40px;
-}
-
 .headers {
   margin-left: 10px;
   width: 70%;
@@ -428,7 +421,8 @@ body .text {
 
 header {
   position: absolute;
-  top: -20px;
+  top: -5px;
+  margin-top: 5px;
   left: 0;
   width: 100%;
   padding: 40px 100px;
