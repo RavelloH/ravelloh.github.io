@@ -46,9 +46,8 @@ function aftLoadImg(obj, url) {
     oImg.src = url; //oImg对象先下载该图像
 }
 window.onbeforeunload = function (e) {
-    var texts = document.getElementsById('text');
-    for(var i = 0;i < texts.length;i ++){
-       (texts[i]).id = "active";}
+    for(var j = 0;j < 5;j ++){
+        document.getElementById("text").id = "active";}
     var spans = document.getElementsByTagName('span');
     for(var i = 0;i < spans.length;i ++){
        (spans[i]).id = "active";}
