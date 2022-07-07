@@ -16,24 +16,7 @@
     <!-- JavaScript -->
     <script type="text/javascript" src="/js/loading.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
-    <script>
-        var img = [];
-        var flag = 0;
-        var mulitImg = ['http://ravelloh.github.io/article/20220323/img1.jpg'];
-        var imgTotal = mulitImg.length;  //图片总数
-        for (var i = 0; i < imgTotal; i++) {
-            img[i] = new Image()
-            img[i].src = mulitImg[i]
-            img[i].onload = function () {
-                //document.getElementsByID('loadingtext')[0].appendChild(this)  
-                // console.log(this.width)
-                flag++;
-                if (flag == imgTotal) {
-                    document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:1/1";
-                }
-            }
-        }
-    </script>
+    
 </head>
 
 <body>
@@ -94,7 +77,7 @@
                 </div>
                 <hr>
                 <br><br>
-                <div class="center"><em>iiiiiiiiiiiiiiiii看i看看ii坎坎坷坷坎坎坷坷坎坎坷坷坎坎坷坷坎坎坷坷坎坎坷坷坎坎坷坷坎坎坷坷坎坎坷坷坎坎坷坷。
+                <div class="center"><em>
                         <a id="loadingtext">*当前文章正在加载插图:0/1</a>
                     </em>
                 </div>
@@ -376,6 +359,24 @@
                 <script type="text/javascript" src="/js/menu.js"></script>
             </ul>
         </div>
+        <script>
+            var img = [];
+            var flag = 0;
+            var mulitImg = ['http://ravelloh.github.io/article/20220323/img1.jpg'];
+            var imgTotal = mulitImg.length;  //图片总数
+            for (var i = 0; i < imgTotal; i++) {
+                img[i] = new Image()
+                img[i].src = mulitImg[i]
+                img[i].onload = function () {
+                    //document.getElementsByID('loadingtext')[0].appendChild(this)  
+                    // console.log(this.width)
+                    flag++;
+                    if (flag == imgTotal) {
+                        document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:1/1";
+                    }
+                }
+            }
+        </script>
 
         <script src="/js/script.js"></script>
         <script src="//instant.page/5.1.0" type="module"
