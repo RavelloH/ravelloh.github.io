@@ -66,53 +66,54 @@
                 <hr>
                 <br><br>
                 <p>由于一些神奇的<del>BUG</del>特性，高等级效果将会使原效果被反转，而这就使得了一些原版不存在的操作变成了可能。例如，创造模式的玩家不免疫增益效果，只免疫负面效果，而这就使得了如果可以给予创造玩家一种增益效果但实际是负面效果，也是能对创造模式玩家造成伤害的。
-                    <br>除此以外，对跳跃提升药水运用相同的原理也有奇效玩家将会无法跳跃</p>
+                    <br>除此以外，对跳跃提升药水运用相同的原理也有奇效玩家将会无法跳跃
+                </p>
 
-                    <div class="center"><em>
-                        <a id="loadingtext1">-</a>   <a id="loadingtext2">-</a>   <a id="loadingtext3">-</a>
+                <div class="center"><em>
+                        <a id="loadingtext1">-</a> <a id="loadingtext2">-</a> <a id="loadingtext3">-</a>
                     </em>
                 </div>
-                   
-                   <img id="img1" src="show1.gif" class="img" title="创造效果">
-                   <p>另外，这个药水所带来的伤害也高的离谱：</p>
-                   <img id="img2" src="show2.gif" class="img" title="血量效果">
-                   <p>也是因为未知原因，死亡后不掉落掉落物<sup><em>*开启死亡掉落的情况下</em></sup></p>
-                   <img id="img3" src="show3.gif" class="img" title="掉落效果">
-                   
-                   
-                   <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3>
-                   <br>
-                   <br>
 
-                   <div class="codeline">
-                   <pre>
+                <img id="img1" src="show1.gif" class="img" title="创造效果">
+                <p>另外，这个药水所带来的伤害也高的离谱：</p>
+                <img id="img2" src="show2.gif" class="img" title="血量效果">
+                <p>也是因为未知原因，死亡后不掉落掉落物<sup><em>*开启死亡掉落的情况下</em></sup></p>
+                <img id="img3" src="show3.gif" class="img" title="掉落效果">
+
+
+                <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3>
+                <br>
+                <br>
+
+                <div class="codeline">
+                    <pre>
                    <span>/* 1.13+ */</span><br>
                    <span>/give @p minecraft:splash_potion{CustomPotionEffects:[{Id:6b,Duration:12000,Amplifier:125b,Ambient:0b,ShowParticles:0b}]} 1</span><br>
                    <span> </span><br>
                    <span>/* 1.11-1.12 */</span><br>
                    <span>/give @p minecraft:splash_potion 1 0 {CustomPotionEffects:[{Id:6b,Duration:12000,Amplifier:125b,Ambient:0b,ShowParticles:0b}]}</span><br>
                    </pre>
-                   </div>
+                </div>
 
                 <hr>
                 <br>
                 <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
                 协议授权。
 
-                
-            <br><br>
-                            <div id="tcomment"></div>
-                            <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
-                            <script>
-                            twikoo.init({
-                              envId: 'https://comment-ravelloh.vercel.app/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-                                el: '#tcomment', // 容器元素
-                                  // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-                                    // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-                                      // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/js/utils/i18n/index.js
-                                      })
-                                      </script>
-                                      
+
+                <br><br>
+                <div id="tcomment"></div>
+                <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
+                <script>
+                    twikoo.init({
+                        envId: 'https://comment-ravelloh.vercel.app/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+                        el: '#tcomment', // 容器元素
+                        // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
+                        // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+                        // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/js/utils/i18n/index.js
+                    })
+                </script>
+
             </div>
             <ul class="social">
                 <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
@@ -121,7 +122,7 @@
                 <li>
                     <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
                         <span class="iconfont icon-home">
-                            </span>
+                        </span>
                     </a>
                 </li>
             </ul>
