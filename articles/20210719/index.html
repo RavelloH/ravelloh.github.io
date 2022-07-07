@@ -61,9 +61,9 @@
             <div class="article" id="text">
                 <h2>Minecraft命令实现在线统计</h2>
                 <span class="iconfontmini icon-clock"></span> 2021-07-19 · <span
-                class="iconfontmini icon-classification"></span><a href="/classification/#游戏">游戏</a>·
-            <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
-                class="tag" href="/tag/#json">JSON</a>
+                    class="iconfontmini icon-classification"></span><a href="/classification/#游戏">游戏</a>·
+                <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
+                    class="tag" href="/tag/#json">JSON</a>
                 <div>
                     <h4><b><em>Menu - 目录列表</em></b></h4>
                     <a class="m" href="#效果">效果</a>
@@ -73,10 +73,10 @@
                 <hr>
                 <br><br>
                 <div class="center">
-                注:本文应用于1.13+ <br>
-                <em>
-                    <a id="loadingtext1">-</a>   <a id="loadingtext2">-</a>
-                </em>
+                    注:本文应用于1.13+ <br>
+                    <em>
+                        <a id="loadingtext1">-</a> <a id="loadingtext2">-</a>
+                    </em>
                 </div>
                 <br>
                 <h4><a name=效果 href="#效果">#效果</a></h4>
@@ -102,19 +102,20 @@
                     ...以此类推。<br><br>
 
                     所以在这里 需要使用命令方块组+目标选择器进行运算:<br>
-                    循环:  scoreboard players add @a timetick 1 <br>
-                    连锁:  scoreboard players add @a[scores={timetick=20..}] times 1 <br>
-                    连锁:  scoreboard players set @a[scores={timetick=20..}] timetick 0 <br>
-                    连锁:  scoreboard players add @a[scores={times=60..}] timem 1 <br>
-                    连锁:  scoreboard players set @a[scores={times=60..}] times 0 <br>
-                    连锁:  scoreboard players add @a[scores={timem=60..}] timeh 1 <br>
-                    连锁:  scoreboard players set @a[scores={timem=60..}] timem 0 <br>
-                    连锁:  scoreboard players add @a[scores={timeh=24..}] timed 1 <br>
-                    连锁:  scoreboard players set @a[scores={timeh=24..}] timeh 0 <br>
+                    循环: scoreboard players add @a timetick 1 <br>
+                    连锁: scoreboard players add @a[scores={timetick=20..}] times 1 <br>
+                    连锁: scoreboard players set @a[scores={timetick=20..}] timetick 0 <br>
+                    连锁: scoreboard players add @a[scores={times=60..}] timem 1 <br>
+                    连锁: scoreboard players set @a[scores={times=60..}] times 0 <br>
+                    连锁: scoreboard players add @a[scores={timem=60..}] timeh 1 <br>
+                    连锁: scoreboard players set @a[scores={timem=60..}] timem 0 <br>
+                    连锁: scoreboard players add @a[scores={timeh=24..}] timed 1 <br>
+                    连锁: scoreboard players set @a[scores={timeh=24..}] timeh 0 <br>
                     <br>
 
                     最后 再加一个title用于显示即可 <br>
-                    循环： execute as @a at @s run title @p actionbar [{"text":"在线时间:","color":"green","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timed","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"天","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timeh","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"小时","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timem","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"分","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"times","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"秒","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]
+                    循环： execute as @a at @s run title @p actionbar
+                    [{"text":"在线时间:","color":"green","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timed","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"天","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timeh","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"小时","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timem","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"分","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"times","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"秒","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]
                     <br>（考虑到多人游戏的情况 这里添加了一个execute用于保证显示正确的对象）
                     <br><br>
 
@@ -130,7 +131,7 @@
                 </p>
                 <h4><a name=代码 href="#代码">#代码</a></h4>
                 <div class="codeline">
-                <pre>
+                    <pre>
                 <span>/scoreboard objectives add timetick dummy</span>
 
 <span>/scoreboard objectives add times dummy</span>
@@ -175,29 +176,29 @@
                 <br>
                 <h3>OOC:</h3>
                 <div class="codeline">
-                <pre>
+                    <pre>
                     <span>/summon falling_block ~ ~1.5 ~ {Time:1,BlockState:{Name:"minecraft:redstone_block"},Motion:[0d,-1d,0d],Passengers:[{id:falling_block,Time:1,BlockState:{Name:"minecraft:activator_rail"},Passengers:[{id:command_block_minecart,Command:"/data merge block ~ ~-2 ~ {auto:0b,Command:\"\"}"},{id:command_block_minecart,Command:"/scoreboard objectives add timetick dummy\n/scoreboard objectives add times dummy\n/scoreboard objectives add timem dummy\n/scoreboard objectives add timeh dummy\n/scoreboard objectives add timed dummy\n/scoreboard players set @p times 0 \n/scoreboard players set @p timem 0 \n/scoreboard players set @p timeh 0 \n/scoreboard players set @p timed 0 \nscoreboard players add @a timetick 1\nscoreboard players add @a[scores={timetick=20..}] times 1 \nscoreboard players set @a[scores={timetick=20..}] timetick 0 \nscoreboard players add @a[scores={times=60..}] timem 1\nscoreboard players add @a[scores={timem=60..}] timeh 1 \nscoreboard players set @a[scores={timem=60..}] timem 0 \nscoreboard players add @a[scores={timeh=24..}] timed 1 \nscoreboard players set @a[scores={timeh=24..}] timeh 0 \nexecute as @a at @s run title @p actionbar [{\"text\":\"在线时间:\",\"color\":\"green\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timed\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"天\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timeh\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"小时\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timem\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"分\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"times\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"秒\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}]"},{id:command_block_minecart,Command:"setblock ~ ~1 ~ command_block{auto:1b,Command:\"fill ~ ~ ~ ~ ~-2 ~ air\"} replace"},{id:command_block_minecart,Command:"kill @e[type=command_block_minecart,distance=..1]"}]}]}
                 </span></pre>
                 </div>
-    
+
                 <hr>
                 <br>
                 <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
                 协议授权。
 
-            <br><br>
-                            <div id="tcomment"></div>
-                            <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
-                            <script>
-                            twikoo.init({
-                              envId: 'https://comment-ravelloh.vercel.app/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-                                el: '#tcomment', // 容器元素
-                                  // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-                                    // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-                                      // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/js/utils/i18n/index.js
-                                      })
-                                      </script>
-                                      
+                <br><br>
+                <div id="tcomment"></div>
+                <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
+                <script>
+                    twikoo.init({
+                        envId: 'https://comment-ravelloh.vercel.app/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+                        el: '#tcomment', // 容器元素
+                        // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
+                        // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+                        // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/js/utils/i18n/index.js
+                    })
+                </script>
+
             </div>
             <ul class="social">
                 <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
@@ -206,7 +207,7 @@
                 <li>
                     <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
                         <span class="iconfont icon-home">
-                            </span>
+                        </span>
                     </a>
                 </li>
             </ul>

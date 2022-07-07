@@ -61,45 +61,45 @@
             <div class="text" id="text">
                 <h3>Articles - 文章</h3><span class="iconfontsmall icon-gang"></span>
                 <span id="runtime_span">打开JavaScript以获得更好的浏览体验。</span>
-                    <script type="text/javascript">
-                        function show_runtime() {
-                            window.setTimeout("show_runtime()", 1000);
-                            X = new Date("3/23/2022 00:00:00");
-                            Y = new Date();
-                            T = (Y.getTime() - X.getTime());
-                            M = 24 * 60 * 60 * 1000;
-                            a = T / M;
-                            A = Math.floor(a);
-                            b = (a - A) * 24;
-                            B = Math.floor(b);
-                            c = (b - B) * 60;
-                            C = Math.floor((b - B) * 60);
-                            D = Math.floor((c - C) * 60);
-                            runtime_span.innerHTML = "<br>记录并索引所有文章。<br>最近更新于" + A + "天前。"
-                        }
-                        show_runtime();
-                    </script>
+                <script type="text/javascript">
+                    function show_runtime() {
+                        window.setTimeout("show_runtime()", 1000);
+                        X = new Date("3/23/2022 00:00:00");
+                        Y = new Date();
+                        T = (Y.getTime() - X.getTime());
+                        M = 24 * 60 * 60 * 1000;
+                        a = T / M;
+                        A = Math.floor(a);
+                        b = (a - A) * 24;
+                        B = Math.floor(b);
+                        c = (b - B) * 60;
+                        C = Math.floor((b - B) * 60);
+                        D = Math.floor((c - C) * 60);
+                        runtime_span.innerHTML = "<br>记录并索引所有文章。<br>最近更新于" + A + "天前。"
+                    }
+                    show_runtime();
+                </script>
 
             </div>
-        
+
             <div class="text listline" id="text">
                 <div id="scroll-progress"></div>
                 <h4><a href="/articles/20220323/">Python实现网络爬虫</a></h4>
                 <span class="iconfontmini icon-clock"></span> 2022-03-23 · <span
-                class="iconfontmini icon-classification"></span><a href="/classification/#技术">技术</a><br>
-            <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#python">PYTHON</a>
+                    class="iconfontmini icon-classification"></span><a href="/classification/#技术">技术</a><br>
+                <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#python">PYTHON</a>
                 <a class="tag" href="/tag/#spider">SPIDER</a><br>
                 <hr>
                 <h4><a href="/articles/20220206/">JS递归遍历伪数组</a></h4>
                 <span class="iconfontmini icon-clock"></span> 2022-02-06 · <span
-                class="iconfontmini icon-classification"></span><a href="/classification/#技术">技术</a><br>
-            <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#javascript">JAVASCRIPT</a><br>
+                    class="iconfontmini icon-classification"></span><a href="/classification/#技术">技术</a><br>
+                <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#javascript">JAVASCRIPT</a><br>
                 <hr>
                 <h4><a href="/articles/20210719/">Minecraft命令实现在线统计</a></h4>
                 <span class="iconfontmini icon-clock"></span> 2021-07-19 · <span
-                class="iconfontmini icon-classification"></span><a href="/classification/#游戏">游戏</a><br>
-            <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
-                class="tag" href="/tag/#json">JSON</a><br>
+                    class="iconfontmini icon-classification"></span><a href="/classification/#游戏">游戏</a><br>
+                <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
+                    class="tag" href="/tag/#json">JSON</a><br>
                 <hr>
                 <h4><a href="/articles/20210705/">CSS+JS实现页面切换过渡</a></h4>
                 <span class="iconfontmini icon-clock"></span> 2021-07-05 · <span
@@ -132,7 +132,7 @@
                 <li>
                     <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
                         <span class="iconfont icon-home">
-                            </span>
+                        </span>
                     </a>
                 </li>
             </ul>
