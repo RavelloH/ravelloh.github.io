@@ -54,16 +54,8 @@ body {
   height: 100%
 }
 
-nav {
+nav,header,.menu {
   font-family: 'Furore', 'MicrosoftYaqiHeiBold', 'MicrosoftYahei';
-}
-
-header {
-  font-family: 'Furore', 'MicrosoftYaqiHeiBold', 'MicrosoftYahei';
-}
-
-.menu {
-  font-family: Furore;
 }
 
 p {
@@ -332,8 +324,11 @@ a:active {
   white-space: nowrap;
   margin: 0;
   letter-spacing: .15em;
-  animation: 3s steps(60) 0s 1 normal none running typing, step-end 0s infinite normal none running blink-caret, ease 0s 1 normal none running show;
-  animation-delay: 300ms;
+  animation:
+    typing 3s steps(60, end),
+    blink-caret .5s step-end infinite,
+    show 0.3s;
+  animation-delay: 0.3s;
   text-align: left;
 }
 
@@ -582,7 +577,7 @@ header .logo {
 
 .menu {
   position: absolute;
-  top: 0;
+  top: 0px;
   right: 0;
   width: 300px;
   height: 100%;
@@ -601,8 +596,9 @@ header .logo {
 
 .menu ul li a {
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   color: #c6c9ce;
+  
 }
 
 .menu ul li a:hover {
@@ -851,6 +847,7 @@ a:hover:after {
 
 .listprogram {
   opacity: 0;
+margin-left: 100px;
   display: none;
   transition-property: opacity, transform, display, right;
   transition-duration: 0.3s;
@@ -859,6 +856,7 @@ a:hover:after {
 }
 
 .listprogramonload {
+  margin-left: 0px;
   transition-delay: calc((0.1s * var(--i)));
   opacity: 1;
   display: block;
