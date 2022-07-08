@@ -558,7 +558,8 @@ header .logo {
 }
 
 .social {
-  position: absolute;
+  left: 40px;
+  position: inherit;
   z-index: 10;
   bottom: 20px;
   display: flex;
