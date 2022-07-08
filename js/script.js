@@ -21,6 +21,6 @@ window.onbeforeunload = function () {
     for(var j = 0;j < 5;j ++){
         document.getElementById("text").id = "active";}
     var spans = document.getElementsByTagName('span');
-    for(var i = 0;i < spans.length;i ++){
-       (spans[i]).id = "active";}
+    for(var i = 0;i < spans.length;i ++){ 
+       (spans[i]).id = "active";} 
 }
