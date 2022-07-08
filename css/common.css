@@ -55,7 +55,7 @@ span {
 span#active {
     position: relative;
     animation-name: endloadingspan;
-    animation-duration: 0.8s
+    animation-duration: 0.8s;
     animation-fill-mode: forwards;
 }
 
