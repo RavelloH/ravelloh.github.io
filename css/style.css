@@ -435,10 +435,10 @@ body .text {
 
 header {
   position: absolute;
-  top: 5%;
+  top: 10px;
   left: 0;
   width: 100%;
-  padding: 10px 100px;
+  padding: 10px 80px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -672,9 +672,11 @@ section {
 }
 
 .listline {
-  width: 35%;
-  height: 70%;
-  overflow: auto;
+  max-width: 40%;
+  min-width: 35%;
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .article {
