@@ -62,6 +62,10 @@ header {
   font-family: 'Furore', 'MicrosoftYaqiHeiBold', 'MicrosoftYahei';
 }
 
+.menu {
+  font-family: Furore;
+}
+
 p {
   color: #c6c9ce;
 }
@@ -286,8 +290,8 @@ header {
   top: -10px;
   width: 70%;
   text-align: right;
-  margin-top: 55px;
-  margin-bottom: 40px;
+  margin-top: 25px;
+  margin-bottom: 10px;
   word-spacing: 30px;
   font-family: 'Furore', 'MicrosoftYaqiHeiBold', 'MicrosoftYahei';
 
@@ -431,14 +435,15 @@ body .text {
 
 header {
   position: absolute;
-  top: -20px;
+  top: 5%;
   left: 0;
   width: 100%;
-  padding: 40px 100px;
+  padding: 10px 100px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 10%;
 }
 
 header .logo {
@@ -667,7 +672,7 @@ section {
 
 .listline {
   width: 35%;
-  height: 65%;
+  height: 70%;
   overflow: auto;
 }
 
