@@ -313,7 +313,7 @@ a:active {
   color: #0078d7;
 }
 
-.logoimg {
+.logoimg,.logoname {
   display: inline-block;
 }
 
@@ -332,11 +332,8 @@ a:active {
   white-space: nowrap;
   margin: 0;
   letter-spacing: .15em;
-  animation:
-    typing 4s steps(60, end),
-    blink-caret .5s step-end infinite,
-    show 0.3s;
-  animation-delay: 0.3s;
+  animation: 3s steps(60) 0s 1 normal none running typing, step-end 0s infinite normal none running blink-caret, ease 0s 1 normal none running show;
+  animation-delay: 300ms;
   text-align: left;
 }
 
@@ -850,4 +847,19 @@ a:hover:after {
 
 .brick:first-child {
   margin: 0 0 var(--column-gap);
+}
+
+.listprogram {
+  opacity: 0;
+  display: none;
+  transition-property: opacity, transform, display, right;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.750, -0.015, 0.565, 1.055);
+  display: block;
+}
+
+.listprogramonload {
+  transition-delay: calc((0.1s * var(--i)));
+  opacity: 1;
+  display: block;
 }

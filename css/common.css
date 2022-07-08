@@ -40,7 +40,7 @@
 span {
     position: relative;
     animation-name: startloadingspan;
-    animation-duration: 0.8s;
+    animation-duration: 800ms;
 }
 
 @keyframes startloadingspan {
