@@ -16,3 +16,11 @@ Date.prototype.format = function (fmt) {
 var now = new Date();
 var nowStr = now.format("yyyy");
 document.getElementById("year").innerHTML = new Date().format("yyyy");
+
+window.onbeforeunload = function () {
+    for(var j = 0;j < 5;j ++){
+        document.getElementById("text").id = "active";}
+    var spans = document.getElementsByTagName('span');
+    for(var i = 0;i < spans.length;i ++){
+       (spans[i]).id = "active";}
+}
