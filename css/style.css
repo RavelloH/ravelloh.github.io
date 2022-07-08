@@ -800,7 +800,7 @@ a:after {
   left: 0;
   background-color: #0087ca;
   transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.25s cubic-bezier(0.28, 0.94, 0.82, 1.09);
 }
 
 a:hover:after {

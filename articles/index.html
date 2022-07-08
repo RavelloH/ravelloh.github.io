@@ -62,10 +62,11 @@
                 <h3>Articles - 文章</h3><span class="iconfontsmall icon-gang"></span>
                 <span id="runtime_span">打开JavaScript以获得更好的浏览体验。</span>
                 <script type="text/javascript">
-                    function show_runtime() {
+                    var runtime_span = document.getElementById("runtime_span");
+                    function show_runtime() { 
                         window.setTimeout("show_runtime()", 1000);
-                        X = new Date("3/23/2022 00:00:00");
-                        Y = new Date();
+                        X = new Date("7/8/2022 00:00:00"); //设定时间(月\日\年 时:分:秒)) 
+                        Y = new Date();  //获取当前时间
                         T = (Y.getTime() - X.getTime());
                         M = 24 * 60 * 60 * 1000;
                         a = T / M;
@@ -77,12 +78,12 @@
                         D = Math.floor((c - C) * 60);
                         runtime_span.innerHTML = "<br>记录并索引所有文章。<br>最近更新于" + A + "天前。"
                     }
-                    show_runtime();
+                    show_runtime(); //每秒调用show_runtime()函数
                 </script>
 
             </div>
 
-            <div class="text listline" id="text">
+            <div class="text listline" id="text"> 
                 <div id="scroll-progress"></div>
                 <h4><a href="/articles/20220323/">Python实现网络爬虫</a></h4>
                 <span class="iconfontmini icon-clock"></span> 2022-03-23 · <span
