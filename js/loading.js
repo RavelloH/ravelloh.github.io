@@ -52,3 +52,4 @@ window.onbeforeunload = function (e) {
     for(var i = 0;i < spans.length;i ++){
        (spans[i]).id = "active";}
 }
+
