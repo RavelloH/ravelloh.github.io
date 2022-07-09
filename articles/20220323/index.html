@@ -57,7 +57,6 @@
 
             <div class="overlay"></div>
             <div class="article" id="text">
-                <div id="scroll-progress"></div>
                 <h2>Python实现网络爬虫</h2>
                 <span class="iconfontmini icon-clock"></span> 2022-03-23 · <span
                     class="iconfontmini icon-classification"></span>
@@ -76,7 +75,7 @@
                 <hr>
                 <br><br>
                 <div class="center"><em>
-                        <a id="loadingtext">*当前文章正在加载插图:0/1</a>
+                        <a id="loadingtext"></a>
                     </em>
                 </div>
                 <br>
@@ -360,17 +359,19 @@
         <script>
             var img = [];
             var flag = 0;
-            var mulitImg = ['https://ravelloh.github.io/articls/20220323/img1.jpg'];
+            var mulitImg = ['img1.jpg'];
             var imgTotal = mulitImg.length;  //图片总数
             for (var i = 0; i < imgTotal; i++) {
+                document.getElementById("loadingtext").innerHTML = "*文章插图加载中:"+flag+"/"+imgTotal;
                 img[i] = new Image()
                 img[i].src = mulitImg[i]
                 img[i].onload = function () {
-                    //document.getElementsByID('loadingtext')[0].appendChild(this)  
-                    // console.log(this.width)
                     flag++;
                     if (flag == imgTotal) {
-                        document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:1/1";
+                        document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:"+flag+"/"+imgTotal;
+                    } else {
+                        document.getElementById("loadingtext").innerHTML = "*文章插图加载中:"+flag+"/"+imgTotal;
+                        return;
                     }
                 }
             }

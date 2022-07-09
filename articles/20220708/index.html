@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>论静态页中伪动态的实现 | RavelloH’s Blog</title>
+    <meta name="keywords" content="RavelloH,blog,python,spider,html">
+    <meta name="description" content="A Blog by RavelloH">
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+</head>
+
+
+<body>
+    <section class="showcase">
+        <header>
+            <h2 class="logo">
+                <a href="/">
+                    <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;" alt="avatar">
+                    <img class="logoname" src="/img/RavelloH.svg" alt="RavelloH's Blog">
+                </a>
+            </h2>
+            <div class="headers">
+                <nav>
+                    <a href="/">
+                        HOME
+                    </a>
+                    <a href="/works/">
+                        WORKS
+                    </a>
+                    <a href="/articles/">
+                        ARTICLES
+                    </a>
+                    <a href="/tag/">
+                        TAG
+                    </a>
+                    <a href="/about/">
+                        ABOUT
+                    </a>
+                    </p>
+                </nav>
+            </div>
+            <div class="toggle" class="header">
+            </div>
+        </header>
+
+        <div class="overlay"></div>
+        <div class="article" id="text">
+            <div id="scroll-progress"></div>
+            <h2>论静态页中伪动态的实现</h2>
+            <span class="iconfontmini icon-clock"></span> 2022-07-08 · <span
+                class="iconfontmini icon-classification"></span>
+            <a href="/classification/#技术">技术</a> - <a href="/classification/#设计">设计</a>·
+            <span class="iconfontmini icon-tag"></span>
+            <a class="tag" href="/tag/#javascript">JAVASCRIPT</a>
+            <a class="tag" href="/tag/#html">HTML</a><a class="tag" href="/tag/#python">PYTHON</a>
+            <div>
+                <h4><b><em>Menu - 目录列表</em></b></h4>
+                <a class="m" href="#前言">前言</a>
+            </div>
+            <hr>
+            <br><br>
+            <div class="center"><em>
+                    <a id="loadingtext"></a>
+                </em>
+            </div>
+            <br>
+            <h4><a name="前言" href="#前言">#前言</a></h4>
+            <p>
+                最近半年里，我先后完成了<a class="linkline" href="https://ravelloh.github.io/PSGameSpider/">PSGameSpider</a>与<a
+                    class="linkline" href="https://ravelloh.github.io/EverydayNews/">EverydayNews</a>
+                这两个项目，它们都是基于GithubPages的静态页，但其中都多多少少可以实现动态站的部分功能，如识别网址后的？xxx=xxx并作出反馈（EverydayNews），或者动态根据Github中的仓库内容渲染页面（PSGameSpider）。<br>
+                不过，这实质上也并没有改变这作为静态站的本质，因为这不符合动态站“个性化为不同用户展示页面”的特点。<br>
+                实际上，“伪动态”这个名词是类比“伪静态”而产生的，但不同于伪静态中可以用服务器正则判断并生成网页，静态站中想要实现部分动态站的效果就只能靠在用户的设备上执行脚本，并使用已有的静态资源做出反馈。<br>
+                下面是其中一部分功能的实现方法:
+            </p>
+            <br>
+            <h4><a name="效果" href="#效果">#效果</a></h4>
+
+            <hr>
+            <br>
+            <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
+            协议授权。
+
+            <br><br>
+            <div id="tcomment"></div>
+            <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
+            <script>
+                twikoo.init({
+                    envId: 'https://comment-ravelloh.vercel.app/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+                    el: '#tcomment', // 容器元素
+                    // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
+                    // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+                    // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/js/utils/i18n/index.js
+                })
+            </script>
+
+        </div>
+        <ul class="social">
+            <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
+            <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
+                        class="iconfont icon-github"></span></a></li>
+            <li>
+                <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
+                    <span class="iconfont icon-home">
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <div class="menu">
+        <ul>
+            <script type="text/javascript" src="/js/menu.js"></script>
+        </ul>
+    </div>
+    <script>
+        var img = [];
+        var flag = 0;
+        var mulitImg = ['img1.jpg'];
+        var imgTotal = mulitImg.length;  //图片总数
+        for (var i = 0; i < imgTotal; i++) {
+            document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
+            img[i] = new Image()
+            img[i].src = mulitImg[i]
+            img[i].onload = function () {
+                flag++;
+                if (flag == imgTotal) {
+                    document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:" + flag + "/" + imgTotal;
+                } else {
+                    document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
+                    return;
+                }
+            }
+        }
+    </script>
+
+    <!-- JavaScript -->
+    <script src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script src="//instant.page/5.1.0" type="module"
+        integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+</body>
+
+</html>
