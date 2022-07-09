@@ -7,13 +7,17 @@
 
 @keyframes startloading {
     0% {
-        color: #111111;
-        left: -2000px
+        left: -2000px;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
     }
 
     100% {
-        color: #ffffff;
         left: 0px;
+        opacity: 1;
     }
 }
 
@@ -27,13 +31,17 @@
 
 @keyframes endloading {
     0% {
-        color: #ffffff;
-        left: 0px
+        left: 0px;
+        opacity: 1;
     }
 
+    50% {
+        opacity: 0;
+    } 
+
     100% {
-        color: #111111;
         left: -2000px;
+        opacity: 0;
     }
 }
 
