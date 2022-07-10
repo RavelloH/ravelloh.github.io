@@ -613,6 +613,7 @@ hr,
   overflow-y: auto;
   overflow-x: hidden;
   word-break: break-all;
+  
 }
 
 .menu ul li a:hover {
@@ -692,6 +693,7 @@ hr,
     overflow-y: auto;
     overflow-x: hidden;
     word-break: break-all;
+    bottom: -10%;
   }
 
   .social {

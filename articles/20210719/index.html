@@ -73,7 +73,7 @@
                 <div class="center">
                     注:本文应用于1.13+ <br>
                     <em>
-                        <a id="loadingtext1">-</a> <a id="loadingtext2">-</a>
+                        <a id="loadingtext"></a>
                     </em>
                 </div>
                 <br>
@@ -216,12 +216,22 @@
             </ul>
         </div>
         <script>
-            document.getElementById('img1').onload = function (e) {
-                e.stopPropagation();
-                document.getElementById("loadingtext1").innerHTML = "IMG1";
-                document.getElementById('img2').onload = function (e) {
-                    e.stopPropagation();
-                    document.getElementById("loadingtext2").innerHTML = "IMG2";
+            var img = [];
+            var flag = 0;
+            var mulitImg = ['img1.png','img2`gif'];
+            var imgTotal = mulitImg.length;  //图片总数
+            for (var i = 0; i < imgTotal; i++) {
+                document.getElementById("loadingtext").innerHTML = "*文章插图加载中:"+flag+"/"+imgTotal;
+                img[i] = new Image()
+                img[i].src = mulitImg[i]
+                img[i].onload = function () {
+                    flag++;
+                    if (flag == imgTotal) {
+                        document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:"+flag+"/"+imgTotal;
+                    } else {
+                        document.getElementById("loadingtext").innerHTML = "*文章插图加载中:"+flag+"/"+imgTotal;
+                        return;
+                    }
                 }
             }
         </script>
