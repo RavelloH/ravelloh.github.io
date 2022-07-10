@@ -433,6 +433,8 @@ header .logo {
   text-transform: uppercase;
   cursor: pointer;
   display: inline-block;
+  width:25%;
+  
 }
 
 .toggle {

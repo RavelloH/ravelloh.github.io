@@ -41,9 +41,3 @@ function onload() {
         document.getElementsByClassName("listprogram")[i].classList.add("listprogramonload");
     }
 }
-
-// tcomment
-twikoo.init({
-    envId: 'https://comment-ravelloh.vercel.app/', 
-    el: '#tcomment', // 填入要评论的元素的 id
-})
