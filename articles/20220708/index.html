@@ -10,6 +10,7 @@
     <link type="text/css" rel="stylesheet" href="/css/common.css">
     <link type="text/css" rel="stylesheet" href="/css/style.css">
     <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+
 </head>
 
 
@@ -59,12 +60,17 @@
             <div>
                 <h4><b><em>Menu - 目录列表</em></b></h4>
                 <a class="m" href="#前言">前言</a>
+                <a class="m" href="#效果">效果</a>
+                <a class="m" href="#实现方法">实现方法</a>
             </div>
             <hr>
             <br><br>
             <div class="center"><em>
                     <a id="loadingtext"></a>
                 </em>
+                <br>
+                <strong><em>*注:此文章Javascript代码框可以点击最下方的“运行”以查看效果。为了充分展示所有功能，建议先<a href="?text=123&?name=aaa#锚点"
+                            class="linkline">点击此处</a>补充全链接内容。</em></strong>
             </div>
             <br>
             <h4><a name="前言" href="#前言">#前言</a></h4>
@@ -74,41 +80,452 @@
                 这两个项目，它们都是基于GithubPages的静态页，但其中都多多少少可以实现动态站的部分功能，如识别网址后的？xxx=xxx并作出反馈（EverydayNews），或者动态根据Github中的仓库内容渲染页面（PSGameSpider）。<br>
                 不过，这实质上也并没有改变这作为静态站的本质，因为这不符合动态站“个性化为不同用户展示页面”的特点。<br>
                 实际上，“伪动态”这个名词是类比“伪静态”而产生的，但不同于伪静态中可以用服务器正则判断并生成网页，静态站中想要实现部分动态站的效果就只能靠在用户的设备上执行脚本，并使用已有的静态资源做出反馈。<br>
-                下面是其中一部分功能的实现方法:
+                下面是其中一部分功能的实现效果及方法:
             </p>
             <br>
-            <h4><a name="效果" href="#效果">#效果</a></h4>
-
-            <hr>
             <br>
-            <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
-            协议授权。
+            <h4><a name="效果" href="#效果">#效果</a></h4>
+            <div class="imgarea">
+                <h4 class="img-text">链接识别</h4>
+                <img src="/articles/20220708/show1.gif" alt="链接识别" style="border: 2px solid #c6c9ce;">
+            </div>
+            <br>
+            <p>
+                页面自动生成详见<a class="linkline" href="https://github.com/RavelloH/PSGameSpider">Github:PSGameSpider</a>。<br>
+            </p>
+            <br>
+            <br>
+            <h4><a name="实现方法" href="#实现方法">#实现方法</a></h4>
+            <h5><strong>
+                    链接识别
+                </strong></h5>
+            <p>
+                JavaScript中自带有识别当前页面的链接的方法<code>window.location.search</code>，可以用来识别当前页面的链接。<br>
+                local.search可以识别链接中带?及其后的内容。除此之外，还有下列类似的获取页面url的方法：<br>
+                <strong><em>*注:下列列表中的内容可以点击执行以查看效果。为了充分展示所有功能，建议先<a href="?text=123&?name=aaa#实现方法"
+                            class="linkline">点击此处</a>补充全链接内容。</em></strong><br>
+                <li><a onclick="alert(window.location.href)">window.location.href - 识别整个链接</a></li>
+                <li><a onclick="alert(window.location.origin)">window.location.origin - 识别协议+域名</a></li>
+                <li><a onclick="alert(window.location.protocol)">window.location.protocol - 识别协议</a></li>
+                <li><a onclick="alert(window.location.host)">window.location.host -
+                        识别域名+端口</a><sup><em>*当端口为默认值80时返回空字符串</em></sup></li>
+                <li><a onclick="alert(window.location.hostname)">window.location.hostname - 识别域名</a></li>
+                <li><a onclick="alert(window.location.port)">window.location.port -
+                        识别端口</a><sup><em>*当端口为默认值80时返回空字符串</em></sup></li>
+                <li><a onclick="alert(window.location.pathname)">window.location.pathname - 识别页面路径</a></li>
+                <li><a onclick="alert(window.location.hash)">window.location.hash - 识别#及其内容</a></li>
+                <li><a onclick="alert(window.location.search)">window.location.search - 识别？及其内容</a></li>
 
-            <br><br>
-            <div id="tcomment"></div>
-            <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
+
+                这里可以运用此方法实现？xxx=xxx的识别：<br>
+            <div class="codeline">
+                <pre>
+                        <span>// JavaScript</span>
+                        <span></span>
+                        <span>var local = window.location.search;</span>
+                        <span>if (local.substring(0, 6) == '?text=') {</span>
+                        <span>    var text = local.substring(6);</span>
+                        <span>    alert(text);</span>
+                        <span>} else {</span>
+                        <span>    alert('没有text参数');</span>
+                        <span>}</span>
+                        <span></span>
+                        <span><a
+                    onclick="textalert()">&gt;&gt;运行&lt;&lt;</a></span>
+                    </pre>
+            </div>
             <script>
-                twikoo.init({
-                    envId: 'https://comment-ravelloh.vercel.app/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-                    el: '#tcomment', // 容器元素
-                    // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-                    // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-                    // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/js/utils/i18n/index.js
-                })
+                function textalert() {
+                    var local = window.location.search;
+                    if (local.substring(0, 6) == '?text=') {
+                        var text = local.substring(6);
+                        alert(text);
+                    } else {
+                        alert("没有text参数");
+                    }
+                }
             </script>
+            <p>
+                上述代码中实现了一个识别当前页面的链接的方法，如果识别的链接中包含了一个参数，这个参数的名字是text，那么就会弹出一个提示框，提示这个参数的值。<br>
+                但是此方法也有局限性，就是只能识别一个参数，如果链接中有多个参数，那么就会带着后面的参数一起输出。<br>
+                为了解决这个问题，我们可以从参数的分割符&下手，当存在&时截断数据:<br>
+            </p>
+            <div class="codeline">
+                <pre>
+                        <span>// JavaScript</span>
+                        <span></span>
+                        <span>var local = window.location.search;</span>
+                        <span>if (local.substring(0, 6) == '?text=') {</span>
+                        <span>    var text = local.substring(6);</span>
+                        <span>    var text2 = text.substring(0, text.indexOf('&'));</span>
+                        <span>    alert(text2);</span>
+                        <span>} else {</span>
+                        <span>    alert("没有text参数");</span>
+                        <span>}</span>
+                        <span></span>
+                        <span><a onclick="textalert2()">&gt;&gt;运行&lt;&lt;</a></span>
+                </pre>
+                <script>
+                    function textalert2() {
+                        var local = window.location.search;
+                        if (local.substring(0, 6) == '?text=') {
+                            var text = local.substring(6);
+                            var text2 = text.substring(0, text.indexOf('&'));
+                            alert(text2);
+                        } else {
+                            alert("没有text参数");
+                        }
+                    }
+                </script>
 
-        </div>
-        <ul class="social">
-            <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
-            <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
-                        class="iconfont icon-github"></span></a></li>
-            <li>
-                <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
-                    <span class="iconfont icon-home">
-                    </span>
-                </a>
-            </li>
-        </ul>
+                <p>
+                    不过这样还不够优雅，如果我们需要的参数没有排在第一位，那么我们可以使用正则表达式来实现：<br>
+
+                </p>
+                <div class="codeline">
+                    <pre>
+                            <span>// JavaScript</span>
+                            <span></span>
+                            <span>var local = window.location.search;</span>
+                            <span>var reg = /text=(.*)/;</span>
+                            <span>var result = reg.exec(local);</span>
+                            <span>if (result != null) {</span>
+                            <span>    alert(result[1]);</span>
+                            <span>} else {</span>
+                            <span>    alert("没有text参数");</span>
+                            <span>}</span>
+                            <span></span>
+                            <span><a onclick="textalert3()">&gt;&gt;运行&lt;&lt;</a></span>
+                    </pre>
+                    <script>
+                        function textalert3() {
+                            var local = window.location.search;
+                            var reg = /text=(.*)/;
+                            var result = reg.exec(local);
+                            if (result != null) {
+                                alert(result[1]);
+                            } else {
+                                alert("没有text参数");
+                            }
+                        }
+                    </script>
+                    <p>
+                        通过对上面的代码的进一步加工，我们就能做到分别提取参数的值，并且可以解决多个参数的问题。<br>
+                        下面是一个完整的例子：<br>
+                    </p>
+
+                    <div class="codeline">
+
+
+                        <script>
+                            function textalert4() {
+
+                                //判断有没有？
+                                var local = window.location.search;
+                                if (local.substring(0, 1) == '?') {
+
+                                    //如果只有一个参数，那么直接弹出提示框
+                                    if (local.substring(1).indexOf('&') == -1) {
+                                        alert(local.substring(1));
+                                    } else {
+
+                                        //遍历替换所有&为?
+                                        var local = window.location.search;
+                                        var reg = /&/g;
+                                        var result = reg.exec(local);
+                                        if (result != null) {
+                                            local2 = local.replace(reg, "?");
+                                        }
+
+                                        //删除相邻的?
+                                        var reg2 = /\?{2,}/;
+                                        var result2 = reg2.exec(local2);
+                                        if (result2 != null) {
+                                            var local3 = local2.replace(/\?{2,}/, "?");
+                                        } else {
+                                            var local3 = local2;
+                                        }
+
+                                        //在最后加入一个?,方便截取
+                                        var local4 = local3 + "?";
+                                        //以?为分割符，循环遍历截取每一个参数并存储在数组中
+                                        var reg3 = /\?/;
+                                        var result3 = reg3.exec(local4);
+                                        var arr = [];
+                                        while (result3 != null) {
+                                            var local5 = local4.substring(0, local4.indexOf("?"));
+                                            arr.push(local5);
+                                            local4 = local4.substring(local4.indexOf("?") + 1);
+                                            result3 = reg3.exec(local4);
+                                        }
+                                        //删除arr中的空元素
+                                        var reg4 = /^\s*$/;
+                                        for (var i = 0; i < arr.length; i++) {
+                                            if (reg4.exec(arr[i]) != null) {
+                                                arr.splice(i, 1);
+                                                i--;
+                                            }
+                                        }
+
+                                        //遍历arr数组，并输出=前面的值与=后面的值
+                                        for (var i = 0; i < arr.length; i++) {
+                                            var reg5 = /=/;
+                                            var result5 = reg5.exec(arr[i]);
+                                            if (result5 != null) {
+                                                var local6 = arr[i].substring(0, arr[i].indexOf("="));
+                                                var local7 = arr[i].substring(arr[i].indexOf("=") + 1);
+                                                alert("参数" + local6 + "的值为" + local7);
+                                            }
+                                        }
+
+                                    }
+                                } else {
+                                    alert("没有参数");
+                                }
+                            }
+
+                        </script>
+                        <pre>
+                            <span>// JavaScript</span>
+                            <span></span>
+                            <span>//判断有没有"？"</span>
+                            <span>var local = window.location.search;</span>
+                            <span>if (local.substring(0, 1) == &#x27;?&#x27;) {</span>
+                            <span></span>
+                            <span>    //如果只有一个参数，那么直接弹出提示框</span>
+                            <span>    if (local.substring(1).indexOf(&#x27;&amp;&#x27;) == -1) {</span>
+                            <span>        alert(local.substring(1));</span>
+                            <span>    } else {</span>
+                            <span></span>
+                            <span>        //遍历替换所有&amp;为?</span>
+                            <span>        var local = window.location.search;</span>
+                            <span>        var reg = /&amp;/g;</span>
+                            <span>        var result = reg.exec(local);</span>
+                            <span>        if (result != null) {</span>
+                            <span>            local2 = local.replace(reg, &quot;?&quot;);</span>
+                            <span>        }</span>
+                            <span>        //删除相邻的?</span>
+                            <span>        var reg2 = /\?{2,}/;</span>
+                            <span>        var result2 = reg2.exec(local2);</span>
+                            <span>        if (result2 != null) {</span>
+                            <span>            var local3 = local2.replace(/\?{2,}/, &quot;?&quot;);</span>
+                            <span>        } else {</span>
+                            <span>            var local3 = local2;</span>
+                            <span>        //在最后加入一个?,方便截取</span>
+                            <span>        var local4 = local3 + &quot;?&quot;;</span>
+                            <span>        console.log(local4);</span>
+                            <span>        //以?为分割符，循环遍历截取每一个参数并存储在数组中</span>
+                            <span>        var reg3 = /\?/;</span>
+                            <span>        var result3 = reg3.exec(local4);</span>
+                            <span>        var arr = [];</span>
+                            <span>        while (result3 != null) {</span>
+                            <span>            var local5 = local4.substring(0, local4.indexOf(&quot;?&quot;));</span>
+                            <span>            arr.push(local5);</span>
+                            <span>            local4 = local4.substring(local4.indexOf(&quot;?&quot;) + 1);</span>
+                            <span>            result3 = reg3.exec(local4);</span>
+                            <span>        }</span>
+                            <span>        //删除arr中的空元素</span>
+                            <span>        var reg4 = /^\s*$/;</span>
+                            <span>        for (var i = 0; i &lt; arr.length; i++) {</span>
+                            <span>            if (reg4.exec(arr[i]) != null) {</span>
+                            <span>                arr.splice(i, 1);</span>
+                            <span>                i--;</span>
+                            <span>            }</span>
+                            <span>        }</span>
+                            <span>        //遍历arr数组，并输出=前面的值与=后面的值</span>
+                            <span>        for (var i = 0; i &lt; arr.length; i++) {</span>
+                            <span>            var reg5 = /=/;</span>
+                            <span>            var result5 = reg5.exec(arr[i]);</span>
+                            <span>            if (result5 != null) {</span>
+                            <span>                var local6 = arr[i].substring(0, arr[i].indexOf(&quot;=&quot;));</span>
+                            <span>                var local7 = arr[i].substring(arr[i].indexOf(&quot;=&quot;) + 1);</span>
+                            <span>                alert(&quot;参数&quot; + local6 + &quot;的值为&quot; + local7);</span>
+                            <span>            }</span>
+                            <span>        }</span>
+                            <span>    }</span>
+                            <span>} else {</span>
+                            <span>    alert(&quot;没有参数&quot;);</span>
+                            <span>}</span>
+                            <span></span>
+                            <span><a onclick="textalert4()">&gt;&gt;运行&lt;&lt;</a></span>
+
+                        </pre>
+
+                    </div>
+                    <br>
+                    <h5><strong>
+                            页面自动构建
+                        </strong></h5>
+                    <p>
+                        当然，自动构建代码需要平台支持，这就不可避免的需要用到服务器。<br>
+                        但是在本地无服务器的情况下，也可以上云，比如Github的Actions以及其他类似的服务。<br>
+                        下面以Github Actions为例，演示如何使用Github Actions来自动构建页面：<br>
+                        <br>
+                    <h5>什么是Github Actions?</h5>
+                    简而言之，Github Actions就是一个云端的持续集成服务器。想要使用Github，只需要将相应代码传至Github仓库，在其中配置Actions即可。<br>
+                    Actions的配置也很简单，只需在仓库内新建<code>.github/workflows/main.yml</code>文件即可。<br>
+                    在此yml文件中，可以设置触发方式（如定时、每次提交、每次修改），以及触发条件（如提交的文件、提交的分支）。<br>
+                    另外要执行的代码内容，依选择的平台的命令行格式来执行即可。比如要执行一Python脚本，可以在yml文件中写：<br>
+                    <div class="codeline">
+                        <pre>
+                                <span>jobs:</span>
+                                <span>  build:</span>
+                                <span>    runs-on: ubuntu-latest #设置运行环境</span>
+                                <span>    steps:</span>
+                                <span>      - name: Checkout</span>
+                                <span>        uses: actions/checkout@v2</span>
+                                <span>      - name: 'Git set'</span>
+                                <span>        run: |</span>
+                                <span>             git init</span>
+                                <span>             git pull</span>
+                                <span>      - name: 'Set up Python'</span>
+                                <span>        uses: actions/setup-python@v1</span>
+                                <span>        with:</span>
+                                <span>           python-version: 3.7 #v3</span>
+                                <span>      - name: 'Install requirements'</span>
+                                <span>        run: |</span>
+                                <span>             pip install wget</span>
+                                <span>             pip install bs4</span>
+                                <span>             pip install urllib3 #安装依赖</span>
+                                <span>      - name: 'Working'</span>
+                                <span>        run: </span>
+                                <span>          python update.py #运行主程序</span>
+                            </pre>
+                    </div>
+                    其余有关Actions的内容不再赘述，详见<a class="linkline" href="https://docs.github.com/cn/actions">Github Actions Docs</a>。<br>
+
+                    <h5>怎么利用Github Actions</h5>
+                    因为Github Actions是一个云端的持续集成服务器，所以可以在Github上配置Actions，然后在Github上提交代码，就可以自动构建页面。<br>
+                    但这并不能达到自动构建页面的目的。想要自动部署，目前有两种方式：<br><br>
+                    <strong>1. Github Actions + 爬虫</strong><br>
+                    这个方法能实现全自动的内容抓取、分析、部署。下面以Python为例，讲讲大致的过程：<br>
+                    首先需要明确要爬取的内容类型，如图片、文字、视频等。针对这些，如果网站需要展示相应的内容，那么就有使用原内容\下载至Github后展示两种思路。<br>
+                    展示原内容的，即爬虫只爬取资源链接（或文字），然后写入页面；<br>
+                    下载至Github，即爬虫爬取链接后下载内容，并使用Git将下载的内容提交至仓库，然后使用GithubPages展示。<br>
+                    <div class="imgarea">
+                        <h4 class="img-text">下载至Github的爬虫</h4>
+                        <img src="/articles/20220708/show2.png" alt="下载至Github的爬虫">
+                    </div>
+                    前者适合于网站的内容比较简单的，后者适合于网站的内容比较复杂的，并且前者不能存档资源，后者可以存档并备份资源<br>
+                    如只是简单的复制内容，如爬取相应网站的css、js、html等并部署到自身<del>以绕过封锁</del>，或者是类似于新闻等的信息展示，那么可以使用第一种方式；<br>
+                    如果在网站中需要存档资源方便查询，或者是源网站为非静态导致链接更换频繁，那么可以使用第二种方式。<br>
+                    不过两者都有一定的局限性，例如前者不下载资源可能在网站结构改变或者动态站内容更新时，无法自动更新，而后者可能会导致资源冗余等问题。<br>
+                    所以最好的方法是两者结合，并以不同资源类型而分情况使用。<br>
+                    比如下载图像、文件等资源，并将相应文字资源直接写入html，然后配套修改链接即可。<br>
+                    例我的项目为<a class="linkline" href="https://github.com/RavelloH/PSGameSpider">Github:RavelloH/PSGameSpider</a>，其中包含了一个爬虫，用于爬取游戏资源。<br>
+                    此项目的Github Actions配置如下：<br>
+                    <div class="codeline">
+                            <pre>
+                                <span># YAML</span>
+                                <span></span>
+                                <span>name: update</span>
+                                <span>on:</span>
+                                <span>  schedule:</span>
+                                <span>    - cron: '30 5/12 * * *' #每日更新</span>
+                                <span>  watch:</span>
+                                <span>    types: [started]</span>
+                                <span>  workflow_dispatch:</span>
+                                <span>jobs:</span>
+                                <span>  build:</span>
+                                <span>    runs-on: ubuntu-latest #运行环境</span>
+                                <span>    steps:</span>
+                                <span>      - name: Checkout</span>
+                                <span>        uses: actions/checkout@v2</span>
+                                <span>      - name: 'Git set'</span>
+                                <span>        run: |</span>
+                                <span>             git init</span>
+                                <span>             git pull</span>
+                                <span>      - name: 'Set up Python'</span>
+                                <span>        uses: actions/setup-python@v1</span>
+                                <span>        with:</span>
+                                <span>           python-version: 3.7 #v3</span>
+                                <span>      - name: 'Install requirements'</span>
+                                <span>        run: |</span>
+                                <span>             pip install wget</span>
+                                <span>             pip install bs4</span>
+                                <span>             pip install urllib3 #安装依赖</span>
+                                <span>      - name: 'Working'</span>
+                                <span>        run: </span>
+                                <span>          python update.py #运行主程序</span>
+                                <span>      - name: 'Page'</span>
+                                <span>        run: </span>
+                                <span>          python webpage.py #运行主程序</span>
+                                <span>      - name: 'EnglishWorking'</span>
+                                <span>        run: </span>
+                                <span>          python en-update.py #运行主程序</span>
+                                <span>      - name: 'EnPage'</span>
+                                <span>        run: </span>
+                                <span>          python en-webpage.py #运行主程序</span>
+                                <span>      - name: TOC</span>
+                                <span>        uses: technote-space/toc-generator@v4</span>
+                                <span>      - name: Record time  </span>
+                                <span>        run: echo `date` > date.log</span>
+                                <span></span>
+                                <span>      - name: Commit files</span>
+                                <span>        run: |</span>
+                                <span>          git diff</span>
+                                <span>          git config --local user.email "hyh20060327@qq.com"</span>
+                                <span>          git config --local user.name "RavelloH"</span>
+                                <span>          git add -A</span>
+                                <span>          git commit -m "`date '+%Y-%m-%d %H:%M:%S'`" || exit #动态提交信息</span>
+                                <span>          git status</span>
+                                <span>          git push -f</span>
+                                <span>        env:</span>
+                                <span>          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}</span>
+                            </pre>
+                    </div>
+                    上述内容的逻辑是定时\STAR时激活爬虫，先下载资源，后通过python中的os.listdir()获取本地文件信息，后通过f.write()写入到HTML中。<br>
+                    <br>
+                    另外，也可以使用另一种方法: <br>
+                    爬虫爬取到资源后，前端通过JavaScript将固定命名的资源文件引入，这样也能实现资源的动态更新。<br>
+                    不过这对资源形式的要求较高，要求每天只能有固定数（或者换句话说，资源的数目是可预判的）的资源类型。<br>
+                    使用这种方法的项目详见<a class="linkline" href="https://github.com/RavelloH/EverydayNews">EverydayNews</a>
+                    <div class="imgarea">
+                        <h4 class="img-text">前端JS代码实现</h4>
+                        <img src="/articles/20220708/code3.png" alt="前端JS代码实现">
+                    </div>
+
+                    
+                    
+                    <br>
+                    <strong>2. API + 前端</strong><br>
+                    这部分没什么好说的，看具体API返回的格式就行。<br>
+                    返回text的就直接 <code> document.write()</code><sup><em>*外联拖慢加载速度</em></sup>或者<code>.innerHTML()</code>写入即可；<br>
+                    返回json的就需要使用<code>JSON.parse()</code>解析，然后再写入即可。（当然要是格式稳定，也可以切分字符串）<br>
+                    返回图片的也可以直接img引入即可，但是要注意图片的格式，要是png的话，要加上<code>data:image/png;base64,</code>。<br>
+                    这部分最难的是找API，使用起来也很方便，看具体文档就行。<br>
+
+                    </p>
+
+
+                    <hr>
+                    <br>
+                    <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND
+                    4.0)
+                    协议授权。
+
+                    <br><br>
+                    <div id="tcomment"></div>
+                    <script src="https://cdn.staticfile.org/twikoo/1.5.11/twikoo.all.min.js"></script>
+                    <script>
+                        twikoo.init({
+                            envId: 'https://comment-ravelloh.vercel.app/',
+                            el: '#tcomment',
+                        })
+                    </script>
+
+                </div>
+                <ul class="social">
+                    <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
+                    <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
+                                class="iconfont icon-github"></span></a></li>
+                    <li>
+                        <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
+                            <span class="iconfont icon-home">
+                            </span>
+                        </a>
+                    </li>
+                </ul>
     </section>
     <div class="menu">
         <ul>
@@ -118,7 +535,7 @@
     <script>
         var img = [];
         var flag = 0;
-        var mulitImg = ['img1.jpg'];
+        var mulitImg = ['show1.gif','code3.png','show2.png'];
         var imgTotal = mulitImg.length;  //图片总数
         for (var i = 0; i < imgTotal; i++) {
             document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
@@ -137,6 +554,7 @@
     </script>
 
     <!-- JavaScript -->
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script src="/js/script.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
     <script src="//instant.page/5.1.0" type="module"
