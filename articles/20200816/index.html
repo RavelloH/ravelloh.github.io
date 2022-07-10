@@ -63,14 +63,14 @@
                     class="tag" href="/tag/#json">JSON</a>
                 <hr>
                 <br><br>
+                <div class="center"><em>
+                    <a id="loadingtext"></a>
+                </em>
+            </div>
+
                 <p>由于一些神奇的<del>BUG</del>特性，高等级效果将会使原效果被反转，而这就使得了一些原版不存在的操作变成了可能。例如，创造模式的玩家不免疫增益效果，只免疫负面效果，而这就使得了如果可以给予创造玩家一种增益效果但实际是负面效果，也是能对创造模式玩家造成伤害的。
                     <br>除此以外，对跳跃提升药水运用相同的原理也有奇效玩家将会无法跳跃
                 </p>
-
-                <div class="center"><em>
-                        <a id="loadingtext1">-</a> <a id="loadingtext2">-</a> <a id="loadingtext3">-</a>
-                    </em>
-                </div>
 
                 <img id="img1" src="show1.gif" class="img" title="创造效果">
                 <p>另外，这个药水所带来的伤害也高的离谱：</p>
@@ -131,15 +131,21 @@
             </ul>
         </div>
         <script>
-            document.getElementById('img1').onload = function (e) {
-                e.stopPropagation();
-                document.getElementById("loadingtext1").innerHTML = "GIF1";
-                document.getElementById('img2').onload = function (e) {
-                    e.stopPropagation();
-                    document.getElementById("loadingtext2").innerHTML = "GIF2";
-                    document.getElementById('img3').onload = function (e) {
-                        e.stopPropagation();
-                        document.getElementById("loadingtext3").innerHTML = "GIF3";
+            var img = [];
+            var flag = 0;
+            var mulitImg = ['show1.gif', 'show2.gif', 'show3.gif'];
+            var imgTotal = mulitImg.length;  //图片总数
+            for (var i = 0; i < imgTotal; i++) {
+                document.getElementById("loadingtext").innerHTML = "*文章插图加载中:"+flag+"/"+imgTotal;
+                img[i] = new Image()
+                img[i].src = mulitImg[i]
+                img[i].onload = function () {
+                    flag++;
+                    if (flag == imgTotal) {
+                        document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:"+flag+"/"+imgTotal;
+                    } else {
+                        document.getElementById("loadingtext").innerHTML = "*文章插图加载中:"+flag+"/"+imgTotal;
+                        return;
                     }
                 }
             }
