@@ -647,11 +647,11 @@ hr,
   }
   .article {
     width: 100%;
-    height: 80%;
+    height: 75%;
     overflow-y: auto;
     overflow-x: hidden;
     word-break: break-all;
-    bottom: -10%;
+    bottom: -5%;
   }
 }
 
