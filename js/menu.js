@@ -6,3 +6,4 @@ document.writeln("<li style=\"--i: 4\"><a href=\'/classification/\'><span class=
 document.writeln("<li style=\"--i: 5\"><a href=\'/friends/\'><span class=\'iconfontsmall icon-friend\'></span> FRIENDS</a></li>");
 document.writeln("<li style=\"--i: 6\"><a href=\'/about/\'><span class=\'iconfontsmall icon-about\'></span> ABOUT</a></li>");
 document.writeln("<b><br><br>Copyright © 2019 - <b id=\'year\'></b> RavelloH.<br> All rights reserved.</b>");
+document.writeln("<br><br><a class=\'info\' style=\'width:88%;margin:0\' href=\'//ravelloh.gitee.io/cname"+window.location.pathname+"\'>当前源:<wbr><strong>"+window.location.hostname+"</strong><br>点击更换源</a>");
