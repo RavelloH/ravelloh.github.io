@@ -796,6 +796,7 @@ section {
   height: auto;
 }
 
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -1079,4 +1080,45 @@ blockquote:hover a,.info:hover a {
 #cursor.active {
   opacity: 0.5;
   transform: scale(0.5);
+}
+
+#jumping {
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  letter-spacing: 0.15em;
+  animation-delay: 0.3s;
+  text-align: left;
+  font-size: large;
+}
+
+.infos:after, .infos:before {
+  font-size: 20rem;
+  content: "BREAKING NEWS BREAKING NEWS";
+  display: inline-block;
+  padding-right: 0.6rem;
+  animation: infosshow 20s linear infinite;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  -webkit-text-stroke: 1px #776e6e;
+  color: transparent; 
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: infosshow;
+  font-size: 20rem;
+  z-index: 100;
+}
+
+@keyframes infosshow {
+  0% {
+    transform: translateX(0)
+  }
+
+  to {
+    transform: translateX(-100%)
+  }
 }
