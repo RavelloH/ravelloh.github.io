@@ -1099,6 +1099,9 @@ blockquote:hover a,.info:hover a {
   font-size: large;
   font-family: 'Randfont', 'Microsoft Yahei',sans-serif;
   max-width: 100%;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  height: fit-content;
 }
 
 .infos:after, .infos:before {
