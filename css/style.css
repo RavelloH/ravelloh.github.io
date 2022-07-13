@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: "Randfont";
-  src: url(/css/font/Randfont.ttf), local("Randfont");
+  src: url(/css/font/randfont.ttf), local("Randfont");
   font-display: swap;
 }
 
