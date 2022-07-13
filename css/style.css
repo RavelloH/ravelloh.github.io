@@ -13,6 +13,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Randfont";
+  src: url(/css/font/Randfont.ttf), local("Randfont");
+  font-display: swap;
+}
+
 /* 粗体优化 */
 b {
   font-family: "Microsoft Yahei", "MicrosoftYaHei";
@@ -914,7 +920,7 @@ a:after {
   transition: transform 0.25s cubic-bezier(0.28, 0.94, 0.82, 1.09);
 }
 
-a:hover:after {
+a:not(.logos ,.social li a):hover:after{
   transform: scaleX(1);
   transform-origin: bottom left;
 }
@@ -978,13 +984,13 @@ a:hover:after {
   display: block;
 }
 
-.menu ul a {
+.menu ul a ,.listprogram{
   padding: 0 -1px;
   transition: opacity 0.5s;
 }
 
-.menu ul:hover a:not(:hover) {
-  opacity: 0.6;
+.menu ul:hover a:not(:hover),.listline:hover .listprogram:not(:hover){
+  opacity: 0.4;
 }
 
 .imgarea {
@@ -1091,6 +1097,8 @@ blockquote:hover a,.info:hover a {
   animation-delay: 0.3s;
   text-align: left;
   font-size: large;
+  font-family: 'Randfont', 'Microsoft Yahei',sans-serif;
+  max-width: 100%;
 }
 
 .infos:after, .infos:before {
@@ -1121,4 +1129,7 @@ blockquote:hover a,.info:hover a {
   to {
     transform: translateX(-100%)
   }
+}
+*:focus-visible {
+  outline:snow 1px solid;
 }
