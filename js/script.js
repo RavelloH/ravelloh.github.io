@@ -537,7 +537,7 @@ function resume() {
     jumping.innerHTML =
       jumpingarr.join("").substring(0, resumecount) +
       jumpingnow.substring(resumecount, jumpinglength);
-  }, 20);
+  }, 15);
 }
 
 // 初始化
@@ -549,7 +549,7 @@ function showhello() {
       setTimeout(function () {
         resume();
         importnewjumping();
-      }, 6 * jumpinglength);
+      }, 10 * jumpinglength);
     }, 12 * jumpinglength);
   }, 1000);
 }
@@ -569,7 +569,7 @@ function resetjumping() {
       setTimeout(function () {
         jumping.innerHTML += "/";
         jumpingarr_recursion(i + 1);
-      }, 10);
+      }, 5);
     }
   }
   var jumpingarrs = [];
@@ -594,7 +594,7 @@ function importnewjumping() {
         setTimeout(function () {
           jumping.innerHTML += "/";
           jumpingarr_recursion(i + 1);
-        }, 20);
+        }, 10);
       }
     }
     var jumpingarrs = [];
@@ -633,7 +633,7 @@ function importnewjumping() {
         jumping.innerHTML =
           jumpingarr.join("").substring(0, resumecount) +
           jumpingnow.substring(resumecount, jumpinglength);
-      }, 30);
+      }, 20);
     }
     // 存储现在的jumping的innerHTML到jumpingarrs中
     var jumpingarrs = [];
@@ -647,8 +647,8 @@ function importnewjumping() {
         setTimeout(function () {
           resume();
           importoriginjumping();
-        }, 6 * jumpinglength);
-      }, 12 * jumpinglength);
+        }, 20 * jumpinglength);
+      }, 6 * jumpinglength);
     });
   }, 6000);
 }
