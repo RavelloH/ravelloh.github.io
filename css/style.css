@@ -967,6 +967,15 @@ a:not(.logos ,.social li a):hover:after{
   margin: 0 0 var(--column-gap);
 }
 
+.menu ul a ,.listprogram{
+  padding: 0 -1px;
+  transition: opacity 0.5s;
+}
+
+.menu ul:hover a:not(:hover),.listline:hover .listprogram:not(:hover){
+  opacity: 0.4;
+}
+
 .listprogram {
   opacity: 0;
   margin-left: 100px;
@@ -982,15 +991,6 @@ a:not(.logos ,.social li a):hover:after{
   transition-delay: calc((0.1s * var(--i)));
   opacity: 1;
   display: block;
-}
-
-.menu ul a ,.listprogram{
-  padding: 0 -1px;
-  transition: opacity 0.5s;
-}
-
-.menu ul:hover a:not(:hover),.listline:hover .listprogram:not(:hover){
-  opacity: 0.4;
 }
 
 .imgarea {
