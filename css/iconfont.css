@@ -5,7 +5,7 @@
 }
 @font-face {
   font-family: "iconfont2"; /* Project id  */
-  src: url('iconfont2.ttf?t=1659332331574') format('truetype');
+  src: url('./font/iconfont2.ttf?t=1659332331574') format('truetype');
 }
 
 .iconfont {
