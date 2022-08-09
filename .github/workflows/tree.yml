@@ -13,7 +13,7 @@ jobs:
         run: |
           git init
           git pull
-          git config --local user.email "dr_hamilon@foxmail.com"
+          git config --local user.email "dr_hamilton@foxmail.com"
           git config --local user.name "Ravello-H"
           git add .
           git commit -m "[Readme-Tree]`date '+%Y-%m-%d %H:%M:%S'`" || exit
