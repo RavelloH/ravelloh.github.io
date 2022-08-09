@@ -14,6 +14,85 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 </div>
 
 <!-- readme-tree start -->
+```
+.
+├── .github
+│   └── workflows
+│       └── tree.yml
+├── 404.html
+├── README.md
+├── about
+│   ├── author
+│   │   └── index.html
+│   └── index.html
+├── articles
+│   ├── 20200816
+│   │   ├── index.html
+│   │   ├── show1.gif
+│   │   ├── show2.gif
+│   │   └── show3.gif
+│   ├── 20210701
+│   │   └── index.html
+│   ├── 20210705
+│   │   ├── code1.png
+│   │   ├── code2.png
+│   │   ├── code3.png
+│   │   └── index.html
+│   ├── 20210719
+│   │   ├── img1.png
+│   │   ├── img2.gif
+│   │   └── index.html
+│   ├── 20220206
+│   │   └── index.html
+│   ├── 20220323
+│   │   ├── img1.jpg
+│   │   └── index.html
+│   ├── 20220708
+│   │   ├── code3.png
+│   │   ├── index.html
+│   │   ├── show1.gif
+│   │   └── show2.png
+│   └── index.html
+├── classification
+│   └── index.html
+├── css
+│   ├── common.css
+│   ├── font
+│   │   ├── Furore.ttf
+│   │   ├── WeiRuanYaHei.ttf
+│   │   ├── iconfont.ttf
+│   │   ├── iconfont2.ttf
+│   │   └── randfont.ttf
+│   ├── iconfont.css
+│   └── style.css
+├── favicon.ico
+├── friends
+│   └── index.html
+├── google15e5df7e8b90902d.html
+├── img
+│   ├── RavelloH.svg
+│   ├── android-chrome-192x192.png
+│   ├── android-chrome-512x512.png
+│   ├── apple-touch-icon.png
+│   ├── avatar.jpg
+│   ├── close.png
+│   ├── favicon-16x16.png
+│   ├── favicon-32x32.png
+│   └── menu.png
+├── index.html
+├── js
+│   ├── common.js
+│   ├── menu.js
+│   └── script.js
+├── site.webmanifest
+├── tag
+│   └── index.html
+├── tree.bak
+└── works
+    └── index.html
+
+20 directories, 54 files
+```
 <!-- readme-tree end -->
 
 ## 关注
