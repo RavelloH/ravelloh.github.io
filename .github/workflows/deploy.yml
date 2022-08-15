@@ -19,14 +19,5 @@ jobs:
         with:
           repository: RavelloH/ravelloh
           cookie: ${{ secrets.GITEE_COOKIE }}
-          branch: main
+          branch: master
           https: true
-  js-org:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: wearerequired/git-mirror-action@master
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
-        with:
-          source-repo: "git@github.com:RavelloH/ravelloh.github.io.git"
-          destination-repo: "git@github.com:ravello-h/ravello-h.github.io.git"
