@@ -31,6 +31,23 @@ var now = new Date();
 var nowStr = now.format("yyyy");
 document.getElementById("year").innerHTML = new Date().format("yyyy");
 
+// 添加一个安慰作用的加载进度条
+function showprog(){           
+const social = document.querySelector(".social");
+social.innerHTML='<li><div class="progress-container"><div class="progress"></div></div></li>'
+const progressbar = document.querySelector(".progress");
+const profather = document.querySelector(".progress-container");
+const changeProgress = (progress) => {
+  progressbar.style.width = `${progress}%`;
+};
+setTimeout(() => profather.id='actives',50);
+setTimeout(() => changeProgress(22), 400);
+setTimeout(() => changeProgress(45), 500);
+setTimeout(() => changeProgress(90), 700);
+setTimeout(() => changeProgress(100), 1400);
+setTimeout(() => profather.id='pro-null',1600)
+}
+
 // 页面退出时，id更改为active
 window.onbeforeunload = function () {
   for (var j = 0; j < 5; j++) {
@@ -40,6 +57,7 @@ window.onbeforeunload = function () {
   for (var i = 0; i < spans.length; i++) {
     spans[i].id = "active";
   }
+  setTimeout(() => showprog(), 300);
 };
 
 // listprogramload动画
