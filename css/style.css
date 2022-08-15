@@ -1133,6 +1133,32 @@ blockquote:hover a,.info:hover a {
     transform: translateX(-100%)
   }
 }
+
 *:focus-visible {
   outline:snow 1px solid;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  color: #c6c9ce;
+  text-align: center;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+
+table tr:hover {background-color: #1e1e1e;}
+
+table th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-weight: bolder;
+  background-color: #80808040;
+  color: white;
 }
