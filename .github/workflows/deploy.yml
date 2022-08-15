@@ -29,4 +29,4 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
         with:
           source-repo: "git@github.com:RavelloH/ravelloh.github.io.git"
-          destination-repo: "git@gitee.com:ravello-h/ravello-h.github.io.git"
+          destination-repo: "git@github.com:ravello-h/ravello-h.github.io.git"
