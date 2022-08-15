@@ -1,9 +1,7 @@
 name: deploy
 on: [push]
-  workflow_dispatch:
 jobs:
-  sync:
-    needs: build
+  gitee:
     runs-on: ubuntu-latest
     steps:
       - uses: wearerequired/git-mirror-action@master
@@ -13,7 +11,7 @@ jobs:
           source-repo: "git@github.com:RavelloH/ravelloh.github.io.git"
           destination-repo: "git@gitee.com:ravelloh/ravelloh.git"
   reload-pages:
-    needs: sync
+    needs: gitee
     runs-on: ubuntu-latest
     steps:
       - name: reload
@@ -23,3 +21,12 @@ jobs:
           cookie: ${{ secrets.GITEE_COOKIE }}
           branch: main
           https: true
+  js-org:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: wearerequired/git-mirror-action@master
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
+        with:
+          source-repo: "git@github.com:RavelloH/ravelloh.github.io.git"
+          destination-repo: "git@gitee.com:ravello-h/ravello-h.github.io.git"
