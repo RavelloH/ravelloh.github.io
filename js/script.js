@@ -50,6 +50,7 @@ setTimeout(() => profather.id='pro-null',1600)
 
 // 页面退出时，id更改为active
 window.onbeforeunload = function () {
+  showprog()
   for (var j = 0; j < 5; j++) {
     document.getElementById("text").id = "active";
   }
@@ -57,7 +58,6 @@ window.onbeforeunload = function () {
   for (var i = 0; i < spans.length; i++) {
     spans[i].id = "active";
   }
-  setTimeout(() => showprog(), 300);
 };
 
 // listprogramload动画
