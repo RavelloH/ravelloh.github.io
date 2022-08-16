@@ -39,7 +39,6 @@ html {
   font-size: 13px;
   line-height: 1.5;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -395,6 +394,7 @@ body {
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* [class*=classic]:before {
