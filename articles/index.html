@@ -58,11 +58,10 @@
             <div class="overlay"></div>
             <div class="text title" id="text">
                 <h3>Articles - 文章</h3>
-                <span id="runtime_span">打开JavaScript以获得更好的浏览体验。</span>
+                <span id="runtime_span">此页面内容需要使用JavaScript</span>
                 <script type="text/javascript">
                     var runtime_span = document.getElementById("runtime_span");
                     function show_runtime() {
-                        window.setTimeout("show_runtime()", 1000);
                         X = new Date("7/8/2022 00:00:00"); //设定时间(月\日\年 时:分:秒)) 
                         Y = new Date();  //获取当前时间
                         T = (Y.getTime() - X.getTime());
@@ -76,12 +75,20 @@
                         D = Math.floor((c - C) * 60);
                         runtime_span.innerHTML = "<br>记录并索引所有文章。<br>最近更新于" + A + "天前。"
                     }
-                    show_runtime(); //每秒调用show_runtime()函数
+                    show_runtime(); 
                 </script>
 
             </div>
 
             <div class="text listline" id="text">
+            <noscript>
+            <h3>ERROR..</h3>
+            <h4>TYPE:NOSCRIPT</h4>
+            <p>
+            此页面需要开启浏览器的JavaScript功能才能正常工作<br>
+            若无法开启，也可以<a class='linkline' href='https://ravelloh.github.io/RSS/rss.xml'>在此处访问RSS</a>，选择对应文章链接阅读
+            </p>
+            </noscript>
                 <div class="listprogram" style="--i: 8">
                     <h4><a href="/articles/20220708/">论静态页中伪动态的实现</a></h4>
                     <span class="iconfontmini icon-clock"></span> <time>2022-07-08</time> · <span
