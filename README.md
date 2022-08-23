@@ -19,6 +19,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 ├── .github
 │   └── workflows
 │       ├── deploy.yml
+│       ├── search.yml
 │       └── tree.yml
 ├── 404.html
 ├── README.md
@@ -94,7 +95,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-20 directories, 57 files
+20 directories, 58 files
 ```
 <!-- readme-tree end -->
 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0) 协议授权。
