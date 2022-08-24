@@ -180,6 +180,23 @@
             integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
         <script>
             setTimeout("onload()", "500");
+            window.onload = function () {
+                 var url = '/articles/search.json';
+                 var request = new XMLHttpRequest();
+                 request.open('get',url);
+                 request.send(null);
+                 request.onload = function () {
+                     if (request.status == 200) {
+                         var json = JSON.parse(request.responseText);
+                         for(var i=0;i<json.length;i++){
+                             alert(json[i].name)
+                         }
+                         alert(json)
+                     }
+                     
+                 }
+                
+            }
         </script>
     </body>
 
