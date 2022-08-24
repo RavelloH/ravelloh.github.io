@@ -37,6 +37,6 @@ jobs:
           git config --local user.email "dr_hamilton@foxmail.com"
           git config --local user.name "Ravello-H"
           git add -A
-          git commit -m "`date '+%Y-%m-%d %H:%M:%S'`" || exit #动态提交信息
+          git commit -m "[RPageSearch]`date '+%Y-%m-%d %H:%M:%S'`" || exit #动态提交信息
           git status
           git push -f
