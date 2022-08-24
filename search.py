@@ -55,6 +55,7 @@ main_structure = main_structure_head
 for i in inner_structure_cache:
     main_structure = main_structure + i + ','
 main_structure = main_structure[:-1] + main_structure_end
+total_str = 'var SearchResult = "' + main_structure.replace('"','//"') + '"'
 
 ## 写入JSON至文件
 with open(target+'search.json','w+') as f1:
