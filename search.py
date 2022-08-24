@@ -30,6 +30,15 @@ for i in os.listdir(target):
             if targettype in k:
                 targetfile.append(target + i + '/' + k)
 
+## 按时间顺序排序
+targetfilenum = []
+for i in targetfile:
+    targetfilenum.append(i[11:19])
+targetfilenum.sort(reverse=True)
+targetfile=[]
+for i in targetfilenum:
+    targetfile.append('./articles/'+str(i)+'/index.html')
+    
 ## 解析重构目标文件
 inner_structure_cache=[]
 inner_structure_text=''
