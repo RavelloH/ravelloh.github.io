@@ -43,6 +43,7 @@ for i in targetfilenum:
 inner_structure_cache=[]
 inner_structure_text=''
 for i in targetfile:
+    inner_structure_text = ''    
     with open(i,'r') as f:
         filecontent = BeautifulSoup(f.read(),'html.parser')
         textlist = filecontent.find_all(name='p')
