@@ -58,5 +58,5 @@ main_structure = main_structure[:-1] + main_structure_end
 total_str = 'var SearchResult = "' + main_structure.replace('"','\\"') + '"'
 
 ## 写入JSON至文件
-with open(target+'search.json','w+') as f1:
+with open('./js/searchdata.js','w+') as f1:
     f1.write(total_str)
