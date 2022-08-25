@@ -57,13 +57,27 @@
 
             <div class="overlay"></div>
             <div class="text title" id="text">
-                <h3>Articles - 文章</h3>
+            <h3>Articles / 文章</h3>
+            <br>
+            <div class='searchbox'>
+                <form class="searchbox" onSubmit="return check();" autocomplete="off">
+                    <input type="text" placeholder="从所有文章内检索..." name="search" oninput="searchtext()" onpropertychange="searchtext()">
+                    <button type="button" id='searchbutton'><span class="iconfontmini icon-search"></span></button>
+                    <div class="resultlist" id="resultlist">
+                        <i>- 搜索 -</i><hr><p align="center">
+                            输入关键词以在文章标题及正文中查询
+                        </p>
+                        <hr><a href="https://github.com/ravelloh/RPageSearch">Search powered by RavelloH's RPageSearch</a>
+                    </div>
+                </form>
+            </div>
+            <div id='info'>
                 <span id="runtime_span">此页面内容需要使用JavaScript</span>
                 <script type="text/javascript">
                     var runtime_span = document.getElementById("runtime_span");
                     function show_runtime() {
-                        X = new Date("7/8/2022 00:00:00"); //设定时间(月\日\年 时:分:秒)) 
-                        Y = new Date();  //获取当前时间
+                        X = new Date("7/8/2022 00:00:00"); //设定时间(月\日\年 时:分:秒))
+                        Y = new Date(); //获取当前时间
                         T = (Y.getTime() - X.getTime());
                         M = 24 * 60 * 60 * 1000;
                         a = T / M;
@@ -75,10 +89,11 @@
                         D = Math.floor((c - C) * 60);
                         runtime_span.innerHTML = "<br>记录并索引所有文章。<br>最近更新于" + A + "天前。"
                     }
-                    show_runtime(); 
+                    show_runtime();
                 </script>
-
             </div>
+
+        </div>
 
             <div class="text listline" id="text">
             <noscript>
