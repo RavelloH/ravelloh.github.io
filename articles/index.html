@@ -314,13 +314,13 @@
         let infos = document.getElementById('info')
         let button = document.getElementById('searchbutton')
         input.addEventListener("focus", e => {
-            result.id = 'active'
+            result.style.height = '40%'
             result.style.overflow = 'auto'
             result.style.padding = '3px'
             infos.id = 'hidden'
         })
         input.addEventListener("blur", e => {
-            result.id = 'resultlist'
+            result.style.height = '0'
             result.style.overflow = 'hidden'
             result.style.padding = '0'
             infos.id = 'info'
