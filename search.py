@@ -56,7 +56,7 @@ for i in targetfile:
     time = time[0:4]+'-'+time[4:6]+'-'+time[6:8]
     title = title[titlelen-1]
     path = i[1:][:-10]
-    inner_structure_text=inner_structure_text.replace(' ','').replace('\\n','').replace('"','&quot;').replace(r'\\','')
+    inner_structure_text=inner_structure_text.replace(' ','').replace('\n','').replace('"','&quot;').replace(r'\','')
     inner_structure_all = inner_structure_1 + str(title.get_text()) + inner_structure_2 + str(path) + inner_structure_3 + str(time) + inner_structure_4 + inner_structure_text + inner_structure_5
     inner_structure_cache.append(inner_structure_all)
 
