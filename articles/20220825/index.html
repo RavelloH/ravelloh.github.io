@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>静态站实现全站搜索 | RavelloH’s Blog</title>
+    <meta name="keywords" content="RavelloH,blog,python,spider,html">
+    <meta name="description" content="使用JavaScript与Python进行伪动态，实现静态页的全站搜索功能。">
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="/favicon.ico">
+
+</head>
+
+
+<body>
+    <section class="showcase">
+        <div class="shade"></div>
+        <header>
+            <h2 class="logo">
+                <a href="/" class="logos">
+                    <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;" alt="avatar">
+                    <img class="logoname" src="/img/RavelloH.svg" alt="RavelloH's Blog">
+                </a>
+            </h2>
+            <div class="headers">
+                <nav>
+                    <a href="/">
+                        HOME
+                    </a>
+                    <a href="/works/">
+                        WORKS
+                    </a>
+                    <a href="/articles/">
+                        ARTICLES
+                    </a>
+                    <a href="/tag/">
+                        TAG
+                    </a>
+                    <a href="/about/">
+                        ABOUT
+                    </a>
+                </p>
+            </nav>
+        </div>
+        <div class="toggle" class="header">
+        </div>
+    </header>
+
+    <div class="overlay"></div>
+    <div class="article" id="text">
+        <div id="scroll-progress"></div>
+        <h2>静态站实现全站搜索</h2>
+        <span class="iconfontmini icon-clock"></span> 2022-08-25 · <span
+            class="iconfontmini icon-classification"></span>
+        <a href="/classification/#技术">技术</a> - <a href="/classification/#设计">设计</a>·
+        <span class="iconfontmini icon-tag"></span>
+        <a class="tag" href="/tag/#javascript">JAVASCRIPT</a>
+        <a class="tag" href="/tag/#python">PYTHON</a>
+        <div>
+            <h4><b><em>Menu - 目录列表</em></b></h4>
+            <a class="m" href="#前言">前言</a>
+            <a class="m" href="#效果">效果</a>
+            <a class="m" href="#实现方法">实现方法</a>
+            <a class="m" href="#后言">后言</a>
+        </div>
+        <hr>
+        <br><br>
+        <div class="center info">
+            <em>
+                <span id="loadingtext"></span>
+            </em>
+        </div>
+        <br>
+        <h4><a name="前言" href="#前言">#前言</a></h4>
+        <p>
+            全站搜索这一功能我想加入到我的博客中不是一年两年的事了。但因自己现在弃用Hexo转而自己做博客，这两年搜索这个功能就一直未能实现。<br>
+            最近自己偶然有新想法，就给实现了。效果还不错，现在搭配Github Actions使用，可以实现新文章自动索引，实现了自动化。
+
+        </p>
+        <br>
+        <br>
+        <h4><a name="效果" href="#效果">#效果</a></h4>
+        <div class="imgarea">
+            <h5 class="img-text">搜索演示</h5>
+            <img src="show1.jpg" alt="演示" style="border: 2px solid #c6c9ce;">
+        </div>
+        <br>
+        <p>
+            要想充分体验，还是自己去试试的好。<a class="linkline" href="/article/">转到Articles索引页</a>
+        </p>
+        <br>
+        <br>
+        <h4><a name="实现方法" href="#实现方法">#实现方法</a></h4>
+        <h5><strong>
+            数据生成
+        </strong></h5>
+        <p>
+            要想在静态页搜索，就要自己创建索引。这里使用python来创建一个JSON，存储全站文章信息：
+            <div class="codeline">
+                <pre>
+                    <span># -*- coding: utf-8 -*-</span>
+                    <span>## 使用有问题请到github.com/ravelloh/RPageSearch提ISSUE</span>
+                    <span>### Author: RavelloH</span>
+                    <span>#### LICENCE: MIT</span>
+                    <span>##### RPageSearch</span>
+                    <span>import os</span>
+                    <span>from bs4 import BeautifulSoup</span>
+                    <span></span>
+                    <span>## 设置目标</span>
+                    <span>target = './articles/' # 目录位置</span>
+                    <span>layers = 1 # 遍历层数</span>
+                    <span>targettype = 'html' # 文件后缀名(只支持html)</span>
+                    <span></span>
+                    <span>main_structure_head='{"articles":['</span>
+                    <span>main_structure_end=']}'</span>
+                    <span>inner_structure_1='{"title":"'</span>
+                    <span>inner_structure_2='","path":"'</span>
+                    <span>inner_structure_3='","time":"'</span>
+                    <span>inner_structure_4='","text":"'</span>
+                    <span>inner_structure_5='"}'</span>
+                    <span></span>
+                    <span></span>
+                    <span>## 打开目标目录</span>
+                    <span>targetfile = []</span>
+                    <span>for i in os.listdir(target):</span>
+                    <span>    if '.' not in i:</span>
+                    <span>        for k in os.listdir(target +i):</span>
+                    <span>            if targettype in k:</span>
+                    <span>                targetfile.append(target + i + '/' + k)</span>
+                    <span></span>
+                    <span>## 按时间顺序排序</span>
+                    <span>targetfilenum = []</span>
+                    <span>for i in targetfile:</span>
+                    <span>    targetfilenum.append(i[11:19])</span>
+                    <span>targetfilenum.sort(reverse=True)</span>
+                    <span>targetfile=[]</span>
+                    <span>for i in targetfilenum:</span>
+                    <span>    targetfile.append('./articles/'+str(i)+'/index.html')</span>
+                    <span>    </span>
+                    <span>## 解析重构目标文件</span>
+                    <span>inner_structure_cache=[]</span>
+                    <span>inner_structure_text=''</span>
+                    <span>for i in targetfile:</span>
+                    <span>    inner_structure_text = ''    </span>
+                    <span>    with open(i,'r') as f:</span>
+                    <span>        filecontent = BeautifulSoup(f.read(),'html.parser')</span>
+                    <span>        textlist = filecontent.find_all(name='p')</span>
+                    <span>        title = filecontent.find_all(name='h2')</span>
+                    <span>        titlelen=len(title)</span>
+                    <span>    length = len(textlist)</span>
+                    <span>    for j in range(length):</span>
+                    <span>        inner_structure_text=inner_structure_text+textlist[j].get_text()</span>
+                    <span>    time = i[-19:-11]</span>
+                    <span>    time = time[0:4]+'-'+time[4:6]+'-'+time[6:8]</span>
+                    <span>    title = title[titlelen-1]</span>
+                    <span>    path = i[1:][:-10]</span>
+                    <span>    inner_structure_text=inner_structure_text.replace(' ','').replace('\n','').replace('"','&quot;')</span>
+                    <span>    inner_structure_all = inner_structure_1 + str(title.get_text()) + inner_structure_2 + str(path) + inner_structure_3 + str(time) + inner_structure_4 + inner_structure_text + inner_structure_5</span>
+                    <span>    inner_structure_cache.append(inner_structure_all)</span>
+                    <span></span>
+                    <span>## 重构完整JSON</span>
+                    <span>main_structure = main_structure_head</span>
+                    <span>for i in inner_structure_cache:</span>
+                    <span>    main_structure = main_structure + i + ','</span>
+                    <span>main_structure = main_structure[:-1] + main_structure_end</span>
+                    <span>total_str = 'var SearchResult = "' + main_structure.replace('"','\\"') + '"'</span>
+                    <span>print(total_str)</span>
+                    <span># 写入JSON#文件</span>
+                    <span>with open('./js/searchdata.js','w+') as #1:</span>
+                    <span>    f1.write(total_str)</span>
+                </pre>
+            </div>
+        </p>
+        <p>
+            上述代码实现了将<code>articles</code>目录下所有文件夹中以<code>.html</code>后缀结尾的文件中的p标签中文字提取出来，并顺便提取h2的文章标题。<br>不过因为python中直接使用os.dirlist扫出的文件名是乱序，为方便后续排序还需要按照时间顺序排序，其中因为我的文章存储方式是以时间排序的，如这篇文章的存储结构就是<code>/articles/20220825/inxex.html</code>，因为时间可以直接从文件夹中读出，时间排序比较方便，7行就搞定了，如果是其余方式也同理。<br>上述代码运行后，得出的应该是类似于如下结构的json:
+
+            <div class="codeline">
+                <pre>
+                    <span>{</span>
+                    <span>    "articles":[{</span>
+                    <span>        "title":"文章标题","path":"相对路径","time":"更新时间","text":"所有正文"</span>
+                    <span>    }, {</span>
+                    <span>        "title":"文章标题","path":"相对路径","time":"更新时间","text":"所有正文"</span>
+                    <span>    }, {</span>
+                    <span>        "title":"文章标题","path":"相对路径","time":"更新时间","text":"所有正文"</span>
+                    <span>    }]</span>
+                    <span>}</span>
+                </pre>
+            </div>
+        </p>
+        <p>
+            这样全站搜索的json就生成完成了，为了方便引用，上述代码最后会将这个json改为js格式，并转义<code>"</code>字符。<br>
+            这样，就可以在后续处理搜索时直接引用js，其中json存储在变量<code>SearchResult</code>中。
+        </p>
+        <br>
+        <br>
+        <h5><strong>
+            搜索处理
+        </strong></h5>
+        <p>
+            有了json，搜索就只需在前端实现了。这样可以脱离服务器的限制，唯一限制速度的是访客的设备性能。<br>
+            但因为这里只是简单的字符串搜索，性能需求并不大，下面我写的代码虽说并没有做到极限优化，但也通过多层次搜索降低了一部分运算量，可以做到实时搜索输入数据。<br>
+            以下是HTML与JavaScript代码。当然，这跟我博客上的不一样，博客上还加入了一些css过渡之类的，不过本篇重点也不是css，如果有需求可自行到博客articles页F12看看。博客源代码在github，<a href="https://github.com/ravelloh/ravelloh.github.io" class="linkline">见此。</a>
+            <div class="codeline">
+                <pre>
+                    <span>&lt;div class=&#x27;searchbox&#x27;&gt;&lt;/span&gt;</span>
+                    <span>    &lt;form class=&quot;searchbox&quot; onSubmit=&quot;return check();&quot; autocomplete=&quot;off&quot;&gt;</span>
+                    <span>        &lt;input type=&quot;text&quot; placeholder=&quot;从所有文章内检索...&quot; name=&quot;search&quot; oninput=&quot;searchtext()&quot; onpropertychange=&quot;searchtext()&quot;&gt;</span>
+                    <span>        &lt;button type=&quot;button&quot; id=&#x27;searchbutton&#x27;&gt;&lt;span class=&quot;iconfontmini icon-search&quot;&gt;&lt;/span&gt;&lt;/button&gt;</span>
+                    <span>        &lt;div class=&quot;resultlist&quot; id=&quot;resultlist&quot;&gt;</span>
+                    <span>            &lt;i&gt;- 搜索 -&lt;/i&gt;&lt;hr&gt;&lt;p align=&quot;center&quot;&gt;</span>
+                    <span>                输入关键词以在文章标题及正文中查询</span>
+                    <span>            &lt;/p&gt;</span>
+                    <span>            &lt;hr&gt;&lt;a href=&quot;https://github.com/ravelloh/RPageSearch&quot;&gt;Search powered by RavelloH&#x27;s RPageSearch&lt;/a&gt;</span>
+                    <span>        &lt;/div&gt;</span>
+                    <span>    &lt;/form&gt;</span>
+                    <span>&lt;/div&gt;</span>
+                </pre>
+            </div>
+            <div class="codeline">
+                <pre>
+                    <span>let input = document.querySelector(&quot;input[type=&#x27;text&#x27;]&quot;);</span>
+                    <span>let result = document.getElementById(&#x27;resultlist&#x27;)</span>
+                    <span>let button = document.getElementById(&#x27;searchbutton&#x27;)</span>
+                    <span></span>
+                    <span>obj = JSON.parse(SearchResult);</span>
+                    <span>function searchtext() {</span>
+                    <span>    result.innerHTML = input.value;</span>
+                    <span>    if (input.value == &#x27;&#x27;) {</span>
+                    <span>        result.innerHTML = &#x27;&lt;i&gt;- 搜索 -&lt;/i&gt;&lt;hr&gt;&#x27;+&#x27;&lt;p align=&quot;center&quot;&gt;输入关键词以在文章标题及正文中查询&lt;/p&gt;&lt;hr&gt;&#x27;</span>
+                    <span>    }</span>
+                    <span></span>
+                    <span>    // 标题搜索</span>
+                    <span>    resultcount = 0;</span>
+                    <span>    resultstr = &#x27;&#x27;;</span>
+                    <span>    var resulttitlecache = new Array()</span>
+                    <span>    for (i = 0; i &lt; obj.articles.length; i++) {</span>
+                    <span>        if (obj.articles[i][&#x27;title&#x27;].includes(input.value) == true) {</span>
+                    <span>            resulttitlecache.unshift(obj.articles[i][&#x27;title&#x27;])</span>
+                    <span>            resultcount++;</span>
+                    <span>        }</span>
+                    <span>    }</span>
+                    <span></span>
+                    <span>    // 标题搜索结果展示</span>
+                    <span>    if (resultcount !== 0 &amp;&amp; resultcount !== obj.articles.length) {</span>
+                    <span>        for (i = 0; i &lt; resulttitlecache.length; i++) {</span>
+                    <span>            for (j = 0; j &lt; obj.articles.length; j++) {</span>
+                    <span>                if (obj.articles[j][&#x27;title&#x27;] == resulttitlecache[i]) {</span>
+                    <span>                    titlesearchresult = &#x27;&lt;h4&gt;&lt;a href=&quot;&#x27;+obj.articles[j][&quot;path&quot;]+&#x27;&quot; class=&quot;resulttitle&quot;&gt;&#x27;+obj.articles[j][&#x27;title&#x27;].replace(new RegExp(input.value, &#x27;g&#x27;), &#x27;&lt;mark&gt;&#x27;+input.value+&#x27;&lt;/mark&gt;&#x27;)+&#x27;&lt;/a&gt;&lt;/h4&gt;&lt;em&gt;-标题匹配&lt;/em&gt;&lt;p class=&quot;showbox&quot;&gt;&#x27;+obj.articles[j][&#x27;text&#x27;].substring(0, 100)+&#x27;&lt;/p&gt;&#x27;</span>
+                    <span>                    resultstr = titlesearchresult + &#x27;&lt;hr&gt;&#x27; + resultstr</span>
+                    <span>                }</span>
+                    <span>            }</span>
+                    <span>            result.innerHTML = &#x27;&lt;i&gt;&quot;&#x27;+input.value+&#x27;&quot;&lt;/i&gt;&lt;hr&gt;&#x27;+resultstr;</span>
+                    <span>        }</span>
+                    <span>    }</span>
+                    <span></span>
+                    <span>    // 正文搜索</span>
+                    <span>    var resulttextcache = new Array()</span>
+                    <span>    for (i = 0; i &lt; obj.articles.length; i++) {</span>
+                    <span>        if (obj.articles[i][&#x27;text&#x27;].includes(input.value) == true) {</span>
+                    <span>            resulttextcache.unshift(obj.articles[i][&#x27;text&#x27;])</span>
+                    <span>            resultcount++;</span>
+                    <span>        }</span>
+                    <span>    }</span>
+                    <span></span>
+                    <span>    // 正文搜索结果计数</span>
+                    <span>    var targetname = new Array()</span>
+                    <span>    var targetscore = new Array()</span>
+                    <span>    if (resulttextcache.length !== 0 &amp;&amp; input.value !== &#x27;&#x27;) {</span>
+                    <span>        for (i = 0; i &lt; resulttextcache.length; i++) {</span>
+                    <span>            for (j = 0; j &lt; obj.articles.length; j++) {</span>
+                    <span>                if (obj.articles[j][&#x27;text&#x27;] == resulttextcache[i]) {</span>
+                    <span>                    targetname.unshift(obj.articles[j][&#x27;title&#x27;])</span>
+                    <span>                    targetscore.unshift(obj.articles[j][&#x27;text&#x27;].match(RegExp(input.value, &#x27;gim&#x27;)).length)</span>
+                    <span>                }</span>
+                    <span>            }</span>
+                    <span>        }</span>
+                    <span>    }</span>
+                    <span></span>
+                    <span>    //排序相关选项</span>
+                    <span>    var targetscorecache = targetscore.concat([]);</span>
+                    <span>    var resultfortext = &#x27;&#x27;;</span>
+                    <span>    var textsearchresult = &#x27;&#x27;</span>
+                    <span>    targetscorecache.sort(function(a, b) {</span>
+                    <span>        return b-a</span>
+                    <span>    })</span>
+                    <span>    for (i = 0; i &lt; targetscorecache.length; i++) {</span>
+                    <span>        for (j = 0; j &lt; targetscore.length; j++) {</span>
+                    <span>            if (targetscorecache[i] == targetscore[j]) {</span>
+                    <span>                console.log(&#x27;文章排序:&#x27;+targetname[j])</span>
+                    <span>                for (k = 0; k &lt; obj.articles.length; k++) {</span>
+                    <span>                    if (obj.articles[k][&#x27;title&#x27;] == targetname[j]) {</span>
+                    <span>                        // 确认选区</span>
+                    <span>                        textorder = obj.articles[k][&#x27;text&#x27;].indexOf(input.value) -15;</span>
+                    <span>                        while (textorder &lt; 0) {</span>
+                    <span>                            textorder++</span>
+                    <span>                        }</span>
+                    <span></span>
+                    <span>                        resultfortext = &#x27;&lt;h4&gt;&lt;a href=&quot;&#x27;+obj.articles[k][&quot;path&quot;]+&#x27;&quot; class=&quot;resulttitle&quot;&gt;&#x27;+obj.articles[k][&#x27;title&#x27;]+&#x27;&lt;/a&gt;&lt;/h4&gt;&lt;em&gt;-&#x27;+targetscorecache[i]+&#x27;个结果&lt;/em&gt;&lt;p class=&quot;showbox&quot;&gt;...&#x27;+obj.articles[k][&#x27;text&#x27;].substring(textorder, textorder+100).replace(new RegExp(input.value, &#x27;g&#x27;), &#x27;&lt;mark&gt;&#x27;+input.value+&#x27;&lt;/mark&gt;&#x27;)+&#x27;&lt;/p&gt;&#x27;</span>
+                    <span>                        textsearchresult = textsearchresult + &#x27;&lt;hr&gt;&#x27; + resultfortext;</span>
+                    <span>                    }</span>
+                    <span>                }</span>
+                    <span>            }</span>
+                    <span>        }</span>
+                    <span>    }</span>
+                    <span></span>
+                    <span>    // 无效结果安排</span>
+                    <span>    if (resultcount !== obj.articles.length) {</span>
+                    <span>        if (resultcount == 0) {</span>
+                    <span>            result.innerHTML = &#x27;&lt;i&gt;&quot;&#x27;+input.value+&#x27;&quot;&lt;/i&gt;&lt;hr&gt;&lt;p align=&quot;center&quot;&gt;没有找到结果&lt;/p&gt;&#x27;</span>
+                    <span>        }</span>
+                    <span>    }</span>
+                    <span>    // 整合</span>
+                    <span>    result.innerHTML = result.innerHTML.substring(0, result.innerHTML.length-4)+textsearchresult.substring(0, textsearchresult.length-4)+&#x27;&lt;hr&gt;&lt;a href=&quot;https://github.com/ravelloh/RPageSearch&quot; class=&quot;tr&quot;&gt;Search powered by RavelloH\&#x27;s RPageSearch&lt;/a&gt;&#x27;</span>
+                    <span>}</span>
+                </pre>
+
+            </div>
+            当然，上述代码比复杂，接下来我会分步来说。<br>
+            <li>前3行没什么好说的，找到对应的元素，方便后期处理。</li><br>
+            <li>第5行从生成的json内获取数据，之后从第六行开始是主函数，搭配html表单使用，效果是当输入时实时搜索。</li><br>
+            <li>7-10行判断输入框是否为空，若空替换为默认提示词。</li><br>
+            <li>12-21行遍历json中存储的标题，查找是否有相关字词，若有，为resultcount+1，并将完整标题加入到列表resulttitlecache中</li><br>
+            <li>23-34行用于展示搜索结果，条件是resultcount不为0（要能找得到结果才继续，节省运算量）且不为json中文章总数（若输入一些字符后全部删除，默认输入了""，所有文章都会有反馈。），里面是两个遍历组合，第一个遍历resulttitlecache中的有结果的标题，第二个遍历总数据，搜索到契合后即可确认总数据的路径、时间、正文、标题信息，然后整合存储到resultstr中。这样因为我们在python生成数据时就是按时间顺序排列的，在这里遍历也是时间最近的结果优先。同时，第一层遍历将搜索到的resultstr中的信息整合到html中展示结果的result元素(一个id为resultlist的div)中。这里也用js替换高亮了信息里面的关键字，会给匹配的字符添加到一个mark标签内（默认黄底白字，可以用css改，比如我的博客就改成了蓝底另外加了个圆角），另外也会截取正文前100字符用于展示，但是因为字符宽度不一显示起来不整齐，要解决可以用css限制行数，css我会放在文章下面。</li><br>
+            <li>36-43行与12-21行相似，将搜索匹配的结果存储在resulttextcache中，不在赘述。</li><br>
+            <li>45-57行也类似于23-34行，为两个嵌套的遍历，不同的是这个不写入，而是记录搜索结果中含关键词的总数，方便后续排序。具体做法是创建两个列表targetname和targetscore，targetname记录resulttextcache中的正文内容，targetscore记录对应含关键词的数量。这两个是一一对应的关系，比如targetname的第二项所含的关键词总数就等于targetscore第二项记录的数字。</li><br>
+            <li>59-84行花了大功夫排序，首先创建一个targetscore的备份targetscorecache，但是要深拷贝<sup><em>*关乎js数组知识，若只是简单的var a=b则a b共享存储位置，换句话说就是a变b也变，对一维数组可以简单的使用a=b.concat([])来解决</em></sup>，之后以数组sort方式排序，此时targetscorecache为降序排列，targetscore保持原顺序不变，之后套三层遍历<del>（应该还能继续优化，但我懒得做了，又不是不能用，性能影响也不大）</del>前两层嵌套和之前搜索匹配的23-34、45-57相同，不过这次匹配的是targetscorecache与targetscore，之后再从总数据到json种找到正文匹配的文章，获取到对应的path、title、time和text，然后是类似于23-34到写入过程，这里值得注意有三点，一是这次高亮的是text中的结果，2是这里也会用上作为排序依据的targetscore，在标题下方展示相应的结果数（见最上方用于展示的图片），三是这里生成的html代码不直接写入而是存储到变量textsearchresult中，方便最后整合的时候删掉多余的hr标签。</li><br>
+            <li>86-91给上面接底，如果啥也没找到就替换为相应的文本。</li><br>
+            <li>最后92-93用来整合、合并标题搜索与正文搜索的内容，顺便加上个powered by的后缀，这里你也可以替换为你自己的文字，或者干脆连前面的hr标签也一起删掉，但我还是希望能留下个注释标明出处。</li>
+            上述就是js进行本地运算的过程，至于若想达到和我博客相同的效果，css是必不可少的，这里简单罗列一下css及相关的js。
+            <div class="codeline">
+                <pre>
+                    <span>&lt;!-- CSS --&gt;</span>
+                    <span>form.searchbox input[type=text] {</span>
+                    <span>    color: #c6c9ce;</span>
+                    <span>    height: 30px;</span>
+                    <span>    padding: 5px;</span>
+                    <span>    font-size: 12px;</span>
+                    <span>    float: left;</span>
+                    <span>    width: 80%;</span>
+                    <span>    background: #000000;</span>
+                    <span>    border: 1px solid #1e1e1e;</span>
+                    <span>    border-radius: 10px 0px 0px 10px;</span>
+                    <span>}</span>
+                    <span></span>
+                    <span>form.searchbox button {</span>
+                    <span>    height: 30px;</span>
+                    <span>    float: left;</span>
+                    <span>    width: 20%;</span>
+                    <span>    padding: 5px;</span>
+                    <span>    background: #1e1e1e;</span>
+                    <span>    color: white;</span>
+                    <span>    font-size: 12px;</span>
+                    <span>    border: none;</span>
+                    <span>    cursor: pointer;</span>
+                    <span>    border: 1px solid #1e1e1e;</span>
+                    <span>    border-radius: 0px 10px 10px 0px;</span>
+                    <span>    text-align: center;</span>
+                    <span>    line-height: 10px;</span>
+                    <span>    margin: auto;</span>
+                    <span>}</span>
+                    <span></span>
+                    <span>form.searchbox button:hover {</span>
+                    <span>    background: #0b7dda;</span>
+                    <span>    transition: background 0.2s;</span>
+                    <span>}</span>
+                    <span></span>
+                    <span>form.searchbox::after {</span>
+                    <span>    content: "";</span>
+                    <span>    clear: both;</span>
+                    <span>    display: table;</span>
+                    <span>}</span>
+                    <span>.resultlist {</span>
+                    <span>    top: -20px;</span>
+                    <span>    height: 0;</span>
+                    <span>    width: 100%;</span>
+                    <span>    transition: height 0.4s;</span>
+                    <span>    background: #000000;</span>
+                    <span>    color: #c6c9ce;</span>
+                    <span>}</span>
+                    <span>.resultlist#active {</span>
+                    <span>    border-radius: 10px;</span>
+                    <span>    border: 1px solid #1e1e1e;</span>
+                    <span>    height: 40%;</span>
+                    <span>}</span>
+                    <span>.resultlist * {</span>
+                    <span>    margin: 2px;</span>
+                    <span>}</span>
+                    <span>.resulttitle {</span>
+                    <span>    color: #ffffff;</span>
+                    <span>    font-size: 1em;</span>
+                    <span>}</span>
+                    <span></span>
+                    <span>#info {</span>
+                    <span>    opacity: 1;</span>
+                    <span>    transition: opacity 0.4s;</span>
+                    <span>}</span>
+                    <span>#hidden {</span>
+                    <span>    opacity: 0;</span>
+                    <span>}</span>
+                    <span></span>
+                    <span>.fc {</span>
+                    <span>    text-align: center;</span>
+                    <span>}</span>
+                    <span>.title {</span>
+                    <span>    max-width: 45%;</span>
+                    <span>}</span>
+                    <span>.tr {</span>
+                    <span>    text-align: right</span>
+                    <span>}</span>
+                    <span>mark {</span>
+                    <span>    background-color: #0b7dda;</span>
+                    <span>    border-radius: 4px;</span>
+                    <span>    color: #fff;</span>
+                    <span>    margin: 0;</span>
+                    <span>}</span>
+                    <span>.showbox {</span>
+                    <span>    display: -webkit-box;</span>
+                    <span>    -webkit-box-orient: vertical;</span>
+                    <span>    -webkit-line-clamp: 2;</span>
+                    <span>    overflow: hidden;</span>
+                    <span>    margin: 2px !important</span>
+                    <span>}</span>
+                </pre>
+            </div>
+            <div>
+                <pre>
+                    <span>// JS 添加到刚才所有JS的最上方</span>
+                    <span>function check() {</span>
+                    <span>    return false;</span>
+                    <span>}</span>
+                    <span></span>
+                    <span>function maxfor(arr) {</span>
+                    <span>    var len = arr.length;</span>
+                    <span>    var max = -Infinity;</span>
+                    <span>    while (len--) {</span>
+                    <span>        if (arr[len] > max) {</span>
+                    <span>            max = arr[len];</span>
+                    <span>        }</span>
+                    <span>    }</span>
+                    <span>    return max;</span>
+                    <span>}</span>
+                    <span></span>
+                    <span>// 下面的和刚才的代码有部分重复，替换就行</span>
+                    <span>let input = document.querySelector("input[type='text']");</span>
+                    <span>let result = document.getElementById('resultlist')</span>
+                    <span>let infos = document.getElementById('info')</span>
+                    <span>let button = document.getElementById('searchbutton')</span>
+                    <span>input.addEventListener("focus", e => {</span>
+                    <span>    result.style.height = '40%'</span>
+                    <span>    result.style.overflow = 'auto'</span>
+                    <span>    result.style.padding = '3px'</span>
+                    <span>    infos.id = 'hidden'</span>
+                    <span>})</span>
+                    <span>input.addEventListener("blur", e => {</span>
+                    <span>    result.style.height = '0'</span>
+                    <span>    result.style.overflow = 'hidden'</span>
+                    <span>    result.style.padding = '0'</span>
+                    <span>    infos.id = 'info'</span>
+                    <span>})</span>
+                    <span>// 下方应为obj的定义</span>
+                </pre>
+            </div>
+        </p>
+        <h4><a name="后言" href="#后言">#后言</a></h4>
+        <p>
+            上述就是目前这个版本搜索的实现，理论上来说这个和前面一篇文章一样，内容都是关于伪动态的，因为搜索这个功能到我写这篇文章为止，都是先存数据库，然后在搜索时拿去数据库比对，之后返回结果，像我这样把搜索过程全搬到用户端的估计全互联网我还是第一人。不过这样也有利有弊，最大的利是节省了服务器，而弊端就是搜索速度依靠用户端设备算力，另外就是在内容太多时需要先将json下载到本地才能搜索（这是必要的，但是可以通过预加载等方式提前这个过程加快）<br>
+            做了这几篇文章，可以简单归纳伪动态：用其他脚本处理整合数据，前端用js处理。这里整合的载体是json，前面的EverydayNews载体是固定的文件夹结构，PSGameSpider则是混合，将数据直接写入定时更新生成的html的js部分数组里，读取则是靠固定文件夹结构。<br>
+            说回主角，我把它在Github立了个项，放在<a href="https://github.com/ravelloh/RPageSearch" class="linkline">Github@RavelloH/RPageSearch</a>中，现在没有时间不会再去更新它，但是以后<del>(也可能是很久以后)</del>会陆续升级一下，加入模糊搜索等功能。
+
+        </p>
+
+
+        <hr>
+        <br>
+        <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND
+        4.0)
+        协议授权。
+
+        <br><br>
+        <div id="tcomment"></div>
+        <script src="https://cdn.staticfile.org/twikoo/1.6.4/twikoo.all.min.js"></script>
+        <script>
+            twikoo.init({
+                envId: 'https://comment-ravelloh.vercel.app/',
+                el: '#tcomment',
+            })
+        </script>
+
+    </div>
+    <ul class="social">
+        <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
+        <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
+            class="iconfont icon-github"></span></a></li>
+        <li>
+            <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
+                <span class="iconfont icon-home">
+                </span>
+            </a>
+        </li>
+    </ul>
+</section>
+<div class="menu">
+    <ul>
+        <script type="text/javascript" src="/js/menu.js"></script>
+    </ul>
+</div>
+<script>
+    var img = [];
+    var flag = 0;
+    var mulitImg = ['show1.jpg'];
+    var imgTotal = mulitImg.length; //图片总数
+    for (var i = 0; i < imgTotal; i++) {
+        document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
+        img[i] = new Image()
+        img[i].src = mulitImg[i]
+        img[i].onload = function () {
+            flag++;
+            if (flag == imgTotal) {
+                document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:" + flag + "/" + imgTotal;
+            } else {
+                document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
+                return;
+            }
+        }
+    }
+</script>
+
+<!-- JavaScript -->
+<script src="/js/script.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script src="//instant.page/5.1.0" type="module"
+    integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+</body>
+
+</html>
