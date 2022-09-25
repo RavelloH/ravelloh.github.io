@@ -8,7 +8,11 @@ menuToggle.addEventListener("click", () => {
   menuToggle.classList.toggle("active");
   showcase.classList.toggle("active");
   shade.classList.toggle("active");
-  var menuopen = 'open'
+  if (menuopen == 'close') {
+    menuopen = 'open'
+  } else {
+    menuopen = 'close'
+  }
 });
 
 // 点击.shade时，关闭.showcase
@@ -16,7 +20,11 @@ shade.onclick = function () {
   menuToggle.classList.toggle("active");
   showcase.classList.toggle("active");
   shade.classList.toggle("active");
-  var menuopen = 'close'
+  if (menuopen == 'close') {
+    menuopen = 'open'
+  } else {
+    menuopen = 'close'
+  }
 };
 
 // Copyright时间更新
