@@ -2,11 +2,13 @@
 const menuToggle = document.querySelector(".toggle");
 const showcase = document.querySelector(".showcase");
 const shade = document.querySelector(".shade");
+var menuopen = 'close'
 
 menuToggle.addEventListener("click", () => {
   menuToggle.classList.toggle("active");
   showcase.classList.toggle("active");
   shade.classList.toggle("active");
+  var menuopen = 'open'
 });
 
 // 点击.shade时，关闭.showcase
@@ -14,6 +16,7 @@ shade.onclick = function () {
   menuToggle.classList.toggle("active");
   showcase.classList.toggle("active");
   shade.classList.toggle("active");
+  var menuopen = 'close'
 };
 
 // Copyright时间更新
@@ -57,6 +60,11 @@ window.onbeforeunload = function () {
   var spans = document.getElementsByTagName("span");
   for (var i = 0; i < spans.length; i++) {
     spans[i].id = "active";
+  }
+  if (menuopen == 'open'){
+    menuToggle.classList.toggle("active");
+    showcase.classList.toggle("active");
+    shade.classList.toggle("active");
   }
 };
 
