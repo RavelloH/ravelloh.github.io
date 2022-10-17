@@ -101,10 +101,21 @@
 
         <!-- JavaScript -->
         <script src="/js/script.js"></script>
-        <script type="text/javascript" src="/js/loading.js"></script>
         <script type="text/javascript" src="/js/common.js"></script>
         <script src="//instant.page/5.1.0" type="module"
             integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+        <script>
+            function entext(){
+                virgule(document.getElementById('jumping'), '## Welcome here and fell free to check it out...')
+                setTimeout(function(){zhtext()},6000)
+            }
+            function zhtext(){
+                virgule(document.getElementById('jumping'), '## 欢迎来到RavelloH的博客 随便看看 >>')
+                setTimeout(function(){entext()},6000)
+            }
+            
+           
+        </script>
     </body>
 
 </html>
