@@ -68,8 +68,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── iconfont.ttf
 │   │   ├── iconfont2.ttf
 │   │   └── randfont.ttf
-│   ├── iconfont.css
-│   └── style.css
+│   └── iconfont.css
 ├── favicon.ico
 ├── friends
 │   └── index.html
@@ -100,7 +99,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-21 directories, 62 files
+21 directories, 61 files
 ```
 <!-- readme-tree end -->
 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0) 协议授权。
