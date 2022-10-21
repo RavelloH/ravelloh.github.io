@@ -50,7 +50,7 @@ html,
 body {
   position: relative;
   min-height: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 nav,
@@ -430,7 +430,7 @@ body .text {
 
 header {
   position: absolute;
-  top: 30px;
+  top: 20px;
   left: 0;
   width: 100%;
   padding: 10px 80px;
@@ -438,7 +438,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10%;
+  height: 5vh;
 }
 
 header .logo {
@@ -787,7 +787,7 @@ code {
 }
 
 section {
-  height: 100%;
+  height: 100vh;
 }
 
 .listline {
