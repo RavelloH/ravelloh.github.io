@@ -584,7 +584,7 @@ function virgule(target, context, speed = 100) {
                             numCharacter += 2
                         }
                     }
-                    target.innerHTML = context.slice(0, numWrite) + cacheText.slice(numWrite, cacheText.length) + originText.slice(numCharacter, originText.length)
+                    target.innerHTML = context.slice(0, numWrite) + cacheText.slice(numWrite, cacheText.length) + originText.slice(numCharacter, originText.length-1)
                 },
                 2000/speed)
 
