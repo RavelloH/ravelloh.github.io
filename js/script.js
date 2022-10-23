@@ -494,7 +494,7 @@ function virgule(target, context, speed = 100) {
         contextArr.push(context[i])
     }
     // 添加/
-    target.innerHTML = "";
+    target.innerHTML = "&nbsp;";
     numVirgule = 0
     var virgulegenerate = setInterval(
         function() {
