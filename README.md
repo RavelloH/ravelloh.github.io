@@ -10,7 +10,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 ![GitHub Repo stars](https://img.shields.io/github/stars/RavelloH/ravelloh.github.io?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/RavelloH/ravelloh.github.io?style=for-the-badge)
 
-## 结构
+## 文件结构
 </div>
 
 <!-- readme-tree start -->
