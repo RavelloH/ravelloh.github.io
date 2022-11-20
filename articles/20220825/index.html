@@ -158,7 +158,7 @@
                     <span>    time = time[0:4]+'-'+time[4:6]+'-'+time[6:8]</span>
                     <span>    title = title[titlelen-1]</span>
                     <span>    path = i[1:][:-10]</span>
-                    <span>    inner_structure_text=inner_structure_text.replace(' ','').replace('\n','').replace('"','&quot;')</span>
+                    <span>    inner_structure_text=inner_structure_text.replace(' ','').replace('\n','').replace('"','&amp;quot;').replace('\\','')</span>
                     <span>    inner_structure_all = inner_structure_1 + str(title.get_text()) + inner_structure_2 + str(path) + inner_structure_3 + str(time) + inner_structure_4 + inner_structure_text + inner_structure_5</span>
                     <span>    inner_structure_cache.append(inner_structure_all)</span>
                     <span></span>
