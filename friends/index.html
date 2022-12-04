@@ -59,33 +59,13 @@
 
             <div class="overlay"></div>
             <div class="text title" id="text">
-                <h3>Friends - 朋友们的友链</h3>
+                <h2>ERROR...</h2>
                 <p>
-                    希望进入到这个列表中？<br>
-                    在右边的评论中留言即可
+                Page offline... | 此页面已下线...
                 </p>
-
+                <a href="#" class="button" onclick="javascript:history.back(-1);">Back</a><a class="button" href="/">Back to home</a>
             </div>
-            <div class="text listline" id="text">
-                <div><b>Xeocnet Studio</b> <a class="right" href="https://xeocnet-studio.github.io"
-                        target="_blank">>>GO</a></div>
-                <div><b>Brossas Zaichek</b> <a class="right" href="http://brossasz.github.io" target="_blank">>>GO</a>
-                </div>
-                <hr>
-                在下面的评论中留言即可，请注明<strong>昵称、网址</strong>
-                <br><br>
-                <div id="tcomment"></div>
-                <script src="https://cdn.staticfile.org/twikoo/1.6.4/twikoo.all.min.js"></script>
-                <script>
-                    twikoo.init({
-                        envId: 'https://comment.z-blog.tk/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-                        el: '#tcomment', // 容器元素
-                        // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-                        // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-                        // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/js/utils/i18n/index.js
-                    })
-                </script>
-
+            <span class="iconfontlarge icon-save"></span>
             </div>
             <ul class="social">
                 <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
