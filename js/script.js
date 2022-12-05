@@ -65,12 +65,12 @@ window.onbeforeunload = function () {
     menuToggle.classList.toggle("active");
     showcase.classList.toggle("active");
     shade.classList.toggle("active");
+  }
   showprog()
   while (document.getElementById('text') !== null){document.getElementById("text").id = "active";}
   var spans = document.getElementsByTagName("span");
   for (var i = 0; i < spans.length; i++) {
     spans[i].id = "active";
-  }
   }
 };
 
