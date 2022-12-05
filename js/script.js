@@ -68,7 +68,7 @@ window.onbeforeunload = function () {
   }
   showprog()
   while (document.getElementById('text') !== null){document.getElementById("text").id = "active";}
-  var spans = document.getElementsByTagName("span");
+  var spans = document.getElementsByClassName('iconfontlarge');
   for (var i = 0; i < spans.length; i++) {
     spans[i].id = "active";
   }
