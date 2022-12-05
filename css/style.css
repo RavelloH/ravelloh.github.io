@@ -870,7 +870,7 @@ img.img {
 pre {
   background: #2d2d2d;
   color: rgb(201, 209, 217);
-  font-family: Consolas;
+  font-family: monospace;
   text-align: left;
   padding: 1em;
   padding-left: 0.8em;
