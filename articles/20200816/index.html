@@ -22,7 +22,8 @@
 
     <body>
 
-        <section class="showcase"><div class="shade"></div>
+        <section class="showcase">
+            <div class="shade"></div>
             <header>
                 <h2 class="logo">
                     <a href="/" class='logos'>
@@ -59,16 +60,17 @@
             <div class="overlay"></div>
             <div class="article" id="text">
                 <h2>反转药水效果</h2>
-                <span class="iconfontmini icon-clock"></span> 2020-08-16 · <span
+                <span class="iconfontmini icon-clock"></span> 2020-08-16 • <span
                     class="iconfontmini icon-classification"></span><a href="/classification/#游戏">游戏</a>
-                ·<span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
-                    class="tag" href="/tag/#json">JSON</a>
+                • <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
+                    class="tag" href="/tag/#json">JSON</a> • <span class="iconfontmini icon-friend"></span> <span
+                    id="twikoo_visitors"></span>
                 <hr>
                 <br><br>
                 <div class="center info"><em>
-                    <span id="loadingtext"></span>
-                </em>
-            </div>
+                        <span id="loadingtext"></span>
+                    </em>
+                </div>
 
                 <p>由于一些神奇的<del>BUG</del>特性，高等级效果将会使原效果被反转，而这就使得了一些原版不存在的操作变成了可能。例如，创造模式的玩家不免疫增益效果，只免疫负面效果，而这就使得了如果可以给予创造玩家一种增益效果但实际是负面效果，也是能对创造模式玩家造成伤害的。
                     <br>除此以外，对跳跃提升药水运用相同的原理也有奇效玩家将会无法跳跃
@@ -125,7 +127,8 @@
                         </span>
                     </a>
                 </li>
-                <li><a href="https://ravelloh.github.io/RSS/rss.xml" target="_blank"><span class="iconfont2 icon-rss"></span></a></li>
+                <li><a href="https://ravelloh.github.io/RSS/rss.xml" target="_blank"><span
+                            class="iconfont2 icon-rss"></span></a></li>
             </ul>
         </section>
         <div class="menu">
@@ -139,23 +142,23 @@
             var mulitImg = ['show1.gif', 'show2.gif', 'show3.gif'];
             var imgTotal = mulitImg.length;  //图片总数
             for (var i = 0; i < imgTotal; i++) {
-                document.getElementById("loadingtext").innerHTML = "*文章插图加载中:"+flag+"/"+imgTotal;
+                document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
                 img[i] = new Image()
                 img[i].src = mulitImg[i]
                 img[i].onload = function () {
                     flag++;
                     if (flag == imgTotal) {
-                        document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:"+flag+"/"+imgTotal;
+                        document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:" + flag + "/" + imgTotal;
                     } else {
-                        document.getElementById("loadingtext").innerHTML = "*文章插图加载中:"+flag+"/"+imgTotal;
+                        document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
                         return;
                     }
                 }
             }
         </script>
-            <!-- JavaScript -->
-<script src="/js/script.js"></script>    
-<script type="text/javascript" src="/js/common.js"></script>
+        <!-- JavaScript -->
+        <script src="/js/script.js"></script>
+        <script type="text/javascript" src="/js/common.js"></script>
         <script src="//instant.page/5.1.0" type="module"
             integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
     </body>
