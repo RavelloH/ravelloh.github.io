@@ -241,8 +241,14 @@
             <!-- JavaScript -->
 <script src="/js/script.js"></script>    
 <script type="text/javascript" src="/js/common.js"></script>
-        <script src="//instant.page/5.1.0" type="module"
-            integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+        <script src="/js/pjax.js"></script>
+<script>
+var pjax = new Pjax({
+  elements: "a:not(.linkline ,.social li a)",
+  selectors: ["title", "meta", ".showcase", ".menu"]
+})
+</script>
+            
     </body>
 
 </html>
