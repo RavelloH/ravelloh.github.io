@@ -429,8 +429,8 @@ body .text {
 }
 
 header {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 30px;
   left: 0;
   width: 100%;
   padding: 10px 80px;
@@ -438,7 +438,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: 0.5s;
+  height: 10%;
 }
 
 header .logo {
@@ -500,10 +500,6 @@ header .logo {
 .showcase.active {
   right: 300px;
   background-color: #000;
-}
-header.active {
-  right: 300px;
-  left: unset;
 }
 .shade.active {
   opacity: 0.5;
