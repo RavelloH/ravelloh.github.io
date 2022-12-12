@@ -431,6 +431,7 @@ body .text {
 header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   padding: 10px 80px;
   z-index: 1000;
@@ -501,7 +502,8 @@ header .logo {
   background-color: #000;
 }
 header.active {
-  right: 300px
+  right: 300px;
+  left: unset;
 }
 .shade.active {
   opacity: 0.5;
