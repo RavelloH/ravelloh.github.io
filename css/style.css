@@ -429,16 +429,15 @@ body .text {
 }
 
 header {
-  position: absolute;
-  top: 30px;
-  left: 0;
+  position: fixed;
+  top: 0;
   width: 100%;
   padding: 10px 80px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 150px;
+  transition: 0.5s;
 }
 
 header .logo {
@@ -500,6 +499,9 @@ header .logo {
 .showcase.active {
   right: 300px;
   background-color: #000;
+}
+header.active {
+  right: 300px
 }
 .shade.active {
   opacity: 0.5;
