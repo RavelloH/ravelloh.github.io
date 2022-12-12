@@ -1,9 +1,9 @@
 /* Font引用 */
 
 @font-face {
-  font-family: "Microsoft Yahei";
-  src: local(Microsoft), local("Microsoft Yahei");
-  src: url(/css/font/WeiRuanYaHei.ttf);
+  font-family: "HarmonyOS";
+  src: local(HarmonyOS Sans), local("HarmonyOS");
+  src: url(/css/font/HarmonyOS.ttf);
   font-display: swap;
 }
 
@@ -21,7 +21,7 @@
 
 /* 粗体优化 */
 b {
-  font-family: "Microsoft Yahei", "MicrosoftYaHei";
+  font-family: "HarmonyOS", "MicrosoftYaHei";
   font-weight: bold;
 }
 
@@ -55,12 +55,12 @@ body {
 
 nav,
 header {
-  font-family: "Microsoft Yahei", "MicrosoftYaHei";
+  font-family: "HarmonyOS", "MicrosoftYaHei";
   font-weight: bold;
 }
 
 .menu {
-  font-family: "Furore", "Microsoft Yahei", "MicrosoftYaHei";
+  font-family: "Furore", "HarmonyOS", "MicrosoftYaHei";
   font-weight: lighter;
 }
 
@@ -79,7 +79,7 @@ button,
 textarea,
 select,
 option {
-  font: normal 1em "Microsoft Yahei", "MicrosoftYaHei", sans-serif;
+  font: normal 1em "HarmonyOS", "MicrosoftYaHei", sans-serif;
 }
 
 body,
@@ -289,7 +289,7 @@ header {
   margin-top: 15px;
   margin-bottom: 0px;
   word-spacing: 30px;
-  font-family: "Microsoft Yahei", "MicrosoftYaHei";
+  font-family: "HarmonyOS", "MicrosoftYaHei";
   font-weight: bold;
   margin-right: 2%;
 }
@@ -418,14 +418,14 @@ header {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Microsoft Yahei", "MicrosoftYaHei", sans-serif;
+  font-family: "HarmonyOS", "MicrosoftYaHei", sans-serif;
 }
 
 body .text {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif, "Microsoft Yahei", "MicrosoftYaHei";
+  font-family: sans-serif, "HarmonyOS", "MicrosoftYaHei";
 }
 
 header {
@@ -826,7 +826,7 @@ section {
 
 strong {
   font-weight: bold;
-  font-family: "Microsoft YaHei";
+  font-family: "HarmonyOS";
 }
 
 .right {
@@ -846,7 +846,7 @@ a.m {
   font-weight: 500;
   letter-spacing: 2px;
   transition: 1s;
-  font-family: "Furore", "Microsoft YaHei";
+  font-family: "Furore", "HarmonyOS";
 }
 
 img.img {
@@ -1098,7 +1098,7 @@ blockquote:hover a,.info:hover a {
   animation-delay: 0.3s;
   text-align: left;
   font-size: large;
-  font-family: 'Furore', 'Randfont', 'Microsoft Yahei',sans-serif;
+  font-family: 'Furore', 'Randfont', 'HarmonyOS',sans-serif;
   max-width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
