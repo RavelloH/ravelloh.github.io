@@ -2,12 +2,14 @@
 const menuToggle = document.querySelector(".toggle");
 const showcase = document.querySelector(".showcase");
 const shade = document.querySelector(".shade");
+const header = document.querySelector("header");
 var menuopen = 'close'
 
 menuToggle.addEventListener("click", () => {
   menuToggle.classList.toggle("active");
   showcase.classList.toggle("active");
   shade.classList.toggle("active");
+  header.classList.toggle("active");
   if (menuopen == 'close') {
     menuopen = 'open'
   } else {
@@ -20,6 +22,7 @@ shade.onclick = function () {
   menuToggle.classList.toggle("active");
   showcase.classList.toggle("active");
   shade.classList.toggle("active");
+  header.classList.toggle("active");
   if (menuopen == 'close') {
     menuopen = 'open'
   } else {
@@ -65,6 +68,7 @@ window.onbeforeunload = function () {
     menuToggle.classList.toggle("active");
     showcase.classList.toggle("active");
     shade.classList.toggle("active");
+    header.classList.toggle("active");
   }
   showprog()
   while (document.getElementById('text') !== null){document.getElementById("text").id = "active";}
