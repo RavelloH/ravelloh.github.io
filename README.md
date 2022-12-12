@@ -93,6 +93,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 ├── js
 │   ├── common.js
 │   ├── menu.js
+│   ├── pjax.js
 │   ├── script.js
 │   ├── search.js
 │   └── searchdata.js
@@ -104,7 +105,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-22 directories, 65 files
+22 directories, 66 files
 ```
 <!-- readme-tree end -->
 
