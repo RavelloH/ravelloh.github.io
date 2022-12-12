@@ -1259,24 +1259,3 @@ module.exports = function(uri, key, value) {
 
 },{}]},{},[1])(1)
 });
-document.addEventListener("pjax:complete", function () {
-document.querySelector("script").forEach(function (elem) {
-    var id = element.id || "";
-    var src = element.src || "";
-    var code = element.text || element.textContent || element.innerHTML || "";
-    var parent = element.parentNode;
-    var script = document.createElement("script");
-    parent.removeChild(element);
-    if (id !== "") {
-      script.id = element.id;
-    }
-    if (src !== "") {
-      script.src = src;
-      script.async = false;
-    }
-    if (code !== "") {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-}
