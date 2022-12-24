@@ -778,12 +778,15 @@ textarea {
 code {
     font-family: Consolas, Monaco, courier, monospace;
     line-height: initial;
+    padding: .1em .3em;
+    margin: 0;
+    font-size: 85%;
+    white-space: break-spaces;
+    border-radius: 6px;
 }
 
 .article code {
-    border: #252627 solid 1px;
-    background-color: #1e1e1e;
-    border-radius: 4px;
+    background-color: #333333;
 }
 
 section {
