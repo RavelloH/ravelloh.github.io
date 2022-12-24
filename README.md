@@ -61,6 +61,11 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── index.html
 │   │   ├── new.gif
 │   │   └── old.gif
+│   ├── 20221224
+│   │   ├── img1.png
+│   │   ├── img2.png
+│   │   ├── index.html
+│   │   └── show.html
 │   └── index.html
 ├── classification
 │   └── index.html
@@ -95,8 +100,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   ├── menu.js
 │   ├── pjax.js
 │   ├── script.js
-│   ├── search.js
-│   └── searchdata.js
+│   └── search.js
 ├── search.py
 ├── site.webmanifest
 ├── tag
@@ -105,7 +109,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-22 directories, 66 files
+23 directories, 69 files
 ```
 <!-- readme-tree end -->
 
