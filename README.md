@@ -65,7 +65,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── img1.png
 │   │   ├── img2.png
 │   │   ├── index.html
-│   │   └── show.html
+│   │   └── show.htm
 │   └── index.html
 ├── classification
 │   └── index.html
@@ -100,7 +100,8 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   ├── menu.js
 │   ├── pjax.js
 │   ├── script.js
-│   └── search.js
+│   ├── search.js
+│   └── searchdata.js
 ├── search.py
 ├── site.webmanifest
 ├── tag
@@ -109,7 +110,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-23 directories, 69 files
+23 directories, 70 files
 ```
 <!-- readme-tree end -->
 
