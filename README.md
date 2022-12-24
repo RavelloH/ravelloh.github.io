@@ -22,7 +22,6 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │       ├── search.yml
 │       └── tree.yml
 ├── 404.html
-├── CNAME
 ├── README.md
 ├── about
 │   ├── author
@@ -111,7 +110,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-23 directories, 71 files
+23 directories, 70 files
 ```
 <!-- readme-tree end -->
 
