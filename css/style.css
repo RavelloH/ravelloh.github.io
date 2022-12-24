@@ -21,7 +21,7 @@
 
 /* 粗体优化 */
 b {
-    font-family: "HarmonyOS", "MicrosoftYaHei";
+    font-family: "HarmonyOS", "Microsoft YaHei";
     font-weight: bold;
 }
 
@@ -55,12 +55,12 @@ body {
 
 nav,
 header {
-    font-family: "HarmonyOS", "MicrosoftYaHei";
+    font-family: "HarmonyOS", "Microsoft YaHei";
     font-weight: bold;
 }
 
 .menu {
-    font-family: "Furore", "HarmonyOS", "MicrosoftYaHei";
+    font-family: "Furore", "HarmonyOS", "Microsoft YaHei";
     font-weight: lighter;
 }
 
@@ -79,7 +79,7 @@ button,
 textarea,
 select,
 option {
-    font: normal 1em "HarmonyOS", "MicrosoftYaHei", sans-serif;
+    font: normal 1em "HarmonyOS", "Microsoft YaHei", sans-serif;
 }
 
 body,
@@ -289,7 +289,7 @@ header {
     margin-top: 15px;
     margin-bottom: 0px;
     word-spacing: 30px;
-    font-family: "HarmonyOS", "MicrosoftYaHei";
+    font-family: "HarmonyOS", "Microsoft YaHei";
     font-weight: bold;
     margin-right: 2%;
 }
@@ -418,14 +418,14 @@ header {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "HarmonyOS", "MicrosoftYaHei", sans-serif;
+    font-family: "HarmonyOS", "Microsoft YaHei", sans-serif;
 }
 
 body .text {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif, "HarmonyOS", "MicrosoftYaHei";
+    font-family: sans-serif, "HarmonyOS", "Microsoft YaHei";
 }
 
 header {
