@@ -26,7 +26,9 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 ├── about
 │   ├── author
 │   │   └── index.html
-│   └── index.html
+│   ├── index.html
+│   └── pixiv
+│       └── index.html
 ├── articles
 │   ├── 20200816
 │   │   ├── index.html
@@ -110,7 +112,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-23 directories, 70 files
+24 directories, 71 files
 ```
 <!-- readme-tree end -->
 
