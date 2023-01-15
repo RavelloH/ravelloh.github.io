@@ -906,6 +906,10 @@ pre span:before {
     color: #999;
 }
 
+pre span:hover:before {
+    color: #c6c9ce;
+}
+
 a {
     display: inline-block;
     position: relative;
