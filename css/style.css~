@@ -1111,7 +1111,7 @@ blockquote:hover a,.info:hover a {
     margin-top: 10px;
     margin-bottom: 10px;
     height: fit-content;
-    line-height:130%;
+    line-height:2em;
 }
 
 .infos:after, .infos:before {
