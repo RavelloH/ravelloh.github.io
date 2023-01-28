@@ -62,20 +62,21 @@
             <div class="overlay"></div>
             <div class="text title" id="text">
                 <h3>Classification - 分类</h3>
-                <p>
-                    给文章分门别类。
+                <p id='jumping'>
+                    给文章分门别类。<br>
+                    <span id="jum">/</span>
                 </p>
 
             </div>
             <div class="text listline" id="text">
                 <div>
                     <h4><b><em>Menu - 目录 </em></b></h4>
-                    <a class="c" href="#技术">技术</a>
-                    <a class="c" href="#设计">设计</a>
-                    <a class="c" href="#游戏">游戏</a>
-                    <a class="c" href="#杂谈">杂谈</a>
-                    <a class="c" href="#归档">归档</a>
-                    <a class="c" href="#网络安全">网络安全</a>
+                    <a class="c links" href="#技术">技术</a>
+                    <a class="c links" href="#设计">设计</a>
+                    <a class="c links" href="#游戏">游戏</a>
+                    <a class="c links" href="#杂谈">杂谈</a>
+                    <a class="c links" href="#归档">归档</a>
+                    <a class="c links" href="#网络安全">网络安全</a>
 
                 </div>
                 <hr>
@@ -258,6 +259,9 @@
         <script src="/js/script.js"></script>
         <script type="text/javascript" src="/js/common.js"></script>
         <script src="//instant.page/5.1.1" type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+        <script>
+            setTimeout("virgule(document.getElementById('jum'), '共分类'+document.getElementsByClassName('links').length+'个类别。', 80)", '1000')
+        </script>
 
 
     </body>
