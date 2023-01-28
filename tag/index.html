@@ -62,24 +62,25 @@
         <div class="overlay"></div>
         <div class="text title" id="text">
             <h3>Tag - 标签</h3>
-            <p>
-                更高效的聚合文章。
+            <p id='jumping'>
+                更高效的聚合文章。<br>
+                <span id="jum">/</span>
             </p>
 
         </div>
         <div class="text listline" id="text">
             <div>
                 <h4><b><em>Menu - 目录 </em></b></h4>
-                <a class="tag" href="#html">HTML</a>
-                <a class="tag" href="#css">CSS</a>
-                <a class="tag" href="#javascript">JAVASCRIPT</a>
-                <a class="tag" href="#minecraft">MINECRAFT</a>
-                <a class="tag" href="#建设">建设</a>
-                <a class="tag" href="#json">JSON</a>
-                <a class="tag" href="#python">PYTHON</a>
-                <a class="tag" href="#spider">SPIDER</a>
-                <a class="tag" href="#attack">ATTACK</a>
-                <a class="tag" href="#monitor">MONITOR</a>
+                <a class="tag links" href="#html">HTML</a>
+                <a class="tag links" href="#css">CSS</a>
+                <a class="tag links" href="#javascript">JAVASCRIPT</a>
+                <a class="tag links" href="#minecraft">MINECRAFT</a>
+                <a class="tag links" href="#建设">建设</a>
+                <a class="tag links" href="#json">JSON</a>
+                <a class="tag links" href="#python">PYTHON</a>
+                <a class="tag links" href="#spider">SPIDER</a>
+                <a class="tag links" href="#attack">ATTACK</a>
+                <a class="tag links" href="#monitor">MONITOR</a>
             </div>
             <hr>
             <h4><b><em>List - 列表</em></b></h4>
@@ -272,7 +273,7 @@
                 <a class="tag" href="/tag/#spider">SPIDER</a><br>
             </ul>
             <hr>
-            
+
             <a name="attack" class="tag" href="#attack">
                 <h4>
                     #ATTACK
@@ -282,10 +283,10 @@
                 <h4><a href="/articles/20221224/">HikvisionIP摄像头后台绕过</a></h4>
                 <span class="iconfontmini icon-clock"></span> <time>2022-12-24</time> • <span
                     class="iconfontmini icon-classification"></span><a class"c" href="/classification/#网络安全">网络安全</a>-<a class="c" href="/classification/#技术">技术</a><br>
-                <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#attack">ATTACK</a><a class="tag" href="/tag/#json">JSON</a><a class="tag" href="/tag/#monitor">MONITOR</a> 
+                <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#attack">ATTACK</a><a class="tag" href="/tag/#json">JSON</a><a class="tag" href="/tag/#monitor">MONITOR</a>
             </ul>
             <hr>
-            
+
             <a name="monitor" class="tag" href="#monitor">
                 <h4>
                     #MONITOR
@@ -295,12 +296,12 @@
                 <h4><a href="/articles/20221224/">HikvisionIP摄像头后台绕过</a></h4>
                 <span class="iconfontmini icon-clock"></span> <time>2022-12-24</time> • <span
                     class="iconfontmini icon-classification"></span><a class"c" href="/classification/#网络安全">网络安全</a>-<a class="c" href="/classification/#技术">技术</a><br>
-                <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#attack">ATTACK</a><a class="tag" href="/tag/#json">JSON</a><a class="tag" href="/tag/#monitor">MONITOR</a> 
+                <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#attack">ATTACK</a><a class="tag" href="/tag/#json">JSON</a><a class="tag" href="/tag/#monitor">MONITOR</a>
             </ul>
-            
-            
-            
-            
+
+
+
+
         </div>
         <ul class="social">
             <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
@@ -323,6 +324,9 @@
 
     <!-- JavaScript -->
     <script src="/js/script.js"></script>
+    <script>
+        setTimeout("virgule(document.getElementById('jum'), '共索引'+document.getElementsByClassName('links').length+'个标签。', 80)", '1000')
+    </script>
     <script type="text/javascript" src="/js/common.js"></script>
     <script src="//instant.page/5.1.1" type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
 
