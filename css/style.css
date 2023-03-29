@@ -22,7 +22,8 @@
     font-family: "Randfont";
     src: url("./font/IBMPlex.ttf"), local("IBNPlex");
     font-display: swap;
-    
+}
+
 /* 粗体优化 */
 b {
     font-family: "HarmonyOS", "Microsoft YaHei";
