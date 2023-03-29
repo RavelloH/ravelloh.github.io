@@ -42,7 +42,7 @@ html {
     background-color: #1e1e1e;
     color: #c6c9ce;
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.4;
     overflow-x: hidden;
 }
 
@@ -335,7 +335,7 @@ a:active {
     margin: 0;
     letter-spacing: 0.15em;
     animation: typing 3s steps(60, end), blink-caret 0.5s step-end infinite,
-    show 0.3s;
+        show 0.3s;
     animation-delay: 0.3s;
     text-align: left;
 }
@@ -488,6 +488,7 @@ header .logo {
     transition: 0.5s;
     z-index: 2;
 }
+
 .shade {
     z-index: 0;
     position: absolute;
@@ -506,6 +507,7 @@ header .logo {
     right: 300px;
     background-color: #000;
 }
+
 .shade.active {
     opacity: 0.5;
     transition: all 0.5s ease-in-out;
@@ -742,6 +744,7 @@ hr,
 
 
     }
+
     .article {
         width: 100%;
         height: 80%;
@@ -766,7 +769,10 @@ hr,
         bottom: -2%;
     }
 
-    .social,nav,.headers,header {
+    .social,
+    nav,
+    .headers,
+    header {
         display: none;
     }
 
@@ -781,7 +787,7 @@ textarea {
 }
 
 code {
-    font-family: Consolas, Monaco, courier, IBMPlex , IBMPlex, monospace;
+    font-family: Consolas, Monaco, courier, IBMPlex, IBMPlex, monospace;
     line-height: initial;
     padding: .1em .4em;
     margin: 0;
@@ -870,9 +876,8 @@ img.img {
     text-align: center;
 }
 
-.linkline {
-    border-bottom: 1px dashed #ffffff;
-    color: #ffffff;
+.linkline,a:not(.social li a)[href^="http"] {
+    border-bottom: 1px dashed;
 }
 
 pre {
@@ -933,7 +938,7 @@ a:after {
     transition: transform 0.25s cubic-bezier(0.28, 0.94, 0.82, 1.09);
 }
 
-a:not(.logos ,.social li a):hover:after {
+a:not(.logos, .social li a):hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
@@ -1021,7 +1026,8 @@ a:not(.logos ,.social li a):hover:after {
     backdrop-filter: blur(14px) brightness(80%);
 }
 
-blockquote,.info {
+blockquote,
+.info {
     border-left: 4px solid #7a7e80;
     padding: 1rem;
     margin: 1rem 0;
@@ -1034,17 +1040,21 @@ blockquote,.info {
     margin-right: 10%;
 }
 
-blockquote:hover,.info:hover {
+blockquote:hover,
+.info:hover {
     background-color: #7a7e80;
     transition: background-color 0.4s;
     color: #fff;
 }
-blockquote:hover a,.info:hover a {
+
+blockquote:hover a,
+.info:hover a {
     transition: color 0.4s;
     color: #5babec;
 }
 
-.img-show ,.img-show-out {
+.img-show,
+.img-show-out {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -1056,7 +1066,8 @@ blockquote:hover a,.info:hover a {
     background-color: #1e1e1e;
 }
 
-.img-fullscreen ,.img-fullscreen-out {
+.img-fullscreen,
+.img-fullscreen-out {
     cursor: zoom-out;
     z-index: 9100;
     position: absolute;
@@ -1071,10 +1082,12 @@ blockquote:hover a,.info:hover a {
     transform: scale(0);
     opacity: 0;
 }
+
 .img-show-out {
     transition: all 0.4s;
     opacity: 0;
 }
+
 #cursor {
     position: fixed;
     width: 16px;
@@ -1111,15 +1124,16 @@ blockquote:hover a,.info:hover a {
     animation-delay: 0.3s;
     text-align: left;
     font-size: large;
-    font-family: 'Furore', 'Randfont', 'HarmonyOS',sans-serif;
+    font-family: 'Furore', 'Randfont', 'HarmonyOS', sans-serif;
     max-width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
     height: fit-content;
-    line-height:130%;
+    line-height: 130%;
 }
 
-.infos:after, .infos:before {
+.infos:after,
+.infos:before {
     font-size: 20rem;
     content: "BREAKING NEWS BREAKING NEWS";
     display: inline-block;
@@ -1163,7 +1177,8 @@ table {
     overflow: auto;
 }
 
-table td, table th {
+table td,
+table th {
     border: 1px solid #ddd;
     padding: 6px;
 }
