@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Remix";
-  src: url("./ri.ttf");
-  src: url("./ri.eot") format("embedded-opentype"),
-       url("./ri.ttf") format("truetype"),
-       url("./ri.woff") format("woff"),
-       url("./ri.woff2") format("woff2"),
-       url("./ri.svg") format("svg");
+  src: url("./font/ri.ttf");
+  src: url("./font/ri.eot") format("embedded-opentype"),
+       url("./font/ri.ttf") format("truetype"),
+       url("./font/ri.woff") format("woff"),
+       url("./font/ri.woff2") format("woff2"),
+       url("./font/ri.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
