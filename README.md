@@ -78,7 +78,6 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── HarmonyOS.ttf
 │   │   ├── WeiRuanYaHei.ttf
 │   │   ├── iconfont.ttf
-│   │   ├── iconfont2.ttf
 │   │   ├── randfont.ttf
 │   │   ├── ri.eot
 │   │   ├── ri.svg
@@ -117,7 +116,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-24 directories, 76 files
+24 directories, 75 files
 ```
 <!-- readme-tree end -->
 
