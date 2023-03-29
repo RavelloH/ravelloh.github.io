@@ -79,7 +79,12 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── WeiRuanYaHei.ttf
 │   │   ├── iconfont.ttf
 │   │   ├── iconfont2.ttf
-│   │   └── randfont.ttf
+│   │   ├── randfont.ttf
+│   │   ├── ri.eot
+│   │   ├── ri.svg
+│   │   ├── ri.ttf
+│   │   ├── ri.woff
+│   │   └── ri.woff2
 │   ├── iconfont.css
 │   └── style.css
 ├── favicon.ico
@@ -112,7 +117,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-24 directories, 71 files
+24 directories, 76 files
 ```
 <!-- readme-tree end -->
 
