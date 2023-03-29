@@ -16,56 +16,52 @@
     <link rel="icon" href="/favicon.ico">
 
     <style>
-@media (max-width: 700px) {
-        .hometitle {
-            top: 20% !important;
+        @media (max-width: 700px) {
+            .hometitle {
+                top: 20% !important;
+            }
+
+            .social {
+                top: 20%;
+            }
         }
 
-        .social {
-            top: 20%;
-        }
-    }
         .hometitle {
             width: 100% !important;
         }
     </style>
 
-
-
 </head>
 
 <body>
 
-    <body>
+    <section class="showcase">
+        <div class="shade"></div>
+        <header>
+            <h2 class="logo">
+                <a href="/" class='logos'>
+                    <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;" alt="avatar">
+                    <img class="logoname" src="/img/RavelloH.svg" alt="RavelloH's Blog">
+                </a>
 
-        <section class="showcase">
-            <div class="shade"></div>
-            <header>
-                <h2 class="logo">
-                    <a href="/" class='logos'>
-                        <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;"
-                        alt="avatar">
-                        <img class="logoname" src="/img/RavelloH.svg" alt="RavelloH's Blog">
+            </h2>
+            <div class="headers">
+                <nav>
+                    <a href="/">
+                        HOME
                     </a>
-
-                </h2>
-                <div class="headers">
-                    <nav>
-                        <a href="/">
-                            HOME
-                        </a>
-                        <a href="/works/">
-                            WORKS
-                        </a>
-                        <a href="/articles/">
-                            ARTICLES
-                        </a>
-                        <a href="/tag/">
-                            TAG
-                        </a>
-                        <a href="/about/">
-                            ABOUT
-                        </a>
+                    <a href="/works/">
+                        WORKS
+                    </a>
+                    <a href="/articles/">
+                        ARTICLES
+                    </a>
+                    <a href="/tag/">
+                        TAG
+                    </a>
+                    <a href="/about/">
+                        ABOUT
+                    </a>
                     </p>
                 </nav>
             </div>
@@ -80,20 +76,21 @@
             <p id="jumping">
                 &nbsp;
             </p>
-            <a class="button" href="/articles/">Start Now</a>
+            <a class="button" href="/articles/">Start Now ></a>
         </div>
         <ul class="social">
 
-            <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
+            <li><a href="/about/"><span class="i ri:file-info-line"></span></a></li>
             <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
-                class="iconfont icon-github"></span></a></li>
+                        class="i ri:github-fill"></span></a></li>
             <li>
                 <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
-                    <span class="iconfont icon-home">
+                    <span class="i ri:building-2-line">
                     </span>
                 </a>
             </li>
-            <li><a href="https://ravelloh.github.io/RSS/rss.xml" target="_blank"><span class="iconfont2 icon-rss"></span></a></li>
+            <li><a href="https://ravelloh.github.io/RSS/rss.xml" target="_blank"><span
+                        class="i ri:rss-fill"></span></a></li>
         </ul>
     </section>
     <div class="menu">
@@ -105,22 +102,26 @@
     <!-- JavaScript -->
     <script src="/js/script.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
-<script src="//instant.page/5.1.1" type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+    <script src="//instant.page/5.1.1" type="module"
+        integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
 
-        
+
     <script>
         function entext() {
             virgule(document.getElementById('jumping'), '## Welcome here and fell free to check it out...', 200)
-            setTimeout(function() {
-                zhtext()}, 6000)
+            setTimeout(function () {
+                zhtext()
+            }, 6000)
         }
         function zhtext() {
             virgule(document.getElementById('jumping'), '## 欢迎来到RavelloH的博客 随便看看 >>')
-            setTimeout(function() {
-                entext()}, 6000)
+            setTimeout(function () {
+                entext()
+            }, 6000)
         }
-        setTimeout(function() {
-            entext()}, 1000)
+        setTimeout(function () {
+            entext()
+        }, 1000)
 
 
     </script>

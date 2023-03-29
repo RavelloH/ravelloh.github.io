@@ -21,6 +21,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │       ├── deploy.yml
 │       ├── search.yml
 │       └── tree.yml
+├── .gitignore
 ├── 404.html
 ├── README.md
 ├── about
@@ -74,12 +75,17 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 ├── css
 │   ├── common.css
 │   ├── font
+│   │   ├── Bender.woff
 │   │   ├── Furore.ttf
+│   │   ├── Geometos.woff
 │   │   ├── HarmonyOS.ttf
-│   │   ├── WeiRuanYaHei.ttf
-│   │   ├── iconfont.ttf
-│   │   ├── iconfont2.ttf
-│   │   └── randfont.ttf
+│   │   ├── IBMPlex.ttf
+│   │   ├── randfont.ttf
+│   │   ├── ri.eot
+│   │   ├── ri.svg
+│   │   ├── ri.ttf
+│   │   ├── ri.woff
+│   │   └── ri.woff2
 │   ├── iconfont.css
 │   └── style.css
 ├── favicon.ico
@@ -112,7 +118,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-24 directories, 71 files
+24 directories, 77 files
 ```
 <!-- readme-tree end -->
 

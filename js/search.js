@@ -33,7 +33,7 @@ obj = JSON.parse(SearchResult);
 function searchtext() {
     result.innerHTML = input.value;
     if (input.value == '') {
-        result.innerHTML = '<i>- 搜索 -</i><hr>'+'<p align="center">输入关键词以在文章标题及正文中查询</p><hr>'
+        result.innerHTML = '<i>- 搜索 -</i><hr>' + '<p align="center">输入关键词以在文章标题及正文中查询</p><hr>'
     }
 
     // 标题搜索
@@ -52,11 +52,11 @@ function searchtext() {
         for (i = 0; i < resulttitlecache.length; i++) {
             for (j = 0; j < obj.articles.length; j++) {
                 if (obj.articles[j]['title'] == resulttitlecache[i]) {
-                    titlesearchresult = '<h4><a href="'+obj.articles[j]["path"]+'" class="resulttitle">'+obj.articles[j]['title'].replace(new RegExp(input.value, 'g'), '<mark>'+input.value+'</mark>')+'</a></h4><em>-标题匹配</em><p class="showbox">'+obj.articles[j]['text'].substring(0, 100)+'</p>'
+                    titlesearchresult = '<h4><a href="' + obj.articles[j]["path"] + '" class="resulttitle">' + obj.articles[j]['title'].replace(new RegExp(input.value, 'g'), '<mark>' + input.value + '</mark>') + '</a></h4><em>-标题匹配</em><p class="showbox">' + obj.articles[j]['text'].substring(0, 100) + '</p>'
                     resultstr = titlesearchresult + '<hr>' + resultstr
                 }
             }
-            result.innerHTML = '<i>"'+input.value+'"</i><hr>'+resultstr;
+            result.innerHTML = '<i>"' + input.value + '"</i><hr>' + resultstr;
         }
     }
 
@@ -87,22 +87,22 @@ function searchtext() {
     var targetscorecache = targetscore.concat([]);
     var resultfortext = '';
     var textsearchresult = ''
-    targetscorecache.sort(function(a, b) {
-        return b-a
+    targetscorecache.sort(function (a, b) {
+        return b - a
     })
     for (i = 0; i < targetscorecache.length; i++) {
         for (j = 0; j < targetscore.length; j++) {
             if (targetscorecache[i] == targetscore[j]) {
-                console.log('文章排序:'+targetname[j])
+                console.log('文章排序:' + targetname[j])
                 for (k = 0; k < obj.articles.length; k++) {
                     if (obj.articles[k]['title'] == targetname[j]) {
                         // 确认选区
-                        textorder = obj.articles[k]['text'].indexOf(input.value) -15;
+                        textorder = obj.articles[k]['text'].indexOf(input.value) - 15;
                         while (textorder < 0) {
                             textorder++
                         }
 
-                        resultfortext = '<h4><a href="'+obj.articles[k]["path"]+'" class="resulttitle">'+obj.articles[k]['title']+'</a></h4><em>-'+targetscorecache[i]+'个结果</em><p class="showbox">...'+obj.articles[k]['text'].substring(textorder, textorder+100).replace(new RegExp(input.value, 'g'), '<mark>'+input.value+'</mark>')+'</p>'
+                        resultfortext = '<h4><a href="' + obj.articles[k]["path"] + '" class="resulttitle">' + obj.articles[k]['title'] + '</a></h4><em>-' + targetscorecache[i] + '个结果</em><p class="showbox">...' + obj.articles[k]['text'].substring(textorder, textorder + 100).replace(new RegExp(input.value, 'g'), '<mark>' + input.value + '</mark>') + '</p>'
                         textsearchresult = textsearchresult + '<hr>' + resultfortext;
                     }
                 }
@@ -113,9 +113,9 @@ function searchtext() {
     // 无效结果安排
     if (resultcount !== obj.articles.length) {
         if (resultcount == 0) {
-            result.innerHTML = '<i>"'+input.value+'"</i><hr><p align="center">没有找到结果</p>'
+            result.innerHTML = '<i>"' + input.value + '"</i><hr><p align="center">没有找到结果</p>'
         }
     }
     // 整合
-    result.innerHTML = result.innerHTML.substring(0, result.innerHTML.length-4)+textsearchresult.substring(0, textsearchresult.length-4)+'<hr><a href="https://github.com/ravelloh/RPageSearch" class="tr">Search powered by RavelloH\'s RPageSearch</a>'
+    result.innerHTML = result.innerHTML.substring(0, result.innerHTML.length - 4) + textsearchresult.substring(0, textsearchresult.length - 4) + '<hr><a href="https://github.com/ravelloh/RPageSearch" class="tr">Search powered by RavelloH\'s RPageSearch</a>'
 }
