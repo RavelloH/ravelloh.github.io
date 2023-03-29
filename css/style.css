@@ -1,24 +1,28 @@
 /* Font引用 */
-
 @font-face {
     font-family: "HarmonyOS";
     src: local(HarmonyOS Sans), local("HarmonyOS");
-    src: url(/css/font/HarmonyOS.ttf);
+    src: url("./font/HarmonyOS.ttf");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Furore";
-    src: url(/css/font/Furore.ttf), local("Furore");
+    src: url("./font/Furore.ttf"), local("Furore");
     font-display: swap;
 }
 
 @font-face {
     font-family: "Randfont";
-    src: url(/css/font/randfont.ttf), local("Randfont");
+    src: url("./font/randfont.ttf"), local("Randfont");
     font-display: swap;
 }
 
+@font-face {
+    font-family: "Randfont";
+    src: url("./font/IBMPlex.ttf"), local("IBNPlex");
+    font-display: swap;
+    
 /* 粗体优化 */
 b {
     font-family: "HarmonyOS", "Microsoft YaHei";
@@ -776,7 +780,7 @@ textarea {
 }
 
 code {
-    font-family: Consolas, Monaco, courier, monospace;
+    font-family: Consolas, Monaco, courier, IBMPlex , IBMPlex, monospace;
     line-height: initial;
     padding: .1em .4em;
     margin: 0;
@@ -873,7 +877,7 @@ img.img {
 pre {
     background: #2d2d2d;
     color: rgb(201, 209, 217);
-    font-family: monospace;
+    font-family: IBMPlex, monospace;
     text-align: left;
     padding: 1em;
     padding-left: 0.8em;
