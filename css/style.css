@@ -19,7 +19,7 @@
 }
 
 @font-face {
-    font-family: "Randfont";
+    font-family: "IBMPlex";
     src: url("./font/IBMPlex.ttf"), local("IBNPlex");
     font-display: swap;
 }
