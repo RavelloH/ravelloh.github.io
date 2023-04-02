@@ -22,6 +22,8 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │       ├── search.yml
 │       └── tree.yml
 ├── .gitignore
+├── .vscode
+│   └── settings.json
 ├── 404.html
 ├── README.md
 ├── about
@@ -118,7 +120,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-24 directories, 77 files
+25 directories, 78 files
 ```
 <!-- readme-tree end -->
 
