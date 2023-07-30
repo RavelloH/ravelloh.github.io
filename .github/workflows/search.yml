@@ -29,7 +29,7 @@ jobs:
                   npm install
             - name: 'Working'
               run: |
-                  cd progam 
+                  cd program 
                   node search.js
             - name: Commit files
               continue-on-error: True
