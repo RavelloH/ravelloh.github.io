@@ -768,7 +768,6 @@ ul li a span {
     left: 0;
     margin: 10px 2px;
     overflow: hidden;
-    transition: all 500ms;
 }
 
 #viewmap > div {
