@@ -18,7 +18,6 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 </div>
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -27,16 +26,12 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │       ├── search.yml
 │       └── tree.yml
 ├── .gitignore
+├── .prettierignore
+├── .prettierrc.js
 ├── .vscode
 │   └── settings.json
 ├── 404.html
 ├── README.md
-├── about
-│   ├── author
-│   │   └── index.html
-│   ├── index.html
-│   └── pixiv
-│       └── index.html
 ├── articles
 │   ├── 20200816
 │   │   ├── index.html
@@ -77,57 +72,79 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── index.html
 │   │   └── show.htm
 │   └── index.html
-├── classification
-│   └── index.html
-├── css
-│   ├── common.css
-│   ├── font
+├── assets
+│   ├── css
+│   │   ├── display.css
+│   │   ├── hybrid.min.css
+│   │   ├── iconfont.css
+│   │   └── style.css
+│   ├── data
+│   │   └── search.json
+│   ├── fonts
 │   │   ├── Bender.woff
+│   │   ├── ConnectCode39.ttf
 │   │   ├── Furore.ttf
+│   │   ├── Geometos.ttf
 │   │   ├── Geometos.woff
 │   │   ├── HarmonyOS.ttf
 │   │   ├── IBMPlex.ttf
-│   │   ├── randfont.ttf
 │   │   ├── ri.eot
 │   │   ├── ri.svg
 │   │   ├── ri.ttf
 │   │   ├── ri.woff
 │   │   └── ri.woff2
-│   ├── iconfont.css
-│   └── style.css
+│   ├── images
+│   │   ├── RavelloH.svg
+│   │   ├── android-chrome-192x192.png
+│   │   ├── android-chrome-512x512.png
+│   │   ├── apple-touch-icon.png
+│   │   ├── avatar.jpg
+│   │   ├── broke.jpg
+│   │   ├── close.png
+│   │   ├── favicon-16x16.png
+│   │   ├── favicon-32x32.png
+│   │   ├── menu.png
+│   │   ├── music.jpg
+│   │   ├── screenshot-mobile.png
+│   │   └── screenshot-pc.png
+│   └── js
+│       ├── analysis.js
+│       ├── display.js
+│       ├── i18n.js
+│       ├── lib
+│       │   ├── highlight.min.js
+│       │   └── twikoo.all.min.js
+│       ├── loading.js
+│       ├── moudle.js
+│       ├── pjax.js
+│       ├── script.js
+│       └── worker
+│           ├── highlight.worker.js
+│           └── search.worker.js
 ├── favicon.ico
-├── friends
-│   └── index.html
 ├── google15e5df7e8b90902d.html
-├── img
-│   ├── RavelloH.svg
-│   ├── android-chrome-192x192.png
-│   ├── android-chrome-512x512.png
-│   ├── apple-touch-icon.png
-│   ├── avatar.jpg
-│   ├── close.png
-│   ├── favicon-16x16.png
-│   ├── favicon-32x32.png
-│   └── menu.png
+├── images
+│   ├── everydaynews-image.png
+│   ├── everydaynews-search.png
+│   ├── everydaynews-share.png
+│   ├── everydaynews-text.png
+│   ├── nsgamespider.png
+│   ├── psgamespider-en.png
+│   ├── psgamespider-search.png
+│   └── psgamespider.png
 ├── index.html
-├── js
-│   ├── common.js
-│   ├── menu.js
-│   ├── pjax.js
-│   ├── script.js
+├── package-lock.json
+├── package.json
+├── program
 │   ├── search.js
-│   └── searchdata.js
-├── search.py
+│   └── search.py
 ├── site.webmanifest
-├── tag
-│   └── index.html
 ├── tree.bak
 └── works
     └── index.html
 
-25 directories, 78 files
+25 directories, 97 files
 ```
-
 <!-- readme-tree end -->
 
 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0) 协议授权。
