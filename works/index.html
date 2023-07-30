@@ -1,290 +1,639 @@
 <!DOCTYPE html>
 <html lang="zh">
-
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=0;" name="viewport" />
-    <title>Works | RavelloH’s Blog</title>
-    <meta name="keywords" content="RavelloH,blog,">
-    <meta name="description" content="A Blog by RavelloH">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Works / 作品 | RavelloH’s Blog</title>
+    <meta name="keywords" content="RavelloH,blog,works,program,github,repo" />
+    <meta name="description" content="作品 | RavelloH的博客" />
+    <meta name="author" content="RavelloH" />
+    <meta name="pagetype" content="works-index" />
+    <meta name="theme-color" content="#111111" />
+    <meta property="og:title" content="RavelloH's Blog">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ravelloh.top/">
+    <meta property="og:image" content="https://ravelloh.top/assets/image/android-chrome-512x512.png">
+    <link rel="canonical" href="https://ravelloh.top/works/" />
+
+    <!-- Preload -->
+    <link rel="preload" href="../assets/fonts/ri.woff2" as="font" crossorigin>
+    <link rel="preload" href="../assets/fonts/Furore.ttf" as="font" crossorigin>
+    <link rel="preload" href="../assets/js/script.js" as="script">
+    <link rel="preload" href="../assets/js/i18n.js" as="script">
+    <link rel="preload" href="../assets/js/moudle.js" as="script">
+    <link rel="preload" href="../assets/js/display.js" as="script">
+    <link rel="preload" href="../assets/css/style.css" as="style" />
+    <link rel="preload" href="../assets/css/iconfont.css" as="style" />
+    <link rel="preload" href="../assets/images/avatar.jpg" as="image" />
+    <script defer type="text/javascript" src="../assets/js/loading.js"></script>
+
 
     <!-- CSS -->
-    <link type="text/css" rel="stylesheet" href="/css/common.css">
-    <link type="text/css" rel="stylesheet" href="/css/style.css">
-    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../assets/css/iconfont.css" type="text/css" />
+    <noscript>
+        <style type="text/css" media="all">
+            .loading {
+                opacity: 1;
+                transition: 0.5s;
+            }
+            #load-shade {
+                display: none;
+            }
+        </style>
+    </noscript>
+
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/images/apple-touch-icon.png" type="image/png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/images/favicon-32x32.png" type="image/png" />
+    <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="icon" href="/favicon.ico">
-
-
-
-
 </head>
-
 <body>
-
-    <body>
-
-        <section class="showcase">
-            <div class="shade"></div>
-            <header>
-                <h2 class="logo">
-                    <a href="/" class='logos'>
-                        <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;"
-                        alt="avatar">
-                        <img class="logoname" src="/img/RavelloH.svg" alt="RavelloH's Blog">
-                    </a>
-
-                </h2>
-                <div class="headers">
+    <!-- viewport start -->
+    <section id="showcase">
+        <div id="shade-global"></div>
+        <div id='load-shade' class="active">
+            <div id='load-content'>
+                <hr>
+                <h2>RavelloH's Blog</h2>
+                <h3>LOAD<span id='loading-text'>ing<span class="breath">...</span></span></h3>
+                <hr>
+                <br>
+            </div>
+        </div>
+        <header>
+            <div id="logo" class="loading" style="--i: 1">
+                <!-- logo start -->
+                <a href="/">
+                    <img id="avatar" class="no-zoom" src="../assets/images/avatar.jpg" alt="avatar">
+                    <img id="avatarname" class="no-zoom"src="../assets/images/RavelloH.svg" alt="RavelloH's Blog">
+                </a>
+                <!-- logo end -->
+            </div>
+            <div id="header-side">
+                <div id="navs">
+                    <!-- nav start -->
                     <nav>
-                        <a href="/">
-                            HOME
-                        </a>
-                        <a href="/works/">
-                            WORKS
-                        </a>
-                        <a href="/articles/">
-                            ARTICLES
-                        </a>
-                        <a href="/tag/">
-                            TAG
-                        </a>
-                        <a href="/about/">
-                            ABOUT
-                        </a>
-                    </p>
+                        <a href="/" class="loading" style="--i: 5" id="nav-home">HOME</a>
+                        <a href="/works/" class="loading" style="--i: 4" id="nav-works">WORKS</a>
+                        <a href="/articles/" class="loading" style="--i: 3" id="nav-articles">ARTICLES</a>
+                        <a href="/iamges/" class="loading" style="--i: 2" id="nav-images">IMAGES</a>
+                        <a href="/about/" class="loading" style="--i: 1" id="nav-about">ABOUT</a>
+                    </nav>
+                    <!-- nav end -->
+                </div>
+                <div id="toggle" class="loading" style="--i: 0"></div>
+            </div>
+        </header>
+        <div id="shade-context"></div>
+        <div id="main" class="loading">
+            <div id='viewmap'>
+                <div class="texts half" id="showarea">
+                    <h3>WORKS / <wbr>作品</h3>
+                    <span class="virgule">
+                        收录 & 索引个人作品。在右侧选择以预览...
+                    </span>
+                    <span class="virgule" id="numOfWorks">//</span>
+                    <div class="button-list">
+                        <a class="button" href="https://github.com/RavelloH?tab=repositories"><span class="i_small ri:github-line"></span> Github ></a>
+                    </div>
+                </div>
+
+
+                <div class="listlines">
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>PSGameSpider</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 自动爬取并索引PlayStation中所有游戏封面原图并构筑网页，支持自动分析最新游戏链接、正则自适应图片名、自动删除重复文件、自动更新新文件等
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/PSGameSpider/main/README.md'>
+                                <div class="work-info">
+                                    <div class="imgcard">
+                                        <img src="https://drive.ravelloh.top/api/raw/?path=/img/psgamespider.png" alt="PSGameSpider" loading='lazy' onload="imgLoad(this)" />
+                                        <img src="https://drive.ravelloh.top/api/raw/?path=/img/psgamespider-en.png" alt="PSGameSpider" loading='lazy' onload="imgLoad(this)" />
+                                        <img src="https://drive.ravelloh.top/api/raw/?path=/img/psgamespider-search.png" alt="PSGameSpider" loading='lazy' onload="imgLoad(this)" />
+                                    </div>
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://ravelloh.gitee.io/PSGameSpider/" class="linkline">在线预览(Gitee)</a> \ <a href="https://ravelloh.github.io/PSGameSpider/" class="linkline">在线预览(Github)</a> \ <a
+                                        href="https://github.com/RavelloH/PSGameSpider">Github</a> \ <a
+                                        href="https://gitee.com/ravelloh/PSGameSpider">Gitee</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>Python,JavaScript</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>EverydayNews</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 每日早4点(UTC+8)更新当日新闻，并附带在线日期搜索索引，以图片、纯文本、json 3种格式存储
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/EverydayNews/main/README.md'>
+                                <div class="work-info">
+                                    <div class="imgcard">
+                                        <img src="https://drive.ravelloh.top/api/raw/?path=/img/everydaynews-image.png" alt="EverydayNews" loading='lazy' onload="imgLoad(this)" />
+                                        <img src="https://drive.ravelloh.top/api/raw/?path=/img/everydaynews-text.png" alt="EverydayNews" loading='lazy' onload="imgLoad(this)" />
+                                        <img src="https://drive.ravelloh.top/api/raw/?path=/img/everydaynews-search.png" alt="EverydayNews" loading='lazy' onload="imgLoad(this)" />
+                                        <img src="https://drive.ravelloh.top/api/raw/?path=/img/everydaynews-share.png" alt="EverydayNews" loading='lazy' onload="imgLoad(this)" />
+                                    </div>
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://ravelloh.gitee.io/PSGameSpider/" class="linkline">在线预览(Gitee)</a> \ <a href="https://ravelloh.github.io/PSGameSpider/" class="linkline">在线预览(Github)</a> \ <a
+                                        href="https://github.com/RavelloH/PSGameSpider">Github</a> \ <a
+                                        href="https://gitee.com/ravelloh/PSGameSpider">Gitee</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>Python,JavaScript</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>NSGameSpider</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- Nintendo Switch游戏封面自动爬虫，自动爬取最新游戏封面并存储。
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/NSGameSpider/main/README.md'>
+                                <div class="work-info">
+                                    <div class="imgcard">
+                                        <img src="https://drive.ravelloh.top/api/raw/?path=/img/nsgamespider.png" alt="NSGameSpider" loading='lazy' onload="imgLoad(this)" />
+                                    </div>
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a
+                                        href="https://github.com/RavelloH/NSGameSpider">Github</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>Python</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>music-lrc-match</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 基于Python，自动匹配并下载音乐对应的lrc歌词，自动操作，支持模糊搜索、纯音乐填充、自动防重、自动更新新文件等等
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/music-lrc-match/main/README.md'>
+                                <div class="work-info">
+                                    <div class="imgcard">
+                                        <img src="https://drive.ravelloh.top/api/raw/?path=/img/music-lrc-match.png" alt="music-lrc-match" loading='lazy' onload="imgLoad(this)" />
+                                    </div>
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a
+                                        href="https://github.com/RavelloH/music-lrc-match">Github</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>Python</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>RTheme V3</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 待定项目
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/RTheme/main/README.md'>
+                                <div class="work-info">
+                                    <div class="imgcard">
+                                        <img src="https://drive.ravelloh.top/api/raw/?path=/img/music-lrc-match.png" alt="music-lrc-match" loading='lazy' onload="imgLoad(this)" />
+                                    </div>
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a
+                                        href="https://github.com/RavelloH/RTheme">Github</a> \ <a
+                                        href="https://gitee.com/ravelloh/RTheme">Gitee</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>JavaScript,CSS,Python,HTML</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>readme-tree</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 使用GithubActions在提交时自动为Readme文档添加树状文件结构图。现已在Github Marketplace上架
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/readme-tree/main/README.md'>
+                                <div class="work-info">
+                                    <div class="info-success center">
+                                        此项目已在 <a href="https://github.com/marketplace/actions/readme-tree">Github Marketplace</a>上架
+                                    </div>
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://github.com/RavelloH/readme-tree">Github</a> \ <a href="https://github.com/marketplace/actions/readme-tree">Github Marketplace</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>Shell,Python</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>virgule.js</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 使用斜杠转换字符的动画封装，例如主页中的轮播文字。
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/virgule.js/main/README.md'>
+                                <div class="work-info">
+                                    <div class="info center">
+                                        此项目已在此篇博文中: <a href="/articles/20221126/">>> link</a> 中详细介绍。
+                                    </div>
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://github.com/ravelloh/virgule.js">Github</a> \ <a href="/articles/20221126/">详细介绍</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>JavaScript</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>RSS Maker</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 基于fetchrss.com的RSS爬虫，可实现深度爬取文章摘要、突破fetchrss只生成最近五篇文章、去除原来存在于原始RSS中的广告等功能。
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/RSS/main/README.md'>
+                                <div class="work-info">
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://github.com/RavelloH/RSS">Github</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>Python</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>RPageSearch</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 基于Python与JS实现的静态站搜索功能。
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/RPageSearch/main/README.md'>
+                                <div class="work-info">
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://github.com/RavelloH/RPageSearch">Github</a> \ <a href="/articles/20220815/">相关文章</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>JavaScript,Python</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>CNAME</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 使用JavaScript进行测速 自动选择最快站点跳转。现已整合入RTheme V3。
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/RPageSearch/main/README.md'>
+                                <div class="work-info">
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://ravelloh.gitee.io/cname" class="linkline">在线预览</a> \ <a href="https://github.com/RavelloH/cname">Github</a> \ <a href="https://gitee.com/RavelloH/cname">Gitee</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>JavaScript</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>BatTechnology</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 致力于Bat批处理的开源组织项目。
+                            </p>
+                            <aside>
+                                <div class="work-info">
+                                    致力于Bat批处理的开源组织项目。
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://github.com/BatTechnology">Github</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>BatchFile</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>Rkeyboard - 开发中</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 方便的小工具,可在屏幕右下角映射所按下的按键。
+                            </p>
+                            <aside doc>
+                                <div class="work-info">
+                                    方便的小工具,可在屏幕右下角映射所按下的按键。
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://github.com/RavelloH/Rkeyboard">Github</a> \ <a
+                                        href="https://https://gitee.com/ravelloh/Rkeyboard">Gitee</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>C#</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>ravelloh.github.io</h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 此Blog，应用全新设计的主题RTheme V3。
+                            </p>
+                            <aside doc='https://raw.githubusercontent.com/RavelloH/ravelloh.github.io/master/README.md'>
+                                <div class="work-info">
+
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://github.com/RavelloH/ravelloh.github.io">Github</a> \ <a
+                                        href="https://https://gitee.com/ravelloh/ravelloh">Gitee</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>JavaScript,HTML,CSS,Python</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4>Minecraft-ItemSynthesisGenerator - <em>未在开发</em></h4>
+                            </p>
+                            <p class="work-describe">
+                                -- 图片生成器，改变贴图来自定义合成单。
+                            </p>
+                            <aside>
+                                <div class="work-info">
+                                    图片生成器，改变贴图来自定义合成单。
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> <a href="https://github.com/RavelloH/Minecraft-ItemSynthesisGenerator">Github</a>
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>-</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <div class="work-program" onclick="workShow(this)">
+                            <p>
+                                <h4><del>Discuz crawler - 已废除</del></h4>
+                            </p>
+                            <p class="work-describe">
+                                <del>-- 利用Discuz!论坛高级方式查找的BUG穷举居住地，从而得出用户信息</del>
+                            </p>
+                            <aside>
+                                <div class="work-info">
+                                </div>
+                                <p class="work-urls">
+                                    <span class="i_small ri:link"></span>
+                                    >> 不予公开
+                                </p>
+                            </aside>
+                            <p class="work-language">
+                                <span class="i_small ri:code-s-slash-line"></span> <span>C#</span>
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div id="icons-left">
+                <nav>
+                    <a class="loading" style="--i: 1" id="icon-about" href="#" onclick="openInfoBar('info');return false;" aria-label="about this page"><span class="i ri:file-info-line"></span></a>
+                    <a class="loading" style="--i: 2" id="icon-github" href="http://github.com/ravelloh" target="_blank" rel="noreferrer" aria-label="my github"><span class="i ri:github-fill"></span></a>
+                    <a class="loading" style="--i: 3" id="icon-studio" href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer" aria-label="my studio"><span class="i ri:building-2-line"></span></a>
+                    <a class="loading" style="--i: 4" id="icon-rss" href="https://ravelloh.github.io/RSS/rss.xml" target="_blank" aria-label="rss"><span class="i ri:rss-fill"></span></a>
                 </nav>
             </div>
-            <div class="toggle" class="header">
+            <div id="icons-right" class="loading" style="--i: 1">
+                <div id="message-bar">
+                    <noscript>
+                        <a class="red" href="about/help#javascript"><strong>错误:无法使用JAVASCRIPT</strong>&nbsp;<span class="i ri:alert-line"></span></a>
+                    </noscript>
+                </div>
             </div>
-
-        </header>
-
-        <div class="overlay"></div>
-        <div class="text title" id="text">
-            <h3>Works / 作品集</h3>
-            <p id="jumping">
-                 &nbsp;
-            </p>
-            <a class="button" href="https://github.com/RavelloH?tab=repositories">前往GITHUB查看详情</a>
+        </footer>
+    </section>
+    <section id="sidebar">
+        <div id="sidebar-top">
+            <div id="sideinfo">
+                <h3>RavelloH's</h3>
+                <h2>BLOG</h2>
+                <a class="icons" href="mailto:ravelloh@outlook.com" id="email"><span class="i ri:mail-add-fill"></span>&nbsp;<span> ravelloh@outlook.com</span></a>
+                <hr>
+            </div>
         </div>
-        <ul class="social">
-            <li><a href="/about/"><span class="i ri:file-info-line"></span></a></li>
-            <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
-                class="i ri:github-fill"></span></a></li>
-            <li>
-                <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
-                    <span class="i ri:building-2-line">
-                    </span>
-                </a>
-            </li>
-            <li><a href="https://ravelloh.github.io/RSS/rss.xml" target="_blank"><span class="i ri:rss-fill"></span></a></li>
-        </ul>
-        <div class="text listline" id="text">
-            <noscript>
-                <h3>ERROR..</h3>
-                <h4>TYPE:NOSCRIPT</h4>
-                <p>
-                    此页面需要开启浏览器的JavaScript功能才能正常工作<br>
-                    若无法开启，也可以<a class='linkline' href='https://github.com/RavelloH?tab=repositories'>在此处访问Github</a>，查看对应仓库
-                </p>
-            </noscript>
-            <div class="listprogram" style="--i: 1">
-
-                <p>
-                    <h4>PSGameSpider</h4>
-                </p>
-                -- 自动爬取并索引PlayStation中所有游戏封面原图并构筑网页。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> Python,JavaScript<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://ravelloh.gitee.io/PSGameSpider/" class="linkline">在线预览(Gitee)</a> \ <a href="https://ravelloh.github.io/PSGameSpider/" class="linkline">在线预览(Github)</a> \ <a
-                    href="https://github.com/RavelloH/PSGameSpider">Github</a> \ <a
-                    href="https://gitee.com/ravelloh/PSGameSpider">Gitee</a>
-                <hr>
+        <div id="sidebar-mid">
+            <menu id="sidebar-menu">
+                <ul>
+                    <!-- menu start -->
+                    <li style="--i: 1"><a href='/'><span class='i_small ri:home-3-fill'></span> HOME</a></li>
+                    <li style="--i: 2"><a href='/works/'><span class='i_small ri:dashboard-fill'></span> WORKS</a></li>
+                    <li style="--i: 3"><a href='/articles/'><span class='i_small ri:article-fill'></span> ARTICLES</a></li>
+                    <li style="--i: 4"><a href='/images/'><span class='i_small ri:image-fill'></span> IMAGES</a></li>
+                    <li style="--i: 4"><a href='/games/'><span class='i_small ri:gamepad-fill'></span> GAMES</a></li>
+                    <li style="--i: 5"><a href='/friends/'><span class='i_small ri:team-fill'></span> FRIENDS</a></li>
+                    <li style="--i: 6"><a href='/about/'><span class='i_small ri:information-fill'></span> ABOUT</a></li>
+                    <li>&nbsp;</li>
+                    <li><a href="/admin/"><span class="i_small ri:login-box-fill"></span> LOG IN</a></li>
+                    <li><a href="https://analytics.ravelloh.top/share/4kyzPMCCpfG9Vd1k/blog"><span class="i_small ri:bar-chart-box-fill"></span> ANALYTICS</a></li>
+                    <li><a href="https://drive.ravelloh.top/"><span class="i_small ri:hard-drive-3-fill"></span> DRIVE</a></li>
+                    <li><a href="https://monitor.ravelloh.top/"><span class="i_small ri:timer-flash-fill"></span> UPTIME</a></li>
+                    <li><a href="/about/help/"><span class="i_small ri:questionnaire-fill"></span> HELP</a></li>
+                    <!-- menu end -->
+                </ul>
+            </menu>
+        </div>
+        <div id="sidebar-bottom">
+            <hr>
+            <div id="side-info">
+                <!-- side-info start -->
+                <b>
+                    Theme : <a href='https://github.com/ravelloh/RTheme'>RTheme </a> by <a href='https://ravelloh.gitee.io'>RavelloH</a>.<br>
+                    Copyright © 2019 - <b id='year'></b> RavelloH.<br>
+                    All rights reserved.
+                </b>
+                <!-- side-info end -->
             </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>EverydayNews</h4>
-                </p>
-                -- 每日早八点更新当日新闻，支持查询等功能。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> Python,JavaScript<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://ravelloh.gitee.io/EverydayNews/" class="linkline">在线预览(Gitee)</a> \ <a href="https://ravelloh.github.io/EverydayNews/" class="linkline">在线预览(Github)</a> \ <a
-                    href="https://github.com/RavelloH/EverydayNews">Github</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>NSGameSpider</h4>
-                </p>
-                -- 自动爬取NintendoSwitch最新游戏封面。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> Python<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://github.com/RavelloH/NSGameSpider">Github</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>RTheme</h4>
-                </p>
-                -- 一个具有响应式布局的横板网页主题。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> HTML,CSS,JavaScript<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://github.com/RavelloH/RTheme">Github</a> \ <a
-                    href="https://gitee.com/ravelloh/RTheme">Gitee</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>readme-tree</h4>
-                </p>
-                -- 使用GithubActions在提交时自动为Readme文档添加树状文件图。现已在Github Marketplace上架。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> Shell,Python<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://github.com/RavelloH/readme-tree">Github</a> \ <a href="https://github.com/marketplace/actions/readme-tree">Github Marketplace</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>Virgule.js</h4>
-                </p>
-                -- 使用斜杠转换字符的动画封装，例如主页中的轮播文字。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> JavaScript<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://github.com/ravelloh/virgule.js">Github</a> \ <a href="/articles/20221126/">详细介绍</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>RSS Maker</h4>
-                </p>
-                -- 基于fetchrss.com的RSS爬虫，可实现深度爬取文章摘要、突破fetchrss只生成最近五篇文章、去除原来存在于原始RSS中的广告等功能。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> Python<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://github.com/RavelloH/RSS">Github</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>music-lrc-match</h4>
-                </p>
-                -- 自动匹配并下载音乐对应的lrc歌词，自动操作，支持模糊搜索、纯音乐填充、自动防重、自动更新新文件等等。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> Python<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://github.com/RavelloH/music-lrc-match">Github</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>RPageSearch</h4>
-                </p>
-                -- 基于Python与JS实现的静态站搜索功能。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> Python,Javascript<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://github.com/RavelloH/RPageSearch">Github</a> \ <a href="/articles/20220815/">相关文章</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>cname</h4>
-                </p>
-                -- 使用JavaScript进行测速 自动选择最快站点跳转<br>
-                <span class="i_mini ri:code-s-slash-line"></span> JavaScript<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://ravelloh.gitee.io/cname" class="linkline">在线预览</a> \ <a href="https://github.com/RavelloH/cname">Github</a> \ <a href="https://gitee.com/RavelloH/cname">Gitee</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>PythonCrawler</h4>
-                </p>
-                -- 基于Python的爬虫集。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> Python<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://github.com/RavelloH/PythonCrawler">Github</a> \ <a
-                    href="https://gitee.com/ravelloh/PythonCrawler">Gitee</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>BatTechnology</h4>
-                </p>
-                -- 致力于Bat批处理的开源组织项目。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> Batchfile<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://github.com/BatTechnology">Github</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <p>
-                    <h4>Rkeyboard - 开发中</h4>
-                </p>
-                -- 方便的小工具,可在屏幕右下角映射所按下的按键。<br>
-                <span class="i_mini ri:code-s-slash-line"></span> C#<br>
-                <span class="i_mini ri:link"></span>
-                >> <a href="https://github.com/RavelloH/Rkeyboard">Github</a> \ <a
-                    href="https://https://gitee.com/ravelloh/Rkeyboard">Gitee</a>
-                <hr>
-                <div class="listprogram" style="--i: 1">
-                    <p>
-                        <h4>EverydayNew</h4>
-                    </p>
-                    -- 利用Github Actions创建workflows，从而每天刷新一遍Gist。 <br>
-                    <span class="i_mini ri:code-s-slash-line"></span> JavaScript<br>
-                    <span class="i_mini ri:link"></span>
-                    >> <a href="https://github.com/RavelloH/EverydayNew">Github</a>
-                    <hr>
-                </div>
-                <div class="listprogram" style="--i: 1">
-                    <p>
-                        <h4>ravelloh.github.io</h4>
-                    </p>
-                    -- 此Blog，包含全新设计的主题。<br>
-                    <span class="i_mini ri:code-s-slash-line"></span> HTML,CSS,JavaScript<br>
-                    <span class="i_mini ri:link"></span>
-                    >> <a href="http://github.com/ravelloh/ravelloh.github.io">Github</a> \ <a
-                        href="http://gitee.com/ravelloh/ravelloh/">Gitee</a>
-                    <hr>
-                </div>
-
-                <div class="listprogram" style="--i: 1">
-                    <p>
-                        <h4>Minecraft-ItemSynthesisGenerator - <em>未在开发</em></h4>
-                    </p>
-                    <em>-- 图片生成器，改变贴图来自定义合成单。<br></em>
-                    <span class="i_mini ri:code-s-slash-line"></span> Unknown<br>
-                    <span class="i_mini ri:link"></span>
-                    >> <a href="https://github.com/RavelloH/Minecraft-ItemSynthesisGenerator">Github</a>
-                    <hr>
-                </div>
-                <div class="listprogram" style="--i: 1">
-                    <p>
-                        <h4><del>Discuz crawler - 已废除</del></h4>
-                    </p>
-                    <del>-- 利用Discuz!论坛高级方式查找的BUG穷举居住地，从而得出用户信息</del><br>
-                    <span class="i_mini ri:code-s-slash-line"></span> C#<br>
-                    <span class="i_mini ri:link"></span>
-                    >> 不予公开
-                </div>
+            <div class="flex-iconset">
+                <ul>
+                    <li><a href="#" id="icon-swap" onclick="openInfoBar('swap');return false;" aria-label="swap"><span class="i ri:swap-box-line"></span></a></li>
+                    <li><a href="#" id="icon-color" onclick="toggleThemeMode();return false;" aria-label="color"><span class="i ri:sun-line"></span></a></li>
+                    <li><a href="#" id="icon-music" onclick="openInfoBar('music');return false;" aria-label="music"><span class="i ri:file-music-line"></span></a></li>
+                    <li><a href="#" id="icon-fullscreen" onclick="toggleFullScreen();return false;" aria-label="fullscreen"><span class="i ri:aspect-ratio-line"></span></a></li>
+                    <li><a href="#" id="icon-share" onclick="openInfoBar('share');return false;" aria-label="share"><span class="i ri:share-box-line"></span></a></li>
+                    <li><a href="#" id="icon-setting" onclick="openInfoBar('setting');return false;" aria-label="setting"><span class="i ri:settings-4-line"></span></a></li>
+                </ul>
             </div>
         </div>
     </section>
-    <div class="menu">
-        <ul>
-            <script type="text/javascript" src="/js/menu.js"></script>
-        </ul>
-    </div>
+    <section id="infobar">
+        <div id="infobar-header">
+            <div id="infobar-title">
+                INFO
+            </div>
+            <div id="infobar-toggle">
+                <span class="i ri:arrow-down-s-line"></span>
+            </div>
+        </div>
+        <div id="infobar-context">
+            <div id="infobar-left">
+            </div>
+            <div id="infobar-right">
+                <h2 id="time">00:00</h2>
+                <hr />
+                <div id="music-player">
+                    <div id='music-top'>
+                        <div id="music-name">
+                            无正在播放的音乐
+                        </div>
+                        <div id='music-time'>
+                            00:00/00:00
+                        </div>
+                    </div>
+                    <audio id="music" src="/" ontimeupdate="musicUpdata()" loop="loop" preload="none"></audio>
+                    <div id="music-bar">
+                        <div id="music-progress-container">
+                            <div id="music-progress">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="music-operation">
+                        <span onclick="musicSetting()"><span class="i ri:play-list-line"></span></span>
+                        <span class="i ri:skip-back-line" onclick="musicGo(-10)"></span>
+                        <span id='music-button' onclick="musicPlay()"><span class="i ri:play-line"></span></span>
+                        <span class="i ri:skip-forward-line" onclick="musicGo(10)"></span>
+                        <span class="i ri:repeat-one-line"></span>
+                    </div>
+                </div>
+                <div id="state-bar">
+                </div>
+                <div id="uid" class="barcode center">
+                    <br>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- viewport end -->
 
     <!-- JavaScript -->
-    <script src="/js/script.js"></script>
-    <script type="text/javascript" src="/js/common.js"></script>
-    <script src="//instant.page/5.1.1" type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+    <script defer type="text/javascript" src="../assets/js/i18n.js" onload="loadComplete('i18n.js')"></script>
+    <script defer type="text/javascript" src="../assets/js/moudle.js" onload="loadComplete('moudle.js')"></script>
+    <script defer type="text/javascript" src="../assets/js/script.js" onload="loadComplete('script.js')"></script>
+    <script defer type="text/javascript" src="../assets/js/display.js" onload="loadComplete('display.js')"></script>
+    <script defer type="text/javascript" src="../assets/js/pjax.js" onload="enablePjax();loadComplete('pjax.js')"></script>
+    <script defer type="text/javascript" src="../assets/js/analysis.js" onload="baiduAnalysis();umamiAnalytics()"></script>
+    <div id="page-js">
+        <script>
+            function main() {
+                loadItems('.listlines')
+                setTimeout(()=> {
+                    virgule(document.querySelector('#numOfWorks'), `共收录${document.querySelectorAll('.listprogram').length}个作品项目。`)
+                }, 400)
+            }
+        </script>
+    </div>
 
-
-    <script>
-        setTimeout("onload()", "500");
-        setTimeout("virgule(document.getElementById('jumping'), '共收录'+document.getElementsByClassName('listprogram').length+'个作品。', 80)",'1000')
-    </script>
+    <!-- Prefetch -->
+    <div id="page-prefetch">
+        <link rel="prefetch" href="/assets/fonts/IBMPlex.ttf" />
+    </div>
 </body>
-
 </html>
+<!-- EOF -->

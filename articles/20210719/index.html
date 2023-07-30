@@ -2,249 +2,397 @@
 <html lang="zh">
 
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=0;" name="viewport" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Minecraft命令实现在线统计 | RavelloH’s Blog</title>
-    <meta name="keywords" content="RavelloH,blog,">
-    <meta name="description" content="A Blog by RavelloH">
+    <meta name="keywords" content="RavelloH,blog,Minecraft命令实现在线统计" />
+    <meta name="description" content="Minecraft命令实现在线统计 | RavelloH的博客" />
+    <meta name="author" content="RavelloH" />
+    <meta name="pagetype" content="articles-context" />
+    <meta name="theme-color" content="#111111" />
+    <meta property="og:title" content="RavelloH's Blog">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ravelloh.top/">
+    <meta property="og:image" content="https://ravelloh.top/assets/image/android-chrome-512x512.png">
+    <link rel="canonical" href="https://ravelloh.top/articles/20210719/" />
+
+    <!-- Preload -->
+    <link rel="preload" href="../../assets/fonts/ri.woff2" as="font" crossorigin>
+    <link rel="preload" href="../../assets/fonts/Furore.ttf" as="font" crossorigin>
+    <link rel="preload" href="../../assets/js/script.js" as="script">
+    <link rel="preload" href="../../assets/js/i18n.js" as="script">
+    <link rel="preload" href="../../assets/js/moudle.js" as="script">
+    <link rel="preload" href="../../assets/js/display.js" as="script">
+    <link rel="preload" href="../../assets/css/style.css" as="style" />
+    <link rel="preload" href="../../assets/css/iconfont.css" as="style" />
+    <link rel="preload" href="../../assets/images/avatar.jpg" as="image" />
+    <script defer type="text/javascript" src="../../assets/js/loading.js"></script>
+
 
     <!-- CSS -->
-    <link type="text/css" rel="stylesheet" href="/css/common.css">
-    <link type="text/css" rel="stylesheet" href="/css/style.css">
-    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+    <link rel="stylesheet" href="../../assets/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../../assets/css/iconfont.css" type="text/css" />
+    <noscript>
+        <style type="text/css" media="all">
+            .loading {
+                opacity: 1;
+                transition: 0.5s;
+            }
+
+            #load-shade {
+                display: none;
+            }
+        </style>
+    </noscript>
+
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/images/apple-touch-icon.png"
+        type="image/png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/images/favicon-32x32.png" type="image/png" />
+    <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="icon" href="/favicon.ico">
-
-
-
-
 </head>
 
 <body>
-
-    <body>
-
-        <section class="showcase"><div class="shade"></div>
-            <header>
-                <h2 class="logo">
-                    <a href="/" class='logos'>
-                        <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;"
-                            alt="avatar">
-                        <img class="logoname" src="/img/RavelloH.svg" alt="RavelloH's Blog">
-                    </a>
-
-                </h2>
-                <div class="headers">
+    <!-- viewport start -->
+    <section id="showcase">
+        <div id="shade-global"></div>
+        <div id='load-shade' class="active">
+            <div id='load-content'>
+                <hr>
+                <h2>RavelloH's Blog</h2>
+                <h3>LOAD<span id='loading-text'>ing<span class="breath">...</span></span></h3>
+                <hr>
+                <br>
+            </div>
+        </div>
+        <header>
+            <div id="logo" class="loading" style="--i: 1">
+                <!-- logo start -->
+                <a href="/">
+                    <img id="avatar" class="no-zoom" src="../../assets/images/avatar.jpg" alt="avatar">
+                    <img id="avatarname" class="no-zoom" src="../../assets/images/RavelloH.svg" alt="RavelloH's Blog">
+                </a>
+                <!-- logo end -->
+            </div>
+            <div id="header-side">
+                <div id="navs">
+                    <!-- nav start -->
                     <nav>
-                        <a href="/">
-                            HOME
-                        </a>
-                        <a href="/works/">
-                            WORKS
-                        </a>
-                        <a href="/articles/">
-                            ARTICLES
-                        </a>
-                        <a href="/tag/">
-                            TAG
-                        </a>
-                        <a href="/about/">
-                            ABOUT
-                        </a>
-                        </p>
+                        <a href="/" class="loading" style="--i: 5" id="nav-home">HOME</a>
+                        <a href="/works/" class="loading" style="--i: 4" id="nav-works">WORKS</a>
+                        <a href="/articles/" class="loading" style="--i: 3" id="nav-articles">ARTICLES</a>
+                        <a href="/iamges/" class="loading" style="--i: 2" id="nav-images">IMAGES</a>
+                        <a href="/about/" class="loading" style="--i: 1" id="nav-about">ABOUT</a>
                     </nav>
+                    <!-- nav end -->
                 </div>
-                <div class="toggle" class="header">
-                </div>
-            </header>
+                <div id="toggle" class="loading" style="--i: 0"></div>
+            </div>
+        </header>
+        <div id="shade-context"></div>
+        <div id="main" class="loading">
+            <div id='viewmap'>
+                <article>
+                    <div id="articles-header">
+                        <h2><a href="/articles/20210719/">Minecraft命令实现在线统计</a></h2>
+                        <p class="articles-info">
+                            <time>2021-07-19</time> •
+                            <span class="i_small ri:archive-line"></span>
+                            <span class="class">
+                                <a href="/articles/#/classification/游戏">游戏</a>
+                            </span> •
+                            <span class="i_small ri:t-box-line"></span> <span id="textLength">----字</span> •
+                            <span class="i_small ri:search-eye-line"></span> <span id="pageVisitors">---</span>
+                        </p>
+                        <p class="articles-tags">
+                            <span class="i_small ri:price-tag-3-line"></span>
+                            <a href="/articles/#/tag/minecraft">MINECRAFT</a>
+                            <a href="/articles/#/tag/json">JSON</a>
+                        </p>
+                        <hr>
+                    </div>
 
-            <div class="overlay"></div>
-            <div class="article" id="text">
-                <h2>Minecraft命令实现在线统计</h2>
-                <span class="i_mini ri:time-line"></span> 2021-07-19 • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#游戏">游戏</a> • 
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
-                    class="tag" href="/tag/#json">JSON</a> • <span class="i_mini ri:search-eye-line"></span> <span id="twikoo_visitors"></span>
-                <div>
-                    <h4><b><em>Menu - 目录列表</em></b></h4>
-                    <a class="m" href="#效果">效果</a>
-                    <a class="m" href="#实现方式">实现方式</a>
-                    <a class="代码" href="#代码">代码</a>
+                    <div id="articles-body">
+                        <div class="center">
+                            注:本文应用于1.13+ <br>
+                            <em>
+                                <span id="loadingtext"></span>
+                            </em>
+                        </div>
+                        <br>
+                        <h3>效果</h3>
+                        <p>
+                            <img src=img2.gif class="img" id="img2" alt="时间进制运行效果" loading='lazy'>
+                        </p>
+                        <h3>实现方式</h3>
+                        <p>
+                            首先要实现在线时间统计，需要先定义时间。<br>
+                            所以在这里 需要先创建几个稍后要用到的计分板：<br>
+                            /scoreboard objectives add timetick dummy <br>
+                            /scoreboard objectives add times dummy <br>
+                            /scoreboard objectives add timem dummy <br>
+                            /scoreboard objectives add timeh dummy <br>
+                            /scoreboard objectives add timed dummy <br>
+                            顺次显示的是 秒-分-时-天。<br><br>
+
+                            计时器的思路是这样的：<br>
+                            使用循环命令方块为timetick加分，则每秒可以增加20（每秒命令方块运行20次）<br>
+                            当timetick为20时，为times加1并设置timetick为0。<br>
+                            当times为60时，为timem加1并设置times为0。<br>
+                            当timem为60时，为timeh加1并设置timem为0。<br>
+                            ...以此类推。<br><br>
+
+                            所以在这里 需要使用命令方块组+目标选择器进行运算:<br>
+                            循环: scoreboard players add @a timetick 1 <br>
+                            连锁: scoreboard players add @a[scores={timetick=20..}] times 1 <br>
+                            连锁: scoreboard players set @a[scores={timetick=20..}] timetick 0 <br>
+                            连锁: scoreboard players add @a[scores={times=60..}] timem 1 <br>
+                            连锁: scoreboard players set @a[scores={times=60..}] times 0 <br>
+                            连锁: scoreboard players add @a[scores={timem=60..}] timeh 1 <br>
+                            连锁: scoreboard players set @a[scores={timem=60..}] timem 0 <br>
+                            连锁: scoreboard players add @a[scores={timeh=24..}] timed 1 <br>
+                            连锁: scoreboard players set @a[scores={timeh=24..}] timeh 0 <br>
+                            <br>
+
+                            最后 再加一个title用于显示即可 <br>
+                            循环： execute as @a at @s run title @p actionbar
+                            [{"text":"在线时间:","color":"green","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timed","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"天","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timeh","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"小时","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timem","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"分","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"times","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"秒","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]
+                            <br>（考虑到多人游戏的情况 这里添加了一个execute用于保证显示正确的对象）
+                            <br><br>
+
+                            当我们搭建好全部命令方块并运行后，不难发现虽然计时器正常，但却没有显示值为0的项目:<br>
+                            <img src="img1.png" class="img center" id="img1" loading='lazy'><br>
+                            这是因为未被赋值的计分板项目默认不显示，需要手动设置为0：<br>
+                            /scoreboard players set @p times 0 <br>
+                            /scoreboard players set @p timem 0 <br>
+                            /scoreboard players set @p timeh 0 <br>
+                            /scoreboard players set @p timed 0 <br>
+                            之后即可正常使用。
+
+                        </p>
+                        <h3>命令</h3>
+                        <div class="codeline">
+                            <pre>
+                                <span>/scoreboard objectives add timetick dummy</span>
+                                <span>/scoreboard objectives add times dummy</span>
+                                <span>/scoreboard objectives add timem dummy</span>
+                                <span>/scoreboard objectives add timeh dummy</span>
+                                <span>/scoreboard objectives add timed dummy</span>
+                                <span></span>
+                                <span>/scoreboard players set @p times 0 </span>
+                                <span>/scoreboard players set @p timem 0 </span>
+                                <span>/scoreboard players set @p timeh 0 </span>
+                                <span>/scoreboard players set @p timed 0 </span>
+                                <span></span>
+                                <span>循环:  scoreboard players add @a timetick 1</span>
+                                <span>连锁:  scoreboard players add @a[scores={timetick=20..}] times 1 </span>
+                                <span>连锁:  scoreboard players set @a[scores={timetick=20..}] timetick 0 </span>
+                                <span>连锁:  scoreboard players add @a[scores={times=60..}] timem 1</span>
+                                <span>连锁:  scoreboard players add @a[scores={timem=60..}] timeh 1 </span>
+                                <span>连锁:  scoreboard players set @a[scores={timem=60..}] timem 0 </span>
+                                <span>连锁:  scoreboard players add @a[scores={timeh=24..}] timed 1 </span>
+                                <span>连锁:  scoreboard players set @a[scores={timeh=24..}] timeh 0 </span>
+                                <span>循环:  execute as @a at @s run title @p actionbar [{"text":"在线时间:","color":"green","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timed","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"天","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timeh","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"小时","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timem","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"分","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"times","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"秒","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]</span>
+                            </pre>
+                        </div>
+                        <br>
+                        <h4>OOC</h4>
+                        <pre>
+                            <code>
+                                /summon falling_block ~ ~1.5 ~ {Time:1,BlockState:{Name:"minecraft:redstone_block"},Motion:[0d,-1d,0d],Passengers:[{id:falling_block,Time:1,BlockState:{Name:"minecraft:activator_rail"},Passengers:[{id:command_block_minecart,Command:"/data merge block ~ ~-2 ~ {auto:0b,Command:\"\"}"},{id:command_block_minecart,Command:"/scoreboard objectives add timetick dummy\n/scoreboard objectives add times dummy\n/scoreboard objectives add timem dummy\n/scoreboard objectives add timeh dummy\n/scoreboard objectives add timed dummy\n/scoreboard players set @p times 0 \n/scoreboard players set @p timem 0 \n/scoreboard players set @p timeh 0 \n/scoreboard players set @p timed 0 \nscoreboard players add @a timetick 1\nscoreboard players add @a[scores={timetick=20..}] times 1 \nscoreboard players set @a[scores={timetick=20..}] timetick 0 \nscoreboard players add @a[scores={times=60..}] timem 1\nscoreboard players add @a[scores={timem=60..}] timeh 1 \nscoreboard players set @a[scores={timem=60..}] timem 0 \nscoreboard players add @a[scores={timeh=24..}] timed 1 \nscoreboard players set @a[scores={timeh=24..}] timeh 0 \nexecute as @a at @s run title @p actionbar [{\"text\":\"在线时间:\",\"color\":\"green\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timed\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"天\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timeh\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"小时\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timem\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"分\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"times\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"秒\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}]"},{id:command_block_minecart,Command:"setblock ~ ~1 ~ command_block{auto:1b,Command:\"fill ~ ~ ~ ~ ~-2 ~ air\"} replace"},{id:command_block_minecart,Command:"kill @e[type=command_block_minecart,distance=..1]"}]}]}
+                            </code>
+                        </pre>
+                    </div>
+                    <div id="articles-footer">
+                        <hr>
+                        <div class="articles-footer-cc">
+                            <span class="i_small ri:information-line"></span> 原创内容使用 <a href="/help#分享协议">
+                                <span class="i_small ri:creative-commons-line"></span><span class="i_small ri:creative-commons-nc-line"></span><span class="i_small ri:creative-commons-nd-line"></span>知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
+                            </a>
+                            协议授权。转载请注明出处。
+                        </div>
+                        <div id="blockchain-data"></div> <div id="more-articles">
+                            <div id="previous" onclick="pjaxLoad('${previousArticlesUrl}')">
+                                <b><span class="i_small ri:arrow-left-s-line"></span> 上一篇</b><br>
+                                <span class="one-line">正在加载中...</span>
+                            </div>
+                            <div id="next" onclick="pjaxLoad('${nextArticlesUrl}')">
+                                <b>下一篇 <span class="i_small ri:arrow-right-s-line"></span></b><br>
+                                <span class="one-line">正在加载中...</span>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div id="tcomment">
+                            <div class="info center">
+                                <span class="i_small ri:download-cloud-line"></span> 正在加载评论...
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <footer>
+            <div id="icons-left">
+                <nav>
+                    <a class="loading" style="--i: 1" id="icon-about" href="#"
+                        onclick="openInfoBar('info');return false;" aria-label="about this page"><span
+                            class="i ri:file-info-line"></span></a>
+                    <a class="loading" style="--i: 2" id="icon-github" href="http://github.com/ravelloh" target="_blank"
+                        rel="noreferrer" aria-label="my github"><span class="i ri:github-fill"></span></a>
+                    <a class="loading" style="--i: 3" id="icon-studio" href="http://xeocnet-studio.github.io"
+                        target="_blank" rel="noreferrer" aria-label="my studio"><span
+                            class="i ri:building-2-line"></span></a>
+                    <a class="loading" style="--i: 4" id="icon-rss" href="https://ravelloh.github.io/RSS/rss.xml"
+                        target="_blank" aria-label="rss"><span class="i ri:rss-fill"></span></a>
+                </nav>
+            </div>
+            <div id="icons-right" class="loading" style="--i: 1">
+                <div id="message-bar">
+                    <noscript>
+                        <a class="red" href="about/help#javascript"><strong>错误:无法使用JAVASCRIPT</strong>&nbsp;<span
+                                class="i ri:alert-line"></span></a>
+                    </noscript>
                 </div>
+            </div>
+        </footer>
+    </section>
+    <section id="sidebar">
+        <div id="sidebar-top">
+            <div id="sideinfo">
+                <h3>RavelloH's</h3>
+                <h2>BLOG</h2>
+                <a class="icons" href="mailto:ravelloh@outlook.com" id="email"><span
+                        class="i ri:mail-add-fill"></span>&nbsp;<span> ravelloh@outlook.com</span></a>
                 <hr>
-                <br><br>
-                <div class="center">
-                    注:本文应用于1.13+ <br>
-                    <em>
-                        <span id="loadingtext"></span>
-                    </em>
+            </div>
+        </div>
+        <div id="sidebar-mid">
+            <menu id="sidebar-menu">
+                <ul>
+                    <!-- menu start -->
+                    <li style="--i: 1"><a href='/'><span class='i_small ri:home-3-fill'></span> HOME</a></li>
+                    <li style="--i: 2"><a href='/works/'><span class='i_small ri:dashboard-fill'></span> WORKS</a></li>
+                    <li style="--i: 3"><a href='/articles/'><span class='i_small ri:article-fill'></span> ARTICLES</a>
+                    </li>
+                    <li style="--i: 4"><a href='/images/'><span class='i_small ri:image-fill'></span> IMAGES</a></li>
+                    <li style="--i: 4"><a href='/games/'><span class='i_small ri:gamepad-fill'></span> GAMES</a></li>
+                    <li style="--i: 5"><a href='/friends/'><span class='i_small ri:team-fill'></span> FRIENDS</a></li>
+                    <li style="--i: 6"><a href='/about/'><span class='i_small ri:information-fill'></span> ABOUT</a>
+                    </li>
+                    <li>&nbsp;</li>
+                    <li><a href="/admin/"><span class="i_small ri:login-box-fill"></span> LOG IN</a></li>
+                    <li><a href="https://analytics.ravelloh.top/share/4kyzPMCCpfG9Vd1k/blog"><span
+                                class="i_small ri:bar-chart-box-fill"></span> ANALYTICS</a></li>
+                    <li><a href="https://drive.ravelloh.top/"><span class="i_small ri:hard-drive-3-fill"></span>
+                            DRIVE</a></li>
+                    <li><a href="https://monitor.ravelloh.top/"><span class="i_small ri:timer-flash-fill"></span>
+                            UPTIME</a></li>
+                    <li><a href="/about/help/"><span class="i_small ri:questionnaire-fill"></span> HELP</a></li>
+                    <!-- menu end -->
+                </ul>
+            </menu>
+        </div>
+        <div id="sidebar-bottom">
+            <hr>
+            <div id="side-info">
+                <!-- side-info start -->
+                <b>
+                    Theme : <a href='https://github.com/ravelloh/RTheme'>RTheme </a> by <a
+                        href='https://ravelloh.gitee.io'>RavelloH</a>.<br>
+                    Copyright © 2019 - <b id='year'></b> RavelloH.<br>
+                    All rights reserved.
+                </b>
+                <!-- side-info end -->
+            </div>
+            <div class="flex-iconset">
+                <ul>
+                    <li><a href="#" id="icon-swap" onclick="openInfoBar('swap');return false;" aria-label="swap"><span
+                                class="i ri:swap-box-line"></span></a></li>
+                    <li><a href="#" id="icon-color" onclick="toggleThemeMode();return false;" aria-label="color"><span
+                                class="i ri:sun-line"></span></a></li>
+                    <li><a href="#" id="icon-music" onclick="openInfoBar('music');return false;"
+                            aria-label="music"><span class="i ri:file-music-line"></span></a></li>
+                    <li><a href="#" id="icon-fullscreen" onclick="toggleFullScreen();return false;"
+                            aria-label="fullscreen"><span class="i ri:aspect-ratio-line"></span></a></li>
+                    <li><a href="#" id="icon-share" onclick="openInfoBar('share');return false;"
+                            aria-label="share"><span class="i ri:share-box-line"></span></a></li>
+                    <li><a href="#" id="icon-setting" onclick="openInfoBar('setting');return false;"
+                            aria-label="setting"><span class="i ri:settings-4-line"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="infobar">
+        <div id="infobar-header">
+            <div id="infobar-title">
+                INFO
+            </div>
+            <div id="infobar-toggle">
+                <span class="i ri:arrow-down-s-line"></span>
+            </div>
+        </div>
+        <div id="infobar-context">
+            <div id="infobar-left">
+            </div>
+            <div id="infobar-right">
+                <h2 id="time">00:00</h2>
+                <hr />
+                <div id="music-player">
+                    <div id='music-top'>
+                        <div id="music-name">
+                            无正在播放的音乐
+                        </div>
+                        <div id='music-time'>
+                            00:00/00:00
+                        </div>
+                    </div>
+                    <audio id="music" src="/" ontimeupdate="musicUpdata()" loop="loop" preload="none"></audio>
+                    <div id="music-bar">
+                        <div id="music-progress-container">
+                            <div id="music-progress">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="music-operation">
+                        <span onclick="musicSetting()"><span class="i ri:play-list-line"></span></span>
+                        <span class="i ri:skip-back-line" onclick="musicGo(-10)"></span>
+                        <span id='music-button' onclick="musicPlay()"><span class="i ri:play-line"></span></span>
+                        <span class="i ri:skip-forward-line" onclick="musicGo(10)"></span>
+                        <span class="i ri:repeat-one-line"></span>
+                    </div>
                 </div>
-                <br>
-                <h4><a name=效果 href="#效果">#效果</a></h4>
-                <p>
-                    <img src=img2.gif class="img" id="img2">
-                </p>
-                <h4><a name=实现方式 href="#实现方式">#实现方式</a></h4>
-                <p>
-                    首先要实现在线时间统计，需要先定义时间。<br>
-                    所以在这里 需要先创建几个稍后要用到的计分板：<br>
-                    /scoreboard objectives add timetick dummy <br>
-                    /scoreboard objectives add times dummy <br>
-                    /scoreboard objectives add timem dummy <br>
-                    /scoreboard objectives add timeh dummy <br>
-                    /scoreboard objectives add timed dummy <br>
-                    顺次显示的是 秒-分-时-天。<br><br>
-
-                    计时器的思路是这样的：<br>
-                    使用循环命令方块为timetick加分，则每秒可以增加20（每秒命令方块运行20次）<br>
-                    当timetick为20时，为times加1并设置timetick为0。<br>
-                    当times为60时，为timem加1并设置times为0。<br>
-                    当timem为60时，为timeh加1并设置timem为0。<br>
-                    ...以此类推。<br><br>
-
-                    所以在这里 需要使用命令方块组+目标选择器进行运算:<br>
-                    循环: scoreboard players add @a timetick 1 <br>
-                    连锁: scoreboard players add @a[scores={timetick=20..}] times 1 <br>
-                    连锁: scoreboard players set @a[scores={timetick=20..}] timetick 0 <br>
-                    连锁: scoreboard players add @a[scores={times=60..}] timem 1 <br>
-                    连锁: scoreboard players set @a[scores={times=60..}] times 0 <br>
-                    连锁: scoreboard players add @a[scores={timem=60..}] timeh 1 <br>
-                    连锁: scoreboard players set @a[scores={timem=60..}] timem 0 <br>
-                    连锁: scoreboard players add @a[scores={timeh=24..}] timed 1 <br>
-                    连锁: scoreboard players set @a[scores={timeh=24..}] timeh 0 <br>
+                <div id="state-bar">
+                </div>
+                <div id="uid" class="barcode center">
                     <br>
-
-                    最后 再加一个title用于显示即可 <br>
-                    循环： execute as @a at @s run title @p actionbar
-                    [{"text":"在线时间:","color":"green","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timed","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"天","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timeh","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"小时","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timem","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"分","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"times","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"秒","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]
-                    <br>（考虑到多人游戏的情况 这里添加了一个execute用于保证显示正确的对象）
-                    <br><br>
-
-                    当我们搭建好全部命令方块并运行后，不难发现虽然计时器正常，但却没有显示值为0的项目:<br>
-                    <img src="img1.png" class="img center" id="img1"><br>
-                    这是因为未被赋值的计分板项目默认不显示，需要手动设置为0：<br>
-                    /scoreboard players set @p times 0 <br>
-                    /scoreboard players set @p timem 0 <br>
-                    /scoreboard players set @p timeh 0 <br>
-                    /scoreboard players set @p timed 0 <br>
-                    之后即可正常使用。
-
-                </p>
-                <h4><a name=代码 href="#代码">#代码</a></h4>
-                <div class="codeline">
-                    <pre>
-                <span>/scoreboard objectives add timetick dummy</span>
-
-<span>/scoreboard objectives add times dummy</span>
-
-<span>/scoreboard objectives add timem dummy</span>
-
-<span>/scoreboard objectives add timeh dummy</span>
-
-<span>/scoreboard objectives add timed dummy</span>
-
-<span></span>
-
-<span>/scoreboard players set @p times 0 </span>
-
-<span>/scoreboard players set @p timem 0 </span>
-
-<span>/scoreboard players set @p timeh 0 </span>
-
-<span>/scoreboard players set @p timed 0 </span>
-
-<span></span>
-
-<span>循环:  scoreboard players add @a timetick 1</span>
-
-<span>连锁:  scoreboard players add @a[scores={timetick=20..}] times 1 </span>
-
-<span>连锁:  scoreboard players set @a[scores={timetick=20..}] timetick 0 </span>
-
-<span>连锁:  scoreboard players add @a[scores={times=60..}] timem 1</span>
-
-<span>连锁:  scoreboard players add @a[scores={timem=60..}] timeh 1 </span>
-
-<span>连锁:  scoreboard players set @a[scores={timem=60..}] timem 0 </span>
-
-<span>连锁:  scoreboard players add @a[scores={timeh=24..}] timed 1 </span>
-
-<span>连锁:  scoreboard players set @a[scores={timeh=24..}] timeh 0 </span>
-
-<span>循环:  execute as @a at @s run title @p actionbar [{"text":"在线时间:","color":"green","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timed","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"天","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timeh","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"小时","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"timem","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"分","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"score":{"objective":"times","name":"@p"},"color":"gray","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false},{"text":"秒","color":"gold","bold":false,"italic":false,"underlined":false,"strikethrough":false,"obfuscated":false}]</span>
-                </pre>
-                </div>
-                <br>
-                <h3>OOC:</h3>
-                <div class="codeline">
-                    <pre>
-                    <span>/summon falling_block ~ ~1.5 ~ {Time:1,BlockState:{Name:"minecraft:redstone_block"},Motion:[0d,-1d,0d],Passengers:[{id:falling_block,Time:1,BlockState:{Name:"minecraft:activator_rail"},Passengers:[{id:command_block_minecart,Command:"/data merge block ~ ~-2 ~ {auto:0b,Command:\"\"}"},{id:command_block_minecart,Command:"/scoreboard objectives add timetick dummy\n/scoreboard objectives add times dummy\n/scoreboard objectives add timem dummy\n/scoreboard objectives add timeh dummy\n/scoreboard objectives add timed dummy\n/scoreboard players set @p times 0 \n/scoreboard players set @p timem 0 \n/scoreboard players set @p timeh 0 \n/scoreboard players set @p timed 0 \nscoreboard players add @a timetick 1\nscoreboard players add @a[scores={timetick=20..}] times 1 \nscoreboard players set @a[scores={timetick=20..}] timetick 0 \nscoreboard players add @a[scores={times=60..}] timem 1\nscoreboard players add @a[scores={timem=60..}] timeh 1 \nscoreboard players set @a[scores={timem=60..}] timem 0 \nscoreboard players add @a[scores={timeh=24..}] timed 1 \nscoreboard players set @a[scores={timeh=24..}] timeh 0 \nexecute as @a at @s run title @p actionbar [{\"text\":\"在线时间:\",\"color\":\"green\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timed\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"天\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timeh\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"小时\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"timem\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"分\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"score\":{\"objective\":\"times\",\"name\":\"@p\"},\"color\":\"gray\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false},{\"text\":\"秒\",\"color\":\"gold\",\"bold\":false,\"italic\":false,\"underlined\":false,\"strikethrough\":false,\"obfuscated\":false}]"},{id:command_block_minecart,Command:"setblock ~ ~1 ~ command_block{auto:1b,Command:\"fill ~ ~ ~ ~ ~-2 ~ air\"} replace"},{id:command_block_minecart,Command:"kill @e[type=command_block_minecart,distance=..1]"}]}]}
-                </span></pre>
                 </div>
 
-                <hr>
-                <br>
-                <span class="i_mini ri:information-line"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
-                协议授权。
-
-                <br><br>
-                <div id="tcomment"></div>
-                <script src="https://cdn.staticfile.org/twikoo/1.6.4/twikoo.all.min.js"></script>
-                <script>
-                    twikoo.init({
-                        envId: 'https://comment.ravelloh.ml/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-                        el: '#tcomment', // 容器元素
-                        // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-                        // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-                        // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/js/utils/i18n/index.js
-                    })
-                </script>
 
             </div>
-            <ul class="social">
-                <li><a href="/about/"><span class="i ri:file-info-line"></span></a></li>
-                <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
-                            class="i ri:github-fill"></span></a></li>
-                <li>
-                    <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
-                        <span class="i ri:building-2-line">
-                        </span>
-                    </a>
-                </li>
-                <li><a href="https://ravelloh.github.io/RSS/rss.xml" target="_blank"><span class="i ri:rss-fill"></span></a></li>
-            </ul>
-        </section>
-        <div class="menu">
-            <ul>
-                <script type="text/javascript" src="/js/menu.js"></script>
-            </ul>
         </div>
-        <script>
-            var img = [];
-            var flag = 0;
-            var mulitImg = ['img1.png','img2`gif'];
-            var imgTotal = mulitImg.length;  //图片总数
-            for (var i = 0; i < imgTotal; i++) {
-                document.getElementById("loadingtext").innerHTML = "*文章插图加载中:"+flag+"/"+imgTotal;
-                img[i] = new Image()
-                img[i].src = mulitImg[i]
-                img[i].onload = function () {
-                    flag++;
-                    if (flag == imgTotal) {
-                        document.getElementById("loadingtext").innerHTML = "*文章插图加载完成:"+flag+"/"+imgTotal;
-                    } else {
-                        document.getElementById("loadingtext").innerHTML = "*文章插图加载中:"+flag+"/"+imgTotal;
-                        return;
-                    }
-                }
-            }
-        </script>
-            <!-- JavaScript -->
-<script src="/js/script.js"></script>    
-<script type="text/javascript" src="/js/common.js"></script>
-    <script src="//instant.page/5.1.1" type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+    </section>
+    <!-- viewport end -->
 
-            
-    </body>
+    <!-- JavaScript -->
+    <script defer type="text/javascript" src="../../assets/js/i18n.js" onload="loadComplete('i18n.js')"></script>
+    <script defer type="text/javascript" src="../../assets/js/moudle.js" onload="loadComplete('moudle.js')"></script>
+    <script defer type="text/javascript" src="../../assets/js/script.js" onload="loadComplete('script.js')"></script>
+    <script defer type="text/javascript" src="../../assets/js/display.js" onload="loadComplete('display.js')"></script>
+    <script defer type="text/javascript" src="../../assets/js/pjax.js"
+        onload="enablePjax();loadComplete('pjax.js')"></script>
+    <script defer type="text/javascript" src="../../assets/js/analysis.js"
+        onload="baiduAnalysis();umamiAnalytics()"></script>
+    <div id="page-js">
+        <script>
+            function main() { }
+        </script>
+    </div>
+
+    <!-- Prefetch -->
+    <div id="page-prefetch">
+
+    </div>
+</body>
 
 </html>
+<!-- EOF -->

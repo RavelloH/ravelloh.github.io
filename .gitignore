@@ -1,2 +1,4 @@
 *.inside
 *.bak
+.vscode
+**/node_modules

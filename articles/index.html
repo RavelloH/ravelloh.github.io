@@ -2,337 +2,506 @@
 <html lang="zh">
 
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=0;" name="viewport" />
-    <title>Articles | RavelloH’s Blog</title>
-    <meta name="keywords" content="RavelloH,blog,">
-    <meta name="description" content="A Blog by RavelloH">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Articles / 文章 | RavelloH’s Blog</title>
+    <meta name="keywords" content="RavelloH,blog,articles,文章" />
+    <meta name="description" content="文章 | RavelloH的博客" />
+    <meta name="author" content="RavelloH" />
+    <meta name="pagetype" content="articles-index" />
+    <meta name="theme-color" content="#111111" />
+    <meta property="og:title" content="RavelloH's Blog">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ravelloh.top/">
+    <meta property="og:image" content="https://ravelloh.top/assets/image/android-chrome-512x512.png">
+    <link rel="canonical" href="https://ravelloh.top/articles/" />
+
+    <!-- Preload -->
+    <link rel="preload" href="../assets/fonts/ri.woff2" as="font" crossorigin>
+    <link rel="preload" href="../assets/fonts/Furore.ttf" as="font" crossorigin>
+    <link rel="preload" href="../assets/js/script.js" as="script">
+    <link rel="preload" href="../assets/js/i18n.js" as="script">
+    <link rel="preload" href="../assets/js/moudle.js" as="script">
+    <link rel="preload" href="../assets/js/display.js" as="script">
+    <link rel="preload" href="../assets/css/style.css" as="style" />
+    <link rel="preload" href="../assets/css/iconfont.css" as="style" />
+    <link rel="preload" href="../assets/images/avatar.jpg" as="image" />
+    <script defer type="text/javascript" src="../assets/js/loading.js"></script>
+
 
     <!-- CSS -->
-    <link type="text/css" rel="stylesheet" href="/css/common.css">
-    <link type="text/css" rel="stylesheet" href="/css/style.css">
-    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../assets/css/iconfont.css" type="text/css" />
+    <noscript>
+        <style type="text/css" media="all">
+            .loading {
+                opacity: 1;
+                transition: 0.5s;
+            }
+
+            #load-shade {
+                display: none;
+            }
+        </style>
+    </noscript>
+
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/images/apple-touch-icon.png"
+        type="image/png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/images/favicon-32x32.png" type="image/png" />
+    <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="icon" href="/favicon.ico">
-    <style>
-        .listline {
-            width: 50%;
-        }
-        form.searchbox input[type=text] {
-            color: #c6c9ce;
-            height: 30px;
-            padding: 5px;
-            font-size: 12px;
-            float: left;
-            width: 80%;
-            background: #000000;
-            border: 1px solid #1e1e1e;
-            border-radius: 10px 0px 0px 10px;
-        }
-
-        form.searchbox button {
-            height: 30px;
-            float: left;
-            width: 20%;
-            padding: 5px;
-            background: #1e1e1e;
-            color: white;
-            font-size: 12px;
-            border: none;
-            cursor: pointer;
-            border: 1px solid #1e1e1e;
-            border-radius: 0px 10px 10px 0px;
-            text-align: center;
-            line-height: 10px;
-            margin: auto;
-        }
-
-        form.searchbox button:hover {
-            background: #0b7dda;
-            transition: background 0.2s;
-        }
-
-        form.searchbox::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-        .resultlist {
-            top: -20px;
-            height: 0;
-            width: 100%;
-            transition: height 0.4s;
-            background: #000000;
-            color: #c6c9ce;
-            overflow: hidden;
-        }
-        .resultlist#active {
-            border-radius: 10px;
-            border: 1px solid #1e1e1e;
-            height: 40vh;
-        }
-        .resultlist * {
-            margin: 2px;
-        }
-        .resulttitle {
-            color: #ffffff;
-            font-size: 1em;
-        }
-
-        #info {
-            opacity: 1;
-            transition: opacity 0.4s;
-        }
-        #hidden {
-            opacity: 0;
-        }
-
-        .fc {
-            text-align: center;
-        }
-        .title {
-            max-width: 45%;
-        }
-        .tr {
-            text-align: right
-        }
-        mark {
-            background-color: #0b7dda;
-            border-radius: 4px;
-            color: #fff;
-            margin: 0;
-        }
-        .showbox {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            overflow: hidden;
-            margin: 2px !important
-        }
-        #jum {
-            line-height: 130%
-        }
-        #searchbutton span {
-            top: 2px;
-        }
-
-
-    </style>
-
-
 </head>
 
 <body>
-
-    <body>
-
-        <section class="showcase">
-            <div class="shade"></div>
-            <header>
-                <h2 class="logo">
-                    <a href="/" class='logos'>
-                        <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;"
-                        alt="avatar">
-                        <img class="logoname" src="/img/RavelloH.svg" alt="RavelloH's Blog">
-                    </a>
-
-                </h2>
-                <div class="headers">
-                    <nav>
-                        <a href="/">
-                            HOME
-                        </a>
-                        <a href="/works/">
-                            WORKS
-                        </a>
-                        <a href="/articles/">
-                            ARTICLES
-                        </a>
-                        <a href="/tag/">
-                            TAG
-                        </a>
-                        <a href="/about/">
-                            ABOUT
-                        </a>
-                    </p>
-                </nav>
+    <!-- viewport start -->
+    <section id="showcase">
+        <div id="shade-global"></div>
+        <div id='load-shade' class="active">
+            <div id='load-content'>
+                <hr>
+                <h2>RavelloH's Blog</h2>
+                <h3>LOAD<span id='loading-text'>ing<span class="breath">...</span></span></h3>
+                <hr>
+                <br>
             </div>
-            <div class="toggle" class="header">
+        </div>
+        <header>
+            <div id="logo" class="loading" style="--i: 1">
+                <!-- logo start -->
+                <a href="/">
+                    <img id="avatar" class="no-zoom" src="../assets/images/avatar.jpg" alt="avatar">
+                    <img id="avatarname" class="no-zoom" src="../assets/images/RavelloH.svg" alt="RavelloH's Blog">
+                </a>
+                <!-- logo end -->
+            </div>
+            <div id="header-side">
+                <div id="navs">
+                    <!-- nav start -->
+                    <nav>
+                        <a href="/" class="loading" style="--i: 5" id="nav-home">HOME</a>
+                        <a href="/works/" class="loading" style="--i: 4" id="nav-works">WORKS</a>
+                        <a href="/articles/" class="loading" style="--i: 3" id="nav-articles">ARTICLES</a>
+                        <a href="/iamges/" class="loading" style="--i: 2" id="nav-images">IMAGES</a>
+                        <a href="/about/" class="loading" style="--i: 1" id="nav-about">ABOUT</a>
+                    </nav>
+                    <!-- nav end -->
+                </div>
+                <div id="toggle" class="loading" style="--i: 0"></div>
             </div>
         </header>
-
-        <div class="overlay"></div>
-        <div class="text title" id="text">
-            <h3>Articles / 文章</h3>
-            <br>
-            <div class='searchbox'>
-                <form class="searchbox" onSubmit="return check();" autocomplete="off">
-                    <input type="text" placeholder=" 从所有文章内检索..." name="search" oninput="searchtext()" onpropertychange="searchtext()">
-                    <button type="button" id='searchbutton'><span class="i_mini ri:search-2-line"></span></button>
-                    <div class="resultlist" id="resultlist">
-                        <i>- 搜索 -</i><hr><p align="center">
-                            输入关键词以在文章标题及正文中查询
-                        </p>
-                        <hr><a href="https://github.com/ravelloh/RPageSearch">Search powered by RavelloH's RPageSearch</a>
+        <div id="shade-context"></div>
+        <div id="main" class="loading">
+            <div id='viewmap'>
+                <div class="texts half" id="showarea">
+                    <h3 id='articles-index-title'>ARTICLES / <wbr>文章</h3><br>
+                    <div class="form-control">
+                        <input type="search" required="" oninput="search(this.value)" onpropertychange="search(this.value)" onfocus="searchInit()" onblur="searchClose()"/ id="search-bar"><label><span
+                                class="i_small ri:search-2-line" style="--i: 0;">&nbsp;</span><span
+                                style="--i: 1">搜</span><span style="--i: 2">索</span><span style="--i: 3">文</span><span
+                                style="--i: 4">章</span><span style="--i: 5">全</span><span style="--i: 6">文</span><span
+                                style="--i: 7">.</span><span style="--i: 8">.</span></span><span
+                                style="--i: 9">.</span></label>
                     </div>
-                </form>
-            </div>
-            <div id='info'>
-                <span id="jumping">此页面内容需要使用JavaScript</span>
-                <script type="text/javascript">
-                    var jumping = document.getElementById("jumping");
-                    function show_runtime() {
-                        X = new Date("12/24/2022 00:00:00"); //设定时间(月\日\年 时:分:秒))
-                        Y = new Date(); //获取当前时间
-                        T = (Y.getTime() - X.getTime());
-                        M = 24 * 60 * 60 * 1000;
-                        a = T / M;
-                        A = Math.floor(a);
-                        b = (a - A) * 24;
-                        B = Math.floor(b);
-                        c = (b - B) * 60;
-                        C = Math.floor((b - B) * 60);
-                        D = Math.floor((c - C) * 60);
-                        jumping.innerHTML = "<br>记录并索引所有文章。<br><span id='jum' >Loading...</span><br>"
-                        textcache = "最近更新于" + A + "天前。"
-
-                    }
-                    show_runtime();
-                </script>
-            </div>
-
-        </div>
-
-        <div class="text listline" id="text">
-            <noscript>
-                <h3>ERROR..</h3>
-                <h4>TYPE:NOSCRIPT</h4>
-                <p>
-                    此页面需要开启浏览器的JavaScript功能才能正常工作<br>
-                    若无法开启，也可以<a class='linkline' href='https://ravelloh.github.io/RSS/rss.xml'>在此处访问RSS</a>，选择对应文章链接阅读
-                </p>
-            </noscript>
-            <div class="listprogram" style="--i: 11">
-                <h4><a href="/articles/20221224/">HikvisionIP摄像头后台绕过</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2022-12-24</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#网络安全">网络安全</a>-<a class="c" href="/classification/#技术">技术</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#attack">ATTACK</a><a class="tag" href="/tag/#json">JSON</a><a class="tag" href="/tag/#monitor">MONITOR</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 10">
-                <h4><a href="/articles/20221126/">Virgule.js现已发布</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2022-11-26</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#技术">技术</a>-<a
-                    class="c" href="/classification/#设计">设计</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#javascript">JAVASCRIPT</a>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 9">
-                <h4><a href="/articles/20220825/">静态站实现全站搜索</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2022-08-25</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#技术">技术</a>-<a
-                    class="c" href="/classification/#设计">设计</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#javascript">JAVASCRIPT</a>
-                <a class="tag" href="/tag/#python">PYTHON</a><a class="tag" href="/tag/#json">JSON</a><br>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 8">
-                <h4><a href="/articles/20220708/">论静态页中伪动态的实现</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2022-07-08</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#技术">技术</a>-<a
-                    class="c" href="/classification/#设计">设计</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#javascript">JAVASCRIPT</a>
-                <a class="tag" href="/tag/#html">HTML</a><a class="tag" href="/tag/#python">PYTHON</a><br>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 7">
-                <h4><a href="/articles/20220323/">Python实现网络爬虫</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2022-03-23</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#技术">技术</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#python">PYTHON</a>
-                <a class="tag" href="/tag/#spider">SPIDER</a><br>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 6">
-                <h4><a href="/articles/20220206/">JS递归遍历伪数组</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2022-02-06</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#技术">技术</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag"
-                    href="/tag/#javascript">JAVASCRIPT</a><br>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 5">
-                <h4><a href="/articles/20210719/">Minecraft命令实现在线统计</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2021-07-19</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#游戏">游戏</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
-                    class="tag" href="/tag/#json">JSON</a><br>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 4">
-                <h4><a href="/articles/20210705/">CSS+JS实现页面切换过渡</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2021-07-05</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#技术">技术</a>-<a
-                    class="c" href="/classification/#设计">设计</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#html">HTML</a><a class="tag"
-                    href="/tag/#javascript">JavaScript</a><a class="tag" href="/tag/#css">CSS</a><br>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 3">
-                <h4><a href="/articles/20210701/">新主题上线</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2021-07-01</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#杂谈">杂谈</a>-<a
-                    class="c" href="/classification/#设计">设计</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#建设">建设</a><br>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 2">
-                <h4><a href="/articles/20200816/">反转药水效果</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2020-08-16</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#游戏">游戏</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#minecraft">Minecraft</a><a
-                    class="tag" href="/tag/#json">JSON</a><br>
-                <hr>
-            </div>
-            <div class="listprogram" style="--i: 1">
-                <h4><a href="/articles/20190203/">旧文章合集</a></h4>
-                <span class="i_mini ri:time-line"></span> <time>2019-02-03</time> • <span
-                    class="i_mini ri:archive-line"></span><a class="c" href="/classification/#归档">归档</a><br>
-                <span class="i_mini ri:price-tag-3-line"></span> <a class="tag" href="/tag/#建设">建设</a><br>
-            </div>
-        </div>
-        <ul class="social">
-            <li><a href="/about/"><span class="i ri:file-info-line"></span></a></li>
-            <li><a href="http://github.com/ravelloh" target="_blank" rel="noreferrer"><span
-                class="i ri:github-fill"></span></a></li>
-            <li>
-                <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
-                    <span class="i ri:building-2-line">
+                    <span class="virgule" id="articles-info-1">
+                        记录&索引所有文章。
                     </span>
-                </a>
-            </li>
-            <li><a href="https://ravelloh.github.io/RSS/rss.xml" target="_blank"><span class="i ri:rss-fill"></span></a></li>
-        </ul>
+                    <span class="virgule" id="index-info">
+                        //
+                    </span>
+                </div>
+                <div class="listlines">
+
+                    <div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20221224/">HikvisionIP摄像头后台绕过</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2022-12-24</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/网络安全">网络安全</a>/
+                                    <a href="#/classification/技术">技术</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/attack">ATTACK</a>
+                                <a href="#/tag/json">JSON</a>
+                                <a href="#/tag/monitor">MONITOR</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20221126/">Virgule.js现已发布</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2022-11-26</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/技术">技术</a>/
+                                    <a href="#/classification/设计">设计</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/javascript">JAVASCRIPT</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20220825/">静态站实现全站搜索</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2022-08-25</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/技术">技术</a>/
+                                    <a href="#/classification/设计">设计</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/javascript">JAVASCRIPT</a>
+                                <a href="#/tag/python">PYTHON</a>
+                                <a href="#/tag/json">JSON</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20220708/">论静态页中伪动态的实现</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2022-07-08</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/技术">技术</a>/
+                                    <a href="#/classification/设计">设计</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/javascript">JAVASCRIPT</a>
+                                <a href="#/tag/html">HTML</a>
+                                <a href="#/tag/python">PYTHON</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20220323/">Python实现网络爬虫</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2022-03-23</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/技术">技术</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/python">PYTHON</a>
+                                <a href="#/tag/spider">SPIDER</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20220206/">JS递归遍历伪数组</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2022-02-06</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/技术">技术</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/javascript">JAVASCRIPT</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20210719/">Minecraft命令实现在线统计</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2021-07-19</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/游戏">游戏</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/minecraft">Minecraft</a>
+                                <a href="#/tag/json">JSON</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20210705/">CSS+JS实现页面切换过渡</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2021-07-05</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/技术">技术</a>/
+                                    <a href="#/classification/设计">设计</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/html">HTML</a>
+                                <a href="#/tag/javascript">JavaScript</a>
+                                <a href="#/tag/css">CSS</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20210701/">新主题上线</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2021-07-01</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/技术">技术</a>/
+                                    <a href="#/classification/设计">设计</a>/
+                                    <a href="#/classification/杂谈">杂谈</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/建设">建设</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>
+
+                    <div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20200816/">Minecraft反转药水效果</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2020-08-16</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/游戏">游戏</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/minecraft">Minecraft</a>
+                                <a href="#/tag/json">JSON</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>
+
+                    <!--<div class="loading listprogram">
+                        <article>
+                            <span class="article-name">
+                            <h4><a href="/articles/20190203/">旧文章合集</a></h4>
+                            </span>
+                            <p class="articles-info">
+                                <time>2019-02-03</time> • <span class="i_small ri:archive-line"></span>
+                                <span class="class">
+                                    <a href="#/classification/归档">归档</a>
+                                </span>
+                            </p>
+                            <p class="articles-tags">
+                                <a href="#/tag/建设">建设</a>
+                            </p>
+                        </article>
+                        <hr>
+                    </div>-->
+
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div id="icons-left">
+                <nav>
+                    <a class="loading" style="--i: 1" id="icon-about" href="#"
+                        onclick="openInfoBar('info');return false;" aria-label="about this page"><span
+                            class="i ri:file-info-line"></span></a>
+                    <a class="loading" style="--i: 2" id="icon-github" href="http://github.com/ravelloh" target="_blank"
+                        rel="noreferrer" aria-label="my github"><span class="i ri:github-fill"></span></a>
+                    <a class="loading" style="--i: 3" id="icon-studio" href="http://xeocnet-studio.github.io"
+                        target="_blank" rel="noreferrer" aria-label="my studio"><span
+                            class="i ri:building-2-line"></span></a>
+                    <a class="loading" style="--i: 4" id="icon-rss" href="https://ravelloh.github.io/RSS/rss.xml"
+                        target="_blank" aria-label="rss"><span class="i ri:rss-fill"></span></a>
+                </nav>
+            </div>
+            <div id="icons-right" class="loading" style="--i: 1">
+                <div id="message-bar">
+                    <noscript>
+                        <a class="red" href="about/help#javascript"><strong>错误:无法使用JAVASCRIPT</strong>&nbsp;<span
+                                class="i ri:alert-line"></span></a>
+                    </noscript>
+                </div>
+            </div>
+        </footer>
     </section>
-    <div class="menu">
-        <ul>
-            <script type="text/javascript" src="/js/menu.js"></script>
-        </ul>
-    </div>
+    <section id="sidebar">
+        <div id="sidebar-top">
+            <div id="sideinfo">
+                <h3>RavelloH's</h3>
+                <h2>BLOG</h2>
+                <a class="icons" href="mailto:ravelloh@outlook.com" id="email"><span
+                        class="i ri:mail-add-fill"></span>&nbsp;<span> ravelloh@outlook.com</span></a>
+                <hr>
+            </div>
+        </div>
+        <div id="sidebar-mid">
+            <menu id="sidebar-menu">
+                <ul>
+                    <!-- menu start -->
+                    <li style="--i: 1"><a href='/'><span class='i_small ri:home-3-fill'></span> HOME</a></li>
+                    <li style="--i: 2"><a href='/works/'><span class='i_small ri:dashboard-fill'></span> WORKS</a></li>
+                    <li style="--i: 3"><a href='/articles/'><span class='i_small ri:article-fill'></span> ARTICLES</a>
+                    </li>
+                    <li style="--i: 4"><a href='/images/'><span class='i_small ri:image-fill'></span> IMAGES</a></li>
+                    <li style="--i: 4"><a href='/games/'><span class='i_small ri:gamepad-fill'></span> GAMES</a></li>
+                    <li style="--i: 5"><a href='/friends/'><span class='i_small ri:team-fill'></span> FRIENDS</a></li>
+                    <li style="--i: 6"><a href='/about/'><span class='i_small ri:information-fill'></span> ABOUT</a>
+                    </li>
+                    <li>&nbsp;</li>
+                    <li><a href="/admin/"><span class="i_small ri:login-box-fill"></span> LOG IN</a></li>
+                    <li><a href="https://analytics.ravelloh.top/share/4kyzPMCCpfG9Vd1k/blog"><span
+                                class="i_small ri:bar-chart-box-fill"></span> ANALYTICS</a></li>
+                    <li><a href="https://drive.ravelloh.top/"><span class="i_small ri:hard-drive-3-fill"></span>
+                            DRIVE</a></li>
+                    <li><a href="https://monitor.ravelloh.top/"><span class="i_small ri:timer-flash-fill"></span>
+                            UPTIME</a></li>
+                    <li><a href="/about/help/"><span class="i_small ri:questionnaire-fill"></span> HELP</a></li>
+                    <!-- menu end -->
+                </ul>
+            </menu>
+        </div>
+        <div id="sidebar-bottom">
+            <hr>
+            <div id="side-info">
+                <!-- side-info start -->
+                <b>
+                    Theme : <a href='https://github.com/ravelloh/RTheme'>RTheme </a> by <a
+                        href='https://ravelloh.gitee.io'>RavelloH</a>.<br>
+                    Copyright © 2019 - <b id='year'></b> RavelloH.<br>
+                    All rights reserved.
+                </b>
+                <!-- side-info end -->
+            </div>
+            <div class="flex-iconset">
+                <ul>
+                    <li><a href="#" id="icon-swap" onclick="openInfoBar('swap');return false;" aria-label="swap"><span
+                                class="i ri:swap-box-line"></span></a></li>
+                    <li><a href="#" id="icon-color" onclick="toggleThemeMode();return false;" aria-label="color"><span
+                                class="i ri:sun-line"></span></a></li>
+                    <li><a href="#" id="icon-music" onclick="openInfoBar('music');return false;"
+                            aria-label="music"><span class="i ri:file-music-line"></span></a></li>
+                    <li><a href="#" id="icon-fullscreen" onclick="toggleFullScreen();return false;"
+                            aria-label="fullscreen"><span class="i ri:aspect-ratio-line"></span></a></li>
+                    <li><a href="#" id="icon-share" onclick="openInfoBar('share');return false;"
+                            aria-label="share"><span class="i ri:share-box-line"></span></a></li>
+                    <li><a href="#" id="icon-setting" onclick="openInfoBar('setting');return false;"
+                            aria-label="setting"><span class="i ri:settings-4-line"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="infobar">
+        <div id="infobar-header">
+            <div id="infobar-title">
+                INFO
+            </div>
+            <div id="infobar-toggle">
+                <span class="i ri:arrow-down-s-line"></span>
+            </div>
+        </div>
+        <div id="infobar-context">
+            <div id="infobar-left">
+            </div>
+            <div id="infobar-right">
+                <h2 id="time">00:00</h2>
+                <hr />
+                <div id="music-player">
+                    <div id='music-top'>
+                        <div id="music-name">
+                            无正在播放的音乐
+                        </div>
+                        <div id='music-time'>
+                            00:00/00:00
+                        </div>
+                    </div>
+                    <audio id="music" src="/" ontimeupdate="musicUpdata()" loop="loop" preload="none"></audio>
+                    <div id="music-bar">
+                        <div id="music-progress-container">
+                            <div id="music-progress">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="music-operation">
+                        <span onclick="musicSetting()"><span class="i ri:play-list-line"></span></span>
+                        <span class="i ri:skip-back-line" onclick="musicGo(-10)"></span>
+                        <span id='music-button' onclick="musicPlay()"><span class="i ri:play-line"></span></span>
+                        <span class="i ri:skip-forward-line" onclick="musicGo(10)"></span>
+                        <span class="i ri:repeat-one-line"></span>
+                    </div>
+                </div>
+                <div id="state-bar">
+                </div>
+                <div id="uid" class="barcode center">
+                    <br>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- viewport end -->
 
     <!-- JavaScript -->
-    <script src="/js/script.js"></script>
-    <script type="text/javascript" src="/js/common.js"></script>
-    <script src="//instant.page/5.1.1" type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+    <script defer type="text/javascript" src="../assets/js/i18n.js" onload="loadComplete('i18n.js')"></script>
+    <script defer type="text/javascript" src="../assets/js/moudle.js" onload="loadComplete('moudle.js')"></script>
+    <script defer type="text/javascript" src="../assets/js/script.js" onload="loadComplete('script.js')"></script>
+    <script defer type="text/javascript" src="../assets/js/display.js" onload="loadComplete('display.js')"></script>
+    <script defer type="text/javascript" src="../assets/js/pjax.js"
+        onload="enablePjax();loadComplete('pjax.js')"></script>
+    <script defer type="text/javascript" src="../assets/js/analysis.js"
+        onload="baiduAnalysis();umamiAnalytics()"></script>
+    <div id="page-js">
+        <script>
+            function main() {
+                loadItems('.listlines')
+                updatePageModel()
+                resetTagList()
+                virgule(document.querySelector('#index-info'), `共索引${document.querySelectorAll('.listlines .listprogram').length}篇文章，最近更新于${getTime('DD', document.querySelector('.listprogram .articles-info time').innerHTML)}天前。`)
+            }
+        </script>
+    </div>
 
-
-    <script>
-
-        setTimeout("onload()", "500");
-        setTimeout("virgule(document.getElementById('jum'), textcache, 80)", '1000')
-    </script>
-    <script src="/js/searchdata.js"></script>
-    <script src="/js/search.js"></script>
+    <!-- Prefetch -->
+    <div id="page-prefetch">
+        <link rel="prefetch" href="/assets/js/worker/search.worker.js" />
+        <link rel="prefetch" href="/assets/data/search.json" />
+        <link rel="prefetch" href="/assets/js/lib/twikoo.all.min.js" />
+        <link rel="prefetch" href="/assets/js/lib/highlight.min.js" />
+        <link rel="prefetch" href="/assets/worker/highlight.worker.js" />
+        <link rel="prefetch" href="/assets/fonts/IBMPlex.ttf" />
+    </div>
 </body>
 
 </html>
+<!-- EOF -->

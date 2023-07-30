@@ -1,9 +1,12 @@
 <div align="center">
 
 # [ravelloh.github.io](https://ravelloh.github.io)
+
 A GitHub personal site # # # 基于GithubPage的个人博客  
 主题 : [RTheme](https://github.com/ravelloh/RTheme) by [RavelloH](https://github.com/ravelloh)
+
 ## 统计
+
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/RavelloH/ravelloh.github.io?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/RavelloH/ravelloh.github.io?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/RavelloH/ravelloh.github.io?style=for-the-badge)
@@ -11,9 +14,11 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 ![GitHub forks](https://img.shields.io/github/forks/RavelloH/ravelloh.github.io?style=for-the-badge)
 
 ## 文件结构
+
 </div>
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -76,7 +81,6 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   └── index.html
 ├── css
 │   ├── common.css
-│   ├── common_min.css
 │   ├── font
 │   │   ├── Bender.woff
 │   │   ├── Furore.ttf
@@ -90,8 +94,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── ri.woff
 │   │   └── ri.woff2
 │   ├── iconfont.css
-│   ├── style.css
-│   └── style_min.css
+│   └── style.css
 ├── favicon.ico
 ├── friends
 │   └── index.html
@@ -122,8 +125,9 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-25 directories, 80 files
+25 directories, 78 files
 ```
+
 <!-- readme-tree end -->
 
 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0) 协议授权。
