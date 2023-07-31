@@ -190,6 +190,9 @@ function showProgressBar() {
         progressbar = document.querySelector('#progress');
         profather = document.querySelector('#progress-container');
         changeProgress = (progress) => {
+            if (progressState == 'success') {
+                return false
+            }
             progressNum = progress;
             progressbar.style.width = `${progress}%`;
         };
