@@ -245,8 +245,8 @@ function closeProgressBar() {
 }
 
 function fullProgressBar() {
-    setTimeout(() => clearInterval(progressAdd), 302);
-    setTimeout(() => changeProgress(100), 305);
+    setTimeout(() => clearInterval(progressAdd), 300);
+    setTimeout(() => changeProgress(100), 300);
     setTimeout(() => closeProgressBar(), 1000);
 }
 
@@ -1144,12 +1144,16 @@ function loadPageType() {
         case '404page':
             // code
             break;
+        case 'works-index':
+            document.querySelector('#showarea').classList.add('loaded')
+            break;
         case 'articles-index':
             originMessageBar = `<a onclick='openInfoBar("articles-sort")'>更改排序方式&nbsp;<span class="i ri:bar-chart-horizontal-line"></span></a>`;
             addMessageBarQueue(originMessageBar, 0);
             document.querySelectorAll('time').forEach((element) => {
                 element.setAttribute('onclick', 'switchTimeDisplay(this)');
             });
+            document.querySelector('#showarea').classList.add('loaded')
             setTimeout(() => checkPageHash(), 200);
             break;
         case 'articles-context':
