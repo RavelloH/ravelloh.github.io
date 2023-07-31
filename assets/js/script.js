@@ -154,15 +154,15 @@ function switchPageContent(selector, news, time = 450) {
     const element = document.querySelector(selector);
     element.style.opacity = '1';
     // element.style.left = '0'
-    element.style.transition = 'opacity left ' + time + 'ms';
+    element.style.transition = `opacity ${time}ms,left ${time}ms`;
     element.style.opacity = '0';
     // element.style.left = '-60%'
     news.style.opacity = '0';
     // news.style.left = '-60%'
-    news.style.transition = 'opacity left ' + time + 'ms';
+    news.style.transition = `opacity ${time}ms,left ${time}ms`;
     setTimeout(function () {
         element.outerHTML = news.outerHTML;
-        document.querySelector(selector).style.transition = 'opacity left ' + time + 'ms';
+        document.querySelector(selector).style.transition = `opacity ${time}ms,left ${time}ms`;
         setTimeout(function () {
             document.querySelector(selector).style.opacity = '1';
             // document.querySelector(selector).style.left = '0';
@@ -191,7 +191,7 @@ function showProgressBar() {
         profather = document.querySelector('#progress-container');
         changeProgress = (progress) => {
             if (progressState == 'success') {
-                return false
+                return false;
             }
             progressNum = progress;
             progressbar.style.width = `${progress}%`;
@@ -323,7 +323,16 @@ function enablePjax() {
     }
     if (docCookies.getItem('settingEnablePjaxDebug') == 'true') {
         pjax = new Pjax({
-            selectors: ['title', , 'meta[name=pagetype]', '#viewmap', '#page-js', '#page-prefetch'],
+            selectors: [
+                'title',
+                'meta[name=description]',
+                'meta[name=keywords]',
+                'meta[name=pagetype]',
+                'link[rel=canonical]',
+                '#viewmap',
+                '#page-js',
+                '#page-prefetch',
+            ],
             cacheBust: false,
             analytics: false,
             scrollRestoration: false,
@@ -338,25 +347,21 @@ function enablePjax() {
         });
     } else {
         pjax = new Pjax({
-            selectors: [
-                'title',
-                'meta[name=description]',
-                'meta[name=keywords]',
-                'meta[name=pagetype]',
-                'link[rel=canonical]',
-                '#viewmap',
-                '#page-js',
-                '#page-prefetch',
-            ],
+            selectors: ['title', 'meta[name=pagetype]', '#viewmap', '#page-js', '#page-prefetch'],
             cacheBust: false,
             debug: false,
             analytics: false,
             scrollRestoration: false,
             switches: {
                 '#viewmap': function (oldEl, newEl) {
-                    setTimeout(() => switchPageContent('#viewmap', newEl), 305);
+                    setTimeout(() => switchPageContent('#viewmap', newEl), 300);
                     setTimeout(() => fullProgressBar(), 50);
                     setTimeout(() => this.onSwitch(), 610);
+                    setTimeout(() => {
+                        main();
+                        loadPageType();
+                    }, 660);
+                    setTimeout(() => pjax.refresh(), 700);
                 },
             },
         });
@@ -382,10 +387,6 @@ function pjaxLoadSuccess() {
     progressState = 'success';
     console.log('sending success');
     setTimeout(() => {
-        main();
-        loadPageType();
-    }, 50);
-    setTimeout(() => {
         zoomPics();
     }, 300);
 }
@@ -400,6 +401,7 @@ function pjaxLoadError() {
 function pjaxLoadComplete() {
     console.log('sending complete');
     refershPageJs();
+    pjax.refresh();
 }
 
 function pjaxLoad(page) {
@@ -1145,7 +1147,7 @@ function loadPageType() {
             // code
             break;
         case 'works-index':
-            document.querySelector('#showarea').classList.add('loaded')
+            document.querySelector('#showarea').classList.add('loaded');
             break;
         case 'articles-index':
             originMessageBar = `<a onclick='openInfoBar("articles-sort")'>更改排序方式&nbsp;<span class="i ri:bar-chart-horizontal-line"></span></a>`;
@@ -1153,7 +1155,7 @@ function loadPageType() {
             document.querySelectorAll('time').forEach((element) => {
                 element.setAttribute('onclick', 'switchTimeDisplay(this)');
             });
-            document.querySelector('#showarea').classList.add('loaded')
+            document.querySelector('#showarea').classList.add('loaded');
             setTimeout(() => checkPageHash(), 200);
             break;
         case 'articles-context':
