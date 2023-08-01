@@ -107,7 +107,7 @@ function loadPage() {
         domLoadShade.classList.toggle('active');
         setTimeout(function () {
             var loadList = document.querySelectorAll('.loading:not(.listprogram)');
-            for (i = 0; i < loadList.length; i++) {
+            for (let i = 0; i < loadList.length; i++) {
                 loadList[i].classList.add('loaded');
             }
             setTimeout(() => {
@@ -124,8 +124,8 @@ function loadComplete(resource) {
     if (loadingResources.length == loadResources.length) {
         if (
             docCookies.getItem('lastLoadTime') == null ||
-            parseInt(getTime('yyyyMMDDhhmmss')) - parseInt(docCookies.getItem('lastLoadTime')) >=
-                500
+            (parseInt(getTime('yyyyMMDDhhmmss')) - parseInt(docCookies.getItem('lastLoadTime')) >=
+                500)
         ) {
             setTimeout(function () {
                 loadPage();

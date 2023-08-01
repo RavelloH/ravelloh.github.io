@@ -30,7 +30,7 @@ function toggleLayoutMenu() {
             getRealTimeVisitors('switch');
         }
     } else {
-        if (typeof (currentInfoBarInner !== 'undefined')) {
+        if (typeof currentInfoBarInner !== 'undefined') {
             switchMessageBarContent(currentInfoBarInner);
             currentInfoBarInner = undefined;
         }
@@ -552,9 +552,9 @@ function musicSearch(name) {
                 .then((response) => response.json())
                 .then((data) => {
                     var musicSearchResult = '';
-                    for (i = 0; i < data['result']['songs'].length; i++) {
+                    for (let i = 0; i < data['result']['songs'].length; i++) {
                         var artists = '';
-                        for (j = 0; j < data['result']['songs'][i]['ar'].length; j++) {
+                        for (let j = 0; j < data['result']['songs'][i]['ar'].length; j++) {
                             artists = artists + data['result']['songs'][i]['ar'][j]['name'] + '/';
                         }
                         artists = artists.substring(0, artists.length - 1);
@@ -685,7 +685,7 @@ function enableInfobarRefersh() {
                 );
                 if (runTime <= 1) {
                     var shareOtherInner = '';
-                    for (i = 0; i < trustDomain.length; i++) {
+                    for (let i = 0; i < trustDomain.length; i++) {
                         shareOtherInner += structureShareInput(i, window.location.pathname);
                     }
                     switchElementContent('#share-other', shareOtherInner, 800);
@@ -968,7 +968,7 @@ function startSwap(runTimes) {
             speedList.push(Math.round((e[0] / e[1]) * 100) / 100 || 0);
         });
         max = speedList.reduce((a, b) => Math.max(a, b), 0);
-        for (i = 0; i <= speedList.length; i++) {
+        for (let i = 0; i <= speedList.length; i++) {
             if (max == speedList[i]) {
                 document.querySelectorAll('.speed-test-result').forEach((e) => {
                     e.parentNode.style.opacity = 0.5;

@@ -473,7 +473,9 @@ function updatePageModel() {
     let modelArr = [];
     articlesModel = [];
     articlesList.forEach((element) => {
-        name, url, (time = '');
+        name = ''
+        url = ''
+        time = '';
         tag = [];
         cla = [];
         name = element.firstElementChild.children[0].firstElementChild.firstElementChild.innerHTML;
