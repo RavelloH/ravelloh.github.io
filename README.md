@@ -31,6 +31,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 ├── .vscode
 │   └── settings.json
 ├── 404.html
+├── LICENSE
 ├── README.md
 ├── articles
 │   ├── 20200816
@@ -144,7 +145,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-25 directories, 98 files
+25 directories, 99 files
 ```
 <!-- readme-tree end -->
 
