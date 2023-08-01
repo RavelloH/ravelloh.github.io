@@ -124,8 +124,8 @@ function loadComplete(resource) {
     if (loadingResources.length == loadResources.length) {
         if (
             docCookies.getItem('lastLoadTime') == null ||
-            (parseInt(getTime('yyyyMMDDhhmmss')) - parseInt(docCookies.getItem('lastLoadTime')) >=
-                500)
+            parseInt(getTime('yyyyMMDDhhmmss')) - parseInt(docCookies.getItem('lastLoadTime')) >=
+                500
         ) {
             setTimeout(function () {
                 loadPage();

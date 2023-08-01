@@ -198,8 +198,9 @@ function showProgressBar() {
         };
         progressAdd = setInterval(function () {
             if (progressAdd >= 10) {
-                if (progressNum >= 85) {
+                if (progressNum >= 85 || progressState == 'success') {
                     clearInterval(progressAdd);
+                    return false;
                 }
                 if (progressNum >= 70) {
                     progressbar.classList.add('yellow');
@@ -245,7 +246,10 @@ function closeProgressBar() {
 }
 
 function fullProgressBar() {
-    setTimeout(() => clearInterval(progressAdd), 300);
+    setTimeout(() => {
+        clearInterval(progressAdd);
+        changeProgress(100);
+    }, 310);
     setTimeout(() => changeProgress(100), 320);
     setTimeout(() => closeProgressBar(), 1000);
 }

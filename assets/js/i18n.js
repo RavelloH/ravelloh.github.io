@@ -64,7 +64,7 @@ function structureInfobarInfo() {
 }
 
 structureInfobarMusic =
-    '<br><div class="form-control"><input type="search" required="" oninput="musicSearch(this.value)" onpropertychange="musicSearch(this.value)" /><label><span style="--i: 0">在</span><span style="--i: 1">此</span><span style="--i: 2">输</span><span style="--i: 3">入</span><span style="--i: 4">以</span><span style="--i: 5">启</span><span style="--i: 6">动</span><span style="--i: 7">搜</span><span style="--i: 8">索</span><span style="--i: 9">.</span><span style="--i: 10">.</span><span style="--i: 11">.</span></label></div><div id="music-search-program"> </div><div id="alert-info"></div>';
+    '<br><div class="form-control"><input type="search" required="" oninput="musicSearch(this.value)" onpropertychange="musicSearch(this.value)" /><label><span class="i_small ri:search-2-line" style="--i: 0;">&nbsp;</span><span style="--i: 1">搜</span><span style="--i: 2">索</span><span style="--i: 3">在</span><span style="--i: 4">线</span><span style="--i: 5">资</span><span style="--i: 6">源</span><span style="--i: 7">.</span><span style="--i: 8">.</span></span><span style="--i: 9">.</span></label></label></div><div id="music-search-program"> </div><div id="alert-info"></div>';
 function structureInfobarShare() {
     return `
     <h5><strong>当前链接:</strong></h5>

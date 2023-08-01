@@ -423,7 +423,6 @@ function searchClose() {
 }
 
 function loadMoreArticles(path) {
-    let result;
     let data = searchData;
 
     for (let i = 0; i < data.length; i++) {
@@ -473,8 +472,8 @@ function updatePageModel() {
     let modelArr = [];
     articlesModel = [];
     articlesList.forEach((element) => {
-        name = ''
-        url = ''
+        name = '';
+        url = '';
         time = '';
         tag = [];
         cla = [];
