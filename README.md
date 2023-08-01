@@ -79,6 +79,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── iconfont.css
 │   │   └── style.css
 │   ├── data
+│   │   ├── emoji.json
 │   │   └── search.json
 │   ├── fonts
 │   │   ├── Bender.woff
@@ -143,7 +144,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-25 directories, 97 files
+25 directories, 98 files
 ```
 <!-- readme-tree end -->
 
