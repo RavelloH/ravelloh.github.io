@@ -16,7 +16,7 @@ originIconsLeftContext = `
 structureErrorViewmap =
     '<div class="texts"><h2 class=>Error...</h2><h3>Page load failed.</h3><span class="virgule">请求的页面未成功加载。</span><span> <span class="i_small ri:error-warning-line"></span> 服务器无法正常返回资源</span><br><div class="button-list"><a class="button" onclick="pjaxLoad(\'\')">回退到上个页面</a> <a class="button" onclick="checklink(\'\')">尝试自动解决</a></div></div><div><span class="i_large ri:alert-line"></span></div>';
 originMessageBar =
-    '<noscript><a class="red" href="about/help#javascript"><strong>错误:无法使用JAVASCRIPT</strong>&nbsp;<span class="i ri:alert-line"></span></a></noscript>';
+    '<noscript><a class="red" href="/about/help#javascript"><strong>错误:无法使用JAVASCRIPT</strong>&nbsp;<span class="i ri:alert-line"></span></a></noscript>';
 structureLeaveMessage =
     '<a onclick="pjax.reload()">取消跳转&nbsp;<span class="i ri:arrow-go-back-line"></span></a>';
 structureUntrustedDomainOne =

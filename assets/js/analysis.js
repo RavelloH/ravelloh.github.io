@@ -85,12 +85,14 @@ function getPageVisitors(url = window.location.pathname) {
     return new Promise((resolve, reject) => {
         let site = 'https://analytics.ravelloh.top';
         let token =
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjljM2Y1OWJiLTE0OGQtNTk4OC1hY2NjLTdmNDhjOTJhOWIzMiIsIndlYnNpdGVJZCI6ImY0N2UyZGMzLWY2YmYtNGQ3Yy1iMzExLTc0NjdiYjFiMTdlNSIsImhvc3RuYW1lIjoibG9jYWxob3N0IiwiYnJvd3NlciI6ImNocm9tZSIsIm9zIjoiTGludXgiLCJkZXZpY2UiOiJsYXB0b3AiLCJzY3JlZW4iOiI3NTN4MTIwNSIsImxhbmd1YWdlIjoiemgtQ04iLCJjb3VudHJ5IjoiQ04iLCJzdWJkaXZpc2lvbjEiOiJDTi1TRCIsInN1YmRpdmlzaW9uMiI6bnVsbCwiY2l0eSI6IlFpbmdkYW8iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTExVDA3OjA4OjU4LjAwMFoiLCJpYXQiOjE2ODY0NjczMzd9.Qli8kEukIWdN3nV8ioWIqaPQn0m4b3loIddLZo-9HDE';
+            'Bearer hx2fU5szYyF8FSbPn4hwOfXnz9Py5aBlbnHy3698+yhxZx50y+ucR02iDYLfgw5ZqwaMS30nlEGOyDzvpv9nX/PxnZHTu5xAz8rh6FvkcKm+lwgg3sqcyMAooD/Z3UodYE8DsSJf/7LQ5lWucOoMGhpYN5WpE7CqmN0ppUePWu4cE0q6c1g4UAaa7MdbbOL7/0bIyl+sNckm4vs+Xcy86a7M6c99INiWdsZQstWj1b1vJQvGjJlJhbZXXlgBSAqxL9nZWboN9NduHd2OuNE4uFPOUFWjUrxFa5VBLyNyd3JY2wCk7xm8zC2qCWKR5icQr9D/YZZpntE9w0JYm4Bz3GoopbHkaoq4SQ==';
         let timestamp = new Date().getTime();
         let apiURL = `${site}/api/websites/f47e2dc3-f6bf-4d7c-b311-7467bb1b17e5/stats?startAt=1672502400000&endAt=${timestamp}&url=${url}`;
         fetch(apiURL, {
             headers: {
-                'x-umami-share-token': token,
+                'Authorization': token,
+                'Accept':'application/json',
+                'x-umami-share-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjljM2Y1OWJiLTE0OGQtNTk4OC1hY2NjLTdmNDhjOTJhOWIzMiIsIndlYnNpdGVJZCI6ImY0N2UyZGMzLWY2YmYtNGQ3Yy1iMzExLTc0NjdiYjFiMTdlNSIsImhvc3RuYW1lIjoibG9jYWxob3N0IiwiYnJvd3NlciI6ImNocm9tZSIsIm9zIjoiTGludXgiLCJkZXZpY2UiOiJsYXB0b3AiLCJzY3JlZW4iOiI3NTN4MTIwNSIsImxhbmd1YWdlIjoiemgtQ04iLCJjb3VudHJ5IjoiQ04iLCJzdWJkaXZpc2lvbjEiOiJDTi1TRCIsInN1YmRpdmlzaW9uMiI6bnVsbCwiY2l0eSI6IlFpbmdkYW8iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTExVDA3OjA4OjU4LjAwMFoiLCJpYXQiOjE2ODY0NjczMzd9.Qli8kEukIWdN3nV8ioWIqaPQn0m4b3loIddLZo-9HDE'
             },
         })
             .then((response) => response.json())
