@@ -246,7 +246,7 @@ function closeProgressBar() {
 
 function fullProgressBar() {
     setTimeout(() => clearInterval(progressAdd), 300);
-    setTimeout(() => changeProgress(100), 300);
+    setTimeout(() => changeProgress(100), 320);
     setTimeout(() => closeProgressBar(), 1000);
 }
 
