@@ -15,7 +15,7 @@ function workShow(element) {
             getMarkdownToHTML(md.value, element.querySelector('h4').innerHTML);
         }, 310);
     } else {
-        var mdContainer = "";
+        var mdContainer = '';
     }
 
     if (getElementInnerhtml('#showarea h3') == 'WORKS / <wbr>作品') {
@@ -567,7 +567,7 @@ function updateMenu() {
                 break;
         }
     });
-    menuStructure += "</div>";
+    menuStructure += '</div>';
     return menuStructure;
 }
 

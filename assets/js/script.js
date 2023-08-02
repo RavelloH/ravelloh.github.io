@@ -186,16 +186,16 @@ function getRandomInteger(min, max) {
 function showProgressBar() {
     progressNum = 0;
     switchElementContent('#icons-left', structurePrograssBar);
+    changeProgress = (progress) => {
+        if (progressState == 'success') {
+            return false;
+        }
+        progressNum = progress;
+        progressbar.style.width = `${progress}%`;
+    };
     setTimeout(function () {
         progressbar = document.querySelector('#progress');
         profather = document.querySelector('#progress-container');
-        changeProgress = (progress) => {
-            if (progressState == 'success') {
-                return false;
-            }
-            progressNum = progress;
-            progressbar.style.width = `${progress}%`;
-        };
         progressAdd = setInterval(function () {
             if (progressAdd >= 10) {
                 if (progressNum >= 85 || progressState == 'success') {
@@ -389,6 +389,7 @@ function pjaxLoadSend() {
 
 function pjaxLoadSuccess() {
     progressState = 'success';
+    progressNum = 100;
     console.log('sending success');
     setTimeout(() => {
         zoomPics();
@@ -1046,7 +1047,7 @@ function zoomPics() {
         element.setAttribute('onload', 'imgLoad(this)');
     });
     document.querySelectorAll('img').forEach((element) => {
-        element.setAttribute('onerror', "imgError(this)");
+        element.setAttribute('onerror', 'imgError(this)');
     });
     var img = document.querySelectorAll('img:not(#avatar , #avatarname , .no-zoom)');
     for (var i = 0; i < img.length; i++) {
