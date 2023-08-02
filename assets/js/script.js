@@ -972,7 +972,7 @@ function startSwap(runTimes) {
             speedList.push(Math.round((e[0] / e[1]) * 100) / 100 || 0);
         });
         max = speedList.reduce((a, b) => Math.max(a, b), 0);
-        for (let i = 0; i <= speedList.length; i++) {
+        for (let i = 0; i < speedList.length; i++) {
             if (max == speedList[i]) {
                 document.querySelectorAll('.speed-test-result').forEach((e) => {
                     e.parentNode.style.opacity = 0.5;
