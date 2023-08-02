@@ -329,9 +329,7 @@ function getSearchData() {
             throw err;
         });
     } else {
-        return new Promise((resolve, reject) => {
-            resolve(searchData);
-        });
+        return Promise.resolve(searchData);
     }
 }
 
