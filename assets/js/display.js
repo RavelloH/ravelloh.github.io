@@ -15,7 +15,7 @@ function workShow(element) {
             getMarkdownToHTML(md.value, element.querySelector('h4').innerHTML);
         }, 310);
     } else {
-        var mdContainer = ``;
+        var mdContainer = "";
     }
 
     if (getElementInnerhtml('#showarea h3') == 'WORKS / <wbr>作品') {
@@ -367,7 +367,7 @@ function search(keyword) {
             if (data.length == 0) {
                 switchElementContent(
                     '.listlines',
-                    `<div class='center'><span class='i_small ri:filter-off-line'></span>未找到有关选项。</div>`,
+                    "<div class='center'><span class='i_small ri:filter-off-line'></span>未找到有关选项。</div>",
                     0,
                 );
                 return false;
@@ -538,7 +538,7 @@ function updateTitle() {
 }
 
 function updateMenu() {
-    var menuStructure = `<div id='articles-menu'>`;
+    var menuStructure = "<div id='articles-menu'>";
     let titleSet = document.querySelectorAll(
         '#articles-header h2 , #articles-body h2 , #articles-body h3 , #articles-body h4 , #articles-body h5 , #articles-body h6',
     );
@@ -569,7 +569,7 @@ function updateMenu() {
                 break;
         }
     });
-    menuStructure += `</div>`;
+    menuStructure += "</div>";
     return menuStructure;
 }
 

@@ -1046,7 +1046,7 @@ function zoomPics() {
         element.setAttribute('onload', 'imgLoad(this)');
     });
     document.querySelectorAll('img').forEach((element) => {
-        element.setAttribute('onerror', `imgError(this)`);
+        element.setAttribute('onerror', "imgError(this)");
     });
     var img = document.querySelectorAll('img:not(#avatar , #avatarname , .no-zoom)');
     for (var i = 0; i < img.length; i++) {
