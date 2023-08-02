@@ -20,6 +20,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 <!-- readme-tree start -->
 ```
 .
+├── .deepsource.toml
 ├── .github
 │   └── workflows
 │       ├── deploy.yml
@@ -145,7 +146,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-25 directories, 99 files
+25 directories, 100 files
 ```
 <!-- readme-tree end -->
 
