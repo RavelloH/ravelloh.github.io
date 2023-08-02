@@ -10,7 +10,7 @@
     --theme-black: #111111;
     --theme-white: #c6c9ce;
     --theme-white-light: #ffffff;
-    --theme-white-dark: #9e9e9e;
+    --theme-white-dark: #848484;
     --theme-blue-light: #03a9f4;
     --theme-blue-dark: #0078d7;
     --theme-yellow: #ffa30a;
@@ -599,6 +599,12 @@ footer {
 
 #navs nav a {
     margin-right: 30px;
+    transition: all 0.4s;
+    text-decoration: none;
+}
+
+#navs nav a.active {
+    color: var(--theme-white-light);
 }
 
 #logo,

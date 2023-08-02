@@ -405,8 +405,10 @@ function pjaxLoadError() {
 
 function pjaxLoadComplete() {
     console.log('sending complete');
+    progressState = 'done';
     refershPageJs();
     pjax.refresh();
+    highlightNav('');
 }
 
 function pjaxLoad(page) {
@@ -1137,8 +1139,18 @@ function runTime(f) {
     f();
     console.timeEnd();
 }
+
 function isEllipsisActive(e) {
     return e.offsetWidth < e.scrollWidth;
+}
+
+function highlightNav(name) {
+    document.querySelectorAll('#header-side nav a').forEach((element) => {
+        element.classList.remove('active');
+        if (element.innerText.toLowerCase() == name.toLowerCase()) {
+            element.classList.add('active');
+        }
+    });
 }
 
 function loadPageType() {
@@ -1146,6 +1158,7 @@ function loadPageType() {
     console.log(pageMoudle);
     switch (pageMoudle) {
         case 'homepage':
+            highlightNav('home');
             // code
             break;
         case '404page':
@@ -1153,6 +1166,7 @@ function loadPageType() {
             break;
         case 'works-index':
             document.querySelector('#showarea').classList.add('loaded');
+            highlightNav('works');
             break;
         case 'articles-index':
             originMessageBar = `<a onclick='openInfoBar("articles-sort")'>更改排序方式&nbsp;<span class="i ri:bar-chart-horizontal-line"></span></a>`;
@@ -1162,8 +1176,10 @@ function loadPageType() {
             });
             document.querySelector('#showarea').classList.add('loaded');
             setTimeout(() => checkPageHash(), 200);
+            highlightNav('articles');
             break;
         case 'articles-context':
+            highlightNav('articles');
             resetImage();
             zoomPics();
             switchElementContent(
