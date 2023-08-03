@@ -12,8 +12,8 @@ trustDomain = [
     'ravelloh.js.org',
 ];
 musicApiList = [
-    'http://music-api.ravelloh.ml/cloudsearch?keywords=',
-    'http://cloud-music.pl-fe.cn/cloudsearch?keywords=',
+    'https://music-api.ravelloh.ml/cloudsearch?keywords=',
+    'https://cloud-music.pl-fe.cn/cloudsearch?keywords=',
 ];
 musicAvailableApiList = [];
 const baseStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
