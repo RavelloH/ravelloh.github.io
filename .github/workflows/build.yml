@@ -33,6 +33,7 @@ jobs:
                   node search.js
             - name: 'Sitemap'
               run: |
+                  cd program
                   node fileList.js
                   npx sitemap < ../assets/data/urlList.txt > ../sitemap.xml
 
