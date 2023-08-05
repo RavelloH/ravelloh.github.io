@@ -1,8 +1,8 @@
-name: RPageSearch
+name: 'RTheme Build'
 on:
     push:
         paths:
-            - 'articles/**'
+            - '**'
     workflow_dispatch:
 
 permissions:
@@ -12,32 +12,37 @@ permissions:
 
 jobs:
     build:
-        runs-on: ubuntu-latest #运行环境
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
-            - name: 'Git set'
+              uses: actions/checkout@v3
+            - name: 'Setup Git'
               run: |
                   git init
                   git pull
-            - name: 'Set up nodejs'
+            - name: 'Setup nodejs'
               uses: actions/setup-node@v3
               with:
                   node-version: 'latest'
             - name: 'Install requirements'
               run: |
                   npm install
-            - name: 'Working'
+            - name: 'RPageSearch'
               run: |
-                  cd program 
+                  cd program
                   node search.js
-            - name: Commit files
+            - name: 'Sitemap'
+              run: |
+                  node fileList.js
+                  npx sitemap < ../assets/data/urlList.txt > ../sitemap.xml
+
+            - name: 'Commit files'
               continue-on-error: True
               run: |
                   git diff
                   git config --local user.email "dr_hamilton@foxmail.com"
                   git config --local user.name "Ravello-H"
                   git add -A
-                  git commit -m "[RPageSearch]`date '+%Y-%m-%d %H:%M:%S'`" || exit #动态提交信息
+                  git commit -m "[RPageSearch]`date '+%Y-%m-%d %H:%M:%S'`" || exit
                   git status
                   git push -f
