@@ -111,7 +111,8 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── menu.png
 │   │   ├── music.jpg
 │   │   ├── screenshot-mobile.png
-│   │   └── screenshot-pc.png
+│   │   ├── screenshot-pc.png
+│   │   └── user.jpg
 │   └── js
 │       ├── analysis.js
 │       ├── display.js
@@ -151,7 +152,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-25 directories, 105 files
+25 directories, 106 files
 ```
 <!-- readme-tree end -->
 
