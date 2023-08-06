@@ -181,3 +181,28 @@ function addScript(url, onloadFunction = '') {
     script.setAttribute('onload', onloadFunction);
     head.appendChild(script);
 }
+
+window.onerror = function (msg, url, lineNo, columnNo, error) {
+    var string = msg.toLowerCase();
+    var substring = "script error";
+    if (string.indexOf(substring) > -1){
+        alert('错误：侦测到脚本错误，无法初始化页面');
+    } else {
+        let message = `
+        <hr>
+        <div class='center'>
+        <h2>初始化异常</h2>
+        <h3>LOAD<span id='loading-text'><span class="red-text"> Failed.</span></span></h3>
+        <p><strong>消息: </strong>${msg}<p>
+        <p><strong>URL: </strong>${url}<p>
+        <p><strong>行号: </strong>${lineNo}<p>
+        <p><strong>列数: </strong>${columnNo}<p>
+        <p><strong>类型: </strong>${JSON.stringify(error)}<p>
+        </div>
+        <hr>
+        <br>
+        `
+        document.querySelector('#load-content').innerHTML = message
+    }
+    return false;
+};

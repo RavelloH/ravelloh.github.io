@@ -885,6 +885,14 @@ a:active {
     text-transform: uppercase;
 }
 
+.red-text {
+    background-image: linear-gradient(to right, var(--theme-white-light), var(--theme-red));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+}
+
 .texts {
     position: relative;
 }
