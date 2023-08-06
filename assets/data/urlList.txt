@@ -46,3 +46,4 @@ https://ravelloh.top/assets/images/menu.png
 https://ravelloh.top/assets/images/music.jpg
 https://ravelloh.top/assets/images/screenshot-mobile.png
 https://ravelloh.top/assets/images/screenshot-pc.png
+https://ravelloh.top/assets/images/user.jpg
