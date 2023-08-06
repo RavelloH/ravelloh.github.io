@@ -144,13 +144,14 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   ├── fileList.js
 │   ├── search.js
 │   └── search.py
+├── robots.txt
 ├── site.webmanifest
 ├── sitemap.xml
 ├── tree.bak
 └── works
     └── index.html
 
-25 directories, 104 files
+25 directories, 105 files
 ```
 <!-- readme-tree end -->
 
