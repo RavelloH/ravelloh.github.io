@@ -11,9 +11,7 @@ trustDomain = [
     'ravelloh.vercel.app',
     'ravelloh.js.org',
 ];
-musicApiList = [
-    'https://music.api.ravelloh.top/cloudsearch?keywords=',
-];
+musicApiList = ['https://music.api.ravelloh.top/cloudsearch?keywords='];
 musicAvailableApiList = [];
 const baseStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
