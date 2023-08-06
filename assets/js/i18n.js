@@ -8,7 +8,7 @@ structurePrograssBar =
     '<ul><li><div id="progress-container"><div id="progress"></div></div></li></ul>';
 originIconsLeftContext = `
     <nav>
-        <a style="--i: 1" id="icon-about" href="#" onclick="openInfoBar('info');return false;" aria-label="about this page"><span class="i ri:file-info-line"></span></a>
+        <a style="--i: 1" id="icon-about" href="#about" onclick="openInfoBar('info');return false;" aria-label="about this page"><span class="i ri:file-info-line"></span></a>
         <a style="--i: 2" id="icon-github" href="http://github.com/ravelloh" target="_blank" rel="noreferrer" aria-label="my github"><span class="i ri:github-fill"></span></a>
         <a style="--i: 3" id="icon-studio" href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer" aria-label="my studio"><span class="i ri:building-2-line"></span></a>
         <a style="--i: 4" id="icon-rss" href="https://ravelloh.github.io/RSS/rss.xml" target="_blank" aria-label="rss"><span class="i ri:rss-fill"></span></a>

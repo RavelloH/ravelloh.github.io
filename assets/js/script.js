@@ -1236,6 +1236,7 @@ function showError(text) {
 }
 
 function checkPageHash() {
+    umami.track();
     let hash = window.location.hash;
     if (hash.startsWith('#/tag/') || hash.startsWith('#/classification/')) {
         articlesFilter();
