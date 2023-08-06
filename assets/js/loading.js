@@ -3,6 +3,7 @@
 // 资源列表
 loadResources = ['script.js', 'i18n.js', 'pjax.js', 'moudle.js', 'display.js'];
 loadingResources = [];
+errorList = [];
 domLoadShade = document.querySelector('#load-shade');
 trustDomain = [
     'ravelloh.top',
@@ -184,8 +185,8 @@ function addScript(url, onloadFunction = '') {
 
 window.onerror = function (msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
-    var substring = "script error";
-    if (string.indexOf(substring) > -1){
+    var substring = 'script error';
+    if (string.indexOf(substring) > -1) {
         alert('错误：侦测到脚本错误，无法初始化页面');
     } else {
         let message = `
@@ -201,8 +202,9 @@ window.onerror = function (msg, url, lineNo, columnNo, error) {
         </div>
         <hr>
         <br>
-        `
-        document.querySelector('#load-content').innerHTML = message
+        `;
+        document.querySelector('#load-content').innerHTML = message;
+        errorList.push(JSON.stringify(error));
     }
     return false;
 };

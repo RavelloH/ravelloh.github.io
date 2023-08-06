@@ -33,7 +33,7 @@ function toggleLayoutMenu() {
         if (typeof currentInfoBarInner !== 'undefined') {
             switchMessageBarContent(currentInfoBarInner);
             currentInfoBarInner = undefined;
-        } 
+        }
     }
 }
 
@@ -248,9 +248,10 @@ function closeProgressBar() {
 function fullProgressBar() {
     setTimeout(() => {
         clearInterval(progressAdd);
-        changeProgress(100);
-    }, 310);
-    setTimeout(() => changeProgress(100), 320);
+        setTimeout(() => {
+            changeProgress(100);
+        }, 50);
+    }, 300);
     setTimeout(() => closeProgressBar(), 1000);
 }
 
@@ -389,7 +390,7 @@ function pjaxLoadSend() {
 
 function pjaxLoadSuccess() {
     progressState = 'success';
-    progressNum = 100;
+    progressNum = 99;
     console.log('sending success');
     setTimeout(() => {
         zoomPics();
@@ -704,10 +705,13 @@ function enableInfobarRefersh() {
 
 function refreshInfo(runTime) {
     switchElementContent('#page-update-time', document.lastModified);
-    if (window.onerror == null) {
-        switchElementContent('#theme-state', '就绪');
+    if (errorList.length == 0) {
+        switchElementContent('#theme-state', '正常');
     } else {
-        switchElementContent('#theme-state', '<span class="yellow">发生异常</span>');
+        switchElementContent(
+            '#theme-state',
+            `<span class="red">发生${errorList.length}个异常</span>`,
+        );
     }
     if (typeof pjax == 'undefined') {
         switchElementContent('#pjax-state', '<span class="red">离线</span>');
@@ -1045,7 +1049,7 @@ function onload() {
 
 // 图片放大
 function zoomPics() {
-    let img
+    let img;
     document.querySelectorAll('img').forEach((element) => {
         element.setAttribute('onload', 'imgLoad(this)');
     });
@@ -1055,10 +1059,10 @@ function zoomPics() {
     try {
         img = document.querySelectorAll('img:not(#avatar , #avatarname , .no-zoom)');
     } catch (e) {
-        console.log(`不支持的浏览器版本。已尝试回退，错误:${e}`)
+        console.log(`不支持的浏览器版本。已尝试回退，错误:${e}`);
         img = document.querySelectorAll('img');
     }
-    
+
     for (var i = 0; i < img.length; i++) {
         img[i].onclick = function () {
             var div = document.createElement('div');
