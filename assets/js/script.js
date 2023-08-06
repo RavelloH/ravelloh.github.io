@@ -33,7 +33,7 @@ function toggleLayoutMenu() {
         if (typeof currentInfoBarInner !== 'undefined') {
             switchMessageBarContent(currentInfoBarInner);
             currentInfoBarInner = undefined;
-        }
+        } 
     }
 }
 
@@ -1045,13 +1045,20 @@ function onload() {
 
 // 图片放大
 function zoomPics() {
+    let img
     document.querySelectorAll('img').forEach((element) => {
         element.setAttribute('onload', 'imgLoad(this)');
     });
     document.querySelectorAll('img').forEach((element) => {
         element.setAttribute('onerror', 'imgError(this)');
     });
-    var img = document.querySelectorAll('img:not(#avatar , #avatarname , .no-zoom)');
+    try {
+        img = document.querySelectorAll('img:not(#avatar , #avatarname , .no-zoom)');
+    } catch (e) {
+        console.log(`不支持的浏览器版本。已尝试回退，错误:${e}`)
+        img = document.querySelectorAll('img');
+    }
+    
     for (var i = 0; i < img.length; i++) {
         img[i].onclick = function () {
             var div = document.createElement('div');
