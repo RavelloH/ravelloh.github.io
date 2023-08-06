@@ -5,9 +5,12 @@ function resetElements() {
     domShadeGlobal = document.querySelector('#shade-global');
     domLayoutInfoBar = document.querySelector('#infobar');
     domInfoBarToggle = document.querySelector('#infobar-toggle');
+    domUserbarToggle = document.querySelector('#logo')
+    domLayoutUserBar = document.querySelector('#userbar')
     domMusic = document.querySelector('#music');
     musicProgressbar = document.querySelector('#music-progress');
     musicProfather = document.querySelector('#music-progress-container');
+
 }
 
 function resetCookies() {
@@ -47,6 +50,15 @@ function toggleLayoutInfobar() {
     setTimeout(() => enableInfobarRefersh(), 0);
 }
 
+function toggleLayoutUserbar() {
+    if (getElementInnerhtml('#userbar') == '') {
+        quickSwitchElementContent('#userbar', structureLayoutUserbar())
+    }
+    loadAccount()
+    domLayoutUserBar.classList.toggle('active');
+    domShadeGlobal.classList.toggle('active');
+}
+
 // 右菜单状态
 function isLayoutMenuOpen() {
     if (domMenuToggle.classList[2] == 'active') {
@@ -59,6 +71,14 @@ function isLayoutMenuOpen() {
 // 下拉栏状态
 function isLayoutInfobarOpen() {
     if (domLayoutInfoBar.classList[0] == 'active') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function isLayoutUserbarOpen() {
+    if (domLayoutUserBar.classList[0] == 'active') {
         return true;
     } else {
         return false;
@@ -209,17 +229,20 @@ function showProgressBar() {
                     changeProgress(progressNum + getRandomInteger(0, 10));
                 }
             }
-        }, 500);
+        },
+            500);
         setTimeout(function () {
             if (progressState == 'sending') {
                 changeProgress(getRandomInteger(5, 15));
             }
-        }, 400);
+        },
+            400);
         setTimeout(function () {
             if (progressState == 'sending') {
                 changeProgress(progressNum + getRandomInteger(10, 25));
             }
-        }, 500);
+        },
+            500);
     }, 301);
 }
 
@@ -232,7 +255,8 @@ function onErrorProgressBar() {
             if (getElementInnerhtml('#icons-left') !== originIconsLeftContext) {
                 closeProgressBar();
             }
-        }, 2000);
+        },
+            2000);
     }, 310);
 }
 
@@ -285,23 +309,37 @@ function addListeners() {
         toggleLayoutMenu();
     });
     domShadeGlobal.addEventListener('click', () => {
-        toggleLayoutInfobar();
+        if (isLayoutInfobarOpen()) {
+            toggleLayoutInfobar()
+        }
+        if (isLayoutUserbarOpen()) {
+            toggleLayoutUserbar()
+        }
     });
-    domInfoBarToggle.addEventListener('click', () => {
-        toggleLayoutInfobar();
-    });
-    document.addEventListener('pjax:send', () => {
-        pjaxLoadSend();
-    });
-    document.addEventListener('pjax:complete', () => {
-        pjaxLoadComplete();
-    });
-    document.addEventListener('pjax:error', () => {
-        pjaxLoadError();
-    });
-    document.addEventListener('pjax:success', () => {
-        pjaxLoadSuccess();
-    });
+    domInfoBarToggle.addEventListener('click',
+        () => {
+            toggleLayoutInfobar();
+        });
+    domUserbarToggle.addEventListener('click',
+        () => {
+            toggleLayoutUserbar()
+        })
+    document.addEventListener('pjax:send',
+        () => {
+            pjaxLoadSend();
+        });
+    document.addEventListener('pjax:complete',
+        () => {
+            pjaxLoadComplete();
+        });
+    document.addEventListener('pjax:error',
+        () => {
+            pjaxLoadError();
+        });
+    document.addEventListener('pjax:success',
+        () => {
+            pjaxLoadSuccess();
+        });
 }
 // 退出检测
 window.onbeforeunload = function () {
@@ -471,7 +509,12 @@ function HTMLDecode(str) {
 
 // 时间处理
 function getTime(formats, startTime = '') {
-    var yyyy, MM, DD, hh, mm, ss;
+    var yyyy,
+    MM,
+    DD,
+    hh,
+    mm,
+    ss;
     var today = new Date();
     if (startTime == '') {
         yyyy = today.getFullYear();
@@ -481,14 +524,22 @@ function getTime(formats, startTime = '') {
         mm = String(today.getMinutes()).padStart(2, '0');
         ss = String(today.getSeconds()).padStart(2, '0');
         return formats
-            .replace(/yyyy/g, yyyy)
-            .replace(/MM/g, MM)
-            .replace(/DD/g, DD)
-            .replace(/hh/g, hh)
-            .replace(/mm/g, mm)
-            .replace(/ss/g, ss);
+        .replace(/yyyy/g, yyyy)
+        .replace(/MM/g, MM)
+        .replace(/DD/g, DD)
+        .replace(/hh/g, hh)
+        .replace(/mm/g, mm)
+        .replace(/ss/g, ss);
     } else {
-        var T, M, A, B, C, D, a, b, c;
+        var T,
+        M,
+        A,
+        B,
+        C,
+        D,
+        a,
+        b,
+        c;
         var lastDay = new Date(startTime);
         T = today.getTime() - lastDay.getTime();
         M = 24 * 60 * 60 * 1000;
@@ -518,8 +569,8 @@ function openInfoBar(mode) {
             setTimeout(() => {
                 highlightMenu();
                 document
-                    .querySelector('#articles-menu')
-                    .setAttribute('onclick', 'setTimeout(()=>highlightMenu(),1000)');
+                .querySelector('#articles-menu')
+                .setAttribute('onclick', 'setTimeout(()=>highlightMenu(),1000)');
             }, 10);
             break;
         case 'setting':
@@ -533,19 +584,29 @@ function openInfoBar(mode) {
                     settingStrs += structureSetting(item[0], item[1], item[2]);
                 }
             });
-            setTimeout(() => switchElementContent('#setting-list', settingStrs, 300), 300);
-            setTimeout(() => loadItems('#setting-list'), 700);
+            setTimeout(() => switchElementContent('#setting-list', settingStrs, 300),
+                300);
+            setTimeout(() => loadItems('#setting-list'),
+                700);
             break;
         case 'swap':
-            switchElementContent('#infobar-left', structureInfobarSwap, 0);
+            switchElementContent('#infobar-left',
+                structureInfobarSwap,
+                0);
             break;
         case 'share':
-            switchElementContent('#infobar-left', structureInfobarShare(), 0);
+            switchElementContent('#infobar-left',
+                structureInfobarShare(),
+                0);
             break;
         case 'articles-sort':
-            switchElementContent('#infobar-left', structureInfobarSort(), 0);
+            switchElementContent('#infobar-left',
+                structureInfobarSort(),
+                0);
     }
-    switchElementContent('#infobar-title', mode, 300);
+    switchElementContent('#infobar-title',
+        mode,
+        300);
     toggleLayoutInfobar();
 }
 
@@ -557,34 +618,34 @@ function musicSearch(name) {
         }
         searchTimer = setTimeout(function () {
             fetch(musicApi + name)
-                .then((response) => response.json())
-                .then((data) => {
-                    var musicSearchResult = '';
-                    for (let i = 0; i < data['result']['songs'].length; i++) {
-                        var artists = '';
-                        for (let j = 0; j < data['result']['songs'][i]['ar'].length; j++) {
-                            artists = artists + data['result']['songs'][i]['ar'][j]['name'] + '/';
-                        }
-                        artists = artists.substring(0, artists.length - 1);
-                        musicSearchResult += getstructureMusicSearchResult(
-                            data['result']['songs'][i]['name'],
-                            'http://music.163.com/song/media/outer/url?id=' +
-                                data['result']['songs'][i]['id'] +
-                                '.mp3',
-                            artists,
-                            data['result']['songs'][i]['al']['picUrl'],
-                            data['result']['songs'][i]['al']['name'],
-                        );
+            .then((response) => response.json())
+            .then((data) => {
+                var musicSearchResult = '';
+                for (let i = 0; i < data['result']['songs'].length; i++) {
+                    var artists = '';
+                    for (let j = 0; j < data['result']['songs'][i]['ar'].length; j++) {
+                        artists = artists + data['result']['songs'][i]['ar'][j]['name'] + '/';
                     }
-                    switchElementContent('#music-search-program', musicSearchResult, 200);
-                    setTimeout(() => {
-                        loadItems('#music-search-program');
-                        zoomPics();
-                    }, 310);
-                })
-                .catch((error) => {
-                    switchElementContent('#music-search-program', structureErrorInfo(error));
-                });
+                    artists = artists.substring(0, artists.length - 1);
+                    musicSearchResult += getstructureMusicSearchResult(
+                        data['result']['songs'][i]['name'],
+                        'http://music.163.com/song/media/outer/url?id=' +
+                        data['result']['songs'][i]['id'] +
+                        '.mp3',
+                        artists,
+                        data['result']['songs'][i]['al']['picUrl'],
+                        data['result']['songs'][i]['al']['name'],
+                    );
+                }
+                switchElementContent('#music-search-program', musicSearchResult, 200);
+                setTimeout(() => {
+                    loadItems('#music-search-program');
+                    zoomPics();
+                }, 310);
+            })
+            .catch((error) => {
+                switchElementContent('#music-search-program', structureErrorInfo(error));
+            });
         }, 1000);
     }
 }
@@ -595,7 +656,7 @@ function musicUpdata() {
     };
     changeMusicProgress((music.currentTime / music.duration) * 100);
     document.getElementById('music-time').innerHTML =
-        timeTrans(music.currentTime) + '/' + timeTrans(music.duration);
+    timeTrans(music.currentTime) + '/' + timeTrans(music.duration);
 }
 
 function musicPlay() {
@@ -636,7 +697,8 @@ function musicChange(name, url) {
             }
             switchMessageBarContent(structurePlayingMusic(name));
             setTimeout(() => switchMessageBarContent(originMessageBar), 10000);
-        }, 100);
+        },
+            100);
     }, 200);
 }
 
@@ -700,11 +762,13 @@ function enableInfobarRefersh() {
                 }
             }
         }
-    }, 500);
+    },
+        500);
 }
 
 function refreshInfo(runTime) {
-    switchElementContent('#page-update-time', document.lastModified);
+    switchElementContent('#page-update-time',
+        document.lastModified);
     if (errorList.length == 0) {
         switchElementContent('#theme-state', '正常');
     } else {
@@ -836,7 +900,11 @@ function formatBytes(bytes) {
         return '0 Bytes';
     }
     const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    const sizes = ['Bytes',
+        'KB',
+        'MB',
+        'GB',
+        'TB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
@@ -866,25 +934,25 @@ function fetchDownload(url, filename) {
         }),
         mode: 'cors',
     })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Fetch error');
-            }
-            return response.blob();
-        })
-        .then((blob) => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Fetch error');
+        }
+        return response.blob();
+    })
+    .then((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
 }
 
 // 浏览器下载
@@ -991,7 +1059,7 @@ function startSwap(runTimes) {
                 setTimeout(() => {
                     switchElementContent('#speed-test-info', '准备跳转');
                     window.location.href =
-                        'https://' + speedTestResultList[i][2] + window.location.pathname;
+                    'https://' + speedTestResultList[i][2] + window.location.pathname;
                 }, 2000);
                 break;
             }
@@ -1093,28 +1161,29 @@ function zoomPics() {
 
 function checkURL(url, callback, errorback) {
     fetch(url)
-        .then((response) => {
-            if (response.ok) {
-                callback();
-            } else {
-                errorback();
-            }
-        })
-        .catch((error) => {
-            errorback(error);
-        });
+    .then((response) => {
+        if (response.ok) {
+            callback();
+        } else {
+            errorback();
+        }
+    })
+    .catch((error) => {
+        errorback(error);
+    });
 }
 
 function toggleThemeMode() {
-    addMessageBarQueue('<a>此功能尚在开发&nbsp;<span class="i ri:alert-line"></span></a>', 1500);
+    addMessageBarQueue('<a>此功能尚在开发&nbsp;<span class="i ri:alert-line"></span></a>',
+        1500);
 }
 
 function loadItems(parentNodeName, mode = 'sort') {
     if (mode == 'sort') {
         for (let j = document.querySelectorAll(parentNodeName + ' .loading').length; j > 0; j--) {
             document
-                .querySelectorAll(parentNodeName + ' .loading')
-                [j - 1].setAttribute('style', '--i: ' + j);
+            .querySelectorAll(parentNodeName + ' .loading')
+            [j - 1].setAttribute('style', '--i: ' + j);
         }
     }
     document.querySelectorAll(parentNodeName + ' .loading').forEach((e) => {
@@ -1164,6 +1233,18 @@ function highlightNav(name) {
     });
 }
 
+function loadAccount() {
+    if (docCookies.getItem('userInfo') == null) {
+        switchElementContent('#user-main', `<div class="info-warning center"><span class="i_small ri:user-unfollow-line"></span> 尚未登录，部分功能受限<br>立刻 <a onclick="pjaxLoad('/user/login')">登录</a> 或 <a onclick="pjaxLoad('/user/register')">注册</a></div>`)
+    }
+}
+
+function getAccountInfo(token) {}
+
+function accountLoginIn(username, password, expireTime) {}
+
+function openUserbar(mode) {}
+
 function loadPageType() {
     var pageMoudle = document.querySelector('meta[name=pagetype]').getAttribute('content');
     console.log(pageMoudle);
@@ -1181,12 +1262,14 @@ function loadPageType() {
             break;
         case 'articles-index':
             originMessageBar = `<a onclick='openInfoBar("articles-sort")'>更改排序方式&nbsp;<span class="i ri:bar-chart-horizontal-line"></span></a>`;
-            addMessageBarQueue(originMessageBar, 0);
+            addMessageBarQueue(originMessageBar,
+                0);
             document.querySelectorAll('time').forEach((element) => {
                 element.setAttribute('onclick', 'switchTimeDisplay(this)');
             });
             document.querySelector('#showarea').classList.add('loaded');
-            setTimeout(() => checkPageHash(), 200);
+            setTimeout(() => checkPageHash(),
+                200);
             highlightNav('articles');
             break;
         case 'articles-context':
@@ -1201,7 +1284,8 @@ function loadPageType() {
             codeHighlight();
             updateTitle();
             originMessageBar = `<a onclick='openInfoBar("menu")'>目录&nbsp;<span class="i ri:list-unordered"></span></a>`;
-            addMessageBarQueue(originMessageBar, 0);
+            addMessageBarQueue(originMessageBar,
+                0);
             if (docCookies.getItem('settingEnableUmamiAnalytics') !== 'false') {
                 getPageVisitors().then((data) => {
                     switchElementContent('#pageVisitors', data['pageviews'].value);
@@ -1221,7 +1305,7 @@ function loadPageType() {
             );
             switchElementContent(
                 '#blockchain-data',
-                '<span class="i_small ri:shield-check-line"></span> 此数据所有权由区块链加密技术(<a href="https://scan.crossbell.io/tx/0xa486db8123cfa3d98a5cb4ba46d07b977be1138c3a51743feaaeb51bfcd8788a">区块链标识:#57514</a>)和智能合约保障仅归创作者所有。',
+                `<span class="i_small ri:shield-check-line"></span> 此数据所有权由区块链加密技术(<a href="https://scan.crossbell.io/tx/0xa486db8123cfa3d98a5cb4ba46d07b977be1138c3a51743feaaeb51bfcd8788a">区块链标识:#57514</a>)和智能合约保障仅归创作者所有。<br><hr><div class='center barcode page-id'>${base.encryption(window.location.pathname)}</div>`,
             );
             break;
     }
@@ -1236,7 +1320,6 @@ function showError(text) {
 }
 
 function checkPageHash() {
-    umami.track();
     let hash = window.location.hash;
     if (hash.startsWith('#/tag/') || hash.startsWith('#/classification/')) {
         articlesFilter();

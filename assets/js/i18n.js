@@ -396,3 +396,45 @@ function structureSearchResult(result) {
     </div>
     `;
 }
+
+function structureLayoutUserbar() {
+    return `
+    <div id="userbar-head">
+        <div id="userbar-title">
+            账号
+        </div>
+        <div id="userbar-toggle" onclick="toggleLayoutUserbar()">
+            <span class="i ri:arrow-left-s-line"></span>
+        </div>
+    </div>
+    <div id="userbar-context">
+        <div id="user-info">
+                <img id="user-avatar" src="/assets/images/user.jpg" alt="User avatar">
+            <div id="user-describe">
+                <span id="user-name">未登录</span>
+                <span id="user-bio">未设置描述...</span>
+            </div>
+        </div>
+        <div id='user-main'>
+        <div class="square-loader"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+    </div>
+    <div id="userbar-bottom">
+        <hr>
+        <div class="flex-iconset">
+            <ul>
+                <li><a href="#account" id="icon-account" onclick="openUserbar('account');return false;" aria-label="account"><span
+                    class="i ri:account-circle-line"></span></a></li>
+                <li><a href="#account-setting" id="icon-account-setting" onclick="openUserbar('setting');return false;" aria-label="account setting"><span
+                    class="i ri:user-settings-line"></span></a></li>
+                <li><a href="#message-setting" id="icon-message-setting" onclick="openUserbar('message-setting');return false;"
+                    aria-label="message-setting"><span class="i ri:mail-settings-line"></span></a></li>
+                <li><a href="#message" id="icon-message" onclick="openUserbar('message');return false;"
+                    aria-label="message"><span class="i ri:message-2-line"></span></a></li>
+                <li><a href="#" id="icon-logout" onclick="openUserbar('logout');return false;"
+                    aria-label="logout"><span class="i ri:logout-box-r-line"></span></a></li>
+            </ul>
+        </div>
+    </div>
+    `
+}
