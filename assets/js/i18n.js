@@ -436,5 +436,5 @@ function structureLayoutUserbar() {
             </ul>
         </div>
     </div>
-    `
+    `;
 }

@@ -62,7 +62,7 @@ function searchStr(str, target) {
 function searchResultListChecker(objectT, value, attribute) {
     for (let i = 0; i < objectT.length; i++) {
         if (objectT[i][attribute] == value) {
-            console.log(value, i);
+            // console.log(value, i);
             return i;
         }
     }
@@ -90,7 +90,7 @@ function addToResultList(arr, attribute) {
 }
 
 onmessage = (dataList) => {
-    console.time('search');
+    // console.time('search');
     let data = dataList.data[0];
     let keyword = dataList.data[1];
     let reg = new RegExp(keyword, 'ig');
@@ -184,5 +184,5 @@ onmessage = (dataList) => {
     });
     //  转义
     postMessage(resultList);
-    console.timeEnd('search');
+    // console.timeEnd('search');
 };
