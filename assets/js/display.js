@@ -625,7 +625,7 @@ function highlightMenu() {
 }
 
 function resetFilter() {
-    let tagFilters = document.querySelectorAll('.articles-tags a')
+    let tagFilters = document.querySelectorAll('.articles-tags a:not(.ellipsis)')
     let classFilters = document.querySelectorAll('.class a')
     
     tagFilters.forEach((e) => {
