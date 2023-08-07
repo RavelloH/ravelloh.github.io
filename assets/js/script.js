@@ -203,16 +203,18 @@ function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function changeProgress(progress) {
+    if (progressState == 'success') {
+        return false;
+    }
+    let progressBar = document.querySelector('#progress');
+    progressNum = progress;
+    progressBar.style.width = `${progress}%`;
+};
+
 function showProgressBar() {
     progressNum = 0;
     switchElementContent('#icons-left', structurePrograssBar);
-    changeProgress = (progress) => {
-        if (progressState == 'success') {
-            return false;
-        }
-        progressNum = progress;
-        progressbar.style.width = `${progress}%`;
-    };
     setTimeout(function () {
         progressbar = document.querySelector('#progress');
         profather = document.querySelector('#progress-container');
@@ -233,13 +235,13 @@ function showProgressBar() {
             500);
         setTimeout(function () {
             if (progressState == 'sending') {
-                changeProgress(getRandomInteger(5, 15));
+                changeProgress(getRandomInteger(5, 15),progressbar);
             }
         },
             400);
         setTimeout(function () {
             if (progressState == 'sending') {
-                changeProgress(progressNum + getRandomInteger(10, 25));
+                changeProgress(progressNum + getRandomInteger(10, 25),progressbar);
             }
         },
             500);
@@ -399,6 +401,7 @@ function enablePjax() {
                 '#viewmap': function (oldEl, newEl) {
                     setTimeout(() => switchPageContent('#viewmap', newEl), 300);
                     setTimeout(() => fullProgressBar(), 50);
+                    setTimeout(() => progressState = 'success',610)
                     setTimeout(() => this.onSwitch(), 610);
                     setTimeout(() => {
                         main();
