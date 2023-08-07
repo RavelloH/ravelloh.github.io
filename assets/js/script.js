@@ -222,7 +222,7 @@ function showProgressBar() {
         progressbar = document.querySelector('#progress');
         profather = document.querySelector('#progress-container');
         progressAdd = setInterval(function () {
-            if (progressAdd >= 10) {
+            if (progressAdd >= 10 && progressState == 'sending') {
                 if (progressNum >= 85 || progressState == 'success') {
                     clearInterval(progressAdd);
                     return false;
