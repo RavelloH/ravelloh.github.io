@@ -206,13 +206,19 @@ function changeProgress(progress) {
     if (progressState == 'success') {
         return false;
     }
+    if (progress <= progressNum) {
+        fullProgressBar()
+        return false
+    }
     let progressBar = document.querySelector('#progress');
-    progressNum = progress;
     if (progress >= 99) {
         progressBar.style.width = `100%`;
+        progressNum = 100
     } else {
         progressBar.style.width = `${progress}%`;
+        progressNum = progress
     }
+    
 }
 
 function showProgressBar() {
