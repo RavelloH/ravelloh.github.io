@@ -668,11 +668,11 @@ footer {
 
 #navs nav a {
     margin-right: 2.143rem;
-    transition: all 0.4s;
+    transition-duration: 0.4s;
     text-decoration: none;
 }
 
-#navs nav a.active {
+#navs nav a.active:not(a:hover) {
     color: var(--theme-white-light);
 }
 
@@ -708,6 +708,7 @@ footer {
 
 #avatar {
     width: 3.5rem;
+    height: 3.5rem;
     border-radius: 50%;
     display: inline-block;
     transition: 0.5s;
@@ -715,6 +716,7 @@ footer {
 
 #user-avatar {
     width: 5.5rem;
+    height: 5.5rem;
     border-radius: 50%;
     display: inline-block;
     transition: 0.5s;
@@ -1908,7 +1910,8 @@ a.tag,
 
 .loading {
     opacity: 0;
-    transition: opacity 0.3s;
+    transition-property: opacity;
+    transition: opacity 0.3s , color 0.35s;
 }
 
 .loaded:not(.no-delay) {
@@ -1916,7 +1919,7 @@ a.tag,
     opacity: 1;
 }
 
-.no-delay {
+.no-delay , *:hover , .loaded:hover {
     transition-delay: unset;
 }
 
