@@ -274,7 +274,7 @@ function fullProgressBar() {
         clearInterval(progressAdd);
         setTimeout(() => {
             changeProgress(100);
-        }, 50);
+        }, 150);
     }, 300);
     setTimeout(() => closeProgressBar(), 1000);
 }
