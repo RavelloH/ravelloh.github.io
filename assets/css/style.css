@@ -674,6 +674,7 @@ footer {
     margin-right: 2.143rem;
     transition-duration: 0.4s;
     text-decoration: none;
+    transition: all 0.4s;
 }
 
 #navs nav a.active:not(a:hover) {
@@ -826,9 +827,28 @@ ul li a span {
     }
 }
 
-.breath {
+.breath * {
     animation: breath-frames 1.5s infinite ease-in-out;
 }
+
+.breath span:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.breath span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.breath span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.breath span:nth-child(4) {
+    animation-delay: 0.5s;
+}
+.breath span:nth-child(5) {
+    animation-delay: 0.6s;
+}
+.breath span:nth-child(6) {
+    animation-delay: 0.7s;
+} 
 
 @keyframes breath-frames {
     0% {
@@ -1280,19 +1300,19 @@ hr.light {
     }
 }
 .square-loader span:nth-child(1) {
-    -webkit-animation-delay: 0.13s;
+    animation-delay: 0.13s;
 }
 .square-loader span:nth-child(2) {
-    -webkit-animation-delay: 0.26s;
+    animation-delay: 0.26s;
 }
 .square-loader span:nth-child(3) {
-    -webkit-animation-delay: 0.39s;
+    animation-delay: 0.39s;
 }
 .square-loader span:nth-child(4) {
-    -webkit-animation-delay: 0.52s;
+    animation-delay: 0.52s;
 }
 .square-loader span:nth-child(5) {
-    -webkit-animation-delay: 0.65s;
+    animation-delay: 0.65s;
 }
 
 .img-show,
@@ -1916,8 +1936,7 @@ a.tag,
 .loading {
     opacity: 0;
     transition-property: opacity;
-    transition:
-        opacity 0.3s
+    transition: opacity 0.3s;
 }
 
 .loaded:not(.no-delay) {

@@ -207,18 +207,17 @@ function changeProgress(progress) {
         return false;
     }
     if (progress <= progressNum) {
-        fullProgressBar()
-        return false
+        fullProgressBar();
+        return false;
     }
     let progressBar = document.querySelector('#progress');
     if (progress >= 99) {
         progressBar.style.width = `100%`;
-        progressNum = 100
+        progressNum = 100;
     } else {
         progressBar.style.width = `${progress}%`;
-        progressNum = progress
+        progressNum = progress;
     }
-    
 }
 
 function showProgressBar() {
@@ -1241,7 +1240,8 @@ function loadPageType() {
                 element.setAttribute('onclick', 'switchTimeDisplay(this)');
             });
             document.querySelector('#showarea').classList.add('loaded');
-            setTimeout(() => checkPageHash(), 200);
+            resetFilter()
+            setTimeout(() => checkPageHash());
             highlightNav('articles');
             break;
         case 'articles-context':
@@ -1255,6 +1255,7 @@ function loadPageType() {
             loadComment();
             codeHighlight();
             updateTitle();
+            resetFilter();
             originMessageBar = `<a onclick='openInfoBar("menu")'>目录&nbsp;<span class="i ri:list-unordered"></span></a>`;
             addMessageBarQueue(originMessageBar, 0);
             if (docCookies.getItem('settingEnableUmamiAnalytics') !== 'false') {

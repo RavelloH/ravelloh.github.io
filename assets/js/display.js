@@ -624,31 +624,16 @@ function highlightMenu() {
     return false;
 }
 
-function longTouch(dom, callback) {
-    let timeOutEvent = 0; // 用来设置定时器，且 0 数值用于后续判断
-    dom.addEventListener('touchstart', function (e) {
-        // 阻止它的默认事件
-        e.preventDefault();
-        // 当开始触摸的时候定时器计时
-        timeOutEvent = setTimeout(function () {
-            timeOutEvent = 0;
-            console.log('你长按了');
-        }, 1000); // 达到 1s 就会实现长按效果
-    });
-    dom.addEventListener('touchmove', function (e) {
-        // 如果触摸未达到 1s 且开始移动，则清除计时器
-        clearTimeout(timeOutEvent);
-        timeOutEvent = 0;
-    });
-    dom.addEventListener('touchend', function (e) {
-        // 如果触摸未达到 1s 且离开屏幕，则清除计时器
-        clearTimeout(timeOutEvent);
-        if (timeOutEvent !== 0) {
-            // 判断是否发生长按
-            console.log('你这是点击，不是长按');
-        }
-        return false;
-    });
+function resetFilter() {
+    let tagFilters = document.querySelectorAll('.articles-tags a')
+    let classFilters = document.querySelectorAll('.class a')
+    
+    tagFilters.forEach((e) => {
+        e.setAttribute('onclick',`pjaxLoad('/articles/#/tag/${e.innerHTML.toLowerCase()}')`)
+    })
+    classFilters.forEach((e) => {
+        e.setAttribute('onclick',`pjaxLoad('/articles/#/classification/${e.innerHTML.toLowerCase()}')`)
+    })
 }
 
 function sortArticles(mode) {
