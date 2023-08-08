@@ -625,15 +625,18 @@ function highlightMenu() {
 }
 
 function resetFilter() {
-    let tagFilters = document.querySelectorAll('.articles-tags a:not(.ellipsis)')
-    let classFilters = document.querySelectorAll('.class a')
-    
+    let tagFilters = document.querySelectorAll('.articles-tags a:not(.ellipsis)');
+    let classFilters = document.querySelectorAll('.class a');
+
     tagFilters.forEach((e) => {
-        e.setAttribute('onclick',`pjaxLoad('/articles/#/tag/${e.innerHTML.toLowerCase()}')`)
-    })
+        e.setAttribute('onclick', `pjaxLoad('/articles/#/tag/${e.innerHTML.toLowerCase()}')`);
+    });
     classFilters.forEach((e) => {
-        e.setAttribute('onclick',`pjaxLoad('/articles/#/classification/${e.innerHTML.toLowerCase()}')`)
-    })
+        e.setAttribute(
+            'onclick',
+            `pjaxLoad('/articles/#/classification/${e.innerHTML.toLowerCase()}')`,
+        );
+    });
 }
 
 function sortArticles(mode) {

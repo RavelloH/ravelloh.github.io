@@ -146,7 +146,11 @@ let messageBarQueue = []; // 存储消息队列
 let messageBarState = 'offdisplay'; // 消息状态，初始为不显示
 // 添加消息到队列
 function addMessageBarQueue(context, lastTime, TransTime = 300) {
-    messageBarQueue.push([context, lastTime, TransTime]);
+    if (messageBarQueue.includes([context, lastTime, TransTime])) {
+        return false
+    } else {
+        messageBarQueue.push([context, lastTime, TransTime]);
+    }
     if (messageBarState == 'offdisplay') {
         messageBarState = 'ondisplay';
         enableMessageBarQueue();
@@ -1240,14 +1244,13 @@ function loadPageType() {
                 element.setAttribute('onclick', 'switchTimeDisplay(this)');
             });
             document.querySelector('#showarea').classList.add('loaded');
-            resetFilter()
+            resetFilter();
             setTimeout(() => checkPageHash());
             highlightNav('articles');
             break;
         case 'articles-context':
             highlightNav('articles');
             resetImage();
-            zoomPics();
             switchElementContent(
                 '#textLength',
                 document.querySelector('#articles-body').innerText.length + '字',
@@ -1266,6 +1269,7 @@ function loadPageType() {
             document.querySelectorAll('time').forEach((element) => {
                 element.setAttribute('onclick', 'switchTimeDisplay(this)');
             });
+            zoomPics();
             prefetchImg();
             getSearchData().then(() =>
                 switchElementContent(

@@ -848,7 +848,7 @@ ul li a span {
 }
 .breath span:nth-child(6) {
     animation-delay: 0.7s;
-} 
+}
 
 @keyframes breath-frames {
     0% {
