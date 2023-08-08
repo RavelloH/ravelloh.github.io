@@ -674,7 +674,7 @@ footer {
     margin-right: 2.143rem;
     transition-duration: 0.4s;
     text-decoration: none;
-    transition: all 0.4s;
+    transition-property: all;
 }
 
 #navs nav a.active:not(a:hover) {
