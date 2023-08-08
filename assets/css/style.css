@@ -2326,6 +2326,7 @@ mark {
     }
     #avatar {
         width: 2.5rem;
+        height: 2.5rem;
     }
     footer {
         font-size: 0.85rem;
