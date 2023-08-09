@@ -1235,7 +1235,7 @@ function loadPageType() {
             break;
         case 'friends':
             reorder('#friends-link-box', '.friends-link-item', 0);
-            originMessageBar = `<a onclick="reorder('#friends-link-box','.friends-link-item',300);zoomPics()">重新随机排序&nbsp;<span class="i ri:bar-chart-horizontal-line"></span></a>`;
+            originMessageBar = `<a onclick="reorder('#friends-link-box','.friends-link-item',300);zoomPics()">重新随机排序&nbsp;<span class="i ri:refresh-line"></span></a>`;
             addMessageBarQueue(originMessageBar, 0);
             zoomPics();
             loadComment();
@@ -1246,7 +1246,7 @@ function loadPageType() {
             highlightNav('works');
             break;
         case 'articles-index':
-            originMessageBar = `<a onclick='openInfoBar("articles-sort")'>更改排序方式&nbsp;<span class="i ri:refresh-line"></span></a>`;
+            originMessageBar = `<a onclick='openInfoBar("articles-sort")'>更改排序方式&nbsp;<span class="i ri:bar-chart-horizontal-line"></span></a>`;
             addMessageBarQueue(originMessageBar, 0);
             document.querySelectorAll('time').forEach((element) => {
                 element.setAttribute('onclick', 'switchTimeDisplay(this)');
