@@ -128,6 +128,8 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │           ├── highlight.worker.js
 │           └── search.worker.js
 ├── favicon.ico
+├── friends
+│   └── index.html
 ├── google15e5df7e8b90902d.html
 ├── images
 │   ├── everydaynews-image.png
@@ -152,7 +154,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-25 directories, 106 files
+26 directories, 107 files
 ```
 <!-- readme-tree end -->
 
