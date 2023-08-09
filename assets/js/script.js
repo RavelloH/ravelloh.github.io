@@ -147,7 +147,7 @@ let messageBarState = 'offdisplay'; // 消息状态，初始为不显示
 // 添加消息到队列
 function addMessageBarQueue(context, lastTime, TransTime = 300) {
     if (messageBarQueue.includes([context, lastTime, TransTime])) {
-        return false
+        return false;
     } else {
         messageBarQueue.push([context, lastTime, TransTime]);
     }
@@ -1233,12 +1233,20 @@ function loadPageType() {
         case '404page':
             // code
             break;
+        case 'friends':
+            reorder('#friends-link-box', '.friends-link-item', 0);
+            originMessageBar = `<a onclick="reorder('#friends-link-box','.friends-link-item',300);zoomPics()">重新随机排序&nbsp;<span class="i ri:bar-chart-horizontal-line"></span></a>`;
+            addMessageBarQueue(originMessageBar, 0);
+            zoomPics();
+            loadComment();
+            codeHighlight();
+            break;
         case 'works-index':
             document.querySelector('#showarea').classList.add('loaded');
             highlightNav('works');
             break;
         case 'articles-index':
-            originMessageBar = `<a onclick='openInfoBar("articles-sort")'>更改排序方式&nbsp;<span class="i ri:bar-chart-horizontal-line"></span></a>`;
+            originMessageBar = `<a onclick='openInfoBar("articles-sort")'>更改排序方式&nbsp;<span class="i ri:refresh-line"></span></a>`;
             addMessageBarQueue(originMessageBar, 0);
             document.querySelectorAll('time').forEach((element) => {
                 element.setAttribute('onclick', 'switchTimeDisplay(this)');

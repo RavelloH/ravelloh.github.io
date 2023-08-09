@@ -133,24 +133,26 @@ function articlesFilter() {
     });
     if (typeof originIndexTitle == 'undefined') {
         originIndexTitle = `
-    <h3 id='articles-index-title'>ARTICLES / <wbr>文章</h3><br>
-    <div class="form-control">
-    <input type="search" required="" oninput="search(this.value)" onpropertychange="search(this.value)" onfocus="searchInit()" onblur="searchClose()"/ id="search-bar"><label><span
-    class="i_small ri:search-2-line" style="--i: 0;">&nbsp;</span><span
-    style="--i: 1">搜</span><span style="--i: 2">索</span><span style="--i: 3">文</span><span
-    style="--i: 4">章</span><span style="--i: 5">全</span><span style="--i: 6">文</span><span
-    style="--i: 7">.</span><span style="--i: 8">.</span></span><span
-    style="--i: 9">.</span></label>
-    </div>
-    <span class="virgule" id="articles-info-1">
-    记录&索引所有文章。
-    </span>
-    <span class="virgule" id="index-info">
-    共索引${document.querySelectorAll('.listlines .listprogram').length}篇文章，最近更新于${getTime(
-        'DD',
-        document.querySelector('.listprogram .articles-info time').innerHTML,
-    )}天前。
-    </span>`;
+        <h3 id='articles-index-title'>ARTICLES / <wbr>文章</h3><br>
+        <div class="form-control">
+        <input type="search" required="" oninput="search(this.value)" onpropertychange="search(this.value)" onfocus="searchInit()" onblur="searchClose()"/ id="search-bar"><label><span
+        class="i_small ri:search-2-line" style="--i: 0;">&nbsp;</span><span
+        style="--i: 1">搜</span><span style="--i: 2">索</span><span style="--i: 3">文</span><span
+        style="--i: 4">章</span><span style="--i: 5">全</span><span style="--i: 6">文</span><span
+        style="--i: 7">.</span><span style="--i: 8">.</span></span><span
+        style="--i: 9">.</span></label>
+        </div>
+        <span class="virgule" id="articles-info-1">
+        记录&索引所有文章。
+        </span>
+        <span class="virgule" id="index-info">
+        共索引${
+            document.querySelectorAll('.listlines .listprogram').length
+        }篇文章，最近更新于${getTime(
+            'DD',
+            document.querySelector('.listprogram .articles-info time').innerHTML,
+        )}天前。
+        </span>`;
     }
     if (hash.startsWith('#/tag/')) {
         let result = decodeURI(/([^/]+)$/.exec(hash)[0]);
@@ -637,6 +639,20 @@ function resetFilter() {
             `pjaxLoad('/articles/#/classification/${e.innerHTML.toLowerCase()}')`,
         );
     });
+}
+
+function reorder(box, item, time = 0) {
+    let itemElement = document.querySelectorAll(item);
+    let innerText = '';
+    itemElement = Array.from(itemElement).sort(() => {
+        return Math.random() - 0.5;
+    });
+
+    itemElement.forEach((element) => {
+        innerText += element.outerHTML;
+    });
+
+    switchElementContent(box, innerText, time);
 }
 
 function sortArticles(mode) {
