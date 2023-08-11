@@ -20,6 +20,8 @@ jobs:
               run: |
                   git init
                   git pull
+                  git config --local user.email "dr_hamilton@foxmail.com"
+                  git config --local user.name "Ravello-H"
             - name: 'Setup nodejs'
               uses: actions/setup-node@v3
               with:
@@ -33,12 +35,12 @@ jobs:
                   node search.js
                   git add -A
                   git commit -m "[RPageSearch]`date '+%Y-%m-%d %H:%M:%S'`"
-            - name: 'local-rss-generation'
+            - name: 'local-feed-generation'
               run: |
                   cd program
-                  node search.js
+                  node feed.js
                   git add -A
-                  git commit -m "[RTheme-RSS]`date '+%Y-%m-%d %H:%M:%S'`"
+                  git commit -m "[RTheme-Feed]`date '+%Y-%m-%d %H:%M:%S'`"
             - name: 'local-sitemap-generation'
               run: |
                   cd program
@@ -50,9 +52,7 @@ jobs:
               continue-on-error: True
               run: |
                   git diff
-                  git config --local user.email "dr_hamilton@foxmail.com"
-                  git config --local user.name "Ravello-H"
                   git add -A
-                  git commit -m "[RPageSearch]`date '+%Y-%m-%d %H:%M:%S'`" || exit
+                  git commit -m "[RThemeBuild]`date '+%Y-%m-%d %H:%M:%S'`" || exit
                   git status
-                  git push -f
+                  git push
