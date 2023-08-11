@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const dataFilePath = '../assets/data/search.json';
 const storagePath = '../feed/';
-const siteDomain = 'https://ravelloh.top'
+const siteDomain = 'https://ravelloh.top';
 const authorINFO = {
     name: 'RavelloH',
     email: 'ravelloh@outlook.com',
@@ -32,13 +32,13 @@ const feed = new Feed({
     image: 'https://ravelloh.top/assets/images/avatar.jpg',
     favicon: 'https://ravelloh.top/favicon.ico',
     copyright: `Copyright © 2019 - ${new Date().getFullYear()} RavelloH. All rights reserved.`,
-    generator: 'https://github.com/RavelloH/local-rss-generation',
+    generator: 'https://github.com/RavelloH/local-feed-generation',
     feedLinks: {
         json: 'https://ravelloh.top/feed/feed.json',
         atom: 'https://ravelloh.top/feed/atom.xml',
         rss: 'https://ravelloh.top/feed/rss.xml',
     },
-    author: authorINFO.name,
+    author: authorINFO,
 });
 
 const posts = fs.readFileSync(dataFilePath, 'utf-8');
@@ -46,7 +46,7 @@ JSON.parse(posts).forEach((post) => {
     feed.addItem({
         title: post.name,
         id: post.url,
-        link: siteDomain + post.url,
+        link: post.url,
         content: HTMLDecode(post.context),
         author: authorINFO,
         date: new Date(post.time),
