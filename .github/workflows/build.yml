@@ -34,28 +34,22 @@ jobs:
               run: |
                   cd program
                   node search.js
-                  git add -A
-                  git commit -m "[RPageSearch]`date '+%Y-%m-%d %H:%M:%S'`"
             - name: 'local-feed-generation'
               continue-on-error: True
               run: |
                   cd program
                   node feed.js
-                  git add -A
-                  git commit -m "[RTheme-Feed]`date '+%Y-%m-%d %H:%M:%S'`"
             - name: 'local-sitemap-generation'
               continue-on-error: True
               run: |
                   cd program
                   node fileList.js
                   npx sitemap < ../assets/data/urlList.txt > ../sitemap.xml
-                  git add -A
-                  git commit -m "[RTheme-Sitemap]`date '+%Y-%m-%d %H:%M:%S'`"
             - name: 'Commit files'
               continue-on-error: True
               run: |
                   git diff
                   git add -A
-                  git commit -m "[RThemeBuild]`date '+%Y-%m-%d %H:%M:%S'`" || exit
+                  git commit -m "[RThemeBuild]`date '+%Y-%m-%d %H:%M:%S'`"
                   git status
-                  git push
+                  git push -f
