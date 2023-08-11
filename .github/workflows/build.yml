@@ -31,12 +31,21 @@ jobs:
               run: |
                   cd program
                   node search.js
-            - name: 'Sitemap'
+                  git add -A
+                  git commit -m "[RPageSearch]`date '+%Y-%m-%d %H:%M:%S'`"
+            - name: 'local-rss-generation'
+              run: |
+                  cd program
+                  node search.js
+                  git add -A
+                  git commit -m "[RTheme-RSS]`date '+%Y-%m-%d %H:%M:%S'`"
+            - name: 'local-sitemap-generation'
               run: |
                   cd program
                   node fileList.js
                   npx sitemap < ../assets/data/urlList.txt > ../sitemap.xml
-
+                  git add -A
+                  git commit -m "[RTheme-Sitemap]`date '+%Y-%m-%d %H:%M:%S'`"
             - name: 'Commit files'
               continue-on-error: True
               run: |
