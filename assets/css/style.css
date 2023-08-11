@@ -1284,11 +1284,24 @@ hr.light {
     margin-right: 0.3571rem;
     background: var(--theme-gray-lighter);
     -webkit-animation: load 1.51s ease infinite;
+    animation: load 1.51s ease infinite;   
 }
 .square-loader span:last-child {
     margin-right: 0px;
 }
 @-webkit-keyframes load {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes load {
     0% {
         opacity: 1;
     }
