@@ -128,6 +128,10 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │           ├── highlight.worker.js
 │           └── search.worker.js
 ├── favicon.ico
+├── feed
+│   ├── atom.xml
+│   ├── feed.json
+│   └── rss.xml
 ├── friends
 │   └── index.html
 ├── google15e5df7e8b90902d.html
@@ -145,8 +149,8 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 ├── package.json
 ├── program
 │   ├── fileList.js
-│   ├── search.js
-│   └── search.py
+│   ├── rss.js
+│   └── search.js
 ├── robots.txt
 ├── site.webmanifest
 ├── sitemap.xml
@@ -154,7 +158,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-26 directories, 107 files
+27 directories, 110 files
 ```
 <!-- readme-tree end -->
 
