@@ -30,18 +30,21 @@ jobs:
               run: |
                   npm install
             - name: 'RPageSearch'
+              continue-on-error: True
               run: |
                   cd program
                   node search.js
                   git add -A
                   git commit -m "[RPageSearch]`date '+%Y-%m-%d %H:%M:%S'`"
             - name: 'local-feed-generation'
+              continue-on-error: True
               run: |
                   cd program
                   node feed.js
                   git add -A
                   git commit -m "[RTheme-Feed]`date '+%Y-%m-%d %H:%M:%S'`"
             - name: 'local-sitemap-generation'
+              continue-on-error: True
               run: |
                   cd program
                   node fileList.js
