@@ -3,11 +3,25 @@ const fs = require('fs');
 
 const dataFilePath = '../assets/data/search.json';
 const storagePath = '../feed/';
+const siteDomain = 'https://ravelloh.top'
 const authorINFO = {
     name: 'RavelloH',
     email: 'ravelloh@outlook.com',
     link: 'https://ravelloh.top/',
 };
+
+function HTMLDecode(str) {
+    var s = '';
+    if (str.length == 0) return '';
+    s = str.replace(/&amp;/g, '&');
+    s = s.replace(/&lt;/g, '<');
+    s = s.replace(/&gt;/g, '>');
+    s = s.replace(/&nbsp;/g, ' ');
+    s = s.replace(/&#39;/g, "'");
+    s = s.replace(/&quot;/g, '"');
+    s = s.replace(/<br\/>/g, '\n');
+    return s;
+}
 
 const feed = new Feed({
     title: "RavelloH's Blog / RavelloH的博客",
@@ -15,7 +29,7 @@ const feed = new Feed({
     id: 'http://ravelloh.top/',
     link: 'http://ravelloh.top/',
     language: 'zh',
-    image: 'https://ravelloh.top/assets/images/screenshot-pc.png',
+    image: 'https://ravelloh.top/assets/images/avatar.jpg',
     favicon: 'https://ravelloh.top/favicon.ico',
     copyright: `Copyright © 2019 - ${new Date().getFullYear()} RavelloH. All rights reserved.`,
     generator: 'https://github.com/RavelloH/local-rss-generation',
@@ -24,7 +38,7 @@ const feed = new Feed({
         atom: 'https://ravelloh.top/feed/atom.xml',
         rss: 'https://ravelloh.top/feed/rss.xml',
     },
-    author: authorINFO,
+    author: authorINFO.name,
 });
 
 const posts = fs.readFileSync(dataFilePath, 'utf-8');
@@ -32,8 +46,8 @@ JSON.parse(posts).forEach((post) => {
     feed.addItem({
         title: post.name,
         id: post.url,
-        link: post.url,
-        content: post.context,
+        link: siteDomain + post.url,
+        content: HTMLDecode(post.context),
         author: authorINFO,
         date: new Date(post.time),
         titleList: post.title,
