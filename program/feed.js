@@ -46,7 +46,7 @@ JSON.parse(posts).forEach((post) => {
     feed.addItem({
         title: post.name,
         id: post.url,
-        link: post.url,
+        link: siteDomain + post.url,
         content: HTMLDecode(post.context),
         author: authorINFO,
         date: new Date(post.time),
