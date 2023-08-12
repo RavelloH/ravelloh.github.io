@@ -3,18 +3,35 @@ console.log('载入模块中...');
 
 const fs = require('fs');
 const cheerio = require('cheerio');
-const pretty = require('pretty');
+
+// 配置区
+const articlesFolder = "../articles/" // 文章根目录
+const articlesFileName = "index.html" // 文档文件名
+const savePath = "../assets/data/search.json"
+// 选择器
+const articlesName = "#articles-header h2 a" // 文章标题元素
+const articlesUrl = "#articles-header h2 a"  // 文章链接元素
+const articlesTime = "#articles-header .articles-info time"  // 文章时间元素
+const articlesClass = "#articles-header .articles-info .class a" // 文章分类元素
+const articlesTag = "#articles-header .articles-tags a" // 文章标签元素
+const articlesBody = "#articles-body" // 文章正文元素
+const articlesImages = "#articles-body img" // 文章图片元素
+const articlesLinks = "#articles-body a" // 文章外链元素
+const articlesTitle = "#articles-body h2 , #articles-body h3 , articles-body h4 , articles-body h5 , articles-body h6" // 文章小标题元素
+
+
 
 let fileStructure = [];
 let fileList = [];
 let objectStructure = {};
 let objectStructureList = [];
 let json;
+
 console.log('[RPageSearch] LOADED');
 console.log('获取文件树中...');
 
 function fileRead(name) {
-    data = fs.readFileSync(`../articles/${name}/index.html`);
+    data = fs.readFileSync(`${articlesFolder}${name}/${articlesFileName}`);
     fileParse(data);
 }
 
@@ -42,33 +59,31 @@ function fileParse(file) {
     const $ = cheerio.load(file, {
         ignoreWhitespace: true,
     });
-    name = $('#articles-header h2 a').text();
-    url = $('#articles-header h2 a').attr('href');
-    time = $('#articles-header .articles-info time').text();
-    $('#articles-header .articles-info .class a').each(function (i, e) {
+    name = $(articlesName).text();
+    url = $(articlesUrl).attr('href');
+    time = $(articlesTime).text();
+    $(articlesClass).each(function (i, e) {
         cla.push($(e).text().toLowerCase());
     });
 
-    $('#articles-header .articles-tags a').each(function (i, e) {
+    $(articlesTag).each(function (i, e) {
         tag.push($(e).text().toLowerCase());
     });
 
     context = HTMLEncode(
-        $('#articles-body').text().replace(/\s+/g, '&nbsp;').replace(/\n|\r/g, ' '),
+        $(articlesBody).text().replace(/\s+/g, '&nbsp;').replace(/\n|\r/g, ' '),
     );
-    $(
-        '#articles-body h2 , #articles-body h3 , articles-body h4 , articles-body h5 , articles-body h6',
-    ).each(function (i, e) {
+    $(articlesTitle).each(function (i, e) {
         title.push($(e).text().toLowerCase().replace(/\s+/g, '').replace(/\n|\r/g, ''));
     });
-    $('#articles-body img').each(function (i, e) {
+    $(articlesImages).each(function (i, e) {
         if ($(e).attr('src').indexOf('http') == -1 && $(e).attr('src').indexOf('articles') == -1) {
-            img.push($('#articles-header h2 a').attr('href') + $(e).attr('src'));
+            img.push($(articlesUrl).attr('href') + $(e).attr('src'));
         } else {
             img.push($(e).attr('src'));
         }
     });
-    $('#articles-body a').each(function (i, e) {
+    $(articlesLinks).each(function (i, e) {
         if (typeof $(e).attr('href') !== 'undefined' && $(e).attr('href')[0] !== '#') {
             links.push($(e).attr('href'));
         }
@@ -77,7 +92,7 @@ function fileParse(file) {
     packer(name);
 }
 
-fs.readdir('../articles/', (err, data) => {
+fs.readdir(articlesFolder, (err, data) => {
     if (err) {
         console.log(err);
     } else {
@@ -114,7 +129,7 @@ function packer(e) {
             objectStructure = new objectCreater(e);
             objectStructureList.push(objectStructure);
         });
-        fs.writeFile('../assets/data/search.json', JSON.stringify(objectStructureList), (err) => {
+        fs.writeFile(savePath, JSON.stringify(objectStructureList), (err) => {
             if (err) throw err;
             console.log('生成&写入成功');
         });
