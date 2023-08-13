@@ -246,6 +246,10 @@ function imgError(element) {
         return;
     }
     element.setAttribute('error', 'true');
+    if (element.getAttribute('type') == 'avatar') {
+        element.src = '/assets/images/user.jpg';
+        return
+    }
     element.src = '/assets/images/broke.jpg';
 }
 
