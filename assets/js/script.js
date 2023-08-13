@@ -1277,6 +1277,7 @@ function loadPageType() {
             document.querySelectorAll('time').forEach((element) => {
                 element.setAttribute('onclick', 'switchTimeDisplay(this)');
             });
+            loadLinkBox();
             zoomPics();
             prefetchImg();
             getSearchData().then(() =>

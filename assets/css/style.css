@@ -1284,7 +1284,7 @@ hr.light {
     margin-right: 0.3571rem;
     background: var(--theme-gray-lighter);
     -webkit-animation: load 1.51s ease infinite;
-    animation: load 1.51s ease infinite;   
+    animation: load 1.51s ease infinite;
 }
 .square-loader span:last-child {
     margin-right: 0px;
@@ -1800,6 +1800,10 @@ a:not(header *, footer *, #sidebar *, .noline, .no-effect, a:has(> img))[href^='
     justify-content: flex-start;
 }
 
+img.border {
+    border: 2px solid #c6c9ce;
+}
+
 .hljs span::selection,
 .hljs::selection {
     background: #373b41;
@@ -2203,7 +2207,8 @@ mark {
     justify-content: space-evenly;
 }
 
-.friends-link-item {
+.friends-link-item,
+.link-box {
     background: var(--theme-gray-dark);
     border-radius: 6px;
     transition: all 0.4s;
@@ -2213,26 +2218,36 @@ mark {
     padding: 0.5em 1.5em 0.5em 0.5em;
 }
 
-.friends-link-item:hover {
+.link-box {
+    margin: 1em auto;
+    width: 32rem;
+}
+
+.friends-link-item:hover,
+.link-box:hover {
     background: var(--theme-gray-lighter);
     color: var(--theme-white-light);
 }
 
-.friends-link-item:hover .friends-bio {
+.friends-link-item:hover .friends-bio,
+.link-box .link-name {
     color: var(--theme-white-light);
 }
 
-.friends-link-item a {
+.friends-link-item a,
+.link-box a {
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 100%;
 }
 
-.friends-avatar {
+.friends-avatar,
+.link-box img {
     height: 5.5em;
     width: 5.5em;
     margin: auto 1em;
+    max-width: 100%;
 }
 
 .friends-avatar img {
@@ -2240,7 +2255,12 @@ mark {
     border-radius: 50%;
 }
 
-.friends-info {
+.link-box img {
+    border-radius: 4px;
+}
+
+.friends-info,
+.link-describe {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -2254,13 +2274,18 @@ mark {
     line-height: 1.2;
 }
 
-.friends-bio {
+.link-describe .link-name {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--theme-white-light);
+    line-height: 1.2;
+}
+
+.friends-bio,
+.link-describe .link-href {
     transition: all 0.6s;
     font-size: 1.15em;
     font-weight: 600;
-}
-
-.friends-link-item a {
 }
 
 /* 媒体查询 */

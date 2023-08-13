@@ -516,10 +516,27 @@ function resetImage() {
         const alts = element.getAttribute('alt')
             ? `<span>${element.getAttribute('alt')}</span>`
             : '';
-        console.log(alts);
         element.outerHTML = `<div class='imgbox'><img src='${element.getAttribute('src')}' alt='${
             element.getAttribute('alt') || ''
-        }' loading='lazy' style='${element.getAttribute('style') || ''}'>${alts}</div>`;
+        }' loading='lazy' style='${element.getAttribute('style') || ''}' class='${
+            element.getAttribute('class') || ''
+        }'>${alts}</div>`;
+    });
+}
+
+function loadLinkBox() {
+    document.querySelectorAll('#articles-body a[type="link-box"]').forEach((e) => {
+        e.outerHTML = `
+        <div class="link-box">
+            <a href='${e.href}' class='no-effect' target='_blank'>
+            <img src="https://screenshot.ravelloh.top/?viewport=1000x1000&cache=864000&await=1000&url=${e.href}">
+            <div class="link-describe">
+                <span class="link-name"><span class='i_small ri:link'></span> ${e.innerHTML}</span>
+                <span class="one-line line-href">${e.href}</span>
+            </div>
+            </a>
+        </div>
+        `;
     });
 }
 
