@@ -26,7 +26,7 @@ onmessage = (event) => {
             .join('\n');
         postMessage(processedCode.substring(0, processedCode.length - 13));
     } else {
-        var result = self.hljs.highlightAuto(event.data);
-        postMessage(HTMLDecode(result.value));
+        var result = self.hljs.highlightAuto(HTMLDecode(event.data));
+        postMessage(result.value);
     }
 };
