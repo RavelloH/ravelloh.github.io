@@ -5,21 +5,20 @@ const fs = require('fs');
 const cheerio = require('cheerio');
 
 // 配置区
-const articlesFolder = "../articles/" // 文章根目录
-const articlesFileName = "index.html" // 文档文件名
-const savePath = "../assets/data/search.json"
+const articlesFolder = '../articles/'; // 文章根目录
+const articlesFileName = 'index.html'; // 文档文件名
+const savePath = '../assets/data/search.json';
 // 选择器
-const articlesName = "#articles-header h2 a" // 文章标题元素
-const articlesUrl = "#articles-header h2 a"  // 文章链接元素
-const articlesTime = "#articles-header .articles-info time"  // 文章时间元素
-const articlesClass = "#articles-header .articles-info .class a" // 文章分类元素
-const articlesTag = "#articles-header .articles-tags a" // 文章标签元素
-const articlesBody = "#articles-body" // 文章正文元素
-const articlesImages = "#articles-body img" // 文章图片元素
-const articlesLinks = "#articles-body a" // 文章外链元素
-const articlesTitle = "#articles-body h2 , #articles-body h3 , articles-body h4 , articles-body h5 , articles-body h6" // 文章小标题元素
-
-
+const articlesName = '#articles-header h2 a'; // 文章标题元素
+const articlesUrl = '#articles-header h2 a'; // 文章链接元素
+const articlesTime = '#articles-header .articles-info time'; // 文章时间元素
+const articlesClass = '#articles-header .articles-info .class a'; // 文章分类元素
+const articlesTag = '#articles-header .articles-tags a'; // 文章标签元素
+const articlesBody = '#articles-body'; // 文章正文元素
+const articlesImages = '#articles-body img'; // 文章图片元素
+const articlesLinks = '#articles-body a'; // 文章外链元素
+const articlesTitle =
+    '#articles-body h2 , #articles-body h3 , articles-body h4 , articles-body h5 , articles-body h6'; // 文章小标题元素
 
 let fileStructure = [];
 let fileList = [];
@@ -70,9 +69,7 @@ function fileParse(file) {
         tag.push($(e).text().toLowerCase());
     });
 
-    context = HTMLEncode(
-        $(articlesBody).text().replace(/\s+/g, '&nbsp;').replace(/\n|\r/g, ' '),
-    );
+    context = HTMLEncode($(articlesBody).text().replace(/\s+/g, '&nbsp;').replace(/\n|\r/g, ' '));
     $(articlesTitle).each(function (i, e) {
         title.push($(e).text().toLowerCase().replace(/\s+/g, '').replace(/\n|\r/g, ''));
     });

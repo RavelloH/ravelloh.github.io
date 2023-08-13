@@ -54,7 +54,7 @@ JSON.parse(posts).forEach((post) => {
         tag: post.tag,
         category: post.class,
         classification: post.class,
-        image: post.img[0] ? siteDomain + post.img[0] : null
+        image: post.img[0] ? siteDomain + post.img[0] : null,
     });
 });
 
