@@ -587,6 +587,9 @@ function openInfoBar(mode) {
             break;
         case 'articles-sort':
             switchElementContent('#infobar-left', structureInfobarSort(), 0);
+            break;
+        case 'feed':
+            switchElementContent('#infobar-left', structureInfobarFeed(), 0);
     }
     switchElementContent('#infobar-title', mode, 300);
     toggleLayoutInfobar();

@@ -11,7 +11,7 @@ originIconsLeftContext = `
         <a style="--i: 1" id="icon-about" href="#about" onclick="openInfoBar('info');return false;" aria-label="about this page"><span class="i ri:file-info-line"></span></a>
         <a style="--i: 2" id="icon-github" href="http://github.com/ravelloh" target="_blank" rel="noreferrer" aria-label="my github"><span class="i ri:github-fill"></span></a>
         <a style="--i: 3" id="icon-studio" href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer" aria-label="my studio"><span class="i ri:building-2-line"></span></a>
-        <a style="--i: 4" id="icon-rss" href="https://ravelloh.github.io/RSS/rss.xml" target="_blank" aria-label="rss"><span class="i ri:rss-fill"></span></a>
+        <a style="--i: 4" id="icon-rss" onclick="openInfoBar('feed')" aria-label="rss"><span class="i ri:rss-fill"></span></a>
     </nav>`;
 structureErrorViewmap =
     '<div class="texts"><h2 class=>Error...</h2><h3>Page load failed.</h3><span class="virgule">请求的页面未成功加载。</span><span> <span class="i_small ri:error-warning-line"></span> 服务器无法正常返回资源</span><br><div class="button-list"><a class="button" onclick="pjaxLoad(\'\')">回退到上个页面</a> <a class="button" onclick="checklink(\'\')">尝试自动解决</a></div></div><div><span class="i_large ri:alert-line"></span></div>';
@@ -441,4 +441,35 @@ function structureLayoutUserbar() {
         </div>
     </div>
     `;
+}
+
+function structureInfobarFeed() {
+    return `
+    <div class="full" id="feed-list">
+    <a href="https://ravelloh.top/feed/rss.xml" class="no-effect" target="_blank">
+    <div>
+        <span class="i ri:rss-fill"></span> <span>RSS</span>
+    </div>
+    </a>
+    <a href="https://ravelloh.top/feed/atom.xml" class="no-effect" target="_blank">
+    <div>
+        <span class="i ri:reactjs-fill"></span> <span>Atom</span>
+    </div>
+    </a>
+    <a href="https://ravelloh.top/feed/feed.json" class="no-effect" target="_blank">
+    <div>
+        <span class="i ri:braces-fill"></span> <span>JSON Feed</span>
+    </div>
+    </a>
+    </div>
+    <div class="center" id="mail-feed" onclick="feedMail()">
+    <span class="i ri:mail-add-fill"></span> <span>邮箱订阅</span>
+    </div>
+    <hr>
+    <h2>订阅</h2>
+    <p>
+    在上方选择相应的订阅格式获取链接，订阅将在新内容发布后自动同步。<br>
+    或者，也可以在登录后使用邮箱订阅。订阅后，有更新时会向绑定的邮箱发送通知。
+    </p>
+    `
 }
