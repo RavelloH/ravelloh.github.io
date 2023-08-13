@@ -55,7 +55,5 @@ jobs:
               continue-on-error: True
               run: |
                   git diff
-                  git add -A
-                  git commit -m "[RThemeBuild]`date '+%Y-%m-%d %H:%M:%S'`" || exit
                   git status
                   git push -f || exit
