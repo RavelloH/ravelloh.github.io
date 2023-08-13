@@ -59,6 +59,10 @@ function structureInfobarInfo() {
         <strong> 缓存触发时间: </strong> <span id="loading-time"><div class="circle-loader"></div>
         </span>
     </div>
+    <div class="flex-items">
+        <strong> 站点运行时长: </strong> <span id="up-time"><div class="circle-loader"></div>
+        </span>
+    </div>
     <hr><div id="alert-info"></div>
     `;
 }
