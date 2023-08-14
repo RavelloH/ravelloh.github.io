@@ -63,7 +63,9 @@ function structureInfobarInfo() {
         <strong> 站点运行时长: </strong> <span id="up-time"><div class="circle-loader"></div>
         </span>
     </div>
-    <hr><div id="alert-info"></div>
+    <hr>
+    <div id="alert-info"></div>
+    <div class="full" id="uptime-list"></div>
     `;
 }
 
@@ -471,5 +473,21 @@ function structureInfobarFeed() {
     在上方选择相应的订阅格式获取链接，订阅将在新内容发布后自动同步。<br>
     或者，也可以在登录后使用邮箱订阅。订阅后，有更新时会向绑定的邮箱发送通知。
     </p>
+    `
+}
+
+function structureUptime(name,status,url) {
+    let icon
+    if (status == 'up') {
+        icon = '<span class="i ri:check-fill"></span>'
+    } else {
+        icon = '<span class="i ri:signal-wifi-error-fill"></span>'
+    }
+    return `
+    <a href="${url}" class="no-effect" target="_blank">
+    <div>
+        ${icon} <span>${name}</span>
+    </div>
+    </a>
     `
 }

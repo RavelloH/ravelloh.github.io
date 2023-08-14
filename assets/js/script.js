@@ -788,6 +788,17 @@ function refreshInfo(runTime) {
             switchElementContent('#url-visitors', data['pageviews'].value),
         );
     }
+    if (runTime == 1) {
+        loadUptime().then((message)=>{
+        let str = ''
+        message.data.forEach((e)=>{
+            str += structureUptime(e.attributes.pronounceable_name,e.attributes.status,e.attributes.url)
+        })
+        switchElementContent('#uptime-list',str)
+        
+    })
+    }
+    
 }
 
 // download分发

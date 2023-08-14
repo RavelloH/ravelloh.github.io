@@ -1009,7 +1009,7 @@ a:active {
     font-weight: 600;
     line-height: 1em;
 }
-.texts p {
+.texts p , .textarea{
     font-size: 1em;
     color: #fff;
     margin: 1.4286rem 0;
@@ -2103,13 +2103,13 @@ code {
 #articles-body code {
     background-color: #333333;
 }
-#feed-list {
+#feed-list , #uptime-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-#articles-sort span, #feed-list a, #mail-feed ,
+#articles-sort span, #feed-list a, #mail-feed , #uptime-list a ,
 #articles-sort span:active , #feed-list a:active , #mail-feed:active {
     width: 45%;
     font-size: 1.2em;
@@ -2122,20 +2122,24 @@ code {
     transition: all 0.4s;
 }
 
-#feed-list a {
+#feed-list a , #uptime-list a {
     width: 30%;
 }
 
-#mail-feed , #mail-feed:active{
+#uptime-list {
+    flex-wrap: wrap;
+}
+
+#mail-feed , #mail-feed:active {
     width: calc(100% - 0.7em);
 }
 
-#articles-sort span:hover, #feed-list a:hover,
+#articles-sort span:hover, #feed-list a:hover, #uptime-list a:hover ,
 #articles-sort span.active , #mail-feed:hover{
     background-color: var(--theme-gray-lighter);
 }
 
-#feed-list div , #mail-feed{
+#feed-list div , #mail-feed , #uptime-list div {
     display: flex;
     flex-direction: column;
     align-content: center;
