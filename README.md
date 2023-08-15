@@ -35,6 +35,8 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 ├── 404.html
 ├── LICENSE
 ├── README.md
+├── about
+│   └── index.html
 ├── articles
 │   ├── 20200816
 │   │   ├── index.html
@@ -164,7 +166,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-28 directories, 115 files
+29 directories, 116 files
 ```
 <!-- readme-tree end -->
 
