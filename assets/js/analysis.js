@@ -41,67 +41,51 @@ function addEvent(list) {
 
 function getUmamiEventList() {
     return [
-        ['#avatar',
-            'header-头像'],
-        ['#avatarname',
-            'header-LOGO'],
-        ['#toggle',
-            'ui-菜单按钮'],
-        ['#infobar-toggle',
-            'ui-信息栏按钮'],
-        ['#icon-about',
-            'footer-关于'],
-        ['#icon-github',
-            'footer-Github'],
-        ['#icon-studio',
-            'footer-工作室'],
-        ['#icon-rss',
-            'footer-RSS'],
-        ['#icons-right',
-            'footer-消息栏'],
-        ['#email',
-            'menu-邮箱'],
-        ['#icon-swap',
-            'menu-切换服务器'],
-        ['#icon-color',
-            'menu-切换颜色'],
-        ['#icon-music',
-            'menu-音乐栏'],
-        ['#icon-fullscreen',
-            'menu-全屏'],
-        ['#icon-setting',
-            'menu-设置'],
-        ['#icon-share',
-            'menu-分享'],
+        ['#avatar', 'header-头像'],
+        ['#avatarname', 'header-LOGO'],
+        ['#toggle', 'ui-菜单按钮'],
+        ['#infobar-toggle', 'ui-信息栏按钮'],
+        ['#icon-about', 'footer-关于'],
+        ['#icon-github', 'footer-Github'],
+        ['#icon-studio', 'footer-工作室'],
+        ['#icon-rss', 'footer-RSS'],
+        ['#icons-right', 'footer-消息栏'],
+        ['#email', 'menu-邮箱'],
+        ['#icon-swap', 'menu-切换服务器'],
+        ['#icon-color', 'menu-切换颜色'],
+        ['#icon-music', 'menu-音乐栏'],
+        ['#icon-fullscreen', 'menu-全屏'],
+        ['#icon-setting', 'menu-设置'],
+        ['#icon-share', 'menu-分享'],
     ];
 }
 
 function getRealTimeVisitors(mode = 'return') {
     let site = 'https://analytics.ravelloh.top';
     let token =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjljM2Y1OWJiLTE0OGQtNTk4OC1hY2NjLTdmNDhjOTJhOWIzMiIsIndlYnNpdGVJZCI6ImY0N2UyZGMzLWY2YmYtNGQ3Yy1iMzExLTc0NjdiYjFiMTdlNSIsImhvc3RuYW1lIjoibG9jYWxob3N0IiwiYnJvd3NlciI6ImNocm9tZSIsIm9zIjoiTGludXgiLCJkZXZpY2UiOiJsYXB0b3AiLCJzY3JlZW4iOiI3NTN4MTIwNSIsImxhbmd1YWdlIjoiemgtQ04iLCJjb3VudHJ5IjoiQ04iLCJzdWJkaXZpc2lvbjEiOiJDTi1TRCIsInN1YmRpdmlzaW9uMiI6bnVsbCwiY2l0eSI6IlFpbmdkYW8iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTExVDA3OjA4OjU4LjAwMFoiLCJpYXQiOjE2ODY0NjczMzd9.Qli8kEukIWdN3nV8ioWIqaPQn0m4b3loIddLZo-9HDE';
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjljM2Y1OWJiLTE0OGQtNTk4OC1hY2NjLTdmNDhjOTJhOWIzMiIsIndlYnNpdGVJZCI6ImY0N2UyZGMzLWY2YmYtNGQ3Yy1iMzExLTc0NjdiYjFiMTdlNSIsImhvc3RuYW1lIjoibG9jYWxob3N0IiwiYnJvd3NlciI6ImNocm9tZSIsIm9zIjoiTGludXgiLCJkZXZpY2UiOiJsYXB0b3AiLCJzY3JlZW4iOiI3NTN4MTIwNSIsImxhbmd1YWdlIjoiemgtQ04iLCJjb3VudHJ5IjoiQ04iLCJzdWJkaXZpc2lvbjEiOiJDTi1TRCIsInN1YmRpdmlzaW9uMiI6bnVsbCwiY2l0eSI6IlFpbmdkYW8iLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTExVDA3OjA4OjU4LjAwMFoiLCJpYXQiOjE2ODY0NjczMzd9.Qli8kEukIWdN3nV8ioWIqaPQn0m4b3loIddLZo-9HDE';
     let apiURL = site + '/api/websites/f47e2dc3-f6bf-4d7c-b311-7467bb1b17e5/active';
     fetch(apiURL, {
         headers: {
             'x-umami-share-token': token,
         },
     })
-    .then((response) => response.json())
-    .then((data) => {
-        if (isLayoutMenuOpen() && mode == 'switch') {
-            return switchMessageBarContent(structureOnlineVistor(data[0].x));
-        }
-        if (mode == 'return') {
-            return data[0].x;
-        }
-    });
+        .then((response) => response.json())
+        .then((data) => {
+            if (isLayoutMenuOpen() && mode == 'switch') {
+                return switchMessageBarContent(structureOnlineVistor(data[0].x));
+            }
+            if (mode == 'return') {
+                return data[0].x;
+            }
+        });
 }
 
 function getPageVisitors(url = window.location.pathname) {
     return new Promise((resolve, reject) => {
         let site = 'https://analytics.ravelloh.top';
         let token =
-        'Bearer hx2fU5szYyF8FSbPn4hwOfXnz9Py5aBlbnHy3698+yhxZx50y+ucR02iDYLfgw5ZqwaMS30nlEGOyDzvpv9nX/PxnZHTu5xAz8rh6FvkcKm+lwgg3sqcyMAooD/Z3UodYE8DsSJf/7LQ5lWucOoMGhpYN5WpE7CqmN0ppUePWu4cE0q6c1g4UAaa7MdbbOL7/0bIyl+sNckm4vs+Xcy86a7M6c99INiWdsZQstWj1b1vJQvGjJlJhbZXXlgBSAqxL9nZWboN9NduHd2OuNE4uFPOUFWjUrxFa5VBLyNyd3JY2wCk7xm8zC2qCWKR5icQr9D/YZZpntE9w0JYm4Bz3GoopbHkaoq4SQ==';
+            'Bearer hx2fU5szYyF8FSbPn4hwOfXnz9Py5aBlbnHy3698+yhxZx50y+ucR02iDYLfgw5ZqwaMS30nlEGOyDzvpv9nX/PxnZHTu5xAz8rh6FvkcKm+lwgg3sqcyMAooD/Z3UodYE8DsSJf/7LQ5lWucOoMGhpYN5WpE7CqmN0ppUePWu4cE0q6c1g4UAaa7MdbbOL7/0bIyl+sNckm4vs+Xcy86a7M6c99INiWdsZQstWj1b1vJQvGjJlJhbZXXlgBSAqxL9nZWboN9NduHd2OuNE4uFPOUFWjUrxFa5VBLyNyd3JY2wCk7xm8zC2qCWKR5icQr9D/YZZpntE9w0JYm4Bz3GoopbHkaoq4SQ==';
         let timestamp = new Date().getTime();
         let apiURL = `${site}/api/websites/f47e2dc3-f6bf-4d7c-b311-7467bb1b17e5/stats?startAt=1672502400000&endAt=${timestamp}&url=${url}`;
         /* fetch("https://analytics.ravelloh.top/api/websites/f47e2dc3-f6bf-4d7c-b311-7467bb1b17e5/stats?startAt=1672502400000&endAt=1690891199999&url=/articles/", {
@@ -126,24 +110,29 @@ function getPageVisitors(url = window.location.pathname) {
                 authorization: token,
             },
         })
-        .then((response) => response.json())
-        .then((data) => {
-            resolve(data);
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                resolve(data);
+            });
     }).catch((err) => {
         throw err;
     });
 }
 
 function loadUptime() {
-    return new Promise((resolve, reject) => {
-        let site = 'https://uptime.ravelloh.top';
-        fetch(site, {})
-        .then((response) => response.json())
-        .then((data) => {
-            resolve(data);
+    if (typeof uptimeData == 'undefined') {
+        return new Promise((resolve, reject) => {
+            let site = 'https://uptime.ravelloh.top';
+            fetch(site, {})
+                .then((response) => response.json())
+                .then((data) => {
+                    resolve(data);
+                    uptimeData = data;
+                });
+        }).catch((err) => {
+            throw err;
         });
-    }).catch((err) => {
-        throw err;
-    });
+    } else {
+        return Promise.resolve(uptimeData);
+    }
 }

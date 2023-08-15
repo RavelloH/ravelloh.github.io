@@ -1009,7 +1009,8 @@ a:active {
     font-weight: 600;
     line-height: 1em;
 }
-.texts p , .textarea{
+.texts p,
+.textarea {
     font-size: 1em;
     color: #fff;
     margin: 1.4286rem 0;
@@ -2103,14 +2104,21 @@ code {
 #articles-body code {
     background-color: #333333;
 }
-#feed-list , #uptime-list {
+#feed-list,
+#uptime-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-#articles-sort span, #feed-list a, #mail-feed , #uptime-list a ,
-#articles-sort span:active , #feed-list a:active , #mail-feed:active {
+#articles-sort span,
+#feed-list a,
+#mail-feed,
+#uptime-list a,
+#articles-sort span:active,
+#feed-list a:active,
+#mail-feed:active,
+#uptime-list a:hover {
     width: 45%;
     font-size: 1.2em;
     background-color: var(--theme-gray);
@@ -2122,24 +2130,27 @@ code {
     transition: all 0.4s;
 }
 
-#feed-list a , #uptime-list a {
+#feed-list a,
+#uptime-list a {
     width: 30%;
 }
 
-#uptime-list {
-    flex-wrap: wrap;
-}
-
-#mail-feed , #mail-feed:active {
+#mail-feed,
+#mail-feed:active {
     width: calc(100% - 0.7em);
 }
 
-#articles-sort span:hover, #feed-list a:hover, #uptime-list a:hover ,
-#articles-sort span.active , #mail-feed:hover{
+#articles-sort span:hover,
+#feed-list a:hover,
+#uptime-list a:hover,
+#articles-sort span.active,
+#mail-feed:hover {
     background-color: var(--theme-gray-lighter);
 }
 
-#feed-list div , #mail-feed , #uptime-list div {
+#feed-list div,
+#mail-feed,
+#uptime-list div {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -2323,7 +2334,7 @@ mark {
 /* 媒体查询 */
 @media screen and (min-width: 1500px) {
     html {
-        font-size: calc(1vw + 2px);
+        font-size: calc(0.8vw + 2px);
     }
 }
 

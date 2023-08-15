@@ -211,7 +211,7 @@ function changeProgress(progress) {
         return false;
     }
     if (progress <= progressNum) {
-        fullProgressBar();
+        // fullProgressBar();
         return false;
     }
     let progressBar = document.querySelector('#progress');
@@ -774,7 +774,7 @@ function refreshInfo(runTime) {
     } else {
         switchElementContent('#cookie-state', '<span class="yellow">未启用</span>');
     }
-    switchElementContent('#up-time',getTime('DD天mm分钟','2/03/2019 20:52:00'))
+    switchElementContent('#up-time', getTime('DD天mm分钟', '2/03/2019 20:52:00'));
     switchElementContent('#loading-time', docCookies.getItem('lastLoadTime'));
     if (trustDomain.indexOf(window.location.hostname) == -1) {
         switchElementContent(
@@ -789,16 +789,18 @@ function refreshInfo(runTime) {
         );
     }
     if (runTime == 1) {
-        loadUptime().then((message)=>{
-        let str = ''
-        message.data.forEach((e)=>{
-            str += structureUptime(e.attributes.pronounceable_name,e.attributes.status,e.attributes.url)
-        })
-        switchElementContent('#uptime-list',str)
-        
-    })
+        loadUptime().then((message) => {
+            let str = '';
+            message.data.forEach((e) => {
+                str += structureUptime(
+                    e.attributes.pronounceable_name,
+                    e.attributes.status,
+                    e.attributes.url,
+                );
+            });
+            switchElementContent('#uptime-list', str);
+        });
     }
-    
 }
 
 // download分发
