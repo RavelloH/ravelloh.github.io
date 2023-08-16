@@ -106,7 +106,38 @@ function structureErrorInfo(error) {
     return `<div class="info-alert center"><strong><span class="i_small ri:spam-line"></span> ${error}</div>`;
 }
 function getstructureMusicSearchResult(name, url, artist, pic, album) {
-    return `<div class="music-search-list loading"><div class="music-search-result"><div class="music-search-info"><div class="music-search-img"><img src=\'${pic}\' loading="lazy"></div><div class="music-search-title"><span class="music-search-name">${name}</span><span class="music-search-author"> <span class="i_small ri:account-box-line"></span> ${artist} - <span class="i_small ri:mv-line"></span> ${album}</span></div></div><div class="music-search-operation"><span class="i ri:add-fill" onclick="download('${url}','${name}.mp3')"></span><span class="i ri:play-fill" onclick="musicChange(\'${name} - ${artist}\',\'${url}\')"></span></div></div><hr></div>`;
+    return `
+    <div class="music-search-list loading">
+    <div class="music-search-result">
+        <div class="music-search-info">
+            <div class="music-search-img">
+                <img src=\'${pic}\' loading="lazy">
+            </div>
+            <div class="music-search-title">
+                <span class="music-search-name">${name}</span><span class="music-search-author"> <span class="i_small ri:account-box-line"></span> ${artist} - <span class="i_small ri:mv-line"></span> ${album}</span>
+            </div>
+        </div>
+        <div class="music-search-operation">
+        <span>
+            <span class="i ri:add-fill" onclick="copy(structureMusicExport(this),this.parentNode)" data-name="${name}" 
+            data-album="${album}" data-url="${url}" data-artist="${artist}" data-pic="${pic}"></span>
+        </span>
+        <span class="i ri:play-fill" onclick="musicChange(\'${name} - ${artist}\',\'${url}\')"></span>
+        </div>
+    </div>
+    <hr>
+    </div>`;
+}
+
+function structureMusicExport(e) {
+    let name = e.getAttribute('data-name');
+    let url = e.getAttribute('data-url');
+    let artist = e.getAttribute('data-artist');
+    let pic = e.getAttribute('data-pic');
+    let album = e.getAttribute('data-album');
+
+    return `<a href="${url}" type="music-box" info="<span class='music-search-author'> <span class='i_small ri:account-box-line'></span> ${artist} - <span class='i_small ri:mv-line'></span> ${album}</span>" src="${pic}">${name}</a>
+    `;
 }
 function getMailFeedbackButton() {
     return (
@@ -117,7 +148,7 @@ function getMailFeedbackButton() {
 }
 function structurePlayingMusic(name) {
     return `
-    <a>
+    <a onclick="openInfoBar('music')">
         <strong>正在播放: ${name}</strong>&nbsp;
         <span class="i ri:music-2-fill"></span>
     </a>
@@ -126,11 +157,11 @@ function structurePlayingMusic(name) {
 structureDownloadBar =
     '<hr><h4><strong>下载管理器 </strong></h4><br><div class="flex-items"><strong> 源地址: </strong> <span id="download-origin-url"><div class="circle-loader"></div></span></div><div class="flex-items"><strong> 下载状态: </strong> <span id="download-state"><div class="circle-loader"></div></span></div><div class="flex-items"><strong> 下载进度: </strong> <span id="download-progress"><div class="circle-loader"></div></span></div><div class="flex-items"><strong> 已下载大小: </strong> <span id="download-done"><div class="circle-loader"></div></span></div><div class="flex-items"><strong> 资源总大小: </strong> <span id="download-total"><div class="circle-loader"></div></span></div><div class="flex-items"><strong> 下载速度: </strong> <span id="download-speed"><div class="circle-loader"></div></span></div><div class="flex-items"><strong> 剩余时间: </strong> <span id="download-time"><div class="circle-loader"></div></span></div><hr>';
 structureDownloadMessage =
-    '<a class="breath" onclick="openInfoBar(\'info\')"><strong>正在下载 - 状态:活跃</strong>&nbsp;<span class="i_small ri:download-cloud-2-line"></span></a>';
+    '<a class="breath" onclick="openInfoBar(\'info\')"><strong>正在下载 - 状态:活跃</strong>&nbsp;<span class="i ri:download-cloud-2-line"></span></a>';
 structureDownloadCompleteMessage =
-    '<a class="green" onclick="openInfoBar(\'info\')"><strong>下载完成 </strong>&nbsp;<span class="i_small ri:chat-check-fill"></span></a>';
+    '<a class="green" onclick="openInfoBar(\'info\')"><strong>下载完成 </strong>&nbsp;<span class="i ri:chat-check-fill"></span></a>';
 structureDownloadErrorMessage =
-    '<a class="red" onclick="openInfoBar(\'info\')"><strong>下载失败 </strong>&nbsp;<span class="i_small ri:signal-wifi-error-line"></span></a>';
+    '<a class="red" onclick="openInfoBar(\'info\')"><strong>下载失败 </strong>&nbsp;<span class="i ri:signal-wifi-error-line"></span></a>';
 function structureShareInput(id, path) {
     return `
     <div id="share-global-${id}" class="share-area">
@@ -182,6 +213,21 @@ function valueSettingItems() {
             '允许将当前音乐播放列表保存至Cookie中，在页面重载后载入',
             'EnableMusicStateStorage',
         ],
+        ['启用自动登录', '允许在访问时自动以登录身份重新刷新令牌', 'EnableAutoLogin'],
+        ['启用站点状态显示', '允许访问Uptime服务以显示站点服务状态', 'EnableUptime'],
+        ['启用目录高亮', '在显示目录时自动高亮正在阅读的位置', 'EnableMenuHighlight'],
+        ['启用高级超链接', '允许渲染部分高级形式超链接', 'EnableAdvanceLink'],
+        ['启用标题重组', '在页面加载时自动重组标题，以提供高级锚点功能', 'EnableUpdateMenu'],
+        ['启用图片预加载', '允许在页面加载时自动触发后文图片预加载', 'EnableImgPrefetch'],
+        ['启用图片重组', '在页面加载时自动重组图片，以提供描述功能', 'EnableImgReset'],
+        ['启用生成页面模型', '允许生成页面模型，以进行文章筛选、排序等功能', 'EnablePageModel'],
+        ['启用锚点识别', '在锚点改变时运行调用相关事件，以进行索引筛选', 'EnableHashCheck'],
+        ['启用导航栏高亮', '允许在页面路径变化时高亮导航栏', 'EnableNavHighlight'],
+        ['启用图片放大', '允许在单击图片时放大图片', 'EnableImgZoom'],
+        ['启用消息队列', '启用右下方消息队列以显示更多信息', 'EnableMessage'],
+        ['启用索引数据拉取', '允许使用索引数据以进行搜索', 'EnableSearchDataGet'],
+        ['跳过模型验证', '跳过本地与云端数据模型匹配', 'EnableSkipModelTest', ''],
+        ['启用文章旁路推荐', '允许在文章结尾链接至上一篇/下一篇文章', 'EnableArticlesRecommand'],
     ];
 }
 function structureSetting(name, describe, id, defaultState = 'checked') {

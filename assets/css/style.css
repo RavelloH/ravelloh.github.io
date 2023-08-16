@@ -1517,32 +1517,38 @@ input[type='checkbox']:checked + .switchs {
 #markdown-area h1,
 #markdown-area h2,
 #viewmap > article h1 {
-    font-size: 3em;
+    font-size: 2.428rem;
+    line-height: 2.428rem;
     color: var(--theme-white-light);
     margin-top: 0.6em;
 }
 
 #markdown-area h3,
-#viewmap > article h3 {
+#viewmap > article h2 {
     font-size: 2em;
     margin-top: 0.5em;
 }
 
 #markdown-area h4,
-#viewmap > article h4 {
+#viewmap > article h3 {
     font-size: 1.75em;
     margin-top: 0.4em;
 }
 
 #markdown-area h5,
-#viewmap > article h5 {
+#viewmap > article h4 {
     font-size: 1.5em;
     margin-top: 0.4em;
 }
 
 #markdown-area h6,
-#viewmap > article h6 {
+#viewmap > article h5 {
     font-size: 1.2em;
+    margin-top: 0.3em;
+}
+
+#viewmap > article h6 {
+    font-size: 1.05em;
     margin-top: 0.3em;
 }
 
@@ -1555,6 +1561,7 @@ input[type='checkbox']:checked + .switchs {
     content: '# ';
     color: #f1f5fb;
 }
+#viewmap > article h2::before,
 #viewmap > article h3::before,
 #viewmap > article h4::before,
 #viewmap > article h5::before,
@@ -1731,7 +1738,7 @@ a:not(header *, footer *, #sidebar *, .noline, .no-effect, a:has(> img))[href^='
     border-radius: 4px;
 }
 
-#viewmap > article img:not(#articles-footer *) {
+#viewmap > article img:not(#articles-footer *, .reset) {
     max-width: 95%;
     height: auto;
     margin: 0 auto;
@@ -2004,7 +2011,7 @@ a.tag,
     scroll-behavior: smooth;
 }
 
-#articles-body img {
+#articles-body img:not(.reset) {
     max-height: 90%;
     max-width: 90%;
     margin: 0 auto;
@@ -2027,7 +2034,7 @@ a.tag,
 
 #articles-menu,
 #articles-menu a {
-    counter-reset: h2 h3 h4 h5 h6;
+    counter-reset: h1 h2 h3 h4 h5 h6;
     color: var(--theme-white);
     transition: all 0.5s;
 }
@@ -2038,25 +2045,30 @@ a.tag,
 
 #articles-menu .t6 span:before {
     counter-increment: h6;
-    content: counter(h3) '.' counter(h4) '.' counter(h5) '.' counter(h6) '.';
+    content: counter(h2) '.' counter(h3) '.' counter(h4) '.' counter(h5) '.' counter(h6) '.';
 }
 
 #articles-menu .t5 span:before {
     counter-increment: h5;
-    content: counter(h3) '.' counter(h4) '.' counter(h5) '.';
+    content: counter(h2) '.' counter(h3) '.' counter(h4) '.' counter(h5) '.';
 }
 
 #articles-menu .t4 span:before {
     counter-increment: h4;
-    content: counter(h3) '.' counter(h4) '.';
+    content: counter(h2) '.' counter(h3) '.' counter(h4) '.';
 }
 
 #articles-menu .t3 span:before {
     counter-increment: h3;
-    content: counter(h3) '.';
+    content: counter(h2) '.' counter(h3) '.';
 }
 
-#articles-menu .t2 a,
+#articles-menu .t2 span:before {
+    counter-increment: h2;
+    content: counter(h2) '.';
+}
+
+#articles-menu .t1 a,
 #articles-more .article-name a {
     width: 100%;
     font-size: 2em;
@@ -2243,7 +2255,8 @@ mark {
 }
 
 .friends-link-item,
-.link-box {
+.link-box,
+.music-box {
     background: var(--theme-gray-dark);
     border-radius: 6px;
     transition: all 0.4s;
@@ -2253,24 +2266,34 @@ mark {
     padding: 0.5em 1.5em 0.5em 0.5em;
 }
 
+.music-box {
+    width: 25rem;
+    height: 5.714285714285714rem;
+    border-radius: 3em;
+    margin: auto;
+}
+
 .link-box {
     margin: 1em auto;
     width: 32rem;
 }
 
 .friends-link-item:hover,
-.link-box:hover {
+.link-box:hover,
+.music-box:hover {
     background: var(--theme-gray-lighter);
     color: var(--theme-white-light);
 }
 
 .friends-link-item:hover .friends-bio,
-.link-box .link-name {
+.link-box .link-name,
+.music-box .music-name {
     color: var(--theme-white-light);
 }
 
 .friends-link-item a,
-.link-box a {
+.link-box a,
+.music-box a {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -2294,8 +2317,15 @@ mark {
     border-radius: 4px;
 }
 
+.music-box img {
+    border-radius: 50%;
+    margin: auto 1em;
+    height: 100%;
+}
+
 .friends-info,
-.link-describe {
+.link-describe,
+.music-info {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -2323,6 +2353,12 @@ mark {
     font-weight: 600;
 }
 
+video {
+    max-width: 100%;
+    min-width: 70%;
+    margin: auto;
+    max-height: 60vh;
+}
 #icons-left nav a {
     transition: color 0.6s;
 }

@@ -1,3 +1,6 @@
+// RTheme v3 - main
+
+// 标记元素
 function resetElements() {
     domMenuToggle = document.querySelector('#toggle');
     domBody = document.querySelector('body');
@@ -12,6 +15,7 @@ function resetElements() {
     musicProfather = document.querySelector('#music-progress-container');
 }
 
+// 刷新Cookie状态
 function resetCookies() {
     if (docCookies.hasItem('isCookieReseted') == false) {
         docCookies.setItem('isCookieReseted', true);
@@ -76,6 +80,7 @@ function isLayoutInfobarOpen() {
     }
 }
 
+// 用户栏状态
 function isLayoutUserbarOpen() {
     if (domLayoutUserBar.classList[0] == 'active') {
         return true;
@@ -111,6 +116,7 @@ function switchElementContent(selector, context, time = 300) {
     }
 }
 
+// 快切
 function quickSwitchElementContent(selector, context) {
     const element = document.querySelector(selector);
     element.innerHTML = context;
@@ -142,10 +148,14 @@ function switchMessageBarContent(context, time = 300) {
     switchElementContent('#message-bar', context, time);
 }
 
-let messageBarQueue = []; // 存储消息队列
-let messageBarState = 'offdisplay'; // 消息状态，初始为不显示
-// 添加消息到队列
+let messageBarQueue = [];
+let messageBarState = 'offdisplay';
+
+// 添加消息队列
 function addMessageBarQueue(context, lastTime, TransTime = 300) {
+    if (docCookies.getItem('settingEnableMessage') == 'false') {
+        return false;
+    }
     if (messageBarQueue.includes([context, lastTime, TransTime])) {
         return false;
     } else {
@@ -170,9 +180,12 @@ function enableMessageBarQueue() {
     }
 }
 
+// 延时，搭配asymc wait使用
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+// 页面主题切换
 function switchPageContent(selector, news, time = 450) {
     const element = document.querySelector(selector);
     element.style.opacity = '1';
@@ -193,6 +206,7 @@ function switchPageContent(selector, news, time = 450) {
     }, 300);
 }
 
+// 获取元素InnerHTML
 function getElementInnerhtml(selector) {
     element = document.querySelector(selector) || undefined;
     if (typeof element !== 'undefined') {
@@ -202,10 +216,13 @@ function getElementInnerhtml(selector) {
     }
 }
 
+// 随机数
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// 三态进度条
+// 进度调整
 function changeProgress(progress) {
     if (progressState == 'success') {
         return false;
@@ -224,6 +241,7 @@ function changeProgress(progress) {
     }
 }
 
+// 显示进度条
 function showProgressBar() {
     progressNum = 0;
     switchElementContent('#icons-left', structurePrograssBar);
@@ -257,6 +275,7 @@ function showProgressBar() {
     }, 301);
 }
 
+// 显示错误进度条
 function onErrorProgressBar() {
     setTimeout(function () {
         clearInterval(progressAdd);
@@ -270,6 +289,7 @@ function onErrorProgressBar() {
     }, 310);
 }
 
+// 关闭进度条
 function closeProgressBar() {
     if (progressbar.classList[0] == 'yellow') {
         progressbar.classList.toggle('yellow');
@@ -279,6 +299,7 @@ function closeProgressBar() {
     }
 }
 
+// 进度拉满
 function fullProgressBar() {
     setTimeout(() => {
         clearInterval(progressAdd);
@@ -289,15 +310,19 @@ function fullProgressBar() {
     setTimeout(() => closeProgressBar(), 1000);
 }
 
+// 初始化监听器
 function addListeners() {
     addEventListener('copy', (event) => {
-        addMessageBarQueue('<a>已复制 <span class="i ri:file-copy-2-line"></span></a>', 2000);
+        addMessageBarQueue('<a>已复制 &nbsp;<span class="i ri:file-copy-2-line"></span></a>', 2000);
     });
     addEventListener('cut', (event) => {
-        addMessageBarQueue('<a>已剪切 <span class="i ri:scissors-cut-line"></span></a>', 2000);
+        addMessageBarQueue(
+            '<a>已剪切 &nbsp;<span class="i ri:scissors-cut-line"></span></a>',
+            2000,
+        );
     });
     addEventListener('paste', (event) => {
-        addMessageBarQueue('<a>已粘贴 <span class="i ri:chat-check-line"></span></a>', 2000);
+        addMessageBarQueue('<a>已粘贴 &nbsp;<span class="i ri:chat-check-line"></span></a>', 2000);
     });
     window.addEventListener(
         'hashchange',
@@ -345,6 +370,7 @@ function addListeners() {
         pjaxLoadSuccess();
     });
 }
+
 // 退出检测
 window.onbeforeunload = function () {
     beforeLeaveContent = getElementInnerhtml('#viewmap');
@@ -416,6 +442,7 @@ function enablePjax() {
     }
 }
 
+// PJAX触发
 function pjaxLoadSend() {
     progressState = 'sending';
     originMessageBar = '';
@@ -431,6 +458,7 @@ function pjaxLoadSend() {
     console.log('sending request');
 }
 
+// PJAX成功
 function pjaxLoadSuccess() {
     progressState = 'success';
     progressNum = 99;
@@ -440,6 +468,7 @@ function pjaxLoadSuccess() {
     }, 300);
 }
 
+// PJAX失败
 function pjaxLoadError() {
     progressState = 'error';
     console.log('sending error');
@@ -447,6 +476,7 @@ function pjaxLoadError() {
     switchElementContent('#viewmap', structureErrorViewmap, 500);
 }
 
+// PJAX结束
 function pjaxLoadComplete() {
     console.log('sending complete');
     progressState = 'done';
@@ -455,10 +485,12 @@ function pjaxLoadComplete() {
     highlightNav('');
 }
 
-function pjaxLoad(page) {
-    pjax.loadUrl(page);
+// 使用PJAX加载
+function pjaxLoad(url) {
+    pjax.loadUrl(url);
 }
 
+// 页面JS重刷新
 function refershPageJs() {
     document.querySelectorAll('script[page-js], #page-js script').forEach(function (element) {
         var id = element.id || '';
@@ -486,6 +518,7 @@ function refershPageJs() {
     });
 }
 
+// HTML编解码模块
 function HTMLEncode(str) {
     var s = '';
     if (str.length == 0) return '';
@@ -546,6 +579,7 @@ function getTime(formats, startTime = '') {
     }
 }
 
+// InfoBar功能分发
 function openInfoBar(mode) {
     infoBarMode = mode || '';
     switch (mode) {
@@ -595,6 +629,7 @@ function openInfoBar(mode) {
     toggleLayoutInfobar();
 }
 
+// 音乐搜索
 function musicSearch(name) {
     if (name !== '') {
         switchElementContent('#music-search-program', structureSquareLoading);
@@ -635,6 +670,7 @@ function musicSearch(name) {
     }
 }
 
+// 音乐进度更新
 function musicUpdata() {
     changeMusicProgress = (progress) => {
         musicProgressbar.style.width = `${progress}%`;
@@ -644,6 +680,7 @@ function musicUpdata() {
         timeTrans(music.currentTime) + '/' + timeTrans(music.duration);
 }
 
+// 音乐播放/暂停
 function musicPlay() {
     if (music.src == window.location.origin + '/') {
         highlightElement('#music-name');
@@ -658,12 +695,14 @@ function musicPlay() {
     }
 }
 
+// 音乐前进/后退
 function musicGo(second) {
     if (music.currentTime + second <= music.duration && music.currentTime + second >= 0) {
         music.currentTime = music.currentTime + second;
     }
 }
 
+// 更改音乐
 function musicChange(name, url) {
     if (music.paused == false) {
         musicPlay();
@@ -686,6 +725,7 @@ function musicChange(name, url) {
     }, 200);
 }
 
+// 启动音乐搜索
 function musicSetting() {
     if (typeof InfobarRefersher !== 'undefined') {
         clearInterval(InfobarRefersher);
@@ -714,6 +754,7 @@ function musicSetting() {
     }
 }
 
+// 启动InfoBar刷新
 function enableInfobarRefersh() {
     var runTime = 0;
     var InfobarRefersher = setInterval(function () {
@@ -749,6 +790,7 @@ function enableInfobarRefersh() {
     }, 500);
 }
 
+// 信息刷新
 function refreshInfo(runTime) {
     switchElementContent('#page-update-time', document.lastModified);
     if (errorList.length == 0) {
@@ -805,6 +847,10 @@ function refreshInfo(runTime) {
 
 // download分发
 function download(url, name) {
+    fileDownload(url, name);
+}
+
+function fileDownload(url, name) {
     if (docCookies.getItem('settingEnableDownloadFunction') !== 'false') {
         if (docCookies.getItem('settingUseFetchDownload') == 'true') {
             fetchDownload(url, name);
@@ -891,6 +937,7 @@ function XMLDownload(url, name) {
     };
 }
 
+// byte可读转换
 function formatBytes(bytes) {
     if (bytes === 0) {
         return '0 Bytes';
@@ -901,6 +948,7 @@ function formatBytes(bytes) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
+// URL分析
 function analyzeURL(url, target) {
     let urlObj = new URL(url);
     let queryString = urlObj.search;
@@ -915,9 +963,11 @@ function analyzeURL(url, target) {
     return targetValue;
 }
 
+// 快速设置
 function setting(target, value) {
     docCookies.setItem('setting' + target, value);
 }
+
 // fetch下载
 function fetchDownload(url, filename) {
     return fetch(url, {
@@ -958,6 +1008,7 @@ function browserDownload(url, filename) {
     document.body.removeChild(a);
 }
 
+// Base64模块
 const base = {
     encryption: function (str) {
         let result = '';
@@ -999,6 +1050,7 @@ const base = {
     },
 };
 
+// 速度测试模块
 speedTestResultList = [];
 function startSwap(runTimes) {
     var speedTestList = '';
@@ -1059,6 +1111,7 @@ function startSwap(runTimes) {
     }
 }
 
+// 复制
 function copy(value, feedbackElement = null) {
     const textarea = document.createElement('textarea');
     textarea.value = value;
@@ -1074,6 +1127,7 @@ function copy(value, feedbackElement = null) {
     }
 }
 
+// 时间转换
 function timeTrans(times) {
     var t = '00:00';
     if (times > -1) {
@@ -1094,21 +1148,11 @@ function timeTrans(times) {
     return t;
 }
 
-// listprogramload动画
-// 倒序排列--i：排序后的序号
-for (let j = document.getElementsByClassName('listprogram').length; j > 0; j--) {
-    document.getElementsByClassName('listprogram')[j - 1].setAttribute('style', '--i: ' + j);
-}
-
-// listprogram => listprogramload
-function onload() {
-    for (let i = 0; i < document.getElementsByClassName('listprogram').length; i++) {
-        document.getElementsByClassName('listprogram')[i].classList.add('listprogramonload');
-    }
-}
-
 // 图片放大
 function zoomPics() {
+    if (docCookies.getItem('settingEnableImgZoom') == 'false') {
+        return false;
+    }
     let img;
     document.querySelectorAll('img').forEach((element) => {
         element.setAttribute('onload', 'imgLoad(this)');
@@ -1151,6 +1195,7 @@ function zoomPics() {
     }
 }
 
+// URL可用性检查
 function checkURL(url, callback, errorback) {
     fetch(url)
         .then((response) => {
@@ -1165,10 +1210,13 @@ function checkURL(url, callback, errorback) {
         });
 }
 
+// 主题颜色切换
+// TODO
 function toggleThemeMode() {
     addMessageBarQueue('<a>此功能尚在开发&nbsp;<span class="i ri:alert-line"></span></a>', 1500);
 }
 
+// 启动加载动画
 function loadItems(parentNodeName, mode = 'sort') {
     if (mode == 'sort') {
         for (let j = document.querySelectorAll(parentNodeName + ' .loading').length; j > 0; j--) {
@@ -1182,12 +1230,14 @@ function loadItems(parentNodeName, mode = 'sort') {
     });
 }
 
+// 清除加载状态
 function loadClear(parentNodeName) {
     document.querySelectorAll(parentNodeName + ' .loaded').forEach((e) => {
         e.classList.remove('loaded');
     });
 }
 
+// 下载速度测试
 function speedtest(imgUrl, fileSize) {
     return new Promise((resolve, reject) => {
         let start = null;
@@ -1205,17 +1255,23 @@ function speedtest(imgUrl, fileSize) {
     });
 }
 
+// 运行时间测试
 function runTime(f) {
     console.time();
     f();
     console.timeEnd();
 }
 
+// 检测宽度超出
 function isEllipsisActive(e) {
     return e.offsetWidth < e.scrollWidth;
 }
 
+// 导航栏高亮
 function highlightNav(name) {
+    if (docCookies.getItem('settingEnableNavHighlight') == 'false') {
+        return false;
+    }
     document.querySelectorAll('#header-side nav a').forEach((element) => {
         element.classList.remove('active');
         if (element.innerText.toLowerCase() == name.toLowerCase()) {
@@ -1224,6 +1280,7 @@ function highlightNav(name) {
     });
 }
 
+// 账户管理模块
 function loadAccount() {
     if (docCookies.getItem('userInfo') == null) {
         switchElementContent(
@@ -1239,6 +1296,7 @@ function accountLoginIn(username, password, expireTime) {}
 
 function openUserbar(mode) {}
 
+// 页面类型分发
 function loadPageType() {
     var pageMoudle = document.querySelector('meta[name=pagetype]').getAttribute('content');
     console.log(pageMoudle);
@@ -1251,6 +1309,7 @@ function loadPageType() {
             // code
             break;
         case 'friends':
+            highlightNav('friends');
             reorder('#friends-link-box', '.friends-link-item', 0);
             originMessageBar = `<a onclick="reorder('#friends-link-box','.friends-link-item',300);zoomPics()">重新随机排序&nbsp;<span class="i ri:refresh-line"></span></a>`;
             addMessageBarQueue(originMessageBar, 0);
@@ -1261,6 +1320,9 @@ function loadPageType() {
         case 'works-index':
             document.querySelector('#showarea').classList.add('loaded');
             highlightNav('works');
+            break;
+        case 'about':
+            highlightNav('about');
             break;
         case 'articles-index':
             originMessageBar = `<a onclick='openInfoBar("articles-sort")'>更改排序方式&nbsp;<span class="i ri:bar-chart-horizontal-line"></span></a>`;
@@ -1294,7 +1356,7 @@ function loadPageType() {
             document.querySelectorAll('time').forEach((element) => {
                 element.setAttribute('onclick', 'switchTimeDisplay(this)');
             });
-            loadLinkBox();
+            loadBox();
             zoomPics();
             prefetchImg();
             getSearchData().then(() =>
@@ -1316,6 +1378,7 @@ function loadPageType() {
     checkPageHash();
 }
 
+// 错误消息推送
 function showError(text) {
     addMessageBarQueue(
         `<a class="red"><strong>错误:${text}</strong>&nbsp;<span class="i ri:alert-line"></span></a>`,
@@ -1323,7 +1386,11 @@ function showError(text) {
     );
 }
 
+// 检查页面锚点
 function checkPageHash() {
+    if (docCookies.getItem('settingEnableHashCheck') == 'false') {
+        return false;
+    }
     let hash = window.location.hash;
     if (hash.startsWith('#/tag/') || hash.startsWith('#/classification/')) {
         articlesFilter();

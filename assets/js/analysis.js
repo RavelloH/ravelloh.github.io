@@ -120,6 +120,9 @@ function getPageVisitors(url = window.location.pathname) {
 }
 
 function loadUptime() {
+    if (docCookies.getItem('settingEnableUptime') == 'false') {
+        return false;
+    }
     if (typeof uptimeData == 'undefined') {
         return new Promise((resolve, reject) => {
             let site = 'https://uptime.ravelloh.top';
