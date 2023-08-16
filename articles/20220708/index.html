@@ -94,7 +94,7 @@
             <div id='viewmap'>
                 <article>
                     <div id="articles-header">
-                        <h2><a href="/articles/20220708/">论静态页中伪动态的实现</a></h2>
+                        <h1><a href="/articles/20220708/">论静态页中伪动态的实现</a></h1>
                         <p class="articles-info">
                             <time>2022-07-08</time> •
                             <span class="i_small ri:archive-line"></span>
@@ -120,7 +120,7 @@
                                 href="?text=123&?name=aaa#锚点" class="linkline">点击此处</a>补充全链接内容。</strong>
                         </div>
                         <br>
-                        <h3>前言</h3>
+                        <h2>前言</h2>
                         <p>
                             最近半年里，我先后完成了<a class="linkline"
                                 href="https://ravelloh.github.io/PSGameSpider/">PSGameSpider</a>与<a class="linkline"
@@ -132,7 +132,7 @@
                         </p>
                         <br>
                         <br>
-                        <h3>效果</h3>
+                        <h2>效果</h2>
                         <div class="imgarea">
                             <p class="img-text">链接识别</p>
                             <img loading='lazy' src="/articles/20220708/show1.gif" alt="链接识别" style="border: 2px solid #c6c9ce;">
@@ -144,8 +144,8 @@
                         </p>
                         <br>
                         <br>
-                        <h3>实现方法</h3>
-                        <h4>链接识别</h4>
+                        <h2>实现方法</h2>
+                        <h3>链接识别</h3>
                         <p>
                             JavaScript中自带有识别当前页面的链接的方法<code>window.location.search</code>，可以用来识别当前页面的链接。<br>
                             local.search可以识别链接中带?及其后的内容。除此之外，还有下列类似的获取页面url的方法：<br>
@@ -402,13 +402,13 @@
 
                             </div>
                             <br>
-                            <h3>页面自动构建</h3>
+                            <h2>页面自动构建</h2>
                             <p>
                                 当然，自动构建代码需要平台支持，这就不可避免的需要用到服务器。<br>
                                 但是在本地无服务器的情况下，也可以上云，比如Github的Actions以及其他类似的服务。<br>
                                 下面以Github Actions为例，演示如何使用Github Actions来自动构建页面：<br>
                                 <br>
-                                <h4>Github Actions</h4>
+                                <h3>Github Actions</h3>
                                 简而言之，Github Actions就是一个云端的持续集成服务器。想要使用Github，只需要将相应代码传至Github仓库，在其中配置Actions即可。<br>
                                 Actions的配置也很简单，只需在仓库内新建<code>.github/workflows/main.yml</code>文件即可。<br>
                                 在此yml文件中，可以设置触发方式（如定时、每次提交、每次修改），以及触发条件（如提交的文件、提交的分支）。<br>
@@ -442,7 +442,7 @@
                                 其余有关Actions的内容不再赘述，详见<a class="linkline" href="https://docs.github.com/cn/actions">Github
                                     Actions Docs</a>。<br>
 
-                                <h5>使用Github Actions</h5>
+                                <h4>使用Github Actions</h4>
                                 因为Github Actions是一个云端的持续集成服务器，所以可以在Github上配置Actions，然后在Github上提交代码，就可以自动构建页面。<br>
                                 但这并不能达到自动构建页面的目的。想要自动部署，目前有两种方式：<br><br>
                                 <strong>1. Github Actions + 爬虫</strong><br>
@@ -538,7 +538,7 @@
                                     <img loading='lazy' src="/articles/20220708/code3.png" alt="前端JS代码实现">
                                 </div>
                                 <br>
-                                <h4>API + 前端即时渲染</h4>
+                                <h3>API + 前端即时渲染</h3>
                                 这部分没什么好说的，看具体API返回的格式就行。<br>
                                 返回text的就直接
                                 <code> document.write()</code><sup><em>*外联拖慢加载速度</em></sup>或者<code>.innerHTML()</code>写入即可；<br>

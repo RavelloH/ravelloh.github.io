@@ -76,7 +76,7 @@
             <div id="viewmap">
                 <article>
                     <div id="articles-header">
-                        <h2><a href="/articles/20221126/">Virgule.js现已发布</a></h2>
+                        <h1><a href="/articles/20221126/">Virgule.js现已发布</a></h1>
                         <p class="articles-info">
                             <time>2022-11-26</time> • <span class="i_small ri:archive-line"></span> <span class="class"> <a href=>技术</a>/ <a>设计</a> </span> • <span class="i_small ri:t-box-line"></span> <span id="textLength">----字</span> • <span class="i_small ri:search-eye-line"></span> <span id="pageVisitors">---</span>
                         </p>
@@ -164,7 +164,7 @@
                         }
                     </style>
                     <div id="articles-body">
-                        <h3>前言</h3>
+                        <h2>前言</h2>
                         <p>
                             22年暑假时，我把博客首页的打字机特效换成了类似于现在这种，但是当时也是随便做出来玩玩的，不仅功能单一，结构臃肿，用了530行js也只能达到让主页有两句循环的轮播，实在太不优雅。<br> 今年十月初我决定重制这个功能将其从530行压缩到370行，并在原有的基础上加入了跳过空格、自定义速度、快捷引用目标等功能，并将其封装为函数，现在想要使用只需一句：
                         </p>
@@ -175,16 +175,16 @@
                         太优雅了。<br> 项目现已开源。<a href="https://github.com/RavelloH/virgule.js" class="linkline">@Github:RavelloH/virgule.js</a>
                         <p></p>
                         <br> <br>
-                        <h3>效果</h3>
-                        <h4>升级前后对比</h4>
+                        <h2>效果</h2>
+                        <h3>升级前后对比</h3>
                         <div class="imgarea">
-                            <h5 class="img-text">升级前</h5> <img src="old.gif" alt="升级前" style="border: 2px solid #c6c9ce;" loading="lazy">
+                            <h4 class="img-text">升级前</h4> <img src="old.gif" alt="升级前" style="border: 2px solid #c6c9ce;" loading="lazy">
                         </div>
                         <div class="imgarea">
-                            <h5 class="img-text">升级后</h5> <img src="new.gif" alt="升级后" style="border: 2px solid #c6c9ce;" loading="lazy">
+                            <h4 class="img-text">升级后</h4> <img src="new.gif" alt="升级后" style="border: 2px solid #c6c9ce;" loading="lazy">
                         </div>
                         <br>
-                        <h4>即时体验</h4>
+                        <h3>即时体验</h3>
                         <div class="form-group">
                             <input type="text" name="text" id="text1" value="Place content here 在这里放置内容" required> <input type="number" name="time" id="times" value="100" min="1" required> <button class="button" value="查询" onclick="virgule(document.getElementById('output'),document.getElementById('text1').value,document.getElementById('time').value);">运行</button>
                             <div class="output" id="output">
@@ -194,14 +194,14 @@
                         <br>
                         <p></p>
                         <br> <br>
-                        <h3>使用</h3>
-                        <h4>直接引入JavaScript脚本</h4>
+                        <h2>使用</h2>
+                        <h3>直接引入JavaScript脚本</h3>
                         <div class="codeline">
                             <pre>                                <span>&lt;script src="https://ravelloh.github.io/virgule.js/virgule.js"&gt;&lt;/script&gt;</span>
                             </pre>
                         </div>
                         <br>
-                        <h4>手动复制源代码</h4>
+                        <h3>手动复制源代码</h3>
                         <div class="codeline">
                             <pre>                                <span>// Author:RavelloH</span>
                                 <span>// LICENCE: MIT</span>
@@ -329,7 +329,7 @@
                         </div>
                         需要注意的是，此项目需搭配等宽字体使用，如自带的Courier New、Terminal等，或者自己引入其他等宽字体。<br> 这里推荐Microsoft Yahei Mono和SF Mono SC。
                         <p></p>
-                        <h3>实现方法</h3>
+                        <h2>实现方法</h2>
                         <p>
                             注:下方行数表示以上Js代码所处行数。<br> 4-5：定义了两个列表<code>randArrMin</code>以及<code>randArr</code>，前者用于一个英文字符宽的字符的替换，后者用于一个中文字符宽的替换。 <br> 7：定义了virgule的主函数，默认参数中<code>target</code><code>context</code>必填，<code>speed</code>选填，默认100。<br> 8-12：将context中的内容转换到contextArr中储存。<br> 14-15：重置目标<br> 16-36：创建延迟循环virgulegenerate，间隔1000/speed毫秒。
                         </p>
@@ -344,11 +344,11 @@
                         <li>104：重组字符串，酱三个列表中的内容整合写入target中。</li>
                         <p></p>
                         <br>
-                        <h4>关键分析</h4>
+                        <h3>关键分析</h3>
                         <p>
                             其实整个过程中最复杂的是三个插入过程的顺序。这简单来说，分为以下三个阶段：<br> 1.用斜杠覆盖文本。<br> 2.逐渐将斜杠替换为随机文字。这一过程中，每将一个斜杠组替换一个新字符，就会重新将它前面的随机字符再随机化。<br> 3.用target中的文字替换随机文字。这一过程大体与2相反，没将一个随机字符替换为目标字符，就会刷新其后的随机字符。 <br><br> 以上三个过程顺次进行，每个过程完成后唤起下一个过程。如果还不理解，可以在<a class="linkline" href="#效果">#效果</a>章节的在线体验中，选择较低的速度运行，以理解这三个过程。
                         </p>
-                        <h3>后言</h3>
+                        <h2>后言</h2>
                         <p>
                             上述就是virgule.js现有的功能介绍和使用方法，顺带着也写了大体的实现方法。 <br> 本来打算把virgule效果应用给整个博客的，但碍于实在找不到什么地方再去添加，先鸽了。
                         </p>

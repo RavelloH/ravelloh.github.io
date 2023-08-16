@@ -76,7 +76,7 @@
             <div id="viewmap">
                 <article>
                     <div id="articles-header">
-                        <h2><a href="/articles/20220323/">Python实现网络爬虫</a></h2>
+                        <h1><a href="/articles/20220323/">Python实现网络爬虫</a></h1>
                         <p class="articles-info">
                             <time>2022-03-23</time> • <span class="i_small ri:archive-line"></span> <span class="class"> <a>技术</a> </span> • <span class="i_small ri:t-box-line"></span> <span id="textLength">----字</span> • <span class="i_small ri:search-eye-line"></span> <span id="pageVisitors">---</span>
                         </p>
@@ -86,16 +86,16 @@
                         <hr>
                     </div>
                     <div id="articles-body">
-                        <h3>前言</h3>
+                        <h2>前言</h2>
                         <p>
                             最近在参与一个数据收集的项目，需要大量获取图像及链接等，用人力显然是完成不过来了，<br> 于是索性就做个爬虫，一劳永逸了。<br> 这里因为项目比较小，对效率要求不大，就选择了使用Python而不是C语言。<br> (也因为Python用起来更省事)<br> 本文所含代码可直接跳转<a class="m" href="#代码">#代码</a>查看
                         </p>
                         <br>
-                        <h3>效果</h3> <img class="img" id="img1" src="img1.jpg" loading="lazy" alt="对baidu.com执行扫描的反馈结果">
+                        <h2>效果</h2> <img class="img" id="img1" src="img1.jpg" loading="lazy" alt="对baidu.com执行扫描的反馈结果">
                         <p>
                             效果如上图，即输入网页链接，自动提取所含图片链接，<br> 同时自动转化相对路径为绝对路径，方便下载。<br> 最后每行一个print出来，方便统一存储/下载。<br> <br>
                         </p>
-                        <h3>实现方式</h3>
+                        <h2>实现方式</h2>
                         <p>
                             Python在爬虫方面已经十分成熟，这里引用第三方库BeautifulSoup与urllib，若无这些库请下载:
                         </p>
@@ -192,7 +192,7 @@
                         <p>
                             上图套了四个if-else，作用分别是检测是否有http头、是否为内嵌base64图片、是否以//简写路径、是否使用相对路径，<br> 到这里为止，整个程序就结束了<br> 整个示例程序可分为引用-配置-请求-分析-输出5个部分，<br> 除了爬取图片，也可将上面的<code>pic_info = obj.find_all('img')</code>改成其他标签，<br> 比如改成meta可爬取简介，也可在特定站点内通过zaifind_all内添加对应的class(class_="xxx")及id(id_="xxx")来获取对应标签内的信息，<br> 实现更多功能。
                         </p>
-                        <h3>代码</h3>
+                        <h2>代码</h2>
                         <p>
                             完整版
                         </p>
@@ -290,7 +290,7 @@
                             <span>    else:</span>
                             <span>        print(pic)</span>
                         </pre>
-                        <h4>下载</h4>
+                        <h3>下载</h3>
                         <p>
                             此文章共含2个附件，分别对应 基础版 与 完整版 。
                         </p>
