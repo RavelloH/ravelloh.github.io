@@ -49,6 +49,7 @@ https://ravelloh.top/assets/images/broke.jpg
 https://ravelloh.top/assets/images/close.png
 https://ravelloh.top/assets/images/favicon-16x16.png
 https://ravelloh.top/assets/images/favicon-32x32.png
+https://ravelloh.top/assets/images/file.png
 https://ravelloh.top/assets/images/menu.png
 https://ravelloh.top/assets/images/music.jpg
 https://ravelloh.top/assets/images/screenshot-mobile.png
