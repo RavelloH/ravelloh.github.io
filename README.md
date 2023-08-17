@@ -116,6 +116,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── close.png
 │   │   ├── favicon-16x16.png
 │   │   ├── favicon-32x32.png
+│   │   ├── file.png
 │   │   ├── menu.png
 │   │   ├── music.jpg
 │   │   ├── screenshot-mobile.png
@@ -166,7 +167,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-29 directories, 116 files
+29 directories, 117 files
 ```
 <!-- readme-tree end -->
 
