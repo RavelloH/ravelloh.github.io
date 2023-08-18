@@ -10,7 +10,7 @@
     --theme-black: #111111;
     --theme-white: #c6c9ce;
     --theme-white-light: #ffffff;
-    --theme-white-dark: #848484;
+    --theme-white-dark: #999B9F;
     --theme-blue-light: #03a9f4;
     --theme-blue-dark: #0078d7;
     --theme-yellow: #ffa30a;
@@ -396,6 +396,11 @@ span:not(a span) {
     font-size: 1.2em;
     font-family: iconfont, Furore;
 }
+
+#viewmap > article #articles-body a {
+    color: var(--theme-white-dark);
+}
+
 a {
     background-color: transparent;
     background-image: none;
@@ -2359,6 +2364,19 @@ video {
     margin: auto;
     max-height: 60vh;
 }
+
+textarea {
+    width: calc(100% - 20px);
+    min-height: 21.42857142857142rem;
+    border: 1px solid var(--theme-gray-lighter);
+    background-color: var(--theme-gray);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 0.85em;
+    color: var(--theme-white);
+    font-family: var(--theme-fonts-mono);
+}
+
 #icons-left nav a {
     transition: color 0.6s;
 }
