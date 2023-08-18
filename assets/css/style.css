@@ -397,7 +397,7 @@ span:not(a span) {
     font-family: iconfont, Furore;
 }
 
-#viewmap > article #articles-body a {
+#viewmap > article #articles-body a:not(h1 a, h2 a, h3 a, h4 a, h5 a, h6 a) {
     color: var(--theme-white-dark);
 }
 

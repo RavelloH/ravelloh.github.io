@@ -216,6 +216,7 @@ function valueSettingItems() {
         ['启用自动登录', '允许在访问时自动以登录身份重新刷新令牌', 'EnableAutoLogin'],
         ['启用站点状态显示', '允许访问Uptime服务以显示站点服务状态', 'EnableUptime'],
         ['启用目录高亮', '在显示目录时自动高亮正在阅读的位置', 'EnableMenuHighlight'],
+        ['启用代码高亮', '允许对代码块渲染语法高亮', 'EnableCodeHighlight'],
         ['启用高级超链接', '允许渲染部分高级形式超链接', 'EnableAdvanceLink'],
         ['启用标题重组', '在页面加载时自动重组标题，以提供高级锚点功能', 'EnableUpdateMenu'],
         ['启用图片预加载', '允许在页面加载时自动触发后文图片预加载', 'EnableImgPrefetch'],

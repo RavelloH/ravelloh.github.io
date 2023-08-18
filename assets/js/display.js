@@ -86,6 +86,9 @@ async function getMarkdownToHTML(url, name) {
 
 // 代码高亮
 function codeHighlight() {
+    if (docCookies.getItem('settingEnableCodeHighlight') == 'false') {
+        return false;
+    }
     var codeEl = document.querySelectorAll(
         'pre code:not([highlight]) , .codeline pre:not([highlight]) , pre.codeline:not([highlight])',
     );
