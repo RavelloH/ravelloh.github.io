@@ -10,7 +10,7 @@
     --theme-black: #111111;
     --theme-white: #c6c9ce;
     --theme-white-light: #ffffff;
-    --theme-white-dark: #999B9F;
+    --theme-white-dark: #999b9f;
     --theme-blue-light: #03a9f4;
     --theme-blue-dark: #0078d7;
     --theme-yellow: #ffa30a;
@@ -1023,7 +1023,7 @@ a:active {
     max-width: 700px;
 }
 
-.texts a.button {
+a.button {
     display: inline-block;
     font-size: 1em;
     background: #fff;
@@ -1037,7 +1037,7 @@ a:active {
     transition: 0.2s;
 }
 
-.texts a.button:hover {
+a.button:hover {
     letter-spacing: 6px;
 }
 
@@ -1661,7 +1661,7 @@ pre span:not(span[highlight], span[class*='hljs']):hover:before {
     color: #c6c9ce;
 }
 
-code:not(pre code) {
+code {
     font-family: IBMPlex, Consolas, Monaco, courier, monospace;
     line-height: initial;
     padding: 0.1em 0.4em;
@@ -1673,6 +1673,8 @@ code:not(pre code) {
 
 pre code {
     padding: 0.1em 0;
+    color: rgb(201, 209, 217);
+    background-color: #2d2d2d;
 }
 
 .article code:not(pre code),
@@ -1693,6 +1695,7 @@ table {
     text-align: center;
     margin: 0 auto;
     overflow: auto;
+    font-size: 1em;
 }
 
 table td,
@@ -2118,7 +2121,7 @@ code {
     border-radius: 6px;
 }
 
-#articles-body code {
+#articles-body code:not(pre code) {
     background-color: #333333;
 }
 #feed-list,
@@ -2363,9 +2366,10 @@ video {
     min-width: 70%;
     margin: auto;
     max-height: 60vh;
+    border-radius: 4px;
 }
 
-textarea {
+#articles-body textarea {
     width: calc(100% - 20px);
     min-height: 21.42857142857142rem;
     border: 1px solid var(--theme-gray-lighter);
@@ -2375,6 +2379,19 @@ textarea {
     padding: 0.85em;
     color: var(--theme-white);
     font-family: var(--theme-fonts-mono);
+}
+
+kdb {
+    font-family: IBMPlex, Consolas, Monaco, courier, monospace;
+    text-transform: uppercase;
+    line-height: initial;
+    padding: 0.1em 0.4em;
+    margin: 0 2px;
+    font-size: 85%;
+    white-space: break-spaces;
+    border-radius: 6px;
+    background-color: var(--theme-gray-dark);
+    border: 1px solid var(--theme-white-dark);
 }
 
 #icons-left nav a {
