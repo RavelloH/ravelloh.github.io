@@ -455,14 +455,12 @@ function pjaxLoadSend() {
     }
     hiddenPageContent();
     showProgressBar();
-    console.log('sending request');
 }
 
 // PJAX成功
 function pjaxLoadSuccess() {
     progressState = 'success';
     progressNum = 99;
-    console.log('sending success');
     setTimeout(() => {
         zoomPics();
     }, 300);
@@ -471,14 +469,12 @@ function pjaxLoadSuccess() {
 // PJAX失败
 function pjaxLoadError() {
     progressState = 'error';
-    console.log('sending error');
     onErrorProgressBar();
     switchElementContent('#viewmap', structureErrorViewmap, 500);
 }
 
 // PJAX结束
 function pjaxLoadComplete() {
-    console.log('sending complete');
     progressState = 'done';
     refershPageJs();
     pjax.refresh();
@@ -1299,7 +1295,6 @@ function openUserbar(mode) {}
 // 页面类型分发
 function loadPageType() {
     var pageMoudle = document.querySelector('meta[name=pagetype]').getAttribute('content');
-    console.log(pageMoudle);
     switch (pageMoudle) {
         case 'homepage':
             highlightNav('home');
@@ -1363,7 +1358,7 @@ function loadPageType() {
                 switchElementContent(
                     '#more-articles',
                     loadMoreArticles(
-                        document.querySelector('#articles-header h2 a').getAttribute('href'),
+                        document.querySelector('#articles-header h1 a').getAttribute('href'),
                     ),
                 ),
             );
@@ -1387,7 +1382,12 @@ function showError(text) {
 }
 
 // 检查页面锚点
+isHashWorking = false;
 function checkPageHash() {
+    if (isHashWorking !== false) {
+        return false;
+    }
+    isHashWorking = true;
     if (docCookies.getItem('settingEnableHashCheck') == 'false') {
         return false;
     }
@@ -1395,4 +1395,14 @@ function checkPageHash() {
     if (hash.startsWith('#/tag/') || hash.startsWith('#/classification/')) {
         articlesFilter();
     }
+    setTimeout(() => {
+        if (isHashWorking == false) {
+            return false;
+        }
+        window.location.hash = '';
+        window.location.hash = hash;
+        setTimeout(() => {
+            isHashWorking = false;
+        }, 1);
+    }, 0);
 }
