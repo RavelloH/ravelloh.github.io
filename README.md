@@ -82,6 +82,31 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 │   │   ├── rpagesearch-name.png
 │   │   ├── rpagesearch-regular.png
 │   │   └── rpagesearch-title.png
+│   ├── 20230815
+│   │   ├── articles-show.png
+│   │   ├── code-highlight.png
+│   │   ├── download.png
+│   │   ├── flex-layout.png
+│   │   ├── function.png
+│   │   ├── github-actions.png
+│   │   ├── github-fork.png
+│   │   ├── google-test-result.png
+│   │   ├── i18n.png
+│   │   ├── icon-select.png
+│   │   ├── index.html
+│   │   ├── load-failed.png
+│   │   ├── menu.png
+│   │   ├── more-screen.png
+│   │   ├── music-add-pic.png
+│   │   ├── music-add.png
+│   │   ├── music-search.png
+│   │   ├── network.png
+│   │   ├── search.png
+│   │   ├── setting-list.png
+│   │   ├── setting.png
+│   │   ├── speedtest.png
+│   │   ├── tag-index.png
+│   │   └── vscode-replace.png
 │   └── index.html
 ├── assets
 │   ├── css
@@ -170,7 +195,7 @@ A GitHub personal site # # # 基于GithubPage的个人博客
 └── works
     └── index.html
 
-31 directories, 118 files
+32 directories, 142 files
 ```
 <!-- readme-tree end -->
 
