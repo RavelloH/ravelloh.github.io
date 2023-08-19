@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ravelloh.top/</id>
     <title>RavelloH's Blog / RavelloH的博客</title>
-    <updated>2023-08-19T14:31:01.576Z</updated>
+    <updated>2023-08-19T14:45:01.880Z</updated>
     <generator>https://github.com/RavelloH/local-feed-generation</generator>
     <author>
         <name>RavelloH</name>
@@ -16,7 +16,7 @@
     <icon>https://ravelloh.top/favicon.ico</icon>
     <rights>Copyright © 2019 - 2023 RavelloH. All rights reserved.</rights>
     <entry>
-        <title type="html"><![CDATA[RThemeV2: 全面升级]]></title>
+        <title type="html"><![CDATA[RThemeV3: 全面升级]]></title>
         <id>/articles/20230815/</id>
         <link href="https://ravelloh.top/articles/20230815/"/>
         <updated>2023-08-15T00:00:00.000Z</updated>

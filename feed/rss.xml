@@ -4,7 +4,7 @@
         <title>RavelloH's Blog / RavelloH的博客</title>
         <link>http://ravelloh.top/</link>
         <description>RSS - 博客文章订阅更新</description>
-        <lastBuildDate>Sat, 19 Aug 2023 14:31:01 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 19 Aug 2023 14:45:01 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/RavelloH/local-feed-generation</generator>
         <language>zh</language>
@@ -16,7 +16,7 @@
         <copyright>Copyright © 2019 - 2023 RavelloH. All rights reserved.</copyright>
         <atom:link href="https://ravelloh.top/feed/rss.xml" rel="self" type="application/rss+xml"/>
         <item>
-            <title><![CDATA[RThemeV2: 全面升级]]></title>
+            <title><![CDATA[RThemeV3: 全面升级]]></title>
             <link>https://ravelloh.top/articles/20230815/</link>
             <guid>/articles/20230815/</guid>
             <pubDate>Tue, 15 Aug 2023 00:00:00 GMT</pubDate>
