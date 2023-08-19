@@ -83,7 +83,6 @@ function getRealTimeVisitors(mode = 'return') {
 
 function getPageVisitors(url = window.location.pathname) {
     return new Promise((resolve, reject) => {
-        
         let apiURL = `https://analytics.api.ravelloh.top/pageview?url=${url}`;
         fetch(apiURL)
             .then((response) => response.json())
