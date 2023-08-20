@@ -136,7 +136,7 @@
                         <p>
                             得益于重新设计的主题框架，主题现在在性能方面已经登峰造极，在Google PageSpeed Insights测试中取得了400/400的满分成绩。
                             <a href="https://pagespeed.web.dev/analysis/https-ravelloh-top/ojuiwt9vbw?form_factor=desktop" type="link-box">Google PageSpeed 检测结果</a>
-                            <img src="google-test-result.png" alt="Google PageSpeed检测结果" loading="lazy"><br>
+                            <img loading="lazy" src="/articles/20230815/google-test-result.png" alt="Google PageSpeed检测结果" loading="lazy"><br>
                             在实际体验中，RTheme使用Web Worker异步处理高负载任务，异步加载/执行渲染，避免阻塞页面；其主动预加载也降低了页面的加载延迟。
                             在v3版本的全面升级中，主题已经改造为单页应用程序，加之顺畅的内容过渡，流畅性大大提升。
                         </p>
@@ -144,13 +144,13 @@
                         <p>
                             RTheme使用Github Actions在云端自动部署，无需本地干预，即可自动完成索引更新、自动订阅更新、站点地图更新、文章旁路推荐等功能。<br>
                             此外，RTheme优化了自身的架构，使得其编写文章十分简单----仅需要了解HTML语法即可。你也可以选择使用Markdown编辑。之后，其组件将在渲染时自动无感添加。<br>
-                            <img src="github-actions.png" alt="Github Actions运行效果">
+                            <img loading="lazy" src="/articles/20230815/github-actions.png" alt="Github Actions运行效果">
                         </p>
                         <h3>响应式</h3>
                         <p>
                             主题使用响应式设计，基准元素均使用flex/grid布局，在各尺寸屏幕上表现出色。
-                            <img src="flex-layout.png" alt="Flex布局显示效果">
-                            <img src="more-screen.png" alt="在更多尺寸屏幕上的模拟效果">
+                            <img loading="lazy" src="/articles/20230815/flex-layout.png" alt="Flex布局显示效果">
+                            <img loading="lazy" src="/articles/20230815/more-screen.png" alt="在更多尺寸屏幕上的模拟效果">
                         </p>
                         <h3>功能丰富</h3>
                         <p>
@@ -159,7 +159,7 @@
                         <h3>函数化</h3>
                         <p>
                             主题中除了用于管控初始化加载的<code>loading.js</code>，其余脚本均将各功能包装为函数，以保证其可复用性及可免依赖乱序加载。<br>
-                            <img src="function.png" alt="函数化效果"><br>
+                            <img loading="lazy" src="/articles/20230815/function.png" alt="函数化效果"><br>
                             这使得二次开发十分简单，可直接复用主题框架中的功能。
                         </p>
                         <h3>SEO友好</h3>
@@ -170,7 +170,7 @@
                         <p>
                             主题与可持续集成的RPageSearch深度集成，以提供静态站的全站高级搜索功能。
                             详见<a href="https://github.com/RavelloH/RPageSearch">RavelloH/RPageSearch</a>。高性能/实时搜索/正则语法支持/异步/web worker/自动持续构建/可拓展数据格式，提供丰富的搜索功能。<br>
-                            <img src="search.png" alt="RPageSearch的使用效果">
+                            <img loading="lazy" src="/articles/20230815/search.png" alt="RPageSearch的使用效果">
                         </p>
                         <h3>自动订阅更新</h3>
                         <p>
@@ -185,14 +185,14 @@
                         <p>
                             主题使用PJAX技术进行页面加载，并在页面加载切换之间加入过渡动画。<br>
                             另外，主题也会在页面加载时更新左下角的进度条，以展示正在加载/加载超时/加载完成/加载失败等不同场景。
-                            <img src="load-failed.png" alt="页面加载失败时，加载进度条变红">
+                            <img loading="lazy" src="/articles/20230815/load-failed.png" alt="页面加载失败时，加载进度条变红">
                         </p>
                         <h3>原生音乐播放器</h3>
                         <p>
                             主题内置原生音乐播放器，支持播放/切换/跳转/循环等功能，且可进行在线搜索以使用在线资源。<br>
-                            <img src="music-search.png" alt="在线搜索音乐的效果">
+                            <img loading="lazy" src="/articles/20230815/music-search.png" alt="在线搜索音乐的效果">
                             也支持在文章内部加入音乐播放器，来调用主题的播放器进行播放。<br>
-                            <img src="music-add-pic.png" alt="文章内此功能的截图">
+                            <img loading="lazy" src="/articles/20230815/music-add-pic.png" alt="文章内此功能的截图">
                         </p>
                         <h3>过渡自然</h3>
                         <p>
@@ -201,34 +201,34 @@
                         <h3>轻量化&amp;原生实现</h3>
                         <p>
                             主题本体大小小于600KB，无任何框架，保证了其高速的加载性能。
-                            <img src="network.png" alt="网络请求的总览截图">
+                            <img loading="lazy" src="/articles/20230815/network.png" alt="网络请求的总览截图">
                         </p>
                         <h3>代码高亮</h3>
                         <p>
                             主题使用<code>highlight.js</code>代码高亮，并在其基础上使用Web Worker并行加载，防止页面阻塞。<br>
-                            <img src="code-highlight.png" alt="代码高亮的显示效果">
+                            <img loading="lazy" src="/articles/20230815/code-highlight.png" alt="代码高亮的显示效果">
                         </p>
                         <h3>标签&amp;分类自动索引</h3>
                         <p>
                             主题能自动根据文章信息索引具有相应标签/分类的文章，无需干预。
-                            <img src="tag-index.png" alt="标签自动索引的效果">
+                            <img loading="lazy" src="/articles/20230815/tag-index.png" alt="标签自动索引的效果">
                         </p>
                         <h3>语言自定义</h3>
                         <p>
                             主题的语言文件包单独成文件，你可以根据自己的需要更改模板，也可实现其国际化。
-                            <img src="i18n.png" alt="i18n.js中的语言模板">
+                            <img loading="lazy" src="/articles/20230815/i18n.png" alt="i18n.js中的语言模板">
                         </p>
                         <h3>设置自定义</h3>
                         <p>
                             主题可进行各式设置，以提供个性化体验。<br>
                             设置项使用cookie存储，并且使用列表快速创建，保证其易用性。<br>
-                            <img src="setting.png" alt="部分设置项的截图">
-                            <img src="setting-list.png" alt="设置项的定义列表">
+                            <img loading="lazy" src="/articles/20230815/setting.png" alt="部分设置项的截图">
+                            <img loading="lazy" src="/articles/20230815/setting-list.png" alt="设置项的定义列表">
                         </p>
                         <h3>自动目录索引</h3>
                         <p>
                             主题可根据文章内标题自动生成目录，并高亮阅读项，以提高阅读体验。
-                            <img src="menu.png" alt="目录的显示效果">
+                            <img loading="lazy" src="/articles/20230815/menu.png" alt="目录的显示效果">
                         </p>
                         <h3>文章旁路推荐</h3>
                         <p>
@@ -238,7 +238,7 @@
                         <p>
                             主题内置下载器，提高整体感。你可以在文章中使用。<br>
                             详阅<a href="https://ravelloh.top/articles/20230815/#%E7%AE%B1%E5%BC%8F%E4%B8%8B%E8%BD%BD%E7%9B%92">#箱式下载盒</a>
-                            <img src="download.png" alt="下载器的运行截图">
+                            <img loading="lazy" src="/articles/20230815/download.png" alt="下载器的运行截图">
                         </p>
 
                         <br><br><hr class="light">
@@ -430,14 +430,14 @@
                             <h4>使用VSCode</h4>
                             在本地使用VSCode需要先拉取代码到本地。参阅<a href="#下载">#下载</a>。<br>
                             之后，你可以使用编辑器的替换功能逐项全部替换。
-                            <img src="vscode-replace.png" alt="使用VSCode全局替换">
+                            <img loading="lazy" src="/articles/20230815/vscode-replace.png" alt="使用VSCode全局替换">
 
                             <h4>使用Github Dev</h4>
                             你也可以使用Github Dev，只需要将<strong>你自己的仓库</strong>中的<code>github.com</code>替换为<code>github.dev</code>即可使用。无需再拉取代码，直接替换即可。替换操作同<a href="#使用VSCode">#使用VSCode</a>
 
                             <h4>使用Github CodeSpace</h4>
                             你可以在<strong>你自己的仓库</strong>中使用CodeSpace。<br>
-                            <img src="github-fork.png" alt="点击Create CodeSpace for Main即可创建此存储库">
+                            <img loading="lazy" src="/articles/20230815/github-fork.png" alt="点击Create CodeSpace for Main即可创建此存储库">
                             之后的操作方式与<a href="#使用VSCode">#使用VSCode</a>相同。
 
                             <h4>使用code-server</h4>
@@ -556,7 +556,7 @@
                             </div>
                             你可以使用RTheme自带的音乐搜索器搜索相应歌曲，并点击<code>"＋"</code>复制超链接。<br>
                             之后，将其粘贴到文档内即可。RTheme会自动生成相应结构及信息。
-                            <img src="music-add.png" alt="使用RTheme搜索响应歌曲并点击加号复制">
+                            <img loading="lazy" src="/articles/20230815/music-add.png" alt="使用RTheme搜索响应歌曲并点击加号复制">
                             <div class="codeline">
                                 <pre>
                                     <span>&lt;a&nbsp;href=&quot;http://music.163.com/song/media/outer/url?id=1477655546.mp3&quot;&nbsp;type=&quot;music-box&quot;&nbsp;info=&quot;&lt;span&nbsp;class=&#39;music-search-author&#39;&gt;&nbsp;&lt;span&nbsp;class=&#39;i_small&nbsp;ri:account-box-line&#39;&gt;&lt;/span&gt;&nbsp;West&nbsp;&amp;&nbsp;Zander&nbsp;-&nbsp;&lt;span&nbsp;class=&#39;i_small&nbsp;ri:mv-line&#39;&gt;&lt;/span&gt;&nbsp;Deep&nbsp;Breathing&lt;/span&gt;&quot;&nbsp;src=&quot;http://p1.music.126.net/FDE2goZS7DJ3HhIBFsQEMQ==/109951165303988707.jpg&quot;&gt;Autumn&nbsp;Haze&lt;/a&gt;</span>
@@ -1097,7 +1097,7 @@
                             使用方法非常简单，但首先你需要找到你需要的图标：<br>
                             <a href="https://icones.js.org/collection/ri" type="link-box">Icones.js - Remix Icon</a>
                             你可以在其中搜索来找到你需要的图标。之后，单击需要的图标，复制其名称（格式如<code>ri:xxxxx</code>）
-                            <img src="icon-select.png" alt="复制其名称，在图片中已经用白色线框标出">
+                            <img loading="lazy" src="/articles/20230815/icon-select.png" alt="复制其名称，在图片中已经用白色线框标出">
                             之后，你可以这样使用该图标：
                             <div class="codeline">
                                 <pre>
@@ -1244,7 +1244,7 @@
                         <h3>配置多站点</h3>
                         <p>
                             RTheme自带多站点自动测速选优功能。
-                            <img src="speedtest.png" alt="速度测试模式">
+                            <img loading="lazy" src="/articles/20230815/speedtest.png" alt="速度测试模式">
                             启用该功能，需要在<code>/assets/js/loading.js</code>中更改<code>trustDomain</code>的定义。如果你正常配置了主题，这个列表里应该会包含一个你的域名。<br>
                             如果你有多个域名，你可以将其放在里面来启用负载均衡。格式如下：<br>
                             <div class="codeline">
@@ -1369,7 +1369,7 @@
                         <a href="https://drive.ravelloh.top/api/raw/?path=/share/RTheme-V3.0.0.tar.gz" type="download-box">RTheme.v3.0.0.tar.gz</a>
                         <a href="https://github.com/RavelloH/RTheme/releases" type="link-box">Github Releases - RavelloH/RTheme</a>
                         此外，你也可以通过Fork/Use this template来获取此存储库。
-                        <img src="github-fork.png" alt="右上角的Fork和Use this template都可以用于获取此存储库">
+                        <img loading="lazy" src="/articles/20230815/github-fork.png" alt="右上角的Fork和Use this template都可以用于获取此存储库">
                         
                         <h2>后记</h2>
                         <p>
