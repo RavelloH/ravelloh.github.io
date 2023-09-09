@@ -1300,7 +1300,7 @@
                         <h3>配置边缘服务</h3>
                         <p>
                             <h3>Twikoo评论</h3>
-                            默认情况下，Twikoo处于开启状态。要使用Twikoo，只需要在<code>/asstes/js/display.js</code>中，修改函数<code>loadComment()</code>的定义，将其中包含的<code>envId: ''</code>(大概在第304行左右)修改为<code>envId: '这里填写你的envId'</code>。<br>
+                            默认情况下，Twikoo处于开启状态。要使用Twikoo，只需要在<code>/assets/js/display.js</code>中，修改函数<code>loadComment()</code>的定义，将其中包含的<code>envId: ''</code>(大概在第304行左右)修改为<code>envId: '这里填写你的envId'</code>。<br>
                             至于如何获取envId，详见Twikoo的文档：
                             <a href="https://twikoo.js.org/quick-start.html#%E9%80%9A%E8%BF%87-cdn-%E5%BC%95%E5%85%A5" type="link-box">快速上手 - 通过CDN引入</a>
                             <h3>Umami统计</h3>
@@ -1318,7 +1318,7 @@
                             密码：123456 <br> <br>
                             账号：public3 <br>
                             密码：123456 <br>
-                            之后，获取你的token(详见<a href="https://umami.is/docs/authentication">Umami的官方文档</a>)，以及你的共享token(创建你的站点的贡献链接，访问并用开发者工具查看网络信息，复制任意一个含有<code>x-umami-share-token</code>的请求头的网络请求的<code>x-umami-share-token</code>值)。<br>
+                            之后，获取你的token(详见<a href="https://umami.is/docs/authentication">Umami的官方文档</a>)，以及你的共享token(创建你的站点的共享链接，访问并用开发者工具查看网络信息，复制任意一个含有<code>x-umami-share-token</code>的请求头的网络请求的<code>x-umami-share-token</code>值)。<br>
                             之后，你需要部署你的路由转发服务来隐藏你的Token。详见我的这个项目：
                             <a href="https://github.com/RavelloH/umami-api-route" type="link-box">Github - RavelloH/umami-api-route</a>
                             然后，在<code>/assets/js/analysis.js</code>中，取消注释函数<code>initAnalytics()</code>中的<code>// umamiAnalytics();</code>，然后修改<code>getRealTimeVisitors()</code>中的token值为你的共享token，并取消位于定义最上方的<code>return false</code>，之后修改函数<code>getPageVisitors()</code>的定义，删除其最上方的内容，并将下方的<code>apiURL</code>中的<code>https://analytics.api.ravelloh.top</code>修改为你自己的路由转发API地址。<br>
@@ -1332,7 +1332,95 @@
                             接着，转到<code>/assets/js/i18n.js</code>，将其中<code>structureInfobarInfo()</code>的定义的返回值中最后几行的包含<code>需要先配置Uptime</code>字样的注释取消，<br>
                             最后，转到<code>/assets/js/script.js</code>，修改<code>refreshInfo()</code>的定义(大概在790行)，将定义最下方的包含<code>接入Uptime模块</code>字样的注释取消即可。<br>
                             都修改完成后，所有功能应该正常工作。
-                            
+
+                            <h3>修改设置项</h3>
+                            RTheme的设置项使用列表存储，动态创建生成，因此修改十分方便。<br>
+                            如果你修改了上方的功能（这些功能在设置中默认存在，但被注释隐藏掉了），可以取消注释以显示它们。<br>
+                            默认的定义在<code>/assets/js/i18n.js</code>中，如下：
+                            <div class="codeline">
+                                <pre>
+                                    <span>function&nbsp;valueSettingItems()&nbsp;{</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用PJAX加载模式&#39;,&nbsp;&#39;允许进行非刷新式页面请求，启用单页应用程序模式&#39;,&nbsp;&#39;EnablePjaxLoad&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用PJAX&nbsp;Debug模式&#39;,&nbsp;&#39;允许输出更多调试信息&#39;,&nbsp;&#39;EnablePjaxDebug&#39;,&nbsp;&#39;&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用instant.page预加载&#39;,&nbsp;&#39;启动被动式预加载，提高响应速率&#39;,&nbsp;&#39;EnableInstantPage&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用API预检查&#39;,&nbsp;&#39;允许预先请求API地址，以预先选择响应速度更快的API&#39;,&nbsp;&#39;EnableApiPrecheck&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;启用BaiduStatistics分析器&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;允许将部分访问情况提交至统计服务器，以帮助分析页面&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;EnableBaiduTongji&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;启用Umami&nbsp;Analytics分析器&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;允许与自建Umami服务通信，以统计页面访问情况&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;EnableUmamiAnalytics&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用Umami&nbsp;数据缓存&#39;,&nbsp;&#39;允许使用会话存储以优化部分性能&#39;,&nbsp;&#39;EnableUmamiCache&#39;,&nbsp;&#39;&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;启用Umami&nbsp;事件统计&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;允许提交部分UI交互情况统计。会造成额外的网络请求&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;EnableUmamiEvents&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用Umami&nbsp;API&#39;,&nbsp;&#39;允许从Umami服务获取实时访客量等信息&#39;,&nbsp;&#39;EnableUmamiAPI&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用Twikoo评论&#39;,&nbsp;&#39;允许与评论服务器通信，以实现评论操作&#39;,&nbsp;&#39;EnableComment&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;接管下载事件&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;允许使用主题框架下载管理器替代浏览器下载，显示更多信息&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;EnableDownloadFunction&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;使用Fetch下载模式&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;使用fetch代替XMLHttpRequest下载，将无法显示进度&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;UseFetchDownload&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;启用音乐状态保存&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;允许将当前音乐播放列表保存至Cookie中，在页面重载后载入&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;EnableMusicStateStorage&#39;,</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用自动登录&#39;,&nbsp;&#39;允许在访问时自动以登录身份重新刷新令牌&#39;,&nbsp;&#39;EnableAutoLogin&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用站点状态显示&#39;,&nbsp;&#39;允许访问Uptime服务以显示站点服务状态&#39;,&nbsp;&#39;EnableUptime&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用目录高亮&#39;,&nbsp;&#39;在显示目录时自动高亮正在阅读的位置&#39;,&nbsp;&#39;EnableMenuHighlight&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用高级超链接&#39;,&nbsp;&#39;允许渲染部分高级形式超链接&#39;,&nbsp;&#39;EnableAdvanceLink&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用标题重组&#39;,&nbsp;&#39;在页面加载时自动重组标题，以提供高级锚点功能&#39;,&nbsp;&#39;EnableUpdateMenu&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用图片预加载&#39;,&nbsp;&#39;允许在页面加载时自动触发后文图片预加载&#39;,&nbsp;&#39;EnableImgPrefetch&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用图片重组&#39;,&nbsp;&#39;在页面加载时自动重组图片，以提供描述功能&#39;,&nbsp;&#39;EnableImgReset&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用生成页面模型&#39;,&nbsp;&#39;允许生成页面模型，以进行文章筛选、排序等功能&#39;,&nbsp;&#39;EnablePageModel&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用锚点识别&#39;,&nbsp;&#39;在锚点改变时运行调用相关事件，以进行索引筛选&#39;,&nbsp;&#39;EnableHashCheck&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用导航栏高亮&#39;,&nbsp;&#39;允许在页面路径变化时高亮导航栏&#39;,&nbsp;&#39;EnableNavHighlight&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用图片放大&#39;,&nbsp;&#39;允许在单击图片时放大图片&#39;,&nbsp;&#39;EnableImgZoom&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用消息队列&#39;,&nbsp;&#39;启用右下方消息队列以显示更多信息&#39;,&nbsp;&#39;EnableMessage&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用索引数据拉取&#39;,&nbsp;&#39;允许使用索引数据以进行搜索&#39;,&nbsp;&#39;EnableSearchDataGet&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;跳过模型验证&#39;,&nbsp;&#39;跳过本地与云端数据模型匹配&#39;,&nbsp;&#39;EnableSkipModelTest&#39;,&nbsp;&#39;&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&#39;启用文章旁路推荐&#39;,&nbsp;&#39;允许在文章结尾链接至上一篇/下一篇文章&#39;,&nbsp;&#39;EnableArticlesRecommand&#39;],</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;];</span>
+                                    <span>}</span>
+                                </pre>
+                            </div>
+                            其中，列表中的每一项有四个属性，分别是<code>[显示名称,显示描述,标识名称,默认值]</code><br>
+                            其中，标识名称是在cookies中存储此值的名称，例如若设置为<code>EnablePjaxLoad</code>，那么当此设置项更改时，cookie中的项<code>settingEnablePjaxLoad</code>的值会相应改变。（cookie中的设置项将会被自动加入setting前缀以区分）<br>
+                            默认值有两个选择，填入<code>'checked'</code>或不提供此参数表示默认开启，填入<code>''</code>表示默认关闭。<br>
+                            具体使用时，你可以通过检测cookie的值来决定功能是否运行。例如，你可以使用下面的方式在<code>EnableUmamiAnalytics</code>的值为false时阻断程序运行:
+                            <div class="codeline">
+                                <pre>
+                                    <span>if&nbsp;(docCookies.getItem(&#39;settingEnableUmamiAnalytics&#39;)&nbsp;==&nbsp;&#39;false&#39;)&nbsp;{</span>
+                                    <span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;</span>
+                                    <span>}</span>
+                                </pre>
+                            </div>
+                            <br><br>
+                            另，感谢<a href="https://sotkg.cn/">@一只鬆</a>扩充此文档，你可以在<a href="https://sotkg.cn/articles/20230904/">https://sotkg.cn/articles/20230904/</a>中参考《RThemeV3 边缘服务配置》教程以详细了解上方配置过程中的细节。
+
                         </p>
 
                         <br><br><hr class="light">
@@ -1370,7 +1458,7 @@
                         <a href="https://github.com/RavelloH/RTheme/releases" type="link-box">Github Releases - RavelloH/RTheme</a>
                         此外，你也可以通过Fork/Use this template来获取此存储库。
                         <img loading="lazy" src="/articles/20230815/github-fork.png" alt="右上角的Fork和Use this template都可以用于获取此存储库">
-                        
+
                         <h2>后记</h2>
                         <p>
                             实际上，本来我还想写个API文档，用来解释一下RTheme中的几百个函数的功能和用法，可惜因学业原因完不成了，高考之后再说。<br>
