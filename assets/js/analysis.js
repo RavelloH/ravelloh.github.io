@@ -5,6 +5,11 @@ function umamiAnalytics() {
     if (docCookies.getItem('settingEnableUmamiAnalytics') == 'false') {
         return false;
     }
+    // 检测这是不是我自己的域名
+    if (/rav.*h/.test(window.location.hostname) == false) {
+        baiduAnalysis(true)
+        return false;
+    } 
     (function () {
         addEvent(getUmamiEventList());
         var umami = document.createElement('script');
@@ -18,8 +23,8 @@ function umamiAnalytics() {
     })();
 }
 
-function baiduAnalysis() {
-    if (docCookies.getItem('settingEnableBaiduTongji') == 'true') {
+function baiduAnalysis(force = false) {
+    if (docCookies.getItem('settingEnableBaiduTongji') == 'true' || force == true) {
         var _hmt = _hmt || [];
         (function () {
             var hm = document.createElement('script');
