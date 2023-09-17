@@ -1281,7 +1281,7 @@ function loadAccount() {
     if (docCookies.getItem('userInfo') == null) {
         switchElementContent(
             '#user-main',
-            `<div class="info-warning center"><span class="i_small ri:user-unfollow-line"></span> 尚未登录，部分功能受限<br>立刻 <a onclick="pjaxLoad('/user/login')">登录</a> 或 <a onclick="pjaxLoad('/user/register')">注册</a></div>`,
+            `<div class="info-warning center"><span class="i_small ri:user-unfollow-line"></span> 尚未登录，部分功能受限<br>立刻 <a onclick="pjaxLoad('/platform/signin')">登录</a> 或 <a onclick="pjaxLoad('/platform/signup')">注册</a></div>`,
         );
     }
 }
