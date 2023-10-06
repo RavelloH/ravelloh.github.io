@@ -7,9 +7,9 @@ function umamiAnalytics() {
     }
     // 检测这是不是我自己的域名
     if (/rav.*h/.test(window.location.hostname) == false) {
-        baiduAnalysis(true)
+        baiduAnalysis(true);
         return false;
-    } 
+    }
     (function () {
         addEvent(getUmamiEventList());
         var umami = document.createElement('script');

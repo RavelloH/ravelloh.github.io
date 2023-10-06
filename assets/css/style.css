@@ -21,8 +21,8 @@
     --theme-green-light: #5cdb95;
     --theme-green-dark: #357e56;
     --theme-fonts-regular: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', 'Segoe UI',
-        'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', system-ui;
+    'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', system-ui;
     --theme-fonts-mono: 'IBMPlex', 'Courier New', monospace;
     --theme-fonts-special: 'Furore', 'Geometos';
     --theme-base-px: 14px;
@@ -69,9 +69,9 @@
 @font-face {
     font-family: 'Geometos';
     src:
-        url('../fonts/Geometos.ttf') format('truetype'),
-        url('../fonts/Geometos.woff') format('woff'),
-        local('Geometos');
+    url('../fonts/Geometos.ttf') format('truetype'),
+    url('../fonts/Geometos.woff') format('woff'),
+    local('Geometos');
     font-display: swap;
 }
 @font-face {
@@ -426,17 +426,17 @@ a:after {
 }
 
 a:not(
-        #sidebar *,
-        footer *,
-        #logo *,
-        .button *,
-        .tag,
-        .articles-tags a,
-        .no-effect,
-        .taglist a,
-        #articles-menu *,
-        .flex-iconset *
-    ):hover:after {
+#sidebar *,
+footer *,
+#logo *,
+.button *,
+.tag,
+.articles-tags a,
+.no-effect,
+.taglist a,
+#articles-menu *,
+.flex-iconset *
+):hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
@@ -826,6 +826,7 @@ ul li a span {
     animation: circle-loader-frames 1s infinite linear;
     display: inline-block;
 }
+
 @keyframes circle-loader-frames {
     to {
         transform: rotate(1turn);
@@ -1135,6 +1136,11 @@ a.button:hover {
     border-bottom-color: lightblue;
 }
 
+.form-control input[invalid] {
+    outline: 0;
+    border-bottom-color: var(--theme-red);
+}
+
 .form-control label {
     position: absolute;
     top: 0.8571rem;
@@ -1158,6 +1164,7 @@ a.button:hover {
     color: lightblue;
     transform: translateY(-1.7857rem);
 }
+
 
 .listlines {
     max-width: 40%;
@@ -1419,6 +1426,37 @@ hr.light {
     margin: auto;
 }
 
+.big-button {
+    text-align: center;
+    height: calc(0.7143rem * 2 + 1.4em);
+    color: var(--theme-black);
+    background-color: var(--theme-white-light);
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0.7143rem 2.1428rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0.7143rem 0;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--theme-black);
+}
+
+
+.big-button:hover {
+    background-color: #D0D0D0;
+}
+.big-button:active {
+    background-color: #B0B0B0;
+}
+.big-button.block {
+    border: 1px solid var(--theme-white-light);
+    background-color: var(--theme-black);
+    color: var(--theme-white-light);
+}
 #uid,
 .page-id {
     text-overflow: '';
@@ -2220,6 +2258,86 @@ mark {
 
 #search-bar {
     max-width: 70%;
+}
+
+.placeholder {
+    width: 15%;
+    height: 15%;
+}
+
+.checkbox {
+    font-size: var(--px15);
+}
+
+.checkbox *,
+.checkbox *::after,
+.checkbox *::before {
+    box-sizing: border-box;
+}
+
+.checkbox input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+}
+
+.checkbox .checkbox-name {
+    width: var(--px15);
+}
+
+.checkbox .checkbox-name:before {
+    content: ' ';
+    display: block;
+    height: var(--px15);
+    width: var(--px15);
+    position: absolute;
+    top: calc(var(--px15) * 0.125);
+    left: 0;
+    background: var(--theme-black);
+}
+
+.checkbox .checkbox-name:after {
+    content: ' ';
+    display: block;
+    height: var(--px15);
+    width: var(--px15);
+    border: calc(var(--px15) * .14) solid #fff;
+    transition: 200ms;
+    position: absolute;
+    top: calc(var(--px15) * 0.125);
+    left: 0;
+    background: var(--theme-black);
+}
+
+.checkbox .checkbox-name:after {
+    transition: 100ms ease-in-out;
+}
+
+.checkbox .checkbox-input:checked ~ .checkbox-name:after {
+    border-top-style: none;
+    border-right-style: none;
+    -ms-transform: rotate(-45deg);
+    /* IE9 */
+    transform: rotate(-45deg);
+    height: calc(var(--px15) * .5);
+    border-color: lightblue;
+}
+
+.checkbox .checkbox-label {
+    position: relative;
+    color: var(--theme-white-light);
+    display: flex;
+    cursor: pointer;
+    /* Mobile Safari: */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.checkbox .checkbox-name:after:hover,
+.checkbox .checkbox-name:after:active {
+    border-color: green;
+}
+
+.checkbox .checkbox-name {
+    margin-right: calc(var(--px15) * 0.45);
 }
 
 #more-articles b {

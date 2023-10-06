@@ -14,6 +14,7 @@ trustDomain = [
 ];
 musicApiList = ['https://music.api.ravelloh.top/cloudsearch?keywords='];
 musicAvailableApiList = [];
+platformUrl = 'https://auth.ravelloh.top/';
 const baseStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 // cookie拓展框架

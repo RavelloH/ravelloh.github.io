@@ -1276,17 +1276,86 @@ function highlightNav(name) {
     });
 }
 
+function objectToForm(obj) {
+    var formData = [];
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            var encodedKey = encodeURIComponent(key);
+            var encodedValue = encodeURIComponent(obj[key]);
+            formData.push(encodedKey + '=' + encodedValue);
+        }
+    }
+    return formData.join('&');
+}
+
 // 账户管理模块
 function loadAccount() {
-    if (docCookies.getItem('userInfo') == null) {
+    if (docCookies.getItem('userToken') == null) {
         switchElementContent(
             '#user-main',
             `<div class="info-warning center"><span class="i_small ri:user-unfollow-line"></span> 尚未登录，部分功能受限<br>立刻 <a onclick="pjaxLoad('/platform/signin')">登录</a> 或 <a onclick="pjaxLoad('/platform/signup')">注册</a></div>`,
         );
+    } else {
     }
 }
 
-function getAccountInfo(token) {}
+function readInfo(property) {
+    if (docCookies.getItem('userToken') == null) {
+        return undefined;
+    } else {
+        return JSON.parse(base.decrypt(docCookies.getItem('userToken').split('.')[1]))[property];
+    }
+}
+
+function loginWithPassword(username, password, expiredTime = '7d') {
+    fetch(platformUrl + 'api/signin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: objectToForm({
+            account: username,
+            password: password,
+            expiredTime: expiredTime,
+        }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            if (data.code == 200) {
+                docCookies.setItem('usertoken', data.inner.token);
+            } else {
+                console.log(data.message);
+            }
+        });
+}
+
+function loginWithToken(token) {
+    fetch(platformUrl + 'signin', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: objectToForm({
+            token: token,
+        }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.code == 200) {
+                docCookies.setItem('usertoken', data.inner.token);
+                return true;
+            } else {
+                return data.message;
+            }
+        });
+}
+
+function getAccountInfo(token) {
+    if (typeof token == 'undefined') {
+        token = docCookies.getItem('userToken');
+    }
+}
 
 function accountLoginIn(username, password, expireTime) {}
 
@@ -1374,10 +1443,18 @@ function loadPageType() {
 }
 
 // 错误消息推送
-function showError(text) {
+function showError(text,time=6000) {
     addMessageBarQueue(
         `<a class="red"><strong>错误:${text}</strong>&nbsp;<span class="i ri:alert-line"></span></a>`,
-        6000,
+        time,
+    );
+}
+
+// 警告消息推送
+function showWarn(text,time=5000) {
+    addMessageBarQueue(
+        `<a class="yellow"><strong>警告:${text}</strong>&nbsp;<span class="i ri:alarm-warning-line"></span></a>`,
+        time,
     );
 }
 
