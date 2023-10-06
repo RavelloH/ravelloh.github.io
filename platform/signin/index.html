@@ -341,6 +341,12 @@
     <div id="page-js">
         <script>
             function main() {
+                if (docCookies.getItem('usertoken')) {
+                    pjaxLoad(`/platform/user?uid=${readInfo('uid')}`)
+                }
+                if (docCookies.getItem('username')) {
+                    document.querySelector('#login-username').value = docCookies.getItem('username')
+                }
                 fetch(`${platformUrl}api/check`).then((response) => response.json())
                 .then((data) => {
                     if (data.code == 200) {
@@ -430,7 +436,7 @@
                             if (analyzeURL(window.location.href, 'redirect') !== '') {
                                 pjaxLoad(analyzeURL(window.location.href, 'redirect'));
                             } else {
-                                pjaxLoad(`/platform/user?uid=${data.inner.id}`)
+                                pjaxLoad(`/platform/user?uid=${readInfo('uid')}`)
                             }
                         },
                             3000)
