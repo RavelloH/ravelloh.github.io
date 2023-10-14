@@ -1047,89 +1047,46 @@ function browserDownload(url, filename) {
 }
 
 // Base64模块
-const base = (function() {
-    const base64chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    const base64inv = new Array(256);
-    for (let i = 0; i < base64chars.length; i++) {
-        base64inv[base64chars.charCodeAt(i)] = i;
-    }
-    function encode(input) {
-        let output = "";
-        let chr1,
-        chr2,
-        chr3,
-        enc1,
-        enc2,
-        enc3,
-        enc4;
+const base = {
+    encryption: function (str) {
+        let result = '';
         let i = 0;
-        while (i < input.length) {
-            chr1 = input.charCodeAt(i++);
-            chr2 = input.charCodeAt(i++);
-            chr3 = input.charCodeAt(i++);
-
-            enc1 = chr1 >> 2;
-            enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
-            enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
-            enc4 = chr3 & 63;
-
-            if (isNaN(chr2)) {
-                enc3 = enc4 = 64;
-            } else if (isNaN(chr3)) {
-                enc4 = 64;
-            }
-
-            output += base64chars.charAt(enc1) + 
-            base64chars.charAt(enc2) + 
-            base64chars.charAt(enc3) + 
-            base64chars.charAt(enc4);
+        while (i < str.length) {
+            let num1 = str.charCodeAt(i++);
+            let num2 = str.charCodeAt(i++);
+            let num3 = str.charCodeAt(i++);
+            const bits = (num1 << 16) | (num2 << 8) | num3;
+            const b1 = (bits >> 18) & 0x3f;
+            const b2 = (bits >> 12) & 0x3f;
+            const b3 = (bits >> 6) & 0x3f;
+            const b4 = bits & 0x3f;
+            result += baseStr[b1] + baseStr[b2] + baseStr[b3] + baseStr[b4];
         }
-        return output;
-    }
-    function decode(input) {
-        let output = "";
-        let chr1,
-        chr2,
-        chr3;
-        let enc1,
-        enc2,
-        enc3,
-        enc4;
+        return result;
+    },
+    decrypt: function (str) {
+        let result = '';
         let i = 0;
-
-        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-
-        while (i < input.length) {
-            enc1 = base64inv[input.charCodeAt(i++)];
-            enc2 = base64inv[input.charCodeAt(i++)];
-            enc3 = base64inv[input.charCodeAt(i++)];
-            enc4 = base64inv[input.charCodeAt(i++)];
-
-            chr1 = (enc1 << 2) | (enc2 >> 4);
-            chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
-            chr3 = ((enc3 & 3) << 6) | enc4;
-
-            output += String.fromCharCode(chr1);
-
-            if (enc3 != 64) {
-                output += String.fromCharCode(chr2);
-            }
-            if (enc4 != 64) {
-                output += String.fromCharCode(chr3);
+        while (i < str.length) {
+            const b1 = baseStr.indexOf(str[i++]);
+            const b2 = baseStr.indexOf(str[i++]);
+            const b3 = baseStr.indexOf(str[i++]);
+            const b4 = baseStr.indexOf(str[i++]);
+            const bits = (b1 << 18) | (b2 << 12) | (b3 << 6) | b4;
+            const num1 = (bits >> 16) & 0xff;
+            const num2 = (bits >> 8) & 0xff;
+            const num3 = bits & 0xff;
+            if (b3 === 64) {
+                result += String.fromCharCode(num1);
+            } else if (b4 === 64) {
+                result += String.fromCharCode(num1, num2);
+            } else {
+                result += String.fromCharCode(num1, num2, num3);
             }
         }
-
-        return output;
-    }
-    return {
-        encrypt: function(input) {
-            return encode(input);
-        },
-        decrypt: function(input) {
-            return decode(input);
-        }
-    };
-})();
+        return result;
+    },
+};
 
 // 速度测试模块
 speedTestResultList = [];
