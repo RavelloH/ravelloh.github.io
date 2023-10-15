@@ -343,6 +343,7 @@
             function main() {
                 if (docCookies.getItem('usertoken')) {
                     pjaxLoad(`/platform/user?uid=${readInfo('uid')}`)
+                    return
                 }
                 if (docCookies.getItem('username')) {
                     document.querySelector('#login-username').value = docCookies.getItem('username')

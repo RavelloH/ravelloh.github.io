@@ -332,6 +332,10 @@
     <div id="page-js">
         <script>
             function main() {
+                if (docCookies.getItem('usertoken')) {
+                    pjaxLoad(`/platform/user?uid=${readInfo('uid')}`)
+                    return
+                }
                 fetch(`${platformUrl}api/check`).then((response) => response.json())
                 .then((data) => {
                     if (data.code == 200) {
