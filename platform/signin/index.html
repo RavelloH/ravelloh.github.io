@@ -458,8 +458,8 @@
 
             function checkPassword() {
                 if (
-                    parseInt(document.querySelector('#login-password').value.length) <= 6 ||
-                    parseInt(document.querySelector('#login-password').value.length) >= 4096
+                    parseInt(document.querySelector('#login-password').value.length) < 6 ||
+                    parseInt(document.querySelector('#login-password').value.length) > 4096
                 ) {
                     // document.querySelector('#login-password').setAttribute('invalid', '')
                     switchElementContent('#password-tip div', '密码应介于6-4096位之间')
