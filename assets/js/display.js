@@ -25,13 +25,13 @@ function workShow(element) {
         var text = `
         <div class='work-show'>
         <div class='work-show-head'><hr class='light'><h4 class='virgule'>${
-            element.querySelector('h4').innerHTML
+        element.querySelector('h4').innerHTML
         }</h3><hr class='light'></div>
         <div class='work-show-body'><p>${element.querySelector('aside .work-info').innerHTML}</p>
         <div id='markdown-doc'>${mdContainer}</div>
         </div>
         <div class='work-show-foot'><div id='work-display-links'>${
-            element.querySelector('aside .work-urls').innerHTML
+        element.querySelector('aside .work-urls').innerHTML
         }</div><hr class='light'><span class='operation-block' onclick='workClear()'><span class="i_small ri:arrow-go-back-line"></span>&nbsp;返回</span></div>
         </div>
         `;
@@ -44,7 +44,7 @@ function workShow(element) {
         switchElementContent(
             '#showarea .work-show-body',
             `<p>${
-                element.querySelector('aside .work-info').innerHTML
+            element.querySelector('aside .work-info').innerHTML
             }</p><div id='markdown-doc'>${mdContainer}</div>`,
         );
         switchElementContent(
@@ -61,7 +61,7 @@ function getDefaultWorkInner() {
     <span class="virgule">
     收录 & 索引个人作品。在右侧选择以预览...
     </span><span class="virgule" id="numOfWorks">共收录${
-        document.querySelectorAll('.listprogram').length
+    document.querySelectorAll('.listprogram').length
     }个作品/项目。</span>
     <div class="button-list">
     <a class="button" href="https://github.com/RavelloH?tab=repositories"><span class="i_small ri:github-line"></span> Github ></a>
@@ -158,7 +158,7 @@ function articlesFilter() {
         </span>
         <span class="virgule" id="index-info">
         共索引${
-            document.querySelectorAll('.listlines .listprogram').length
+        document.querySelectorAll('.listlines .listprogram').length
         }篇文章，最近更新于${getTime(
             'DD',
             document.querySelector('.listprogram .articles-info time').innerHTML,
@@ -292,31 +292,32 @@ function resetTagList() {
 
 // 引入评论脚本
 function loadComment() {
-    addScript('/assets/js/lib/twikoo.all.min.js', 'initComment()');
+    addScript('/assets/js/lib/twikoo.all.min.js',
+        'initComment()');
 }
 
 // 评论初始化
 function initComment() {
     twikoo
-        .init({
-            envId: 'https://comment.ravelloh.top/',
-            el: '#tcomment',
-            onCommentLoaded: function () {
-                addMessageBarQueue(
-                    '<a>评论已加载&nbsp;<span class="i ri:chat-check-line"></span></a>',
-                    1000,
-                );
-            },
-        })
-        .then(() => {
+    .init({
+        envId: 'https://comment.ravelloh.top/',
+        el: '#tcomment',
+        onCommentLoaded: function () {
             addMessageBarQueue(
-                '<a>已与评论服务器建立通讯&nbsp;<span class="i ri:message-line"></span></a>',
-                2000,
+                '<a>评论已加载&nbsp;<span class="i ri:chat-check-line"></span></a>',
+                1000,
             );
-        })
-        .catch((error) => {
-            switchElementContent('#tcomment', structureErrorInfo(`评论加载异常 - ${error}`));
-        });
+        },
+    })
+    .then(() => {
+        addMessageBarQueue(
+            '<a>已与评论服务器建立通讯&nbsp;<span class="i ri:message-line"></span></a>',
+            2000,
+        );
+    })
+    .catch((error) => {
+        switchElementContent('#tcomment', structureErrorInfo(`评论加载异常 - ${error}`));
+    });
 }
 
 // 切换时间显示格式
@@ -337,24 +338,24 @@ function getSearchData() {
     if (typeof searchData == 'undefined') {
         return new Promise((resolve, reject) => {
             fetch('/assets/data/search.json', {})
-                .then((response) => response.json())
-                .then((data) => {
-                    if (
-                        typeof articlesModel == 'undefined' ||
-                        docCookies.getItem('settingEnableSkipModelTest') == 'true'
-                    ) {
-                        searchData = data;
-                        resolve(data);
-                        return;
-                    }
-                    if (modelValidator(articlesModel, data)) {
-                        searchData = data;
-                        resolve(data);
-                    } else {
-                        showError('模型验证失败，请检查资源完整度');
-                        reject(data);
-                    }
-                });
+            .then((response) => response.json())
+            .then((data) => {
+                if (
+                    typeof articlesModel == 'undefined' ||
+                    docCookies.getItem('settingEnableSkipModelTest') == 'true'
+                ) {
+                    searchData = data;
+                    resolve(data);
+                    return;
+                }
+                if (modelValidator(articlesModel, data)) {
+                    searchData = data;
+                    resolve(data);
+                } else {
+                    showError('模型验证失败，请检查资源完整度');
+                    reject(data);
+                }
+            });
         }).catch((err) => {
             throw err;
         });
@@ -415,7 +416,9 @@ function search(keyword) {
 
 // 搜索初始化
 function searchInit() {
-    switchElementContent('#articles-index-title', 'SEARCH / 索引器', 400);
+    switchElementContent('#articles-index-title',
+        'SEARCH / 索引器',
+        400);
     if (typeof searchData == 'undefined') {
         switchElementContent('#articles-info-1', '正在拉取索引文件...');
         getSearchData().then(() => {
@@ -433,7 +436,8 @@ function searchInit() {
                 setTimeout(() => switchElementContent('#index-info', '已连接至Search Worker'), 300);
                 clearInterval(workerChecker);
             }
-        }, 200);
+        },
+            200);
     } else {
         switchElementContent('#index-info', '已连接至Search Worker');
     }
@@ -446,7 +450,7 @@ function searchClose() {
     switchElementContent(
         '#index-info',
         `共索引${
-            document.querySelectorAll('.listlines .listprogram').length
+        document.querySelectorAll('.listlines .listprogram').length
         }篇文章，最近更新于${getTime(
             'DD',
             document.querySelector('.listprogram .articles-info time').innerHTML,
@@ -509,7 +513,12 @@ function updatePageModel() {
         return false;
     }
     let articlesList = document.querySelectorAll('#viewmap .listprogram');
-    let name, url, time, tag, cla, object;
+    let name,
+    url,
+    time,
+    tag,
+    cla,
+    object;
     let modelArr = [];
     articlesModel = [];
     articlesList.forEach((element) => {
@@ -520,9 +529,9 @@ function updatePageModel() {
         cla = [];
         name = element.firstElementChild.children[0].firstElementChild.firstElementChild.innerHTML;
         url =
-            element.firstElementChild.children[0].firstElementChild.firstElementChild.getAttribute(
-                'href',
-            );
+        element.firstElementChild.children[0].firstElementChild.firstElementChild.getAttribute(
+            'href',
+        );
         time = element.firstElementChild.children[1].firstElementChild.innerHTML;
         Array.from(element.firstElementChild.children[2].children).forEach((e) => {
             tag.push(e.innerHTML.toLowerCase());
@@ -541,8 +550,8 @@ function updatePageModel() {
 // 文章信息展开
 function showArticlesInfo(element) {
     let elementHref =
-        element.parentNode.parentNode.firstElementChild.firstElementChild.firstElementChild
-            .innerHTML;
+    element.parentNode.parentNode.firstElementChild.firstElementChild.firstElementChild
+    .innerHTML;
     for (let i = 0; i < articlesModel.length; i++) {
         if (articlesModel[i].name == elementHref) {
             switchElementContent('#infobar-title', 'articles', 300);
@@ -560,12 +569,11 @@ function resetImage() {
     }
     document.querySelectorAll('#articles-body img').forEach((element) => {
         const alts = element.getAttribute('alt')
-            ? `<span>${element.getAttribute('alt')}</span>`
-            : '';
+        ? `<span>${element.getAttribute('alt')}</span>`: '';
         element.outerHTML = `<div class='imgbox'><img src='${element.getAttribute('src')}' alt='${
-            element.getAttribute('alt') || ''
+        element.getAttribute('alt') || ''
         }' loading='lazy' style='${element.getAttribute('style') || ''}' class='${
-            element.getAttribute('class') || ''
+        element.getAttribute('class') || ''
         }'>${alts}</div>`;
     });
 }
@@ -584,13 +592,13 @@ function loadLinkBox() {
     document.querySelectorAll('#articles-body a[type="link-box"]').forEach((e) => {
         e.outerHTML = `
         <div class="link-box">
-            <a href='${e.href}' class='no-effect' target='_blank'>
-            <img src="https://screenshot.ravelloh.top/?viewport=1000x1000&cache=864000&await=1000&url=${e.href}" class="no-zoom reset">
-            <div class="link-describe">
-                <span class="link-name"><span class='i_small ri:link'></span> ${e.innerHTML}</span>
-                <span class="one-line line-href">${e.href}</span>
-            </div>
-            </a>
+        <a href='${e.href}' class='no-effect' target='_blank'>
+        <img src="https://screenshot.ravelloh.top/?viewport=1000x1000&cache=864000&await=1000&url=${e.href}" class="no-zoom reset">
+        <div class="link-describe">
+        <span class="link-name"><span class='i_small ri:link'></span> ${e.innerHTML}</span>
+        <span class="one-line line-href">${e.href}</span>
+        </div>
+        </a>
         </div>
         `;
     });
@@ -600,17 +608,17 @@ function loadMusicBox() {
     document.querySelectorAll('#articles-body a[type="music-box"]').forEach((e) => {
         e.outerHTML = `
         <div class="music-box center">
-            <a onclick="musicChange('${e.innerHTML}','${
-                e.href
-            }')" class='no-effect' target='_blank'>
-            <img src="${e.getAttribute('src') || '/assets/images/music.jpg'}" class="reset no-zoom">
-            <div class="music-info">
-                <span class="music-name"><span class='i_small ri:music-2-fill'></span> ${
-                    e.innerHTML
-                }</span>
-                <span class="one-line line-href">${e.getAttribute('info') || '无更多信息'}</span>
-            </div>
-            </a>
+        <a onclick="musicChange('${e.innerHTML}','${
+        e.href
+        }')" class='no-effect' target='_blank'>
+        <img src="${e.getAttribute('src') || '/assets/images/music.jpg'}" class="reset no-zoom">
+        <div class="music-info">
+        <span class="music-name"><span class='i_small ri:music-2-fill'></span> ${
+        e.innerHTML
+        }</span>
+        <span class="one-line line-href">${e.getAttribute('info') || '无更多信息'}</span>
+        </div>
+        </a>
         </div>
         `;
     });
@@ -620,13 +628,13 @@ function loadDownloadBox() {
     document.querySelectorAll('#articles-body a[type="download-box"]').forEach((e) => {
         e.outerHTML = `
         <div class="link-box">
-            <a onclick="setTimeout(fileDownload('${e.href}','${e.innerHTML}'))" class='no-effect'>
-            <img src="/assets/images/file.png" class="no-zoom">
-            <div class="link-describe">
-                <span class="link-name"><span class='i_small ri:download-2-line'></span> ${e.innerHTML}</span>
-                <span class="one-line line-href">${e.href}</span>
-            </div>
-            </a>
+        <a onclick="setTimeout(fileDownload('${e.href}','${e.innerHTML}'))" class='no-effect'>
+        <img src="/assets/images/file.png" class="no-zoom">
+        <div class="link-describe">
+        <span class="link-name"><span class='i_small ri:download-2-line'></span> ${e.innerHTML}</span>
+        <span class="one-line line-href">${e.href}</span>
+        </div>
+        </a>
         </div>
         `;
     });
@@ -638,16 +646,16 @@ function updateTitle() {
         return false;
     }
     document
-        .querySelectorAll(
-            '#articles-body h2 , #articles-body h3 , #articles-body h4 , #articles-body h5 , #articles-body h6',
-        )
-        .forEach((element) => {
-            element.innerHTML = `<a href='#${element.innerText
-                .replaceAll(' ', '')
-                .replaceAll('-', '')}' id='${element.innerText
-                .replaceAll(' ', '')
-                .replaceAll('-', '')}' title='${element.innerText}'>${element.innerText}</a>`;
-        });
+    .querySelectorAll(
+        '#articles-body h2 , #articles-body h3 , #articles-body h4 , #articles-body h5 , #articles-body h6',
+    )
+    .forEach((element) => {
+        element.innerHTML = `<a href='#${element.innerText
+        .replaceAll(' ', '')
+        .replaceAll('-', '')}' id='${element.innerText
+        .replaceAll(' ', '')
+        .replaceAll('-', '')}' title='${element.innerText}'>${element.innerText}</a>`;
+    });
 }
 
 // 目录重组
@@ -663,27 +671,27 @@ function updateMenu() {
                 break;
             case '<h2':
                 menuStructure += `<span class='t2'>${
-                    '&nbsp;'.repeat(2) + '<span>' + element.innerHTML + '</span>'
+                '&nbsp;'.repeat(2) + '<span>' + element.innerHTML + '</span>'
                 }</span></br>`;
                 break;
             case '<h3':
                 menuStructure += `<span class='t3'>${
-                    '&nbsp;'.repeat(4) + '<span>' + element.innerHTML + '</span>'
+                '&nbsp;'.repeat(4) + '<span>' + element.innerHTML + '</span>'
                 }</span></br>`;
                 break;
             case '<h4':
                 menuStructure += `<span class='t4'>${
-                    '&nbsp;'.repeat(6) + '<span>' + element.innerHTML + '</span>'
+                '&nbsp;'.repeat(6) + '<span>' + element.innerHTML + '</span>'
                 }</span></br>`;
                 break;
             case '<h5':
                 menuStructure += `<span class='t5'>${
-                    '&nbsp;'.repeat(8) + '<span>' + element.innerHTML + '</span>'
+                '&nbsp;'.repeat(8) + '<span>' + element.innerHTML + '</span>'
                 }</span></br>`;
                 break;
             case '<h6':
                 menuStructure += `<span class='t6'>${
-                    '&nbsp;'.repeat(10) + '<span>' + element.innerHTML + '</span>'
+                '&nbsp;'.repeat(10) + '<span>' + element.innerHTML + '</span>'
                 }</span></br>`;
                 break;
         }
@@ -741,14 +749,14 @@ function highlightMenu() {
         let heights = getHeightDifferent(titleList[i]);
         if (heights == 0) {
             document
-                .querySelector(`#articles-menu #${titleList[i].firstChild.id}`)
-                .classList.add('active');
+            .querySelector(`#articles-menu #${titleList[i].firstChild.id}`)
+            .classList.add('active');
             return titleList[i];
         }
         if (heights > 0) {
             document
-                .querySelector(`#articles-menu #${titleList[i - 1].firstChild.id}`)
-                .classList.add('active');
+            .querySelector(`#articles-menu #${titleList[i - 1].firstChild.id}`)
+            .classList.add('active');
             return titleList[i - 1];
         }
     }
@@ -792,63 +800,79 @@ function sortArticles(mode) {
     switch (mode) {
         case 'time':
             articlesModel
-                .sort((a, b) => {
-                    return -collator.compare(a.time, b.time);
-                })
-                .forEach((e) => (structure += structureArticlesList(e)));
-            break;
+            .sort((a,
+                b) => {
+                return -collator.compare(a.time,
+                    b.time);
+        })
+        .forEach((e) => (structure += structureArticlesList(e)));
+        break;
         case 'time-b':
             articlesModel
-                .sort((a, b) => {
-                    return collator.compare(a.time, b.time);
-                })
-                .forEach((e) => (structure += structureArticlesList(e)));
-            break;
+            .sort((a,
+                b) => {
+                return collator.compare(a.time,
+                    b.time);
+        })
+        .forEach((e) => (structure += structureArticlesList(e)));
+        break;
         case 'tag':
             articlesModel
-                .sort((a, b) => {
-                    return -collator.compare(a.tag.length, b.tag.length);
-                })
-                .forEach((e) => (structure += structureArticlesList(e)));
-            break;
+            .sort((a,
+                b) => {
+                return -collator.compare(a.tag.length,
+                    b.tag.length);
+        })
+        .forEach((e) => (structure += structureArticlesList(e)));
+        break;
         case 'tag-b':
             articlesModel
-                .sort((a, b) => {
-                    return collator.compare(a.tag.length, b.tag.length);
-                })
-                .forEach((e) => (structure += structureArticlesList(e)));
-            break;
+            .sort((a,
+                b) => {
+                return collator.compare(a.tag.length,
+                    b.tag.length);
+        })
+        .forEach((e) => (structure += structureArticlesList(e)));
+        break;
         case 'cla':
             articlesModel
-                .sort((a, b) => {
-                    return -collator.compare(a.class.length, b.class.length);
-                })
-                .forEach((e) => (structure += structureArticlesList(e)));
-            break;
+            .sort((a,
+                b) => {
+                return -collator.compare(a.class.length,
+                    b.class.length);
+        })
+        .forEach((e) => (structure += structureArticlesList(e)));
+        break;
         case 'cla-b':
             articlesModel
-                .sort((a, b) => {
-                    return collator.compare(a.class.length, b.class.length);
-                })
-                .forEach((e) => (structure += structureArticlesList(e)));
-            break;
+            .sort((a,
+                b) => {
+                return collator.compare(a.class.length,
+                    b.class.length);
+        })
+        .forEach((e) => (structure += structureArticlesList(e)));
+        break;
         case 'name':
             articlesModel
-                .sort((a, b) => {
-                    return collator.compare(a.name, b.name);
-                })
-                .forEach((e) => (structure += structureArticlesList(e)));
-            break;
+            .sort((a,
+                b) => {
+                return collator.compare(a.name,
+                    b.name);
+        })
+        .forEach((e) => (structure += structureArticlesList(e)));
+        break;
         case 'name-b':
             articlesModel
-                .sort((a, b) => {
-                    return -collator.compare(a.name, b.name);
-                })
-                .forEach((e) => (structure += structureArticlesList(e)));
-            break;
+            .sort((a,
+                b) => {
+                return -collator.compare(a.name,
+                    b.name);
+        })
+        .forEach((e) => (structure += structureArticlesList(e)));
+        break;
     }
     switchElementContent('.listlines', structure);
     setTimeout(() => {
         resetTagList();
-    }, 300);
+}, 300);
 }
