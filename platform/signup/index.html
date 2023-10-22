@@ -333,7 +333,7 @@
         <script>
             function main() {
                 if (docCookies.getItem('usertoken')) {
-                    pjaxLoad(`/platform/user?uid=${readInfo('uid')}`)
+                    pjaxLoad(`/platform/user?uid=${token.read('uid')}`)
                     return
                 }
                 fetch(`${platformUrl}api/check`).then((response) => response.json())

@@ -261,17 +261,20 @@ function showProgressBar() {
                     changeProgress(progressNum + getRandomInteger(0, 10));
                 }
             }
-        }, 500);
+        },
+            500);
         setTimeout(function () {
             if (progressState == 'sending') {
                 changeProgress(getRandomInteger(5, 15), progressbar);
             }
-        }, 400);
+        },
+            400);
         setTimeout(function () {
             if (progressState == 'sending') {
                 changeProgress(progressNum + getRandomInteger(10, 25), progressbar);
             }
-        }, 500);
+        },
+            500);
     }, 301);
 }
 
@@ -285,7 +288,8 @@ function onErrorProgressBar() {
             if (getElementInnerhtml('#icons-left') !== originIconsLeftContext) {
                 closeProgressBar();
             }
-        }, 2000);
+        },
+            2000);
     }, 310);
 }
 
@@ -351,24 +355,30 @@ function addListeners() {
             toggleLayoutUserbar();
         }
     });
-    domInfoBarToggle.addEventListener('click', () => {
-        toggleLayoutInfobar();
-    });
-    domUserbarToggle.addEventListener('click', () => {
-        toggleLayoutUserbar();
-    });
-    document.addEventListener('pjax:send', () => {
-        pjaxLoadSend();
-    });
-    document.addEventListener('pjax:complete', () => {
-        pjaxLoadComplete();
-    });
-    document.addEventListener('pjax:error', () => {
-        pjaxLoadError();
-    });
-    document.addEventListener('pjax:success', () => {
-        pjaxLoadSuccess();
-    });
+    domInfoBarToggle.addEventListener('click',
+        () => {
+            toggleLayoutInfobar();
+        });
+    domUserbarToggle.addEventListener('click',
+        () => {
+            toggleLayoutUserbar();
+        });
+    document.addEventListener('pjax:send',
+        () => {
+            pjaxLoadSend();
+        });
+    document.addEventListener('pjax:complete',
+        () => {
+            pjaxLoadComplete();
+        });
+    document.addEventListener('pjax:error',
+        () => {
+            pjaxLoadError();
+        });
+    document.addEventListener('pjax:success',
+        () => {
+            pjaxLoadSuccess();
+        });
 }
 
 // 退出检测
@@ -543,7 +553,12 @@ function HTMLDecode(str) {
 
 // 时间处理
 function getTime(formats, startTime = '') {
-    var yyyy, MM, DD, hh, mm, ss;
+    var yyyy,
+    MM,
+    DD,
+    hh,
+    mm,
+    ss;
     var today = new Date();
     if (startTime == '') {
         yyyy = today.getFullYear();
@@ -553,14 +568,22 @@ function getTime(formats, startTime = '') {
         mm = String(today.getMinutes()).padStart(2, '0');
         ss = String(today.getSeconds()).padStart(2, '0');
         return formats
-            .replace(/yyyy/g, yyyy)
-            .replace(/MM/g, MM)
-            .replace(/DD/g, DD)
-            .replace(/hh/g, hh)
-            .replace(/mm/g, mm)
-            .replace(/ss/g, ss);
+        .replace(/yyyy/g, yyyy)
+        .replace(/MM/g, MM)
+        .replace(/DD/g, DD)
+        .replace(/hh/g, hh)
+        .replace(/mm/g, mm)
+        .replace(/ss/g, ss);
     } else {
-        var T, M, A, B, C, D, a, b, c;
+        var T,
+        M,
+        A,
+        B,
+        C,
+        D,
+        a,
+        b,
+        c;
         var lastDay = new Date(startTime);
         T = today.getTime() - lastDay.getTime();
         M = 24 * 60 * 60 * 1000;
@@ -591,8 +614,8 @@ function openInfoBar(mode) {
             setTimeout(() => {
                 highlightMenu();
                 document
-                    .querySelector('#articles-menu')
-                    .setAttribute('onclick', 'setTimeout(()=>highlightMenu(),1000)');
+                .querySelector('#articles-menu')
+                .setAttribute('onclick', 'setTimeout(()=>highlightMenu(),1000)');
             }, 10);
             break;
         case 'setting':
@@ -606,22 +629,34 @@ function openInfoBar(mode) {
                     settingStrs += structureSetting(item[0], item[1], item[2]);
                 }
             });
-            setTimeout(() => switchElementContent('#setting-list', settingStrs, 300), 300);
-            setTimeout(() => loadItems('#setting-list'), 700);
+            setTimeout(() => switchElementContent('#setting-list', settingStrs, 300),
+                300);
+            setTimeout(() => loadItems('#setting-list'),
+                700);
             break;
         case 'swap':
-            switchElementContent('#infobar-left', structureInfobarSwap, 0);
+            switchElementContent('#infobar-left',
+                structureInfobarSwap,
+                0);
             break;
         case 'share':
-            switchElementContent('#infobar-left', structureInfobarShare(), 0);
+            switchElementContent('#infobar-left',
+                structureInfobarShare(),
+                0);
             break;
         case 'articles-sort':
-            switchElementContent('#infobar-left', structureInfobarSort(), 0);
+            switchElementContent('#infobar-left',
+                structureInfobarSort(),
+                0);
             break;
         case 'feed':
-            switchElementContent('#infobar-left', structureInfobarFeed(), 0);
+            switchElementContent('#infobar-left',
+                structureInfobarFeed(),
+                0);
     }
-    switchElementContent('#infobar-title', mode, 300);
+    switchElementContent('#infobar-title',
+        mode,
+        300);
     toggleLayoutInfobar();
 }
 
@@ -634,34 +669,34 @@ function musicSearch(name) {
         }
         searchTimer = setTimeout(function () {
             fetch(musicApi + name)
-                .then((response) => response.json())
-                .then((data) => {
-                    var musicSearchResult = '';
-                    for (let i = 0; i < data['result']['songs'].length; i++) {
-                        var artists = '';
-                        for (let j = 0; j < data['result']['songs'][i]['ar'].length; j++) {
-                            artists = artists + data['result']['songs'][i]['ar'][j]['name'] + '/';
-                        }
-                        artists = artists.substring(0, artists.length - 1);
-                        musicSearchResult += getstructureMusicSearchResult(
-                            data['result']['songs'][i]['name'],
-                            'http://music.163.com/song/media/outer/url?id=' +
-                                data['result']['songs'][i]['id'] +
-                                '.mp3',
-                            artists,
-                            data['result']['songs'][i]['al']['picUrl'],
-                            data['result']['songs'][i]['al']['name'],
-                        );
+            .then((response) => response.json())
+            .then((data) => {
+                var musicSearchResult = '';
+                for (let i = 0; i < data['result']['songs'].length; i++) {
+                    var artists = '';
+                    for (let j = 0; j < data['result']['songs'][i]['ar'].length; j++) {
+                        artists = artists + data['result']['songs'][i]['ar'][j]['name'] + '/';
                     }
-                    switchElementContent('#music-search-program', musicSearchResult, 200);
-                    setTimeout(() => {
-                        loadItems('#music-search-program');
-                        zoomPics();
-                    }, 310);
-                })
-                .catch((error) => {
-                    switchElementContent('#music-search-program', structureErrorInfo(error));
-                });
+                    artists = artists.substring(0, artists.length - 1);
+                    musicSearchResult += getstructureMusicSearchResult(
+                        data['result']['songs'][i]['name'],
+                        'http://music.163.com/song/media/outer/url?id=' +
+                        data['result']['songs'][i]['id'] +
+                        '.mp3',
+                        artists,
+                        data['result']['songs'][i]['al']['picUrl'],
+                        data['result']['songs'][i]['al']['name'],
+                    );
+                }
+                switchElementContent('#music-search-program', musicSearchResult, 200);
+                setTimeout(() => {
+                    loadItems('#music-search-program');
+                    zoomPics();
+                }, 310);
+            })
+            .catch((error) => {
+                switchElementContent('#music-search-program', structureErrorInfo(error));
+            });
         }, 1000);
     }
 }
@@ -673,7 +708,7 @@ function musicUpdata() {
     };
     changeMusicProgress((music.currentTime / music.duration) * 100);
     document.getElementById('music-time').innerHTML =
-        timeTrans(music.currentTime) + '/' + timeTrans(music.duration);
+    timeTrans(music.currentTime) + '/' + timeTrans(music.duration);
 }
 
 // 音乐播放/暂停
@@ -717,7 +752,8 @@ function musicChange(name, url) {
             }
             switchMessageBarContent(structurePlayingMusic(name));
             setTimeout(() => switchMessageBarContent(originMessageBar), 10000);
-        }, 100);
+        },
+            100);
     }, 200);
 }
 
@@ -783,12 +819,14 @@ function enableInfobarRefersh() {
                 }
             }
         }
-    }, 500);
+    },
+        500);
 }
 
 // 信息刷新
 function refreshInfo(runTime) {
-    switchElementContent('#page-update-time', document.lastModified);
+    switchElementContent('#page-update-time',
+        document.lastModified);
     if (errorList.length == 0) {
         switchElementContent('#theme-state', '正常');
     } else {
@@ -939,7 +977,11 @@ function formatBytes(bytes) {
         return '0 Bytes';
     }
     const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    const sizes = ['Bytes',
+        'KB',
+        'MB',
+        'GB',
+        'TB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
@@ -972,25 +1014,25 @@ function fetchDownload(url, filename) {
         }),
         mode: 'cors',
     })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error('Fetch error');
-            }
-            return response.blob();
-        })
-        .then((blob) => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error('Fetch error');
+        }
+        return response.blob();
+    })
+    .then((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
 }
 
 // 浏览器下载
@@ -1067,7 +1109,7 @@ function startSwap(runTimes) {
                 setTimeout(() => {
                     switchElementContent('#speed-test-info', '准备跳转');
                     window.location.href =
-                        'https://' + speedTestResultList[i][2] + window.location.pathname;
+                    'https://' + speedTestResultList[i][2] + window.location.pathname;
                 }, 2000);
                 break;
             }
@@ -1162,22 +1204,23 @@ function zoomPics() {
 // URL可用性检查
 function checkURL(url, callback, errorback) {
     fetch(url)
-        .then((response) => {
-            if (response.ok) {
-                callback();
-            } else {
-                errorback();
-            }
-        })
-        .catch((error) => {
-            errorback(error);
-        });
+    .then((response) => {
+        if (response.ok) {
+            callback();
+        } else {
+            errorback();
+        }
+    })
+    .catch((error) => {
+        errorback(error);
+    });
 }
 
 // 主题颜色切换
 // TODO
 function toggleThemeMode() {
-    addMessageBarQueue('<a>此功能尚在开发&nbsp;<span class="i ri:alert-line"></span></a>', 1500);
+    addMessageBarQueue('<a>此功能尚在开发&nbsp;<span class="i ri:alert-line"></span></a>',
+        1500);
 }
 
 // 启动加载动画
@@ -1185,8 +1228,8 @@ function loadItems(parentNodeName, mode = 'sort') {
     if (mode == 'sort') {
         for (let j = document.querySelectorAll(parentNodeName + ' .loading').length; j > 0; j--) {
             document
-                .querySelectorAll(parentNodeName + ' .loading')
-                [j - 1].setAttribute('style', '--i: ' + j);
+            .querySelectorAll(parentNodeName + ' .loading')
+            [j - 1].setAttribute('style', '--i: ' + j);
         }
     }
     document.querySelectorAll(parentNodeName + ' .loading').forEach((e) => {
@@ -1263,62 +1306,108 @@ function loadAccount() {
             '#user-main',
             `<div class="info-warning center"><span class="i_small ri:user-unfollow-line"></span> 尚未登录，部分功能受限<br>立刻 <a onclick="pjaxLoad('/platform/signin')">登录</a> 或 <a onclick="pjaxLoad('/platform/signup')">注册</a></div>`,
         );
-    } else {
-    }
+    } else {}
 }
 
-function readInfo(property) {
-    if (docCookies.getItem('usertoken') == null) {
-        return undefined;
-    } else {
-        return JSON.parse(
-            base.decrypt(docCookies.getItem('usertoken').split('.')[1]).replace('\x00', ''),
-        )[property];
+const token = {
+    read: function(property) {
+        if (docCookies.getItem('usertoken') == null) {
+            return undefined;
+        } else {
+            return JSON.parse(
+                base.decrypt(docCookies.getItem('usertoken').split('.')[1]).replace('\x00', '')
+            )[property];
+        }
+    },
+    get: function() {
+        if (docCookies.getItem('usertoken') == null) {
+            return undefined;
+        } else {
+            return docCookies.getItem('usertoken')
+        }
+    },
+    getObject: function() {
+        if (docCookies.getItem('usertoken') == null) {
+            return undefined;
+        } else {
+            return JSON.parse(
+                base.decrypt(docCookies.getItem('usertoken').split('.')[1]).replace('\x00', '')
+            )
+        }
+    },
+    refresh: function() {
+        fetch(platformUrl + 'api/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: objectToForm({
+                token: token.get()
+            }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.code == 200) {
+                docCookies.setItem('usertoken', data.inner.token);
+                console.log('ok')
+            } else {
+                console.log(data.message)
+            }
+        })
+        .catch((e) => {
+            console.error(e)
+        })
+    },
+    clear: function() {
+        docCookies.removeItem('usertoken')
     }
+
 }
 
 function loginWithPassword(username, password, expiredTime = '7d') {
-    fetch(platformUrl + 'api/signin', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: objectToForm({
-            account: username,
-            password: password,
-            expiredTime: expiredTime,
-        }),
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            if (data.code == 200) {
-                docCookies.setItem('usertoken', data.inner.token);
-            } else {
-                console.log(data.message);
-            }
-        });
+    fetch(platformUrl + 'api/signin',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: objectToForm({
+                account: username,
+                password: password,
+                expiredTime: expiredTime,
+            }),
+        })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        if (data.code == 200) {
+            docCookies.setItem('usertoken', data.inner.token);
+        } else {
+            console.log(data.message);
+        }
+    });
 }
 
 function loginWithToken(token) {
-    fetch(platformUrl + 'signin', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: objectToForm({
-            token: token,
-        }),
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.code == 200) {
-                docCookies.setItem('usertoken', data.inner.token);
-                return true;
-            } else {
-                return data.message;
-            }
-        });
+    fetch(platformUrl + 'signin',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: objectToForm({
+                token: token,
+            }),
+        })
+    .then((response) => response.json())
+    .then((data) => {
+        if (data.code == 200) {
+            docCookies.setItem('usertoken', data.inner.token);
+            return true;
+        } else {
+            return data.message;
+        }
+    });
 }
 
 function getAccountInfo(token) {
@@ -1451,5 +1540,6 @@ function checkPageHash() {
         setTimeout(() => {
             isHashWorking = false;
         }, 1);
-    }, 0);
+},
+    0);
 }

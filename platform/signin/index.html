@@ -342,7 +342,7 @@
         <script>
             function main() {
                 if (docCookies.getItem('usertoken')) {
-                    pjaxLoad(`/platform/user?uid=${readInfo('uid')}`)
+                    pjaxLoad(`/platform/user?uid=${token.read('uid')}`)
                     return
                 }
                 if (docCookies.getItem('username')) {
@@ -437,7 +437,7 @@
                             if (analyzeURL(window.location.href, 'redirect') !== '') {
                                 pjaxLoad(analyzeURL(window.location.href, 'redirect'));
                             } else {
-                                pjaxLoad(`/platform/user?uid=${readInfo('uid')}`)
+                                pjaxLoad(`/platform/user?uid=${token.read('uid')}`)
                             }
                         },
                             3000)
