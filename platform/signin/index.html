@@ -423,7 +423,7 @@
                 .then((response) => response.json())
                 .then((data) => {
                     if (data.code == 200) {
-                        docCookies.setItem('usertoken', data.inner.token);
+                        token.write(data.inner.token)
                         switchElementContent('#login-button span', '登录成功，即将跳转')
                         // 处理本地存储
                         if (document.querySelector('#check-keep-token-refresh').checked) {

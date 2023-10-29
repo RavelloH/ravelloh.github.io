@@ -1360,6 +1360,9 @@ const token = {
     },
     clear: function() {
         docCookies.removeItem('usertoken')
+    },
+    write: function(string) {
+        docCookies.setItem('usertoken',string)
     }
 
 }
