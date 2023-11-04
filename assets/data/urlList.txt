@@ -68,6 +68,9 @@ https://ravelloh.top/articles/20230815/setting.png
 https://ravelloh.top/articles/20230815/speedtest.png
 https://ravelloh.top/articles/20230815/tag-index.png
 https://ravelloh.top/articles/20230815/vscode-replace.png
+https://ravelloh.top/assets/images/screenshot-mobile.png
+https://ravelloh.top/assets/images/screenshot-pc.png
+https://ravelloh.top/assets/images/user.jpg
 https://ravelloh.top/assets/fonts/ri.svg
 https://ravelloh.top/assets/images/RavelloH.svg
 https://ravelloh.top/assets/images/android-chrome-192x192.png
@@ -81,9 +84,6 @@ https://ravelloh.top/assets/images/favicon-32x32.png
 https://ravelloh.top/assets/images/file.png
 https://ravelloh.top/assets/images/menu.png
 https://ravelloh.top/assets/images/music.jpg
-https://ravelloh.top/assets/images/screenshot-mobile.png
-https://ravelloh.top/assets/images/screenshot-pc.png
-https://ravelloh.top/assets/images/user.jpg
 https://ravelloh.top/platform/signin/index.html
 https://ravelloh.top/platform/signup/index.html
 https://ravelloh.top/tools/code/index.html
