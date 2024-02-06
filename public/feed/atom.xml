@@ -2,7 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ravelloh.top/</id>
     <title>RavelloH's Blog / RavelloH的博客</title>
+<<<<<<< HEAD
     <updated>2024-02-06T08:10:03.697Z</updated>
+=======
+    <updated>2024-02-06T08:14:50.464Z</updated>
+>>>>>>> aa57701 (Feat. 修改header)
     <generator>https://github.com/RavelloH/local-feed-generation</generator>
     <author>
         <name>RavelloH</name>
