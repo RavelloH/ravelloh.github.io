@@ -1,7 +1,4 @@
 {
-  "RLog": {
-    "logFilePath": "./log/20240205222535.log"
-  },
   "outputDirectory": "./public/",
   "templateDirectory": "./template/",
   "originDirectory": "./origin/",
