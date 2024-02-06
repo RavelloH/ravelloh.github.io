@@ -1,0 +1,3 @@
+title: 主页 / Home
+pageJsPath: ./home.js
+pagetype: 'homepage'

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{{{title}}} | {{{siteName}}}</title>
+    
+    {{static/metaData.html}}
+    {{static/preload.html}}
+    {{static/css.html}}
+    {{static/icons.html}}
+</head>
+
+<body>
+    <!-- viewport start -->
+    <section id="showcase">
+        {{static/loadingShade.html}}
+        {{layout/header.html}}
+        <div id="shade-context"></div>
+        <div id="main" class="loading">
+            <div id="viewmap">
+                {{{doc}}}
+            </div>
+        </div>
+        {{layout/footer.html}}
+    </section>
+    <section id="sidebar">
+        {{layout/sidebar.html}}
+    </section>
+    <section id="infobar">
+        {{layout/infobar.html}}
+    </section>
+    <section id="userbar"></section>
+    <!-- viewport end --> 
+    
+    {{static/javascript.html}}
+    <!-- Prefetch -->
+    <div id="page-prefetch">
+        {{{prefetch}}}
+    </div>
+</body>
+</html>
+<!-- EOF -->

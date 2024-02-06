@@ -1,0 +1,53 @@
+<article>
+    <div id="articles-header">
+        <h1><a href="{{{articlePath}}}">{{{articleName}}}</a></h1>
+        <p class="articles-info">
+            <time>{{{articleTime}}}</time> •
+            <span class="i_small ri:archive-line"></span>
+            <span class="class">
+                <% for(var cla = 0; cla < articleClass.length; cla++){ %>
+                <a><%= articleClass[cla] %></a>/
+                <% } %>
+            </span> •
+            <span class="i_small ri:t-box-line"></span> <span id="textLength">----字</span> •
+            <span class="i_small ri:search-eye-line"></span> <span id="pageVisitors">---</span>
+        </p>
+        <p class="articles-tags">
+            <span class="i_small ri:price-tag-3-line"></span>
+            <% for(var tag = 0; tag < articleTag.length; tag++){ %>
+            <a><%= articleTag[tag] %></a>/
+            <% } %>
+        </p>
+        <hr>
+    </div>
+
+    <div id="articles-body">
+        {{{doc}}}
+    </div>
+    <div id="articles-footer">
+        <hr>
+        <div class="articles-footer-cc">
+            <span class="i_small ri:information-line"></span> 原创内容使用 <a href="/help#分享协议">
+                <span class="i_small ri:creative-commons-line"></span><span class="i_small ri:creative-commons-nc-line"></span><span class="i_small ri:creative-commons-nd-line"></span>知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
+            </a>
+            协议授权。转载请注明出处。
+        </div>
+        <div id="blockchain-data"></div>
+        <div id="more-articles">
+            <div id="previous" onclick="pjaxLoad('${previousArticlesUrl}')">
+                <b><span class="i_small ri:arrow-left-s-line"></span> 上一篇</b><br>
+                <span class="one-line">正在加载中...</span>
+            </div>
+            <div id="next" onclick="pjaxLoad('${nextArticlesUrl}')">
+                <b>下一篇 <span class="i_small ri:arrow-right-s-line"></span></b><br>
+                <span class="one-line">正在加载中...</span>
+            </div>
+        </div>
+        <br><br>
+        <div id="tcomment">
+            <div class="info center">
+                <span class="i_small ri:download-cloud-line"></span> 正在加载评论...
+            </div>
+        </div>
+    </div>
+</article>

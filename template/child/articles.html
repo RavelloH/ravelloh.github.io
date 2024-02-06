@@ -1,0 +1,29 @@
+<div class="listlines">
+    <% if (articles) { %> 
+    <% for(let i = 0; i < articles.length; i++){ %>
+    <div class="loading listprogram">
+        <article>
+            <span class="article-name">
+                <h4><a href="<%= articles[i]['path'] %>"><%= articles[i]['name'] %></a></h4>
+            </span>
+            <p class="articles-info">
+                <time><%= articles[i]['time'] %></time> • <span class="i_small ri:archive-line"></span>
+                <span class="class">
+                    <% for(var cla = 0; cla < articles[i].cla.length; cla++){ %>
+                    <a><%= articles[i]['cla'][cla] %></a>/
+                    <% } %>
+                </span>
+            </p>
+            <p class="articles-tags">
+                <% for(var tag = 0; tag < articles[i].tag.length; tag++){ %>
+                <a><%= articles[i]['tag'][cla] %></a>/
+                <% } %>
+            </p>
+        </article>
+        <hr>
+    </div>
+    <% } %>
+    <% } else { %>
+    <p>暂无文章</p>
+    <% } %>
+</div>

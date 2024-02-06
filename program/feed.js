@@ -1,8 +1,8 @@
 const Feed = require('feed').Feed;
 const fs = require('fs');
 
-const dataFilePath = '../assets/data/search.json';
-const storagePath = '../feed/';
+const dataFilePath = './public/assets/data/search.json';
+const storagePath = './public/feed/';
 const siteDomain = 'https://ravelloh.top';
 const authorINFO = {
     name: 'RavelloH',

@@ -29,31 +29,29 @@ jobs:
             - name: 'Install requirements'
               run: |
                   npm install
+            - name: 'RenderBuild'
+              run: |
+                  node program/build.js
             - name: 'RPageSearch'
               continue-on-error: True
               run: |
-                  cd program
-                  node search.js
+                  node program/search.js
                   git add -A
-                  git commit -m "[RPageSearch]`date '+%Y-%m-%d %H:%M:%S'`" || exit
             - name: 'local-feed-generation'
               continue-on-error: True
               run: |
-                  cd program
-                  node feed.js
+                  node program/feed.js
                   git add -A
-                  git commit -m "[local-feed-generation]`date '+%Y-%m-%d %H:%M:%S'`" || exit
             - name: 'local-sitemap-generation'
               continue-on-error: True
               run: |
-                  cd program
-                  node fileList.js
-                  npx sitemap < ../assets/data/urlList.txt > ../sitemap.xml
+                  node program/fileList.js
+                  npx sitemap < ./public/assets/data/urlList.txt > ./public/sitemap.xml
                   git add -A
-                  git commit -m "[local-sitemap-generation]`date '+%Y-%m-%d %H:%M:%S'`" || exit
             - name: 'Commit files'
               continue-on-error: True
               run: |
                   git diff
                   git status
+                  git commit -m "[RTheme-Build]`date '+%Y-%m-%d %H:%M:%S'`" || exit
                   git push -f || exit

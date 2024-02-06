@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const siteDomain = 'https://ravelloh.top/';
-const targetPath = '../';
-const preserveFile = '../assets/data/urlList.txt';
+const targetPath = './public/';
+const preserveFile = './public/assets/data/urlList.txt';
 
 function removeDuplicateBeginning(arr) {
     if (arr.length === 0) {

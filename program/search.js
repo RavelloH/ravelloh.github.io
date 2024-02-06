@@ -5,9 +5,9 @@ const fs = require('fs');
 const cheerio = require('cheerio');
 
 // 配置区
-const articlesFolder = '../articles/'; // 文章根目录
+const articlesFolder = './public/articles/'; // 文章根目录
 const articlesFileName = 'index.html'; // 文档文件名
-const savePath = '../assets/data/search.json';
+const savePath = './public/assets/data/search.json';
 // 选择器
 const articlesName = '#articles-header h1 a'; // 文章标题元素
 const articlesUrl = '#articles-header h1 a'; // 文章链接元素

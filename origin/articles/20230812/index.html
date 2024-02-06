@@ -1,0 +1,525 @@
+<article>
+    <div id="articles-header">
+        <h1><a href="/articles/20230812/">RPageSearchV2：更快速高级的全站搜索</a></h1>
+        <p class="articles-info">
+            <time>2023-08-12</time> •
+            <span class="i_small ri:archive-line"></span>
+            <span class="class">
+                <a>技术</a>/
+                <a>设计</a>/
+                <a>重构</a>
+            </span> •
+            <span class="i_small ri:t-box-line"></span> <span id="textLength">----字</span> •
+            <span class="i_small ri:search-eye-line"></span> <span id="pageVisitors">---</span>
+        </p>
+        <p class="articles-tags">
+            <span class="i_small ri:price-tag-3-line"></span>
+            <a>JavaScript</a>
+            <a>NodeJS</a>
+            <a>JSON</a>
+        </p>
+        <hr>
+    </div>
+
+    <div id="articles-body">
+        <h2>前言</h2>
+        <p>
+            2022年8月25日，我做了个新项目<a href="https://github.com/ravelloh/RPageSearch">RPageSearch</a>来实现静态站的全站搜索功能，并且也发了篇新博客<a href="/articles/20220825/">《静态站实现全站搜索》</a>。当时在文章的结尾我是这么说的：
+            <blockquote class="center">
+                “说回主角，我把它在Github立了个项，放在<a href="https://github.com/ravelloh/RPageSearch"
+                    class="linkline">Github@RavelloH/RPageSearch</a>中，现在没有时间不会再去更新它，但是以后<del>(也可能是很久以后)</del>会陆续升级一下，加入模糊搜索等功能。”
+            </blockquote>
+            正好最近重制主题，为了契合新主题的风格以及性能优化正好也把<a href="https://github.com/ravelloh/RPageSearch">RPageSearch</a>升级了一下。现在它具有比以前丰富得多的功能，性能方面也极大的提升了。遂做篇新文章来作为新的使用文档。<br>
+            项目v2版本现已发布，Releases见下：
+            <a href="https://github.com/RavelloH/RPageSearch/releases" type="link-box">Releases · RavelloH/RPageSearch</a>
+        </p>
+        <h2>更新内容</h2>
+        <p>
+            <ul>
+                <li>性能优化，MB级数据索引速度小于100ms</li>
+                <li>可搜索内容扩大，从之前的标题+内容升级为标题+内容+章节+标签+分类+外链等等</li>
+                <li>更快的即时搜索</li>
+                <li>搜索语法拓展，可使用正则表达式实现模糊搜索</li>
+                <li>使用Web Worker异步运算，不会堵塞主进程</li>
+                <li>自动持续构建升级，转入NodeJs框架</li>
+                <li>可拓展的标准数据格式，索引文件及结果均使用Object格式存储</li>
+                <li>可自定义的前端模板样式</li>
+            </ul>
+        </p>
+        <h2>效果</h2>
+        <p>
+            在<a href="/articles/">我的博客</a>中可直接试用此搜索功能，感受它的高性能。<br>
+            <img class="border" src="/articles/20230812/rpagesearch-name.png" alt="对标题内容进行搜索">
+            <img class="border" src="/articles/20230812/rpagesearch-link.png" alt="对存在外链指向的内容进行搜索">
+            <img class="border" src="/articles/20230812/rpagesearch-regular.png" alt="使用正则语法进行模糊搜索">
+            <img class="border" src="/articles/20230812/rpagesearch-title.png" alt="搜索对应章节名">
+        </p>
+        <h2>原理</h2>
+        <p>
+            构建时运行<code>search.js</code>，这会对站点所有文章进行索引并生成一个索引文件<code>search.json</code>。<br> 在客户端使用时，浏览器会请求生成的<code>search.json</code>，并与Web Worker<code>search.worker.js</code>建立连接。<br> 在搜索时，搜索词及索引数据将会被发送至Worker并处理，Worker返回一个JSON格式的搜索结果。<br> 之后，前端处理返回的结果并展示。
+        </p>
+        <h2>使用</h2>
+        <p>
+            此项目及下方所用到的所有文件/代码片段均位于RPageSearch仓库内。
+            <a href="https://github.com/ravelloh/RPageSearch" type="link-box">Github:RavelloH/RPageSearch</a>
+        </p>
+        <h3>初始化配置</h3>
+        <blockquote>
+            <p>
+                <strong>注意：你需要先根据自己的页面结构调整脚本</strong>
+            </p>
+        </blockquote>
+        <h4>配置目录结构</h4>
+        <p>
+            例子： 如果你的文章目录结构如下：
+        </p>
+        <div class="codeline">
+            <pre>
+                <span>......</span>
+                <span>├── articles</span>
+                <span>│   ├── 20200816</span>
+                <span>│   │   ├── index.html</span>
+                <span>│   ├── 20210701</span>
+                <span>│   │   └── index.html</span>
+                <span>│   ├── 20210705</span>
+                <span>│   │   └── index.html</span>
+                <span>│   ├── 20210719</span>
+                <span>│   │   └── index.html</span>
+                <span>│   ├── 20220206</span>
+                <span>│   │   └── index.html</span>
+                <span>......</span>
+                <span></span>
+            </pre>
+        </div>
+        <p>
+            需要在<code>search.js</code>中这样配置：
+        </p>
+        <div class="codeline">
+            <pre>
+                <span>// 配置区</span>
+                <span>const articlesFolder = "../articles/"; // 文章根目录</span>
+                <span>const articlesFileName = "index.html"; // 文档文件名</span>
+                <span>const savePath = "../assets/data/search.json";</span>
+            </pre>
+        </div>
+        <p>
+            这将会匹配这样的内容：<code>../articles/*/index.html</code><br> RPageSearch默认会在<code>articlesFolder</code>中列出所有目录，并检测其中是否含有<code>articlesFileName</code>，如果有则进行解析。<br> 其中，<code>savePath</code>定义了生成数据的保存路径，后期会用到。
+        </p>
+        <h4>配置页面结构</h4>
+        <p>
+            例子： 如果你的文章文档结构如下：
+        </p>
+        <div class="codeline">
+            <pre>
+                <span>&lt;article&gt;</span>
+                <span>    &lt;div id=&quot;articles-header&quot;&gt;</span>
+                <span>        &lt;h2&gt;&lt;a href=&quot;/articles/20221224/&quot;&gt;HikvisionIP摄像头后台绕过&lt;/a&gt;&lt;/h2&gt;&lt;p class=&quot;articles-info&quot;&gt;</span>
+                <span>            &lt;time&gt;2022-12-24&lt;/time&gt; •&lt;span class=&quot;i_small ri:archive-line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;&lt;a&gt;网络安全&lt;/a&gt;/&lt;a&gt;技术&lt;/a&gt;&lt;/span&gt; •&lt;span class=&quot;i_small ri:t-box-line&quot;&gt;&lt;/span&gt; &lt;span id=&quot;textLength&quot;&gt;----字&lt;/span&gt; •&lt;span class=&quot;i_small ri:search-eye-line&quot;&gt;&lt;/span&gt; &lt;span id=&quot;pageVisitors&quot;&gt;---&lt;/span&gt;</span>
+                <span>        &lt;/p&gt;</span>
+                <span>        &lt;p class=&quot;articles-tags&quot;&gt;</span>
+                <span>            &lt;span class=&quot;i_small ri:price-tag-3-line&quot;&gt;&lt;/span&gt;&lt;a&gt;ATTACK&lt;/a&gt;&lt;a&gt;JSON&lt;/a&gt;&lt;a&gt;MONITOR&lt;/a&gt;</span>
+                <span>        &lt;/p&gt;</span>
+                <span>        &lt;hr&gt;</span>
+                <span>    &lt;/div&gt;</span>
+                <span>    &lt;div id=&quot;articles-body&quot;&gt;</span>
+                <span>        &lt;h3&gt;标题&lt;/h3&gt;&lt;p&gt;</span>
+                <span>            正文内容</span>
+                <span>        &lt;/p&gt;</span>
+                <span>        &lt;br&gt;&lt;br&gt;&lt;h3&gt;标题&lt;/h3&gt;&lt;p&gt;</span>
+                <span>            正文</span>
+                <span>        &lt;/p&gt;</span>
+                <span>        &lt;h3&gt;标题&lt;/h3&gt;&lt;p&gt;</span>
+                <span>            正文</span>
+                <span>        &lt;/p&gt;</span>
+                <span>    &lt;/div&gt;</span>
+                <span>    &lt;div id=&quot;articles-footer&quot;&gt;</span>
+                <span>        略</span>
+                <span>    &lt;/div&gt;</span>
+                <span>&lt;/article&gt;</span>
+            </pre>
+        </div>
+        <p>
+            可以在<code>search.js</code>中这样配置：
+        </p>
+        <div class="codeline">
+            <pre>
+                <span>// 选择器</span>
+                <span>const articlesName = "#articles-header h2 a"; // 文章标题元素</span>
+                <span>const articlesUrl = "#articles-header h2 a"; // 文章链接元素</span>
+                <span>const articlesTime = "#articles-header .articles-info time"; // 文章时间元素</span>
+                <span>const articlesClass = "#articles-header .articles-info .class a"; // 文章分类元素</span>
+                <span>const articlesTag = "#articles-header .articles-tags a"; // 文章标签元素</span>
+                <span>const articlesBody = "#articles-body"; // 文章正文元素</span>
+                <span>const articlesImages = "#articles-body img"; // 文章图片元素</span>
+                <span>const articlesLinks = "#articles-body a"; // 文章外链元素</span>
+                <span>const articlesTitle =</span>
+                <span>"#articles-body h2 , #articles-body h3 , articles-body h4 , articles-body h5 , articles-body h6"; // 文章小标题元素</span>
+            </pre>
+        </div>
+        <p>
+            这里可以任意使用CSS选择器，参考如上。
+        </p>
+        <h4>生成索引数据</h4>
+        <p>
+            安装依赖并执行<code>search.js</code>
+        </p>
+        <div class="codeline">
+            <pre><span>npm install</span>
+                <span>node search.js</span>
+            </pre>
+        </div>
+        <p>
+            不出意外，用于保存结果的<code>search.json</code>会正常生成在之前定义的路径<code>savePath</code>中。<br> 此文件用于与search.worker.js通信，其格式一般不需要调整，为所有索引的对象，其中的一项格式如下：
+        </p>
+        <div class="codeline">
+            <pre>
+                <span>{</span>
+                <span>    "name": "Minecraft反转药水效果",</span>
+                <span>    "url": "/articles/20200816/",</span>
+                <span>    "time": "2020-08-16",</span>
+                <span>    "class": [</span>
+                <span>        "游戏"</span>
+                <span>    ],</span>
+                <span>    "tag": [</span>
+                <span>        "minecraft",</span>
+                <span>        "json"</span>
+                <span>    ],</span>
+                <span>    "title": [</span>
+                <span>        "原理",</span>
+                <span>        "效果",</span>
+                <span>        "命令"</span>
+                <span>    ],</span>
+                <span>    "context": "文章内容，略"</span>
+                <span>    "img": [</span>
+                <span>        "/articles/20200816/show1.gif",</span>
+                <span>        "/articles/20200816/show2.gif",</span>
+                <span>        "/articles/20200816/show3.gif"</span>
+                <span>    ],</span>
+                <span>    "links": []</span>
+                <span>}</span>
+            </pre>
+        </div>
+        <h4>前端接入</h4>
+        <p>
+            你需要在frontEnd.js中自定义以适应你的样式。详细的例子，可以参照<a href="https://ravelloh.top/">我的博客</a>或<a href="https://github.com/RavelloH/RTheme">RTheme</a> <code>search.worker.js</code>一般不需要调整。它会在搜索时返回以下结构的结果：
+        </p>
+        <div class="codeline">
+            <pre>
+                <span>[{</span>
+                <span>    "name": "论静态页中伪动态的实现",</span>
+                <span>    "url": "/articles/20220708/",</span>
+                <span>    "time": "2022-07-08",</span>
+                <span>    "class": [</span>
+                <span>        "技术",</span>
+                <span>        "设计"</span>
+                <span>    ],</span>
+                <span>    "tag": [</span>
+                <span>        "javascript",</span>
+                <span>        "html",</span>
+                <span>        "python"</span>
+                <span>    ],</span>
+                <span>    "title": [</span>
+                <span>        "前言",</span>
+                <span>        "效果",</span>
+                <span>        "实现方法",</span>
+                <span>        "页面自动构建"</span>
+                <span>    ],</span>
+                <span>    "context": "文章内容，这里略"</span>
+                <span>    "img": [</span>
+                <span>        "/articles/20220708/show1.gif",</span>
+                <span>        "/articles/20220708/show2.png",</span>
+                <span>        "/articles/20220708/code3.png"</span>
+                <span>    ],</span>
+                <span>    "links": [</span>
+                <span>        "?text=123&amp;?name=aaa#锚点",</span>
+                <span>        "https://ravelloh.github.io/PSGameSpider/",</span>
+                <span>        "https://ravelloh.github.io/EverydayNews/",</span>
+                <span>        "https://github.com/RavelloH/PSGameSpider",</span>
+                <span>        "?text=123&amp;?name=aaa#实现方法",</span>
+                <span>        "https://docs.github.com/cn/actions",</span>
+                <span>        "https://github.com/RavelloH/PSGameSpider",</span>
+                <span>        "https://github.com/RavelloH/EverydayNews"</span>
+                <span>    ],</span>
+                <span>    "match": [</span>
+                <span>        [</span>
+                <span>            "context",</span>
+                <span>            25,</span>
+                <span>            118</span>
+                <span>        ],</span>
+                <span>        [</span>
+                <span>            "links",</span>
+                <span>            1</span>
+                <span>        ]</span>
+                <span>    ],</span>
+                <span>    "matchTimes": 25</span>
+                <span>},</span>
+                <span>{</span>
+                <span>        "name": "静态站实现全站搜索",</span>
+                <span>        "url": "/articles/20220825/",</span>
+                <span>        "time": "2022-08-25",</span>
+                <span>        "class": [</span>
+                <span>            "技术",</span>
+                <span>            "设计"</span>
+                <span>        ],</span>
+                <span>        "tag": [</span>
+                <span>            "javascript",</span>
+                <span>            "json",</span>
+                <span>            "python"</span>
+                <span>        ],</span>
+                <span>        "title": [</span>
+                <span>            "前言",</span>
+                <span>            "效果",</span>
+                <span>            "实现方式",</span>
+                <span>            "代码分析",</span>
+                <span>            "后言"</span>
+                <span>        ],</span>
+                <span>        "context": "文章内容，这里略"</span>
+                <span>        "img": [</span>
+                <span>            "/articles/20220825/show1.jpg"</span>
+                <span>        ],</span>
+                <span>        "links": [</span>
+                <span>            "/articles/",</span>
+                <span>            "https://github.com/ravelloh/ravelloh.github.io",</span>
+                <span>            "https://github.com/ravelloh/RPageSearch"</span>
+                <span>        ],</span>
+                <span>        "match": [</span>
+                <span>            [</span>
+                <span>                "context",</span>
+                <span>                7,</span>
+                <span>                103</span>
+                <span>            ],</span>
+                <span>            [</span>
+                <span>                "links",</span>
+                <span>                1</span>
+                <span>            ]</span>
+                <span>        ],</span>
+                <span>        "matchTimes": 7</span>
+                <span>}]</span>
+            </pre>
+        </div>
+        <p>
+            返回的对象包含索引的所有内容，并已经按照相关度排序，且其匹配项会被包裹在<code>&lt;mark&gt;&lt;/mark&gt;</code>标签内。除此以外，还会包含一个特殊值<code>match</code>用于表示所有匹配的结果数据。<br> <code>match</code>定义了一个结果列表，其每一项的第一项表示匹配的属性，第二项表示匹配的属性在所有属性中的排序。<br> 其中，<code>context</code>属性与其他属性稍微不同，它的第二项是匹配个数，第三项是第一次匹配的字符位置。<br> <code>match</code>的最后一项是<code>matchTimes</code>，表示匹配次数。如果含有标题匹配，这个值会是<code>999999</code>以确保其在结果中置顶。
+        </p>
+        <p>
+            因为是使用worker通讯，你可以参照<code>frontEnd.js</code>中的<code>search</code>函数配置你的结果展示。<br> 在示例中，搜索的核心实现如下：
+        </p>
+        <div class="codeline">
+            <pre><span>function getSearchData() {</span>
+                <span>    if (typeof searchData == "undefined") {</span>
+                <span>        return new Promise((resolve, reject) =&gt; {</span>
+                <span>            fetch(dataFilePath, {})</span>
+                <span>            .then((response) =&gt; response.json())</span>
+                <span>            .then((data) =&gt; {</span>
+                <span>                searchData = data;</span>
+                <span>                resolve(data);</span>
+                <span>            });</span>
+                <span>        }).catch((err) =&gt; {</span>
+                <span>            throw err;</span>
+                <span>        });</span>
+                <span>    } else {</span>
+                <span>        return Promise.resolve(searchData);</span>
+                <span>    }</span>
+                <span>}</span>
+                <span>function search(keyword) {</span>
+                <span>    let start = new Date().getTime();</span>
+                <span>    if (keyword == "" || keyword == ".") {</span>
+                <span>        return false;</span>
+                <span>    }</span>
+                <span>    searchWord = HTMLDecode(keyword);</span>
+                <span>    getSearchData().then((data) =&gt; {</span>
+                <span>        if (typeof searchWorker == "undefined") {</span>
+                <span>            searchWorker = new Worker(workerPath);</span>
+                <span>        }</span>
+                <span>        searchWorker.onmessage = (result) =&gt; {</span>
+                <span>            let end = new Date().getTime();</span>
+                <span>            let data = result.data;</span>
+                <span>            console.log(`查询操作用时${end - start}MS`);</span>
+                <span>            if (data.length == 0) {</span>
+                <span>                console.log("未找到有关选项");</span>
+                <span>                return false;</span>
+                <span>            }</span>
+                <span>            let resultHTML = "";</span>
+                <span>            data.forEach((e, index) =&gt; {</span>
+                <span>                resultHTML += structureSearchResult(e);</span>
+                <span>            });</span>
+                <span>            console.log(resultHTML); // 结果输出</span>
+                <span>        };</span>
+                <span>        searchWorker.postMessage([data, searchWord]);</span>
+                <span>    });</span>
+                <span>}</span></pre>
+        </div>
+        <p>
+            这实际上是<a href="https://github.com/RavelloH/RTheme">RTheme</a>中相关组件的精简版，它使用<code>getSearchData()</code>方式返回一个Promise，并在存在本地缓存是直接返回或在本地无缓存时请求数据并异步返回。<br> 最主要的功能实现在函数<code>search()</code>的定义内，它会转义搜索词并与Worker通信，将返回结果的每一项传递给新函数<code>structureSearchResult()</code>以构建标准HTML输出。示例中的输出格式如下:
+        </p>
+        <div class="codeline">
+            <pre>
+                <span>function structureSearchResult(result) {</span>
+                <span>    let cla = "";</span>
+                <span>    let tag = "";</span>
+                <span>    let match = "";</span>
+                <span>    let matchItem,</span>
+                <span>    matchNum,</span>
+                <span>    matchContext,</span>
+                <span>    matchTag,</span>
+                <span>    matchClass,</span>
+                <span>    matchTitle,</span>
+                <span>    matchLinks;</span>
+                <span>    let strLinks = "";</span>
+                <span></span>
+                <span>    result.match.forEach((e) =&gt; {</span>
+                <span>        if (typeof e == "object") {</span>
+                <span>            matchItem = e[0];</span>
+                <span>        } else {</span>
+                <span>            matchItem = e;</span>
+                <span>        }</span>
+                <span>        switch (matchItem) {</span>
+                <span>            case "name":</span>
+                <span>                match += "标题 / ";</span>
+                <span>                break;</span>
+                <span>            case "context":</span>
+                <span>                matchNum = e;</span>
+                <span>                match += `内容(${e[1]}次) / `;</span>
+                <span>                break;</span>
+                <span>            case "title":</span>
+                <span>                match += "章节 / ";</span>
+                <span>                matchTitle = e;</span>
+                <span>                break;</span>
+                <span>            case "tag":</span>
+                <span>                match += "标签 / ";</span>
+                <span>                matchTag = e;</span>
+                <span>                break;</span>
+                <span>            case "class":</span>
+                <span>                match += "分类 / ";</span>
+                <span>                matchClass = e;</span>
+                <span>                break;</span>
+                <span>            case "links":</span>
+                <span>                match += "外链 / ";</span>
+                <span>                matchLinks = e;</span>
+                <span>                break;</span>
+                <span>        }</span>
+                <span>    });</span>
+                <span>    result.class.forEach((e, index) =&gt; {</span>
+                <span>        if (typeof matchClass !== "undefined" &amp; &amp; matchClass[1] == index) {</span>
+                <span>            cla += `&lt;a href="#/classification/${e}" class='active'&gt;${e}&lt;/a&gt;/`;</span>
+                <span>        } else {</span>
+                <span>            cla += `&lt;a href="#/classification/${e}"&gt;${e}&lt;/a&gt;/`;</span>
+                <span>        }</span>
+                <span>    });</span>
+                <span>    cla = cla.substring(0,</span>
+                <span>        cla.length - 1);</span>
+                <span>    result.tag.forEach((e, index) =&gt; {</span>
+                <span>        if (typeof matchTag !== "undefined" &amp; &amp; matchTag[1] == index) {</span>
+                <span>            tag += `&lt;a href="#/tag/${e}" class='active'&gt;${e}&lt;/a&gt;`;</span>
+                <span>        } else {</span>
+                <span>            tag += `&lt;a href="#/tag/${e}"&gt;${e}&lt;/a&gt;`;</span>
+                <span>        }</span>
+                <span>    });</span>
+                <span>    match = match.substring(0,</span>
+                <span>        match.length - 3);</span>
+                <span>    if (typeof matchNum == "undefined" || matchNum[2] &lt; 10) {</span>
+                <span>        matchContext = result.context.substring(0, 150);</span>
+                <span>    } else {</span>
+                <span>        matchContext = result.context.substring(</span>
+                <span>            matchNum[2] - 10,</span>
+                <span>            matchNum[2] + 140,</span>
+                <span>        );</span>
+                <span>    }</span>
+                <span>    result.links.forEach((e, index) =&gt; {</span>
+                <span>        if (typeof matchLinks !== "undefined" &amp; &amp; matchLinks[1] == index) {</span>
+                <span>            strLinks = `&lt;a class='search-result-links one-line' href='${e}'&gt;&lt;span class='i_small ri:link'&gt;&lt;/span&gt; ${e}&lt;/a&gt;`;</span>
+                <span>        }</span>
+                <span>    });</span>
+                <span>    return </span>
+                <span>    `&lt;div class="loaded listprogram"&gt;&lt;article&gt;&lt;span class="article-name"&gt;&lt;h4&gt;&lt;a href="${result.url}"&gt;${result.name}&lt;/a&gt;&lt;/h4&gt;&lt;/span&gt;&lt;p class="articles-info"&gt;&lt;span class='search-result-tags'&gt;${match}&lt;/span&gt;&lt;time&gt;${result.time}&lt;/time&gt; • &lt;span class="i_small ri:archive-line"&gt;&lt;/span&gt;&lt;span class="class"&gt;${cla}&lt;/span&gt;&lt;div class='search-result-context'&gt;&lt;span class='i_small ri:file-list-2-line'&gt;&lt;/span&gt; ...${matchContext}&lt;/div&gt;${strLinks}&lt;/p&gt;&lt;p class="articles-tags"&gt;${tag}&lt;/p&gt;&lt;/article&gt;&lt;hr&gt;&lt;/div&gt;`</span>
+                <span>}</span>
+            </pre>
+        </div>
+        <p>
+            你可以据此使用<code>result.url</code> <code>result.name</code> <code>match</code> <code>result.time</code> <code>cla</code> <code>matchContext</code> <code>strLinks</code> <code>tag</code>等结果字符串自定义你的输出模板。其中，<code>matchContext</code>会返回结果前后共150字符的内容，你可以通过修改CSS实现其样式的优化，或直接参考<a href="https://github.com/RavelloH/RTheme">RTheme</a>
+        </p>
+        <h3>持续构建</h3>
+        <p>
+            在初始化成功后，你可以使用github Workflow在有更改时自动构建。 添加一个<code>.github/workflow/search.xml</code>，示例如下：
+        </p>
+        <div>
+            <pre>
+                <span>name: RPageSearch</span>
+                <span>on:</span>
+                <span>    push:</span>
+                <span>        paths:</span>
+                <span>            - 'articles/**'</span>
+                <span>    workflow_dispatch:</span>
+                <span></span>
+                <span>permissions:</span>
+                <span>    contents: write</span>
+                <span>    pages: write</span>
+                <span>    id-token: write</span>
+                <span></span>
+                <span>jobs:</span>
+                <span>    build:</span>
+                <span>        runs-on: ubuntu-latest #运行环境</span>
+                <span>        steps:</span>
+                <span>            - name: Checkout</span>
+                <span>              uses: actions/checkout@v2</span>
+                <span>            - name: 'Git set'</span>
+                <span>              run: |</span>
+                <span>                  git init</span>
+                <span>                  git pull</span>
+                <span>            - name: 'Set up nodejs'</span>
+                <span>              uses: actions/setup-node@v3</span>
+                <span>              with:</span>
+                <span>                  node-version: 'latest'</span>
+                <span>            - name: 'Install requirements'</span>
+                <span>              run: |</span>
+                <span>                  npm install</span>
+                <span>            - name: 'Working'</span>
+                <span>              run: |</span>
+                <span>                  node search.js</span>
+                <span>            - name: Commit files</span>
+                <span>              continue-on-error: True</span>
+                <span>              run: |</span>
+                <span>                  git diff</span>
+                <span>                  git config --local user.email &quot;dr_hamilton@foxmail.com&quot;</span>
+                <span>                  git config --local user.name &quot;Ravello-H&quot;</span>
+                <span>                  git add -A</span>
+                <span>                  git commit -m &quot;[RPageSearch]`date '+%Y-%m-%d %H:%M:%S'`&quot; || exit</span>
+                <span>                  git status</span>
+                <span>                  git push -f</span>
+            </pre>
+        </div>
+        <h2>进阶</h2>
+        <p>
+            因为能提供索引文件，你可以据此生成其他文件。参照以下项目：<br> <a href="https://github.com/RavelloH/local-feed-generation" type="link-box">Github:RavelloH/local-feed-generation</a>
+        </p>
+        <h2>依赖</h2>
+        <p>
+            <a href="https://github.com/cheeriojs/cheerio" type="link-box">Github:Cheeriojs/cheerio</a>
+        </p>
+    </div>
+    <div id="articles-footer">
+        <hr>
+        <div class="articles-footer-cc">
+            <span class="i_small ri:information-line"></span> 原创内容使用 <a href="/help#分享协议">
+                <span class="i_small ri:creative-commons-line"></span><span class="i_small ri:creative-commons-nc-line"></span><span class="i_small ri:creative-commons-nd-line"></span>知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
+            </a>
+            协议授权。转载请注明出处。
+        </div>
+        <div id="blockchain-data"></div>
+        <div id="more-articles">
+            <div id="previous" onclick="pjaxLoad('${previousArticlesUrl}')">
+                <b><span class="i_small ri:arrow-left-s-line"></span> 上一篇</b><br>
+                <span class="one-line">正在加载中...</span>
+            </div>
+            <div id="next" onclick="pjaxLoad('${nextArticlesUrl}')">
+                <b>下一篇 <span class="i_small ri:arrow-right-s-line"></span></b><br>
+                <span class="one-line">正在加载中...</span>
+            </div>
+        </div>
+        <br><br>
+        <div id="tcomment">
+            <div class="info center">
+                <span class="i_small ri:download-cloud-line"></span> 正在加载评论...
+            </div>
+        </div>
+    </div>
+</article>
