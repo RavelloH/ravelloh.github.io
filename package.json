@@ -21,6 +21,6 @@
     "cheerio": "^1.0.0-rc.12",
     "feed": "^4.2.2",
     "pretty": "^2.0.0",
-    "render-build": "^0.1.0"
+    "render-build": "^0.2.0"
   }
 }
