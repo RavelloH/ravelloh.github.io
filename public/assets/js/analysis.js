@@ -68,7 +68,7 @@ function getUmamiEventList() {
 function getRealTimeVisitors(mode = 'return') {
     let site = 'https://analytics.ravelloh.top';
     let token =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJzaXRlSWQiOiJmNDdlMmRjMy1mNmJmLTRkN2MtYjMxMS03NDY3YmIxYjE3ZTUiLCJpYXQiOjE2OTI1MTM3MDZ9.ue7uB774guW63um-Qgvwx7SmhD_t_vIkwrUjzl_F50c';
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3ZWJzaXRlSWQiOiJmNDdlMmRjMy1mNmJmLTRkN2MtYjMxMS03NDY3YmIxYjE3ZTUiLCJpYXQiOjE3MDczMTUzODJ9.AGpScr0yTgoa2RPbTsYUfrOgUGy_46JAwNNRB-YUmBM';
     let apiURL = site + '/api/websites/f47e2dc3-f6bf-4d7c-b311-7467bb1b17e5/active';
     fetch(apiURL, {
         headers: {
