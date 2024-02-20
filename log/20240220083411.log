@@ -1,0 +1,33 @@
+[2024-02-20 08:34:11.012][INFO] RenderBuild - v0.1.0
+[2024-02-20 08:34:11.016][INFO] Start parsing custom configuration file in ./config.json...
+[2024-02-20 08:34:11.016][SUCCESS] Configuration has been changed
+[2024-02-20 08:34:11.017][INFO] Start building...
+[2024-02-20 08:34:11.018][INFO] Start to build main templates in template/layout.html...
+[2024-02-20 08:34:11.019][INFO] Fetching template/static/metaData.html
+[2024-02-20 08:34:11.020][INFO] Fetching template/static/preload.html
+[2024-02-20 08:34:11.020][INFO] Fetching template/static/css.html
+[2024-02-20 08:34:11.020][INFO] Fetching template/static/noscript.css
+[2024-02-20 08:34:11.021][INFO] Fetching template/static/icons.html
+[2024-02-20 08:34:11.021][INFO] Fetching template/static/loadingShade.html
+[2024-02-20 08:34:11.021][INFO] Fetching template/layout/header.html
+[2024-02-20 08:34:11.021][INFO] Fetching template/layout/nav.html
+[2024-02-20 08:34:11.021][INFO] Fetching template/layout/footer.html
+[2024-02-20 08:34:11.021][INFO] Fetching template/layout/sidebar.html
+[2024-02-20 08:34:11.022][INFO] Fetching template/layout/menu.html
+[2024-02-20 08:34:11.022][INFO] Fetching template/layout/copyright.html
+[2024-02-20 08:34:11.022][INFO] Fetching template/layout/sideicon.html
+[2024-02-20 08:34:11.022][INFO] Fetching template/layout/infobar.html
+[2024-02-20 08:34:11.022][INFO] Fetching template/layout/player.html
+[2024-02-20 08:34:11.022][INFO] Fetching template/static/javascript.html
+[2024-02-20 08:34:11.023][INFO] Fetching template/static/remotePath
+[2024-02-20 08:34:11.023][WARNING] Error reading file: ENOENT: no such file or directory, open 'template/static/remotePath'. Retrying...
+[2024-02-20 08:34:11.023][INFO] Fetching template/static/remotePath
+[2024-02-20 08:34:11.023][WARNING] Error reading file: ENOENT: no such file or directory, open 'template/static/remotePath'. Retrying...
+[2024-02-20 08:34:11.023][INFO] Fetching template/static/remotePath
+[2024-02-20 08:34:11.023][WARNING] Error reading file: ENOENT: no such file or directory, open 'template/static/remotePath'. Retrying...
+[2024-02-20 08:34:11.023][INFO] Fetching template/static/remotePath
+2024-02-20 08:34:11.023[EXIT]Error: ENOENT: no such file or directory, open 'template/static/remotePath'
+2024-02-20 08:34:11.024[EXIT]TypeError: Cannot read properties of undefined (reading 'match')
+[2024-02-20 08:34:11.026][WARNING] RBuild stopped due to a program error. 
+If you are unsure of the issue, please send the log to us: 
+https://github.com/RavelloH/RBuild/issues/new
