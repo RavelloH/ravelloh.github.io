@@ -58,7 +58,7 @@
             <div id="load-content">
                 <hr>
                 <h2>RavelloH's Blog</h2>
-                <h3>LOAD <span id="loading-text"> ing <span class="breath"> <span>.</span> <span>.</span> <span>.</span> </span> </span></h3>
+                <h3>LOAD <span id="loading-text"> ing <span class="breath"> <span>.</span><span>.</span><span>.</span></span> </span></h3>
                 <hr> <br>
             </div>
         </div>
@@ -228,18 +228,6 @@
     <script defer type="text/javascript" src="/assets/js/display.js" onload="loadComplete('display.js')"></script>
     <script defer type="text/javascript" src="/assets/js/pjax.js" onload="enablePjax();loadComplete('pjax.js')"></script>
     <script defer type="text/javascript" src="/assets/js/analysis.js" onload="baiduAnalysis();umamiAnalytics()"></script>
-    <script src="https://tam.cdn-go.cn/aegis-sdk/latest/aegis.min.js"></script>
-    <script>
-        if (typeof Aegis === 'function') {
-            var aegis = new Aegis({
-                id: 'mZdy0ULYRPKrYkY68R',
-                reportApiSpeed: true,
-                reportAssetSpeed: true,
-                spa: true,
-                hostUrl: 'https://rumt-zh.com'
-            });
-        }
-    </script>
     <div id="page-js">
         <script>function main() {
     virgule(document.querySelector("#jumping"), '## Welcome here and fell free to check it out...', 150)
