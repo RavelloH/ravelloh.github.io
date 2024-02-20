@@ -2620,7 +2620,8 @@ code {
     background-color: #333333;
 }
 #feed-list,
-#uptime-list {
+#uptime-list,
+.flex-list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2637,10 +2638,12 @@ code {
 #feed-list a,
 #mail-feed,
 #uptime-list a,
+.flex-list a,
 #articles-sort span:active,
 #feed-list a:active,
 #mail-feed:active,
-#uptime-list a:hover {
+#uptime-list a:hover,
+.flex-list a:hover {
     width: 45%;
     font-size: 1.2em;
     background-color: var(--theme-gray);
@@ -2655,7 +2658,8 @@ code {
 }
 
 #feed-list a,
-#uptime-list a {
+#uptime-list a,
+.flex-list a{
     width: 30%;
 }
 
@@ -3257,4 +3261,28 @@ kdb {
     #sidebar {
         padding: 2rem 15px 2rem 15px;
     }
+}
+
+.square-img-box {
+    max-width: 10em;
+    margin: 1em;
+}
+
+
+.square-img-box-img img {
+    border-radius: 1em;
+    transition: 0.4s;
+}
+
+.square-img-box-img img:hover {
+    transform: scale(1.1);
+}
+
+
+.square-img-box-name {
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--theme-white-light);
 }
