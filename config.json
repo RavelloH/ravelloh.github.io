@@ -16,7 +16,9 @@
     "githubUserName": "RavelloH",
     "mail": "ravelloh@outlook.com",
     "copyrightStartTime": "2019",
-    "defaultScript": "<script>function main(){}</script>"
+    "defaultScript": "<script>function main(){}</script>",
+    "analyticScript": "<script defer type=\"text/javascript\" src=\"{{{remotePath}}}/assets/js/analysis.js\" onload=\"baiduAnalysis();umamiAnalytics()\"></script>",
+    "remotePath": ""
   },
   "mainTemplate": "layout.html",
   "metadataFileName": "metadata.yaml",
