@@ -291,17 +291,18 @@ function resetTagList() {
 }
 
 // 引入评论脚本
-function loadComment() {
+function loadComment(path) {
     addScript('/assets/js/lib/twikoo.all.min.js',
-        'initComment()');
+        `initComment('${path || undefined}')`);
 }
 
 // 评论初始化
-function initComment() {
+function initComment(path) {
     twikoo
     .init({
         envId: 'https://comment.ravelloh.top/',
         el: '#tcomment',
+        path: path || location.pathname,
         onCommentLoaded: function () {
             addMessageBarQueue(
                 '<a>评论已加载&nbsp;<span class="i ri:chat-check-line"></span></a>',
