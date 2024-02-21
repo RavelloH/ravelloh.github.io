@@ -2659,7 +2659,7 @@ code {
 
 #feed-list a,
 #uptime-list a,
-.flex-list a{
+.flex-list a {
     width: 30%;
 }
 
@@ -3285,4 +3285,39 @@ kdb {
     white-space: nowrap;
     overflow: hidden;
     color: var(--theme-white-light);
+}
+
+.info-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    max-height: 50vh;
+    justify-content: space-between;
+}
+
+
+.info-img {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.info-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 100%;
+    color: var(--theme-white-light);
+    width: 100%;
+}
+
+.info-sub p {
+    max-width: unset;
+}
+
+.info-explain p {
+    max-width: 100%;
 }
