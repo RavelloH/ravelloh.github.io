@@ -292,8 +292,8 @@ function resetTagList() {
 
 // 引入评论脚本
 function loadComment(path) {
-    addScript('/assets/js/lib/twikoo.all.min.js',
-        `initComment('${path || undefined}')`);
+    addScript('https://ravelloh.top/assets/js/lib/twikoo.all.min.js',
+        `initComment(${path || undefined})`);
 }
 
 // 评论初始化
