@@ -15,8 +15,13 @@
             ]
         },
         {
-            "key": "Access-Control-Allow-Origin",
-            "value": "*"
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                }
+            ]
         },
         {
             "source": "/assets/images/(.*)",
