@@ -2867,7 +2867,8 @@ mark {
     display: none;
 }
 
-#friends-link-box {
+#friends-link-box,
+.friends-link-box {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
