@@ -1,7 +1,7 @@
 {
   "name": "ravelloh.github.io",
   "version": "3.0.0",
-  "description": "RavelloH's blog",
+  "description": "RavelloH's BLOG | 自由业余开源开发者的个人博客",
   "main": "program/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,13 +14,13 @@
   "author": "RavelloH",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ravelloh/ravelloh.github.ii/issues"
+    "url": "https://github.com/ravelloh/ravelloh.github.io/issues"
   },
-  "homepage": "https://github.com/ravelloh/ravelloh.github.ii#readme",
+  "homepage": "https://github.com/ravelloh/ravelloh.github.io#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "feed": "^4.2.2",
     "pretty": "^2.0.0",
-    "render-build": "^0.2.0"
+    "render-build": "^0.3.2"
   }
 }
