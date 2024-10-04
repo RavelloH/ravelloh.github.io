@@ -292,7 +292,7 @@ function resetTagList() {
 
 // 引入评论脚本
 function loadComment(path) {
-    addScript('https://ravelloh.top/assets/js/lib/twikoo.all.min.js',
+    addScript('https://ravelloh.github.io/assets/js/lib/twikoo.all.min.js',
         `initComment(${path ? '\''+path+'\'' : undefined})`);
 }
 
