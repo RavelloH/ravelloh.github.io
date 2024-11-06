@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, follow">
+    <title>Page Moved</title>
+    <script type="text/javascript">
+        var currentPath = window.location.pathname;
+        currentPath = currentPath.replace(/^\/articles(\/.*)?$/, "/posts");
+        currentPath = currentPath.replace(/^\/works(\/.*)?$/, "/projects");
+        var newUrl = "https://ravelloh.top" + currentPath;
+        window.location.replace(newUrl);
+    </script>
+</head>
+<body>
+    <p>站点已迁移。如果你没有自动转向新链接，请点击<a id="redirect-link" href="#">此链接</a>以转到新站点。</p>
+    <script type="text/javascript">
+        document.getElementById('redirect-link').href = newUrl;
+    </script>
+</body>
+</html>
